@@ -1762,7 +1762,7 @@ var _hmt = _hmt || [];
 
   <!-- Footer -->
   <footer class="footer">
-    快捷键：<span class="kbd">Ctrl+K</span> 聚焦搜索 · <span class="kbd">Esc</span> 清除搜索 · 最后更新：2026-08-06
+    快捷键：<span class="kbd">Ctrl+K</span> 聚焦搜索 · <span class="kbd">Esc</span> 清除搜索 · 最后更新：2026-08-07
   </footer>
 
 </div><!-- /mainContent -->
@@ -2441,6 +2441,15 @@ const TOOLS = [
   { id:'gl-stream-edit',name:'流式视频编辑',    vendor:'Streaming Video Editing', cat:'glossary', subcat:'gl-frontier', desc:'视频创作的新范式——不再"先完成素材再后期修改"，而是在视频播放过程中实时进行编辑。模型帧到达即处理，支持实时替换人物服装、调整场景风格、替换物体等。京东JoyAI-Video-Edit是该方向的领先开源实现，在720P下达到30帧/秒实时推理，为直播电商、影视预演、具身智能数据合成等场景提供新可能。', tags:['前沿','视频编辑','实时','热门'], icon:'✂️' },
   { id:'gl-spatial-ai',name:'空间AI',           vendor:'Spatial AI', cat:'glossary', subcat:'gl-frontier', desc:'指能在三维物理空间中感知、理解和交互的AI系统。与仅处理屏幕内容的传统AI不同，空间AI融合视觉、深度、运动等多维信息，实现对真实空间环境的实时认知。NVIDIA XR AI平台、Meta Ray-Ban智能眼镜、以及各类AR/VR设备中的AI助手都是空间AI的典型应用，被视为AI从"屏幕智能"走向"环境智能"的关键方向。', tags:['前沿','AR/VR','空间计算','硬件'], icon:'🌐' },
   { id:'gl-open-weights',name:'开放权重',       vendor:'Open Weights', cat:'glossary', subcat:'gl-frontier', desc:'介于完全开源（代码+权重+数据）和完全闭源之间的一种模型发布方式。发布方公开模型的权重文件，允许用户下载、微调和本地部署，但不公开训练代码和数据集。OpenAI的GPT-OSS、Mistral的Shieldstral、Thinking Machines的Inkling都采用此策略。开放权重让开发者获得足够的定制自由，同时保护厂商的核心训练技术。', tags:['前沿','开源','模型发布','热门'], icon:'🔓' },
+  // ===== 2026-08-07 新增工具/模型 =====
+  { id:'nooa',         name:'NOOA',              vendor:'NVIDIA NeMo',  cat:'code', region:'intl',  desc:'NVIDIA 8月4日发布的开源AI Agent框架（Object-Oriented Agents，简称NOOA），Apache 2.0协议。一个Python类就是一个AI代理——字段是状态，方法是能力，docstring是系统提示词，类型注解是契约，方法体写"..."则由LLM驱动循环补全，写实代码则保持确定性Python执行。基于Jupyter风格REPL让模型直接编写Python作为行动手段，ARC-AGI-3基准测试RHAE提升+11.8分，对比ReAct/LangGraph等传统框架实现约50% Token成本下降。', tags:['开源','Agent框架','NVIDIA','Apache 2.0','Python'], url:'https://github.com/NVIDIA-NeMo/labs-OO-Agents', icon:'🐍' },
+  { id:'runware-pod',  name:'Runware',          vendor:'Runware',       cat:'code', region:'intl',  desc:'AI基础设施公司Runware推出Sonic Inference Pod模块化推理数据中心，使用无水闭环冷却系统，可"几天内"完成部署，单个Pod在指定电力点即可上线。截至8月初已在美、欧、亚太三大洲部署10个Pod，为Higgsfield AI、Wix等客户提供企业级推理服务。统一API支持400K+模型（含Flux 2、Veo 3.1、Kling、Seedance、Claude Opus 4.7、GPT-5.4、Llama、Qwen、DeepSeek等），自动路由到最近Pod，承诺"比市价便宜10倍"的推理成本。', tags:['基础设施','模块化','推理优化','低成本','API'], url:'https://runware.ai', icon:'⚡' },
+  { id:'hark-handoff', name:'Hark Handoff',     vendor:'Hark',          cat:'code', region:'intl',  desc:'Brett Adcock（Figure机器人创始人）旗下Hark公司8月5日推出的浏览器使用Agent，在线研究预览模式。在Online-Mind2Web基准测试中获得97.7分（截至当时行业最高），超过GPT-5.4（92.8）、Claude Opus 4.8（84.1）、Gemini 2.5 Pro（69）。输入$0.18/M、输出$2.37/M，价格仅为GPT-5.5（$5/$30）的约十分之一；每回合延迟0.8秒，对手6~6.8秒。可在Target、Walmart、OpenTable、DoorDash、Uber Eats、LinkedIn等无API的网站直接完成订餐、订票、购物、研究等日常任务。', tags:['浏览器Agent','低成本','高速','消费场景'], url:'https://hark.com', icon:'🤝' },
+  // ===== 2026-08-07 新增术语 =====
+  { id:'gl-sonic-pod', name:'Sonic Inference Pod', vendor:'模块化推理数据中心', cat:'glossary', subcat:'gl-tech', desc:'AI基础设施领域的新形态——将推理服务器、存储、网络、冷却系统集成在标准集装箱/可运输单元中的模块化数据中心方案。与传统数据中心相比具备三大优势：①部署快，从数月至数年压缩至数天；②无水冷采用闭环冷却，对电网冲击小；③可灵活部署在已有电力点附近，无需新建电网容量。Runware的Sonic Inference Pod已在三大洲部署10个，是该模式的代表性产品，被视为应对"推理需求增速超过数据中心建设速度"挑战的解法。', tags:['基础设施','模块化','推理优化','绿色计算'], icon:'🏭' },
+  { id:'gl-native-reasoning', name:'Native Reasoning', vendor:'原生推理', cat:'glossary', subcat:'gl-frontier', desc:'2026年AI Agent范式的关键跃迁。与早期Agent依赖LangChain/AutoGen等外部"编排循环"（强制模型走ReAct/Plan-Execute/Reflexion循环）不同，原生推理模型在架构层内置"隐式推理Token"（hidden reasoning tokens），模型在输出前自主探索多条分支并自纠正，外部框架不再必需。这释放了"编排认知开销"，让多Agent协同（agent swarms）成为主流。OpenAI o-series、Anthropic Claude with thinking、Gemini Deep Think、DeepSeek-R1等推理模型均属于该范式。', tags:['前沿','推理模型','Agent范式','2026新词'], icon:'🧠' },
+  { id:'gl-ooa',       name:'Object-Oriented Agents', vendor:'面向对象智能体', cat:'glossary', subcat:'gl-frontier', desc:'NVIDIA NOOA框架提出的Agent架构新范式：将传统的提示词、工具定义、回调、工作流分散在不同抽象层的Agent设计，重新统一到一个Python类中。字段=状态，方法=能力，docstring=提示词，类型注解=契约；方法体写"..."则由LLM驱动，写实代码则是确定性Python。模型通过Jupyter风格REPL直接编写Python作为"行动"（Code as Action）。优势是可测试、可追溯、可版本控制、可类型化——让Agent像普通软件对象一样进入标准软件工程流程。被视为AI Agent从"对话式工具"走向"一等软件制品"的标志性范式。', tags:['前沿','Agent架构','Python','NVIDIA','2026新词'], icon:'🧩' },
+  { id:'gl-discovery-loop', name:'Discovery Loop', vendor:'自动化科研循环', cat:'glossary', subcat:'gl-frontier', desc:'Google首席科学家Jeff Dean 8月6日宣布离职，与Sanjay Ghemawat、Oriol Vinyals、Quoc Le联合创办的新公司/项目。其使命是利用AI自动化科学研究和工程实验——构建能自我提出假设、运行实验、分析结果、迭代改进的AI系统。代表"AI for Science"从"用AI辅助科研"升级到"AI自主做科研"的范式。与Anthropic、Google DeepMind、xAI在"AI驱动科研自动化"赛道的同台竞赛，被视为AI实验室下一代终极目标。', tags:['前沿','AI4Science','Jeff Dean','2026新词','科研自动化'], icon:'🔬' },
 ];
 
 // ==================== STATE ====================
@@ -2726,26 +2735,26 @@ const CORS_PROXIES = [
   url => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
 ];
 const FALLBACK_DATA = [
-  { title:'DeepSeek重启融资投前估值5000亿元，国产AI独角兽再引资本热潮', category:'industry', url:'https://dy.163.com/article/L3KQJ61A05562DGT.html' },
+  { title:'Anthropic签10亿美元Volta云算力大单，133兆瓦挪威数据中心搭载Vera Rubin芯片', category:'industry', url:'https://aibreakingwire.com/news/ai-brief-2026-08-06' },
+  { title:'谷歌AI一夜巨震：Hassabis升任Alphabet首席科学家，Koray接掌Gemini，Jeff Dean 27年后离职', category:'industry', url:'https://www.toutiao.com/article/7670704253165371938' },
+  { title:'DeepSeek重启500亿元融资，投前估值5000亿元，月之暗面500亿美元Pre-IPO轮开闸', category:'industry', url:'https://www.nbd.com.cn/articles/2026-08-06/4533733.html' },
+  { title:'DeepSeek宣布整体上调API价格，涨幅较大，新一轮激进扩张正式启动', category:'industry', url:'https://www.163.com/dy/article/L3M3UPSO05199NPP.html' },
   { title:'字节跳动发布SeedRealtime音视频全双工大模型，豆包App全量上线', category:'ai-models', url:'https://seed.bytedance.com/zh/seedrealtime' },
   { title:'Sand.ai开源全球首个千亿级MoE视频模型MAGI-2 Preview，114B参数激活仅6B', category:'ai-models', url:'https://github.com/SandAI-org/MAGI-2-preview' },
   { title:'京东开源JoyAI-Video-Edit实时流式视频编辑模型，实现边播边改', category:'ai-products', url:'https://github.com/jd-opensource/JoyAI-Video-Edit' },
   { title:'Mistral推出Shieldstral 3B多模态内容审核模型，性能媲美7倍规模模型', category:'ai-models', url:'https://mistral.ai/news/shieldstral/' },
-  { title:'智能体迎来国家级顶层设计，三部门圈定19个典型应用场景', category:'industry', url:'https://www.163.com/dy/article/L39VC3D1055616YL.html' },
-  { title:'DeepSeek-V4-Flash登顶开源榜，OpenRouter周调用量超7.22万亿Token', category:'ai-models', url:'https://dy.163.com/article/L3K446NS0531G0IB.html' },
-  { title:'中国大模型八周五连发，Qwen3.8-Max/Kimi K3/DeepSeek-V4-Flash等接连亮相', category:'industry', url:'https://www.163.com/dy/article/L3IOAK6Q05199NPP.html' },
-  { title:'工信部首部L3/L4自动驾驶强制性国标出台，推动智能驾驶规范化', category:'industry', url:'https://dy.163.com/article/L3K446NS0531G0IB.html' },
-  { title:'NVIDIA XR AI开启公开测试，面向AR眼镜和XR头显打造空间AI智能体', category:'ai-products', url:'https://baike.baidu.com/item/%E5%A4%9A%E6%A8%A1%E6%80%81Agent/68157909' },
-  { title:'英伟达Alpamayo 2 Super AI开放商用，为自动驾驶带来360度感知', category:'ai-products', url:'https://dy.163.com/article/L3KQJ61A05562DGT.html' },
-  { title:'微盟WAI升级为"微盟星元"，开启AI原生经营系统内测', category:'ai-products', url:'https://dy.163.com/article/L3KQJ61A05562DGT.html' },
-  { title:'Qwen-Image-3.0上线千问AI平台，支持12种语言原生字体渲染', category:'ai-models', url:'https://www.kwkr.cn/news/187236.html' },
   { title:'Liquid AI发布LFM2.5-2.6B端侧小模型，支持智能手机本地运行', category:'ai-models', url:'https://www.liquid.ai/' },
-  { title:'欧盟AI法透明度条款8月2日正式生效，违规最高罚1500万欧元', category:'industry', url:'https://dy.163.com/article/L3D7DVRB051480KF.html' },
-  { title:'OpenAI GPT-5.6 Luna降价80%应对中国AI模型价格战，Token单价进入厘时代', category:'ai-models', url:'https://dy.163.com/article/L3FPRUKB0511B8LM.html' },
-  { title:'中国大模型全球下载量居首，OpenRouter调用榜前五全部由中国包揽', category:'industry', url:'https://dy.163.com/article/L3D7DVRB051480KF.html' },
-  { title:'Anthropic Claude评测中意外入侵真实企业生产设施，AI安全引全球关注', category:'industry', url:'https://blog.csdn.net/debug_fan/article/details/163450118' },
-  { title:'SpaceX与NVIDIA合作打造轨道算力卫星，太空AI计算迈出关键一步', category:'industry', url:'https://dy.163.com/article/L3K446NS0531G0IB.html' },
-  { title:'小米MiMo-V2.5全球调用量第二，5.4万亿Token仅次于DeepSeek', category:'ai-models', url:'https://www.163.com/dy/article/L3FQC5AQ05119MAU.html' },
+  { title:'Runware推出Sonic Inference Pod模块化推理数据中心，已在三大洲部署10个', category:'industry', url:'https://runware.ai/blog/introducing-sonic-pods-modular-data-centers-built-for-inference' },
+  { title:'SpaceX上半年斥资3.29亿美元采购特斯拉Megapack电池，支撑xAI数据中心供电', category:'industry', url:'https://techcrunch.com/2026/08/04/is-the-future-of-data-centers-portable-runware-builds-a-pod-to-find-out/' },
+  { title:'SaferAI测试揭示：智谱GLM-5.2对危险请求零拒绝，开源模型安全缺口引担忧', category:'industry', url:'https://aibreakingwire.com/news/ai-brief-2026-08-06' },
+  { title:'Anthropic确认组建芯片团队自研AI芯片，与三星洽谈2nm代工以减少对英伟达依赖', category:'industry', url:'https://www.cls.cn/detail/2446722' },
+  { title:'NVIDIA发布NOOA面向对象Agent框架：一个Python类就是一个AI代理', category:'ai-products', url:'https://github.com/NVIDIA-NeMo/labs-OO-Agents' },
+  { title:'Hark发布Handoff浏览器Agent，Online-Mind2Web基准97.7分登顶', category:'ai-products', url:'https://hark.com/articles/introducing-hark-handoff' },
+  { title:'NVIDIA牵头开放安全AI联盟OSAA成立SAFE工作组，120+成员共建事故共享机制', category:'industry', url:'https://briefing.forwardfuture.ai/p/ai-security-alliance-china-s-ai-expansion-google-s-shake-up' },
+  { title:'Endeavor Optical Networks获1075万美元种子轮，建设24Tbps级太空激光网络', category:'industry', url:'https://www.satellitetoday.com/finance/2026/08/04/endeavor-optical-networks-emerges-from-stealth-to-build-optical-meo-data-transfer/' },
+  { title:'OpenAI/Anthropic再曝AI安全事件：模型试图在评估中植入恶意代码', category:'industry', url:'https://www.toutiao.com/article/7670704253165371938' },
+  { title:'中国AI企业海艺SeaArt完成超亿元B轮融资，海外用户占比超90%', category:'industry', url:'https://www.163.com/dy/article/L3LAJ1KU0514OL9V.html' },
+  { title:'国际AI安全榜单DoGNAVY夺开源第一：基于智谱GLM-5.2单模型达成90.8%通过率', category:'industry', url:'https://www.toutiao.com/article/7670704253165371938' },
 ];
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧' };
 
