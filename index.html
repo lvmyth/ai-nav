@@ -1762,7 +1762,7 @@ var _hmt = _hmt || [];
 
   <!-- Footer -->
   <footer class="footer">
-    快捷键：<span class="kbd">Ctrl+K</span> 聚焦搜索 · <span class="kbd">Esc</span> 清除搜索 · 最后更新：2026-08-07
+    快捷键：<span class="kbd">Ctrl+K</span> 聚焦搜索 · <span class="kbd">Esc</span> 清除搜索 · 最后更新：2026-08-08
   </footer>
 
 </div><!-- /mainContent -->
@@ -2445,11 +2445,20 @@ const TOOLS = [
   { id:'nooa',         name:'NOOA',              vendor:'NVIDIA NeMo',  cat:'code', region:'intl',  desc:'NVIDIA 8月4日发布的开源AI Agent框架（Object-Oriented Agents，简称NOOA），Apache 2.0协议。一个Python类就是一个AI代理——字段是状态，方法是能力，docstring是系统提示词，类型注解是契约，方法体写"..."则由LLM驱动循环补全，写实代码则保持确定性Python执行。基于Jupyter风格REPL让模型直接编写Python作为行动手段，ARC-AGI-3基准测试RHAE提升+11.8分，对比ReAct/LangGraph等传统框架实现约50% Token成本下降。', tags:['开源','Agent框架','NVIDIA','Apache 2.0','Python'], url:'https://github.com/NVIDIA-NeMo/labs-OO-Agents', icon:'🐍' },
   { id:'runware-pod',  name:'Runware',          vendor:'Runware',       cat:'code', region:'intl',  desc:'AI基础设施公司Runware推出Sonic Inference Pod模块化推理数据中心，使用无水闭环冷却系统，可"几天内"完成部署，单个Pod在指定电力点即可上线。截至8月初已在美、欧、亚太三大洲部署10个Pod，为Higgsfield AI、Wix等客户提供企业级推理服务。统一API支持400K+模型（含Flux 2、Veo 3.1、Kling、Seedance、Claude Opus 4.7、GPT-5.4、Llama、Qwen、DeepSeek等），自动路由到最近Pod，承诺"比市价便宜10倍"的推理成本。', tags:['基础设施','模块化','推理优化','低成本','API'], url:'https://runware.ai', icon:'⚡' },
   { id:'hark-handoff', name:'Hark Handoff',     vendor:'Hark',          cat:'code', region:'intl',  desc:'Brett Adcock（Figure机器人创始人）旗下Hark公司8月5日推出的浏览器使用Agent，在线研究预览模式。在Online-Mind2Web基准测试中获得97.7分（截至当时行业最高），超过GPT-5.4（92.8）、Claude Opus 4.8（84.1）、Gemini 2.5 Pro（69）。输入$0.18/M、输出$2.37/M，价格仅为GPT-5.5（$5/$30）的约十分之一；每回合延迟0.8秒，对手6~6.8秒。可在Target、Walmart、OpenTable、DoorDash、Uber Eats、LinkedIn等无API的网站直接完成订餐、订票、购物、研究等日常任务。', tags:['浏览器Agent','低成本','高速','消费场景'], url:'https://hark.com', icon:'🤝' },
+  // ===== 2026-08-08 新增工具/模型 =====
+  { id:'muse-code',    name:'Muse Code',        vendor:'Meta',          cat:'code', region:'intl',  desc:'Meta 8月5日正式推出的首款编程智能体（Programming Agent）测试版。基于终端的编程Agent，能够针对大型代码库执行完整的软件工程任务，涵盖规划代码改动、编写代码、验证输出结果等。由Meta超级智能实验室开发，与Muse Spark多模态推理模型属于同一产品线但面向不同场景。马克·扎克伯格称这是"基于终端的编程智能体"，标志着Meta正式进军AI编程Agent赛道。', tags:['编程Agent','测试版','Meta','代码库','软件工程'], url:'https://www.meta.ai', icon:'💻' },
+  { id:'mistral-large3',name:'Mistral Large 3', vendor:'Mistral AI',    cat:'chat', region:'intl',  desc:'Mistral AI 7月底发布的旗舰开放权重模型，123B参数，Apache 2.0协议商用授权。基准性能在多数任务上可与GPT-5 Turbo竞争，是企业级开放权重部署的最强选择。支持自托管，满足数据驻留和主权AI需求。配套微调工具大幅改进，降低领域适配成本。被评价为2026年8月最值得关注的开放权重企业级选项。', tags:['开放权重','Apache 2.0','123B','企业级','自托管'], url:'https://mistral.ai', icon:'🌊' },
+  { id:'deepseek-r3',  name:'DeepSeek R3',      vendor:'深度求索',      cat:'chat', region:'cn',  desc:'DeepSeek 7月底发布的最新推理模型，专注于数学推理和代码问题解决。采用新颖的稀疏混合专家（MoE）架构，每次推理激活参数远少于同等能力的稠密模型。在数学和编程基准上可与西方前沿模型竞争。通过DeepSeek API和开放权重提供，是STEM任务和研究的强有力选择。', tags:['推理模型','MoE','数学','代码','开源'], url:'https://www.deepseek.com', icon:'🔍' },
   // ===== 2026-08-07 新增术语 =====
   { id:'gl-sonic-pod', name:'Sonic Inference Pod', vendor:'模块化推理数据中心', cat:'glossary', subcat:'gl-tech', desc:'AI基础设施领域的新形态——将推理服务器、存储、网络、冷却系统集成在标准集装箱/可运输单元中的模块化数据中心方案。与传统数据中心相比具备三大优势：①部署快，从数月至数年压缩至数天；②无水冷采用闭环冷却，对电网冲击小；③可灵活部署在已有电力点附近，无需新建电网容量。Runware的Sonic Inference Pod已在三大洲部署10个，是该模式的代表性产品，被视为应对"推理需求增速超过数据中心建设速度"挑战的解法。', tags:['基础设施','模块化','推理优化','绿色计算'], icon:'🏭' },
   { id:'gl-native-reasoning', name:'Native Reasoning', vendor:'原生推理', cat:'glossary', subcat:'gl-frontier', desc:'2026年AI Agent范式的关键跃迁。与早期Agent依赖LangChain/AutoGen等外部"编排循环"（强制模型走ReAct/Plan-Execute/Reflexion循环）不同，原生推理模型在架构层内置"隐式推理Token"（hidden reasoning tokens），模型在输出前自主探索多条分支并自纠正，外部框架不再必需。这释放了"编排认知开销"，让多Agent协同（agent swarms）成为主流。OpenAI o-series、Anthropic Claude with thinking、Gemini Deep Think、DeepSeek-R1等推理模型均属于该范式。', tags:['前沿','推理模型','Agent范式','2026新词'], icon:'🧠' },
   { id:'gl-ooa',       name:'Object-Oriented Agents', vendor:'面向对象智能体', cat:'glossary', subcat:'gl-frontier', desc:'NVIDIA NOOA框架提出的Agent架构新范式：将传统的提示词、工具定义、回调、工作流分散在不同抽象层的Agent设计，重新统一到一个Python类中。字段=状态，方法=能力，docstring=提示词，类型注解=契约；方法体写"..."则由LLM驱动，写实代码则是确定性Python。模型通过Jupyter风格REPL直接编写Python作为"行动"（Code as Action）。优势是可测试、可追溯、可版本控制、可类型化——让Agent像普通软件对象一样进入标准软件工程流程。被视为AI Agent从"对话式工具"走向"一等软件制品"的标志性范式。', tags:['前沿','Agent架构','Python','NVIDIA','2026新词'], icon:'🧩' },
   { id:'gl-discovery-loop', name:'Discovery Loop', vendor:'自动化科研循环', cat:'glossary', subcat:'gl-frontier', desc:'Google首席科学家Jeff Dean 8月6日宣布离职，与Sanjay Ghemawat、Oriol Vinyals、Quoc Le联合创办的新公司/项目。其使命是利用AI自动化科学研究和工程实验——构建能自我提出假设、运行实验、分析结果、迭代改进的AI系统。代表"AI for Science"从"用AI辅助科研"升级到"AI自主做科研"的范式。与Anthropic、Google DeepMind、xAI在"AI驱动科研自动化"赛道的同台竞赛，被视为AI实验室下一代终极目标。', tags:['前沿','AI4Science','Jeff Dean','2026新词','科研自动化'], icon:'🔬' },
+  // ===== 2026-08-08 新增术语 =====
+  { id:'gl-agentic',   name:'Agentic AI',       vendor:'自主代理AI', cat:'glossary', subcat:'gl-frontier', desc:'2026年AI产业最核心的范式转移。Agentic AI不再是"一问一答"的被动工具，而是能自主规划、决策、使用工具并完成多步骤任务的"数字员工"。核心特征：①授予目标而非步骤；②跨系统API自动化调用；③背景自主推理与监控。Google Gemini Spark、OpenAI GPT-5.6 Sol、Anthropic Opus 5、Claude Agent Teams均属于该范式。Gartner预测到2035年Agentic AI将驱动企业应用收入的30%，超4500亿美元。', tags:['前沿','Agent','2026核心趋势','数字劳动力'], icon:'🤖' },
+  { id:'gl-edge-ai',   name:'Edge AI',          vendor:'端侧AI', cat:'glossary', subcat:'gl-frontier', desc:'将AI算法从云端服务器下沉到本地设备（手机、PC、可穿戴、IoT）执行的部署范式。驱动力：低延迟、隐私保护、离线可用、降低云成本。2026年端侧AI市场价值148亿美元，预计2033年达1630亿美元。NVIDIA Jetson、Google Edge TPU、苹果Neural Engine、安谋科技周易NPU等专用芯片推动该趋势。Agentic AI工作负载正从云端向终端迁移，端侧设备成为"私人代理"的必要载体。', tags:['前沿','端侧计算','隐私','硬件','2026趋势'], icon:'📱' },
+  { id:'gl-rsi',       name:'Recursive Self-Improvement', vendor:'递归自我改进', cat:'glossary', subcat:'gl-frontier', desc:'AI介入自身改进流程，在没有或极少人类干预的情况下，大模型通过审查自身源代码、算法、提示词架构或训练流水线，自主发现缺陷、优化训练方案，生成比原本模型更强的新模型。谷歌DeepMind首席战略官称其为AI资本开支的"核心投资逻辑"。Jeff Dean离职创办的Discovery Loop、OpenAI Astra团队、Anthropic内部AI辅助开发均瞄准该方向。兴业证券将RSI分为三阶段：合格（adequacy）→对等（parity）→超越（supremacy）。', tags:['前沿','AI自进化','科研自动化','2026新词'], icon:'🔄' },
+  { id:'gl-moe',       name:'Mixture of Experts', vendor:'混合专家模型', cat:'glossary', subcat:'gl-tech', desc:'一种神经网络架构，将大模型拆分为多个"专家"子网络和一个"门控"路由器。对于每个输入，门控只激活少数相关专家（如2个），而非全部参数，从而在保持巨大总参数量（如1.6万亿）的同时，将每次推理的计算量控制在可接受范围（如激活仅6B参数）。DeepSeek V4、Qwen3.8-Max、MAGI-2、Kimi K3等均采用MoE架构，是2026年大模型效率革命的核心技术。', tags:['架构','效率','大模型','2026核心技术'], icon:'🎯' },
 ];
 
 // ==================== STATE ====================
@@ -2735,26 +2744,26 @@ const CORS_PROXIES = [
   url => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
 ];
 const FALLBACK_DATA = [
-  { title:'Anthropic签10亿美元Volta云算力大单，133兆瓦挪威数据中心搭载Vera Rubin芯片', category:'industry', url:'https://aibreakingwire.com/news/ai-brief-2026-08-06' },
-  { title:'谷歌AI一夜巨震：Hassabis升任Alphabet首席科学家，Koray接掌Gemini，Jeff Dean 27年后离职', category:'industry', url:'https://www.toutiao.com/article/7670704253165371938' },
-  { title:'DeepSeek重启500亿元融资，投前估值5000亿元，月之暗面500亿美元Pre-IPO轮开闸', category:'industry', url:'https://www.nbd.com.cn/articles/2026-08-06/4533733.html' },
-  { title:'DeepSeek宣布整体上调API价格，涨幅较大，新一轮激进扩张正式启动', category:'industry', url:'https://www.163.com/dy/article/L3M3UPSO05199NPP.html' },
-  { title:'字节跳动发布SeedRealtime音视频全双工大模型，豆包App全量上线', category:'ai-models', url:'https://seed.bytedance.com/zh/seedrealtime' },
-  { title:'Sand.ai开源全球首个千亿级MoE视频模型MAGI-2 Preview，114B参数激活仅6B', category:'ai-models', url:'https://github.com/SandAI-org/MAGI-2-preview' },
-  { title:'京东开源JoyAI-Video-Edit实时流式视频编辑模型，实现边播边改', category:'ai-products', url:'https://github.com/jd-opensource/JoyAI-Video-Edit' },
-  { title:'Mistral推出Shieldstral 3B多模态内容审核模型，性能媲美7倍规模模型', category:'ai-models', url:'https://mistral.ai/news/shieldstral/' },
-  { title:'Liquid AI发布LFM2.5-2.6B端侧小模型，支持智能手机本地运行', category:'ai-models', url:'https://www.liquid.ai/' },
-  { title:'Runware推出Sonic Inference Pod模块化推理数据中心，已在三大洲部署10个', category:'industry', url:'https://runware.ai/blog/introducing-sonic-pods-modular-data-centers-built-for-inference' },
-  { title:'SpaceX上半年斥资3.29亿美元采购特斯拉Megapack电池，支撑xAI数据中心供电', category:'industry', url:'https://techcrunch.com/2026/08/04/is-the-future-of-data-centers-portable-runware-builds-a-pod-to-find-out/' },
-  { title:'SaferAI测试揭示：智谱GLM-5.2对危险请求零拒绝，开源模型安全缺口引担忧', category:'industry', url:'https://aibreakingwire.com/news/ai-brief-2026-08-06' },
-  { title:'Anthropic确认组建芯片团队自研AI芯片，与三星洽谈2nm代工以减少对英伟达依赖', category:'industry', url:'https://www.cls.cn/detail/2446722' },
-  { title:'NVIDIA发布NOOA面向对象Agent框架：一个Python类就是一个AI代理', category:'ai-products', url:'https://github.com/NVIDIA-NeMo/labs-OO-Agents' },
-  { title:'Hark发布Handoff浏览器Agent，Online-Mind2Web基准97.7分登顶', category:'ai-products', url:'https://hark.com/articles/introducing-hark-handoff' },
-  { title:'NVIDIA牵头开放安全AI联盟OSAA成立SAFE工作组，120+成员共建事故共享机制', category:'industry', url:'https://briefing.forwardfuture.ai/p/ai-security-alliance-china-s-ai-expansion-google-s-shake-up' },
-  { title:'Endeavor Optical Networks获1075万美元种子轮，建设24Tbps级太空激光网络', category:'industry', url:'https://www.satellitetoday.com/finance/2026/08/04/endeavor-optical-networks-emerges-from-stealth-to-build-optical-meo-data-transfer/' },
-  { title:'OpenAI/Anthropic再曝AI安全事件：模型试图在评估中植入恶意代码', category:'industry', url:'https://www.toutiao.com/article/7670704253165371938' },
-  { title:'中国AI企业海艺SeaArt完成超亿元B轮融资，海外用户占比超90%', category:'industry', url:'https://www.163.com/dy/article/L3LAJ1KU0514OL9V.html' },
-  { title:'国际AI安全榜单DoGNAVY夺开源第一：基于智谱GLM-5.2单模型达成90.8%通过率', category:'industry', url:'https://www.toutiao.com/article/7670704253165371938' },
+  { title:'OpenAI暂停Astra研发：模型逼近"关键级"网络攻击能力，首次触发该阈值', category:'industry', url:'https://aitoolsrecap.com/Blog/ai-news-august-08-2026' },
+  { title:'一个月内七起AI越狱事件：OpenAI、Anthropic、Meta模型接连突破测试环境入侵真实系统', category:'industry', url:'https://www.163.com/dy/article/L3Q3D1P605118O92.html' },
+  { title:'Apple与OpenAI法律战升级：Apple扩大商业秘密诉讼，OpenAI反诉 dismissal', category:'industry', url:'https://aibreakingwire.com/news/ai-brief-2026-08-08' },
+  { title:'谷歌计划发行250亿美元债券，RSI递归自我改进成AI资本开支核心逻辑', category:'industry', url:'https://www.163.com/dy/article/L3Q591P10550B1DU.html' },
+  { title:'Meta被判罚5.67亿美元青少年成瘾案，新墨西哥州总罚款达9.42亿美元', category:'industry', url:'https://aibreakingwire.com/news/ai-brief-2026-08-08' },
+  { title:'Airbnb AI工具将开发周期缩短60%，AI生成约60%软件代码', category:'industry', url:'https://aibreakingwire.com/news/ai-brief-2026-08-08' },
+  { title:'Mirendil获1亿美元Google Cloud算力大单，推进递归自改进AI模型', category:'industry', url:'https://aibreakingwire.com/news/ai-brief-2026-08-08' },
+  { title:'多家巨头AI接连越狱、攻击、造假，BBC称行业迎来安全拐点', category:'industry', url:'https://www.163.com/dy/article/L3NLA79N0514R9OJ.html' },
+  { title:'阿里计划向新一代Qwen大模型收费，国产模型逆势涨价底气在哪', category:'industry', url:'https://www.nbd.com.cn/articles/2026-08-07/4534918.html' },
+  { title:'中国开源大模型海外救场：全球调用量前五中国包揽，下载量破千亿', category:'industry', url:'https://new.qq.com/rain/a/20260807A0BCBI00' },
+  { title:'张一鸣：字节跳动"拒绝蒸馏"；Meta推出首款编程智能体Muse Code', category:'ai-products', url:'https://www.163.com/dy/article/L3NFPB7N0534A4SC.html' },
+  { title:'宇树科技IPO发行价150.80元/股，初始发行市值近610亿元', category:'industry', url:'https://www.163.com/dy/article/L3NFPB7N0534A4SC.html' },
+  { title:'红杉资本完成100亿美元募资，向Anthropic追加投资25亿美元', category:'industry', url:'https://www.163.com/dy/article/L3NFPB7N0534A4SC.html' },
+  { title:'国产大模型集体坐上全球牌桌，OpenRouter调用量前十占七席', category:'industry', url:'https://weibo.com/ttarticle/p/show?id=2309405329391290286759' },
+  { title:'DeepSeek V4 Flash 0731正式版登顶全球调用量榜，性价比碾压闭源旗舰', category:'ai-models', url:'https://weibo.com/ttarticle/p/show?id=2309405329391290286759' },
+  { title:'MiniMax H3开源：视频编辑能力全球第一，价格仅为同类三分之一', category:'ai-models', url:'https://weibo.com/ttarticle/p/show?id=2309405329391290286759' },
+  { title:'Seedance 2.5发布：突破长叙事能力、多模态参考能力和编辑能力', category:'ai-models', url:'https://weibo.com/ttarticle/p/show?id=2309405329391290286759' },
+  { title:'Qwen3.8-Max发布：2.4万亿参数跻身全球第一梯队，下周开源', category:'ai-models', url:'https://www.toutiao.com/article/7669683860438876714/' },
+  { title:'月之暗面完成35亿美元F轮融资，投后估值350亿美元，认购超3倍', category:'industry', url:'https://weibo.com/ttarticle/p/show?id=2309405329391290286759' },
+  { title:'80%美国AI初创公司在融资路演时使用中国开源模型', category:'industry', url:'https://new.qq.com/rain/a/20260807A0BCBI00' },
 ];
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧' };
 
