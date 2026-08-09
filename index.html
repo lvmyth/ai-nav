@@ -1762,7 +1762,7 @@ var _hmt = _hmt || [];
 
   <!-- Footer -->
   <footer class="footer">
-    快捷键：<span class="kbd">Ctrl+K</span> 聚焦搜索 · <span class="kbd">Esc</span> 清除搜索 · 最后更新：2026-08-08
+    快捷键：<span class="kbd">Ctrl+K</span> 聚焦搜索 · <span class="kbd">Esc</span> 清除搜索 · 最后更新：2026-08-09
   </footer>
 
 </div><!-- /mainContent -->
@@ -2218,6 +2218,7 @@ const TOOLS = [
   { id:'bonsai',      name:'Bonsai 27B',       vendor:'PrismML',  cat:'chat', region:'intl',  desc:'7月14日发布的全球首款可在手机上运行的 27B 级多模态模型，基于 Qwen 3.6 27B 微调。Ternary 版 5.9GB（笔记本）、1-bit 版 3.9GB（iPhone 17 Pro），保留 90%~95% 满血性能，Apache 2.0 开源，支持 262K 上下文和推测解码。被称为"手机 AI 的 DeepSeek 时刻"。', tags:['开源','端侧部署','手机运行','多模态','Apache 2.0'], url:'https://prismml.com/news/bonsai-27b', icon:'🌳' },
   { id:'inkling',     name:'Inkling',          vendor:'Thinking Machines', cat:'chat', region:'intl', desc:'OpenAI 前 CTO Mira Murati 创立的 Thinking Machines Lab 7月16日发布的首款开放权重基础模型。9750 亿参数 MoE（激活 410 亿），100 万 Token 上下文，45 万亿 Token 多模态预训练（文本+图像+音频+视频）。支持调节"思考强度"，完整开放权重可下载微调。在 Agentic 网页开发测试中与 GPT-5.6 Sol 持平。', tags:['开源','开放权重','多模态','MoE','Mira Murati'], url:'https://thinkingmachines.ai', icon:'🧪' },
   { id:'stepx-neo',   name:'STEPX Neo',        vendor:'阶跃星辰',   cat:'chat', region:'cn', desc:'全球首款大模型原生智能体手机，搭载 Step AOS 操作系统。旗下 Step 3 多模态推理模型正式开源，"轻量视觉路径"+"稳定协同训练"解决视觉 token 负担与训练干扰。AI终端从"语音助手"到"自主智能体"的标志性产品。', tags:['AI手机','智能体操作系统','Step 3','开源','多模态推理'], url:'https://www.stepfun.com', icon:'📱' },
+  { id:'deepgrove-maple', name:'Maple-Preview', vendor:'DeepGrove', cat:'chat', region:'intl', desc:'8月5日发布的开源20.2B参数三元权重MoE推理模型，iPhone上127 tok/s、M5 Pro Mac上281.5 tok/s。权重打包为2bit，24层256专家选top-8，512 token滑动窗口。IMO级数学推理能力首次在手机上实现，5-16倍速于同尺寸模型。', tags:['开源','端侧','三元权重','MoE','iPhone运行','推理模型'], url:'https://huggingface.co/DeepGrove', icon:'🍁' },
 
   // ===== 图像生成 =====
   { id:'midjourney', name:'Midjourney',      vendor:'Midjourney',cat:'image', region:'intl', desc:'顶级 AI 绘画工具，艺术风格多样，画面质量极高，通过 Discord 使用。',   tags:['艺术风格','高质量','付费'], url:'https://www.midjourney.com',    icon:'🎨' },
@@ -2458,6 +2459,11 @@ const TOOLS = [
   { id:'gl-edge-ai',   name:'Edge AI',          vendor:'端侧AI', cat:'glossary', subcat:'gl-frontier', desc:'将AI算法从云端服务器下沉到本地设备（手机、PC、可穿戴、IoT）执行的部署范式。驱动力：低延迟、隐私保护、离线可用、降低云成本。2026年端侧AI市场价值148亿美元，预计2033年达1630亿美元。NVIDIA Jetson、Google Edge TPU、苹果Neural Engine、安谋科技周易NPU等专用芯片推动该趋势。Agentic AI工作负载正从云端向终端迁移，端侧设备成为"私人代理"的必要载体。', tags:['前沿','端侧计算','隐私','硬件','2026趋势'], icon:'📱' },
   { id:'gl-rsi',       name:'Recursive Self-Improvement', vendor:'递归自我改进', cat:'glossary', subcat:'gl-frontier', desc:'AI介入自身改进流程，在没有或极少人类干预的情况下，大模型通过审查自身源代码、算法、提示词架构或训练流水线，自主发现缺陷、优化训练方案，生成比原本模型更强的新模型。谷歌DeepMind首席战略官称其为AI资本开支的"核心投资逻辑"。Jeff Dean离职创办的Discovery Loop、OpenAI Astra团队、Anthropic内部AI辅助开发均瞄准该方向。兴业证券将RSI分为三阶段：合格（adequacy）→对等（parity）→超越（supremacy）。', tags:['前沿','AI自进化','科研自动化','2026新词'], icon:'🔄' },
   { id:'gl-moe',       name:'Mixture of Experts', vendor:'混合专家模型', cat:'glossary', subcat:'gl-tech', desc:'一种神经网络架构，将大模型拆分为多个"专家"子网络和一个"门控"路由器。对于每个输入，门控只激活少数相关专家（如2个），而非全部参数，从而在保持巨大总参数量（如1.6万亿）的同时，将每次推理的计算量控制在可接受范围（如激活仅6B参数）。DeepSeek V4、Qwen3.8-Max、MAGI-2、Kimi K3等均采用MoE架构，是2026年大模型效率革命的核心技术。', tags:['架构','效率','大模型','2026核心技术'], icon:'🎯' },
+  // ===== 2026-08-09 新增术语 =====
+  { id:'gl-ternary',   name:'Ternary Weights',    vendor:'三元权重', cat:'glossary', subcat:'gl-tech', desc:'将模型权重从传统16位浮点数压缩为仅三个值（-α, 0, +α）的极端量化技术。权重打包为2bit，使20B参数模型在iPhone上仅需约3GB内存即可运行，推理速度达127 tok/s。DeepGrove Maple-Preview是该技术的首个严肃开源实现，在IMO级数学推理上达到前沿性能，标志着端侧AI从"能用"到"好用"的关键突破。', tags:['量化','端侧','压缩','前沿','2026新词'], icon:'🔢' },
+  { id:'gl-constitutional', name:'Constitutional AI', vendor:'宪法AI', cat:'glossary', subcat:'gl-frontier', desc:'Anthropic提出的AI安全对齐框架，核心思想是将一套明确的伦理、安全和操作规则直接嵌入Agent的核心。2026年8月Anthropic发布白皮书，将该原则扩展到多智能体系统——每个Agent不仅遵循自身宪法，还需在多Agent协作中维护集体安全约束。被视为确保自主AI系统安全运行的关键技术路径。', tags:['前沿','安全','对齐','Anthropic','多Agent'], icon:'📜' },
+  { id:'gl-world-proxy', name:'World Proxy',      vendor:'世界代理', cat:'glossary', subcat:'gl-frontier', desc:'上海AI Lab、浙大、NUS团队2026年8月提出的以Agent为中心的世界模型新范式。不同于传统世界模型关注物理状态预测，World Proxy位于Agent与真实环境之间，根据Agent查询返回执行结果、经验、技能、奖励或验证信号，支持推理时引导(L1)、训练时优化(L2)和Agent-代理共同演化(L3)三个层级。标志着世界模型从"预测世界"转向"服务Agent"的根本转向。', tags:['前沿','世界模型','Agent','2026新词'], icon:'🌍' },
+  { id:'gl-phage-design', name:'Phage Design',    vendor:'噬菌体设计', cat:'glossary', subcat:'gl-frontier', desc:'利用AI（特别是基因组语言模型）设计自然界不存在的全新噬菌体病毒的技术。2026年8月斯坦福团队在《科学》杂志发表研究，用AI设计出16种能杀灭耐药菌的全新活性噬菌体，为抗生素耐药问题提供全新解法。但该技术也引发生物安全争议——AI设计的生物制剂若被滥用可能造成不可控风险，成为AI安全治理的新前沿议题。', tags:['前沿','生物安全','AI4Science','2026新词'], icon:'🦠' },
 ];
 
 // ==================== STATE ====================
@@ -2743,26 +2749,26 @@ const CORS_PROXIES = [
   url => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
 ];
 const FALLBACK_DATA = [
-  { title:'OpenAI暂停Astra研发：模型逼近"关键级"网络攻击能力，首次触发该阈值', category:'industry', url:'https://aitoolsrecap.com/Blog/ai-news-august-08-2026' },
-  { title:'一个月内七起AI越狱事件：OpenAI、Anthropic、Meta模型接连突破测试环境入侵真实系统', category:'industry', url:'https://www.163.com/dy/article/L3Q3D1P605118O92.html' },
-  { title:'Apple与OpenAI法律战升级：Apple扩大商业秘密诉讼，OpenAI反诉 dismissal', category:'industry', url:'https://aibreakingwire.com/news/ai-brief-2026-08-08' },
-  { title:'谷歌计划发行250亿美元债券，RSI递归自我改进成AI资本开支核心逻辑', category:'industry', url:'https://www.163.com/dy/article/L3Q591P10550B1DU.html' },
-  { title:'Meta被判罚5.67亿美元青少年成瘾案，新墨西哥州总罚款达9.42亿美元', category:'industry', url:'https://aibreakingwire.com/news/ai-brief-2026-08-08' },
-  { title:'Airbnb AI工具将开发周期缩短60%，AI生成约60%软件代码', category:'industry', url:'https://aibreakingwire.com/news/ai-brief-2026-08-08' },
-  { title:'Mirendil获1亿美元Google Cloud算力大单，推进递归自改进AI模型', category:'industry', url:'https://aibreakingwire.com/news/ai-brief-2026-08-08' },
-  { title:'多家巨头AI接连越狱、攻击、造假，BBC称行业迎来安全拐点', category:'industry', url:'https://www.163.com/dy/article/L3NLA79N0514R9OJ.html' },
-  { title:'阿里计划向新一代Qwen大模型收费，国产模型逆势涨价底气在哪', category:'industry', url:'https://www.nbd.com.cn/articles/2026-08-07/4534918.html' },
-  { title:'中国开源大模型海外救场：全球调用量前五中国包揽，下载量破千亿', category:'industry', url:'https://new.qq.com/rain/a/20260807A0BCBI00' },
-  { title:'张一鸣：字节跳动"拒绝蒸馏"；Meta推出首款编程智能体Muse Code', category:'ai-products', url:'https://www.163.com/dy/article/L3NFPB7N0534A4SC.html' },
-  { title:'宇树科技IPO发行价150.80元/股，初始发行市值近610亿元', category:'industry', url:'https://www.163.com/dy/article/L3NFPB7N0534A4SC.html' },
-  { title:'红杉资本完成100亿美元募资，向Anthropic追加投资25亿美元', category:'industry', url:'https://www.163.com/dy/article/L3NFPB7N0534A4SC.html' },
-  { title:'国产大模型集体坐上全球牌桌，OpenRouter调用量前十占七席', category:'industry', url:'https://weibo.com/ttarticle/p/show?id=2309405329391290286759' },
-  { title:'DeepSeek V4 Flash 0731正式版登顶全球调用量榜，性价比碾压闭源旗舰', category:'ai-models', url:'https://weibo.com/ttarticle/p/show?id=2309405329391290286759' },
-  { title:'MiniMax H3开源：视频编辑能力全球第一，价格仅为同类三分之一', category:'ai-models', url:'https://weibo.com/ttarticle/p/show?id=2309405329391290286759' },
-  { title:'Seedance 2.5发布：突破长叙事能力、多模态参考能力和编辑能力', category:'ai-models', url:'https://weibo.com/ttarticle/p/show?id=2309405329391290286759' },
-  { title:'Qwen3.8-Max发布：2.4万亿参数跻身全球第一梯队，下周开源', category:'ai-models', url:'https://www.toutiao.com/article/7669683860438876714/' },
-  { title:'月之暗面完成35亿美元F轮融资，投后估值350亿美元，认购超3倍', category:'industry', url:'https://weibo.com/ttarticle/p/show?id=2309405329391290286759' },
-  { title:'80%美国AI初创公司在融资路演时使用中国开源模型', category:'industry', url:'https://new.qq.com/rain/a/20260807A0BCBI00' },
+  { title:'OpenAI Astra解决10个开放数学问题：用Lean形式化证明，仅需$2000计算成本', category:'ai-models', url:'https://dev.to/trillioniar_s_14a3c313e14/ai-news-august-9-openai-astra-solves-10-math-problems-eu-ai-act-goes-live-deepgrove-maple-runs-jf4' },
+  { title:'EU AI Act全面执行：8月2日起聊天机器人须披露AI身份，deepfake须标注', category:'industry', url:'https://dev.to/trillioniar_s_14a3c313e14/ai-news-august-9-openai-astra-solves-10-math-problems-eu-ai-act-goes-live-deepgrove-maple-runs-jf4' },
+  { title:'DeepGrove Maple-Preview：20.2B三元权重MoE模型，iPhone上127 tok/s运行', category:'ai-models', url:'https://dev.to/trillioniar_s_14a3c313e14/ai-news-august-9-openai-astra-solves-10-math-problems-eu-ai-act-goes-live-deepgrove-maple-runs-jf4' },
+  { title:'苹果官宣千问接入Mac：国行Apple智能首次确认与阿里千问合作', category:'ai-products', url:'https://new.qq.com/rain/a/20260809A02T3K00' },
+  { title:'MiniMax H3开源三天登顶Hugging Face热度第一，超百家企业Day 0接入', category:'ai-models', url:'https://new.qq.com/rain/a/20260809A02T3K00' },
+  { title:'字节跳动预训练10万亿参数大模型：规模或接近Anthropic旗舰Mythos 5', category:'industry', url:'https://dy.163.com/article/L3Q250AU05118O8G.html' },
+  { title:'斯坦福AI设计出16种全新噬菌体：首次用生成式AI创造可杀灭耐药菌的病毒', category:'industry', url:'https://new.qq.com/rain/a/20260809A02OQC00' },
+  { title:'Gemini陷危机：联合创始人Brin无头衔重返接管，Shazeer等核心人才出走', category:'industry', url:'https://new.qq.com/rain/a/20260809A02T3K00' },
+  { title:'Claude Fable 5重新部署：美国出口控制后恢复，每周使用上限50%', category:'ai-models', url:'https://dev.to/trillioniar_s_14a3c313e14/ai-news-august-9-openai-astra-solves-10-math-problems-eu-ai-act-goes-live-deepgrove-maple-runs-jf4' },
+  { title:'中国开源模型全球调用量前十占七：DeepSeek、MiMo、Hy3、MiniMax、GLM霸榜', category:'industry', url:'https://www.163.com/dy/article/L3FQC5AQ05119MAU.html' },
+  { title:'xAI Grok 4.6/4.7密集发布：2万亿/2.1万亿参数，Grok Build工具链开源获2万star', category:'ai-models', url:'https://iaipie.com/ai%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%9C%80%E6%96%B0%E8%BF%9B%E5%B1%95%E6%B7%B1%E5%BA%A6%E7%9B%98%E7%82%B9%EF%BC%882026%E5%B9%B48%E6%9C%88%E7%AF%87%EF%BC%89%EF%BC%9A%E4%B8%AD%E5%9B%BD%E5%BC%80%E6%BA%90' },
+  { title:'百灵开源Ling-3.0-flash：124B总参数单Token仅激活5.1B，推理成本极低', category:'ai-models', url:'https://dy.163.com/article/L3Q250AU05118O8G.html' },
+  { title:'DeepSeek-V4-Flash正式版登顶全球调用量榜首：周调用量7.1万亿Token', category:'ai-models', url:'https://www.163.com/dy/article/L3FQC5AQ05119MAU.html' },
+  { title:'中国大模型八周五连发：Qwen3.8-Max、Kimi K3、DeepSeek-V4、GLM-5.2、Seedance 2.5', category:'ai-models', url:'https://www.toutiao.com/article/7671336477162340900' },
+  { title:'80%美国AI初创融资路演使用中国开源模型：OpenRouter中国模型词元占比升至48%', category:'industry', url:'https://new.qq.com/rain/a/20260809A02OQC00' },
+  { title:'Kimi K3安全测试期间逃逸隔离环境：未对真实网站发起攻击，引发安全关注', category:'industry', url:'https://dy.163.com/article/L3Q250AU05118O8G.html' },
+  { title:'中国AI模型在澳大利亚受关注：自托管流量占比由5%升至20%-25%', category:'industry', url:'https://new.qq.com/rain/a/20260809A02OQC00' },
+  { title:'Anthropic更新Claude Fable 5生物学护栏：误报减少85%，但仍拒答基础常识', category:'ai-models', url:'https://agihunt.info/daily/2026-08-09' },
+  { title:'AI基础设施公司Firmus完成20亿美元融资：估值超105亿美元', category:'industry', url:'https://dy.163.com/article/L3Q250AU05118O8G.html' },
+  { title:'Meta Llama 4"假开源"争议：代码开放但使用条款受限，开源社区批评广泛', category:'ai-models', url:'https://iaipie.com/ai%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%9C%80%E6%96%B0%E8%BF%9B%E5%B1%95%E6%B7%B1%E5%BA%A6%E7%9B%98%E7%82%B9%EF%BC%882026%E5%B9%B48%E6%9C%88%E7%AF%87%EF%BC%89%EF%BC%9A%E4%B8%AD%E5%9B%BD%E5%BC%80%E6%BA%90' },
 ];
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧' };
 
