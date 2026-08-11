@@ -1762,7 +1762,7 @@ var _hmt = _hmt || [];
 
   <!-- Footer -->
   <footer class="footer">
-    快捷键：<span class="kbd">Ctrl+K</span> 聚焦搜索 · <span class="kbd">Esc</span> 清除搜索 · 最后更新：2026-08-10
+    快捷键：<span class="kbd">Ctrl+K</span> 聚焦搜索 · <span class="kbd">Esc</span> 清除搜索 · 最后更新：2026-08-11
   </footer>
 
 </div><!-- /mainContent -->
@@ -2472,6 +2472,16 @@ const TOOLS = [
   { id:'gl-machine-traffic', name:'Machine Traffic', vendor:'机器流量', cat:'glossary', subcat:'gl-frontier', desc:'由自动化程序、爬虫、机器人而非真实人类产生的网络流量。Cloudflare 2026年第二季度财报显示，其网络返回HTML内容的HTTP请求中机器流量占比达60.4%，首次超过人类流量的39.6%。AI Agent的兴起是机器流量暴涨的核心驱动力之一，一年内AI Agent相关流量增长7851%，标志着互联网流量结构正从"人主导"转向"机器主导"。', tags:['前沿','互联网生态','AI Agent','2026新词'], icon:'🤖' },
   { id:'gl-ai-sovereignty-day', name:'AI Sovereignty Day', vendor:'AI主权日', cat:'glossary', subcat:'gl-frontier', desc:'2026年8月中国科技圈出现的热词，指中国AI生态在主权工具、主权模型、主权硬件、主权基础设施等维度同时加速的转折点。标志性事件包括：阿里Claude禁令生效、12万开发者迁移国产工具；高德开源ABot-World-0；MiniMax计划开发2.7万亿参数模型；AgiBot第15000台机器人下线等。反映中国从"追赶"西方AI转向构建自主可控的平行技术栈。', tags:['前沿','政策','国家战略','2026新词'], icon:'🏛️' },
   { id:'gl-digital-coworker', name:'Digital Coworker', vendor:'数字同事', cat:'glossary', subcat:'gl-frontier', desc:'能够自主规划、调用工具、执行多步骤工作流并与人类协同完成任务的AI Agent。与传统"问答式AI助手"不同，数字同事接收的是目标而非具体指令，能在企业系统间自主流转并交付结果。2026年Agentic AI浪潮下，Claude Cowork、千问办公、Kimi Work等产品都在争夺"数字同事"这一企业入口。', tags:['前沿','Agent','企业应用','2026新词'], icon:'👤' },
+  // ===== 2026-08-11 新增工具/模型 =====
+  { id:'muse-glimmer', name:'Muse Glimmer', vendor:'Meta',  cat:'chat', region:'intl',  desc:'Meta 8月10日发布的首款开源Muse系列Agent模型，Apache 2.0协议。30B参数（29.6B语言+1.8B ViT视觉编码器），经4bit量化仅需18-20GB显存，可在24GB消费级GPU上本地运行。从Muse Spark 1.2蒸馏+长上下文训练+SFT+RL而来，专为端侧Agent设计：支持多步工具调用、失败自恢复、多模态理解。DFlash推测解码3.1x加速，128K上下文，100+语言。SWE-Bench Verified 76.0，AIME 2026 94.7，GPQA Diamond 83.5。扎克伯格同步发布14页长文呼吁"超级智能应遍布每个人，而非集中于少数机构"。', tags:['开源','Apache 2.0','Agent','端侧','30B','Meta'], url:'https://huggingface.co/meta-muse', icon:'🦊' },
+  { id:'gpt56-cyber',  name:'GPT-5.6-Cyber', vendor:'OpenAI', cat:'code', region:'intl',  desc:'OpenAI 8月11日发布的网络安全专用模型，基于GPT-5.6 Sol微调。95%高级安全任务请求响应率，涵盖漏洞利用链开发、认证绕过、权限提升等场景。在OpenAI安全评估中达High级网络能力（未到Critical）。通过Daybreak Red计划向经身份验证的防御者开放，已发现Chrome V8引擎和主流移动OS真实漏洞。配套Daybreak Blue层提供GPT-5.6 Sol去除网络限制的版本。', tags:['网络安全','GPT-5.6','攻防','企业安全','OpenAI'], url:'https://openai.com', icon:'🛡️' },
+  { id:'magpie-tts',   name:'Magpie TTS Multilingual', vendor:'NVIDIA', cat:'audio', region:'intl',  desc:'NVIDIA 8月11日发布的开源权重多语言TTS模型，Apache 2.0协议。364M参数，支持12种语言（含阿拉伯语、韩语、葡萄牙语等新增语言），B200 GPU上首音延迟仅32ms，质量大幅提升。为语音Agent、实时翻译、无障碍应用提供低延迟高性价比的端到端语音合成方案。', tags:['开源','TTS','多语言','低延迟','NVIDIA'], url:'https://github.com/NVIDIA/magpie-tts', icon:'🔊' },
+  // ===== 2026-08-11 新增术语 =====
+  { id:'gl-agent-plugins', name:'Agent Plugins', vendor:'AI智能体插件标准', cat:'glossary', subcat:'gl-frontier', desc:'OpenAI联合AWS、Cursor、GitHub/微软、Vercel于2026年8月6日发布的开放AI智能体插件标准（v1.0）。定义以plugin.json为清单、skills/SKILL.md为工作流描述、mcp.json为外部工具连接的可移植目录结构。开发者写一套配置即可在VS Code、Cursor、GitHub Copilot、ChatGPT/Codex和Kiro五个客户端中加载。与MCP互补——MCP解决"客户端如何连接外部工具"，Agent Plugins解决"插件如何被跨平台识别和组织"，两者共同构成多平台AI插件生态的基础设施。', tags:['前沿','标准','OpenAI','跨平台','2026新词'], icon:'🔌' },
+  { id:'gl-ciyuan',    name:'词元（Token定名）', vendor:'全国科技名词委', cat:'glossary', subcat:'gl-basic', desc:'2026年8月，全国科学技术名词审定委员会正式将AI核心术语"Token"定名为"词元"，终止"代币""令牌"混战。词元是AI处理信息的最小单元和计费单位，相当于智能时代的"流量"和"水电度数"。截至2026年3月，我国日均词元调用量已突破140万亿，两年增长超千倍。这一定名打破西方科技话语框架，构建了贴合汉语表意逻辑的自主术语体系，是科技话语权之争的里程碑。', tags:['基础概念','计费','中文定名','2026热词'], icon:'🪙' },
+  { id:'gl-auto-mode', name:'Auto Mode（自动代理模式）', vendor:'Claude Code', cat:'glossary', subcat:'gl-frontier', desc:'Claude Code将于2026年8月16日默认启用的交互范式。AI Agent自主执行任务、判断是否需要用户审批并自动处理，只在真正需要人类决策时才暂停。Anthropic实验数据显示：自动模式拦截危险命令的成功率达89%，远超人工审批的13.6%（人工审批同意率97%已流于形式）。用户可随时快捷切回手动模式。标志着AI Agent从"人工监督每一步"向"受控自治"的关键过渡。', tags:['前沿','Agent','安全','Claude','2026新词'], icon:'🤖' },
+  { id:'gl-ondevice-agent', name:'On-Device Agent', vendor:'端侧AI Agent', cat:'glossary', subcat:'gl-frontier', desc:'在用户本地设备（PC、手机、平板）上独立运行、无需云端API调用的AI Agent。核心优势：数据零外泄（隐私保护）、零API费用（一次硬件投入）、无网络依赖（离线可用）。Meta Muse Glimmer是该范式的首个旗舰级开源实现——30B模型经4bit量化在24GB消费级GPU上运行，支持多步工具调用、失败自恢复和100+语言。端侧Agent被视为AI从"云服务月费"到"数字产权"转变的标志，尤其适用于金融、医疗、法律等数据敏感行业。', tags:['前沿','Agent','端侧','隐私','2026新词'], icon:'💻' },
+  { id:'gl-ai-cyber',  name:'AI网络安全攻防', vendor:'AI Cyber Defense/Offense', cat:'glossary', subcat:'gl-frontier', desc:'利用AI大模型进行网络安全攻击与防御的新范式。攻击侧：AI可自主开发漏洞利用链、绕过认证、提升权限（OpenAI GPT-5.6-Cyber 95%高级安全请求响应率）。防御侧：AI实时监测异常流量、自动修补漏洞、预测攻击路径。OpenAI Daybreak Blue/Red双轨计划是典型实践——Blue层提供去除网络限制的模型供防御者使用，Red层提供专门的Cyber模型供攻击验证。核心争议：向防御者"先发制人"提供相同武器是否逻辑自洽，还是为攻击者降低了AI武器化门槛。', tags:['前沿','安全','攻防','2026新词'], icon:'🔐' },
 ];
 
 // ==================== STATE ====================
@@ -2757,26 +2767,26 @@ const CORS_PROXIES = [
   url => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
 ];
 const FALLBACK_DATA = [
-  { title:'OpenAI GPT-6(Astra)传闻10万亿参数将于8月发布，年底更大预训练模型Doug曝光', category:'ai-models', url:'https://news.qq.com/rain/a/20260810A02VST00' },
-  { title:'ChatGPT免费版取消纯文本对话限制：默认模型改为GPT-5.6 Luna并新增Think按钮', category:'ai-products', url:'https://weibo.com/2177386743/5330293068137697' },
-  { title:'OpenAI AI浏览器Atlas正式停服：存续不足十个月，能力将整合进桌面应用', category:'industry', url:'https://weibo.com/7905315703/5330287422607977' },
-  { title:'国产大模型改写全球AI调用版图：OpenRouter前五名全部为国产模型', category:'industry', url:'https://www.toutiao.com/article/7672201446997099071/' },
-  { title:'MiniMax H3开源三天登顶Hugging Face热度榜首，超百家企业Day 0接入', category:'ai-models', url:'https://k.sina.com.cn/article_5952915705_162d248f906703kvy2.html' },
-  { title:'字节跳动AI升为公司第一核心赛道，张一鸣三次拒绝模型蒸馏提案', category:'industry', url:'https://weibo.com/7905315703/5330287422607977' },
-  { title:'DeepSeek宣布整体上调API定价：从价格战转向价值回归', category:'industry', url:'https://gu.qq.com/resources/shy/news/detail-v2.html?t=1#/index?_tentrees_trans=0&id=SN2026080709455394cc5d5f' },
-  { title:'谷歌宣布9月停用Google Assistant，全面转向Gemini', category:'industry', url:'https://weibo.com/7905315703/5330287422607977' },
-  { title:'Cloudflare确认机器流量超人类：AI Agent流量一年暴涨7851%', category:'industry', url:'https://weibo.com/7905315703/5330287422607977' },
-  { title:'宇树科技今日科创板申购，创人形机器人第一股', category:'industry', url:'https://weibo.com/7905315703/5330287422607977' },
-  { title:'腾讯混元发布Hy ASR 3.0语音识别模型：已上线腾讯云API', category:'ai-models', url:'https://gu.qq.com/resources/shy/news/detail-v2.html?t=1#/index?_tentrees_trans=0&id=SN20260809180000a4a5947e' },
-  { title:'阿里Claude禁令生效：12万开发者迁移至通义灵码等国产工具', category:'industry', url:'https://www.physixfrontier.com/en/east-voice.html' },
-  { title:'MiniMax reportedly developing 2.7 trillion-parameter model', category:'ai-models', url:'https://www.physixfrontier.com/en/east-voice.html' },
-  { title:'DeepSeek V4推出1M Token上下文与峰谷定价：非高峰Token仅0.5元/百万', category:'ai-models', url:'https://www.physixfrontier.com/en/east-voice.html' },
-  { title:'腾讯混元Hy3：295B MoE企业智能体模型，免费开放Agent功能', category:'ai-models', url:'https://www.physixfrontier.com/en/east-voice.html' },
-  { title:'高德开源ABot-World-0：全球首个天级交互式世界模型，单卡可本地部署', category:'ai-models', url:'https://www.163.com/tech/article/L3DOFV8700098IEO.html' },
-  { title:'Anthropic更新Claude Fable 5生物学护栏：误报减少85%', category:'ai-models', url:'https://timesof.ai/' },
-  { title:'Meta发布Muse Code beta与Muse Spark 1.2编码模型', category:'ai-models', url:'https://timesof.ai/' },
-  { title:'OpenAI为ChatGPT Work和Codex推出教育插件', category:'ai-products', url:'https://timesof.ai/' },
-  { title:'中国开源模型下载量占全球41%跃居世界第一', category:'industry', url:'https://k.sina.com.cn/article_5952915705_162d248f906703kvy2.html' },
+  { title:'Meta开源Muse Glimmer：30B参数Agent模型Apache 2.0，单GPU可本地运行，支持失败自恢复', category:'ai-models', url:'https://huggingface.co/meta-muse' },
+  { title:'OpenAI发布GPT-5.6-Cyber网络安全模型：95%高级安全请求响应，已发现Chrome V8漏洞', category:'ai-models', url:'https://tpsreport.news/' },
+  { title:'OpenAI GPT-6(Astra)传闻10万亿参数将于8月发布，年底Doug更大模型曝光', category:'ai-models', url:'https://news.qq.com/rain/a/20260810A02VST00' },
+  { title:'全球AI周调用量达69万亿Token环比增21%，中国模型包揽前四：DeepSeek-V4 8.83万亿登顶', category:'industry', url:'https://weibo.com/7905315703/5330641445980479' },
+  { title:'Anthropic Sonnet 5.5(Fennec)泄露：200万Token上下文，性能逼近Fable 5，对标DeepSeek', category:'ai-models', url:'https://www.sohu.com/a/1061259860_130887' },
+  { title:'Meta宣布开源Muse Spark 1.2旗舰模型，扎克伯格发14页长文呼吁"超级智能应遍布每个人"', category:'ai-models', url:'https://qz.com/meta-muse-glimmer-open-source-ai-model-laptop-081026' },
+  { title:'苹果确认Siri中国AI功能由阿里千问模型驱动，需单独Qwen账户', category:'industry', url:'https://tpsreport.news/' },
+  { title:'Anthropic永久保留Claude Sonnet 5优惠定价，取消50%涨价计划', category:'industry', url:'https://www.sohu.com/a/1061259860_130887' },
+  { title:'Claude Code自动模式5天后默认启用：AI自动拦截危险命令成功率89%远超人工13.6%', category:'ai-products', url:'https://www.sohu.com/a/1061259860_130887' },
+  { title:'英伟达联合华尔街Apollo/黑石/KKR等六大巨头筹集5000亿美元AI基础设施基金', category:'industry', url:'https://www.sohu.com/a/1061259860_130887' },
+  { title:'OpenAI推出ChatGPT Business Premium：$125/月，5倍用量，取消高级功能5小时/天限制', category:'ai-products', url:'https://tpsreport.news/' },
+  { title:'Agent Plugins 1.0标准发布：OpenAI联合AWS/Cursor/GitHub/微软/Vercel五大平台', category:'industry', url:'https://cloud.tencent.com/developer/article/2723596' },
+  { title:'NVIDIA Magpie TTS多语言更新：364M参数开源，12种语言，32ms首音延迟', category:'ai-models', url:'https://tpsreport.news/' },
+  { title:'微信朋友圈灰度上线"AI帮写"功能', category:'ai-products', url:'https://weibo.com/7905315703/5330641445980479' },
+  { title:'阿里千问开放平台上线：支持手机/PC/眼镜三端统一接入', category:'ai-products', url:'https://weibo.com/7905315703/5330641445980479' },
+  { title:'微软计划2027年大幅增产自研AI芯片Maia', category:'industry', url:'https://weibo.com/7905315703/5330641445980479' },
+  { title:'高盛报告预测2026年底全球AI投资将破1万亿美元', category:'industry', url:'https://www.sohu.com/a/1061259860_130887' },
+  { title:'美众院致信OpenAI/Anthropic要求解释Agent失控事件，呼吁国会听证', category:'industry', url:'https://view.inews.qq.com/a/20260811A024PN00' },
+  { title:'疑似OpenAI新图像模型mona-lisa-1现身Arena平台，或为GPT Image 2后续版本', category:'ai-models', url:'https://www.sohu.com/a/1061193334_455313' },
+  { title:'Token正式定名"词元"：全国科技名词委发布AI术语规范，日均调用量突破140万亿', category:'industry', url:'https://k.sina.cn/article_7879848900_1d5acf3c4068039sc0.html' },
 ];
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧' };
 
