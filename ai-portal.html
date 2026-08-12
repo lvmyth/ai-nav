@@ -1762,7 +1762,7 @@ var _hmt = _hmt || [];
 
   <!-- Footer -->
   <footer class="footer">
-    快捷键：<span class="kbd">Ctrl+K</span> 聚焦搜索 · <span class="kbd">Esc</span> 清除搜索 · 最后更新：2026-08-11
+    快捷键：<span class="kbd">Ctrl+K</span> 聚焦搜索 · <span class="kbd">Esc</span> 清除搜索 · 最后更新：2026-08-12
   </footer>
 
 </div><!-- /mainContent -->
@@ -2476,12 +2476,21 @@ const TOOLS = [
   { id:'muse-glimmer', name:'Muse Glimmer', vendor:'Meta',  cat:'chat', region:'intl',  desc:'Meta 8月10日发布的首款开源Muse系列Agent模型，Apache 2.0协议。30B参数（29.6B语言+1.8B ViT视觉编码器），经4bit量化仅需18-20GB显存，可在24GB消费级GPU上本地运行。从Muse Spark 1.2蒸馏+长上下文训练+SFT+RL而来，专为端侧Agent设计：支持多步工具调用、失败自恢复、多模态理解。DFlash推测解码3.1x加速，128K上下文，100+语言。SWE-Bench Verified 76.0，AIME 2026 94.7，GPQA Diamond 83.5。扎克伯格同步发布14页长文呼吁"超级智能应遍布每个人，而非集中于少数机构"。', tags:['开源','Apache 2.0','Agent','端侧','30B','Meta'], url:'https://huggingface.co/meta-muse', icon:'🦊' },
   { id:'gpt56-cyber',  name:'GPT-5.6-Cyber', vendor:'OpenAI', cat:'code', region:'intl',  desc:'OpenAI 8月11日发布的网络安全专用模型，基于GPT-5.6 Sol微调。95%高级安全任务请求响应率，涵盖漏洞利用链开发、认证绕过、权限提升等场景。在OpenAI安全评估中达High级网络能力（未到Critical）。通过Daybreak Red计划向经身份验证的防御者开放，已发现Chrome V8引擎和主流移动OS真实漏洞。配套Daybreak Blue层提供GPT-5.6 Sol去除网络限制的版本。', tags:['网络安全','GPT-5.6','攻防','企业安全','OpenAI'], url:'https://openai.com', icon:'🛡️' },
   { id:'magpie-tts',   name:'Magpie TTS Multilingual', vendor:'NVIDIA', cat:'audio', region:'intl',  desc:'NVIDIA 8月11日发布的开源权重多语言TTS模型，Apache 2.0协议。364M参数，支持12种语言（含阿拉伯语、韩语、葡萄牙语等新增语言），B200 GPU上首音延迟仅32ms，质量大幅提升。为语音Agent、实时翻译、无障碍应用提供低延迟高性价比的端到端语音合成方案。', tags:['开源','TTS','多语言','低延迟','NVIDIA'], url:'https://github.com/NVIDIA/magpie-tts', icon:'🔊' },
+  // ===== 2026-08-12 新增工具/模型 =====
+  { id:'nemotron-35',  name:'Nemotron 3.5 Lightning', vendor:'NVIDIA', cat:'chat', region:'intl',  desc:'NVIDIA 8月11日发布的开源Agent专用模型，Apache 2.0协议。30B总参/3B激活MoE架构，专为长时运行Agent的执行层设计：高速处理工具调用、结果验证、子代理委派。输出速度同类4倍，Agent任务完成快30%。可在RTX PC、DGX Spark、Jetson等端侧设备本地运行。PinchBench基准前沿级精度，适配vLLM/SGLang/TensorRT-LLM。', tags:['开源','Apache 2.0','Agent','端侧','MoE','30B','NVIDIA'], url:'https://developer.nvidia.com/blog/nvidia-nemotron-3-5-lightning-delivers-fast-accurate-specialized-task-execution-for-long-running-agents/', icon:'🖥️' },
+  { id:'nemo-switchyard', name:'NeMo Switchyard', vendor:'NVIDIA', cat:'dev', region:'intl',  desc:'NVIDIA 8月11日开源的智能模型路由库，Apache 2.0协议，Rust编写+Python CLI。自动将Agent工作流每一步路由到最佳模型，内置LLM分类/阶段/升级/随机四种路由器。LangChain 145项多轮测试中成本降低74%（仅7%调用发往前沿模型），Cognition Devin Desktop中成本降低28%。支持Claude Code、Codex CLI、vLLM、Ollama等主流工具。', tags:['开源','Apache 2.0','路由','成本优化','Rust','Agent','NVIDIA'], url:'https://github.com/NVIDIA/NeMo-Switchyard', icon:'🔀' },
+  { id:'arex',         name:'AREX', vendor:'智源(BAAI)', cat:'agent', region:'cn',  desc:'智源研究院8月11日发布的自主研究智能体。首创"研究→验证→再研究"双循环递归框架：内层循环负责搜索与推理，外层循环审计与修正，让AI在长程任务中持续逼近正确答案。10B激活参数在BrowseComp/DeepSearchQA/GAIA/HLE等六大基准上达闭源旗舰级性能。模型权重已开源，科研体验版提供资讯追踪、论文筛选、播客摘要。', tags:['开源','自主研究','Agent','科研','BAAI','双循环'], url:'https://arex-research.com', icon:'🔬' },
+
   // ===== 2026-08-11 新增术语 =====
   { id:'gl-agent-plugins', name:'Agent Plugins', vendor:'AI智能体插件标准', cat:'glossary', subcat:'gl-frontier', desc:'OpenAI联合AWS、Cursor、GitHub/微软、Vercel于2026年8月6日发布的开放AI智能体插件标准（v1.0）。定义以plugin.json为清单、skills/SKILL.md为工作流描述、mcp.json为外部工具连接的可移植目录结构。开发者写一套配置即可在VS Code、Cursor、GitHub Copilot、ChatGPT/Codex和Kiro五个客户端中加载。与MCP互补——MCP解决"客户端如何连接外部工具"，Agent Plugins解决"插件如何被跨平台识别和组织"，两者共同构成多平台AI插件生态的基础设施。', tags:['前沿','标准','OpenAI','跨平台','2026新词'], icon:'🔌' },
 
   { id:'gl-auto-mode', name:'Auto Mode（自动代理模式）', vendor:'Claude Code', cat:'glossary', subcat:'gl-frontier', desc:'Claude Code将于2026年8月16日默认启用的交互范式。AI Agent自主执行任务、判断是否需要用户审批并自动处理，只在真正需要人类决策时才暂停。Anthropic实验数据显示：自动模式拦截危险命令的成功率达89%，远超人工审批的13.6%（人工审批同意率97%已流于形式）。用户可随时快捷切回手动模式。标志着AI Agent从"人工监督每一步"向"受控自治"的关键过渡。', tags:['前沿','Agent','安全','Claude','2026新词'], icon:'🤖' },
   { id:'gl-ondevice-agent', name:'On-Device Agent', vendor:'端侧AI Agent', cat:'glossary', subcat:'gl-frontier', desc:'在用户本地设备（PC、手机、平板）上独立运行、无需云端API调用的AI Agent。核心优势：数据零外泄（隐私保护）、零API费用（一次硬件投入）、无网络依赖（离线可用）。Meta Muse Glimmer是该范式的首个旗舰级开源实现——30B模型经4bit量化在24GB消费级GPU上运行，支持多步工具调用、失败自恢复和100+语言。端侧Agent被视为AI从"云服务月费"到"数字产权"转变的标志，尤其适用于金融、医疗、法律等数据敏感行业。', tags:['前沿','Agent','端侧','隐私','2026新词'], icon:'💻' },
   { id:'gl-ai-cyber',  name:'AI网络安全攻防', vendor:'AI Cyber Defense/Offense', cat:'glossary', subcat:'gl-frontier', desc:'利用AI大模型进行网络安全攻击与防御的新范式。攻击侧：AI可自主开发漏洞利用链、绕过认证、提升权限（OpenAI GPT-5.6-Cyber 95%高级安全请求响应率）。防御侧：AI实时监测异常流量、自动修补漏洞、预测攻击路径。OpenAI Daybreak Blue/Red双轨计划是典型实践——Blue层提供去除网络限制的模型供防御者使用，Red层提供专门的Cyber模型供攻击验证。核心争议：向防御者"先发制人"提供相同武器是否逻辑自洽，还是为攻击者降低了AI武器化门槛。', tags:['前沿','安全','攻防','2026新词'], icon:'🔐' },
+  // ===== 2026-08-12 新增术语 =====
+  { id:'gl-cot-decrypt', name:'思维链解密攻击', vendor:'Chain-of-Thought Decryption Attack', cat:'glossary', subcat:'gl-frontier', desc:'2026年8月学界披露的新型AI安全攻击。攻击者可解密主流AI提供商（Anthropic、OpenAI、Google）模型的思维链推理过程——研究团队成功解密315,320个推理块，从中恢复367个PII（个人身份信息）和182个凭证。攻击利用推理过程中间表示的统计特征重建原始推理逻辑。三家提供商均已确认漏洞并部署修复。该攻击揭示了"推理即看到一切"的根本安全隐患，对隐私高度敏感的金融、医疗、法律等领域影响尤为深远。', tags:['前沿','安全','隐私','攻击','2026新词'], icon:'🔓' },
+  { id:'gl-personal-si', name:'个人超级智能', vendor:'Personal Superintelligence', cat:'glossary', subcat:'gl-frontier', desc:'扎克伯格在2026年8月6500字长文《未来属于所有人》中提出的核心概念。主张超级智能不应垄断于少数机构，而应通过开源模型使每个人拥有"私人超级智能"。技术路径：端侧运行的开源Agent模型（如Meta Muse Glimmer 30B经量化可在消费级GPU运行），支持多步工具调用、离线隐私保护、零API费用。与"集体超级智能"（centralized superintelligence）形成对立叙事，是AI治理从"控制"转向"赋权"的标志性主张。', tags:['前沿','开源','端侧','Meta','2026新词'], icon:'🧠' },
+  { id:'gl-agentic-memory', name:'智能体记忆系统', vendor:'Agentic Memory System', cat:'glossary', subcat:'gl-frontier', desc:'IBM于2026年8月推出的ALTK-Evolve所代表的AI Agent记忆管理范式。解决Agent在长程任务中上下文膨胀、token消耗失控的核心问题。通过层次化记忆存储（短期/工作/长期）+ 智能压缩/检索机制，将Agent执行任务时的token消耗降低85%，同时保持任务完成质量。与简单的向量检索不同，智能体记忆系统理解任务语义来决策"该记住什么"和"该遗忘什么"，是Agent从"单次问答"走向"持续协作"的关键基础设施。', tags:['前沿','Agent','效率','记忆','IBM','2026新词'], icon:'🧩' },
 ];
 
 // ==================== STATE ====================
@@ -2767,26 +2776,26 @@ const CORS_PROXIES = [
   url => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
 ];
 const FALLBACK_DATA = [
-  { title:'Meta开源Muse Glimmer：30B参数Agent模型Apache 2.0，单GPU可本地运行，支持失败自恢复', category:'ai-models', url:'https://huggingface.co/meta-muse' },
-  { title:'OpenAI发布GPT-5.6-Cyber网络安全模型：95%高级安全请求响应，已发现Chrome V8漏洞', category:'ai-models', url:'https://tpsreport.news/' },
-  { title:'OpenAI GPT-6(Astra)传闻10万亿参数将于8月发布，年底Doug更大模型曝光', category:'ai-models', url:'https://news.qq.com/rain/a/20260810A02VST00' },
-  { title:'全球AI周调用量达69万亿Token环比增21%，中国模型包揽前四：DeepSeek-V4 8.83万亿登顶', category:'industry', url:'https://weibo.com/7905315703/5330641445980479' },
-  { title:'Anthropic Sonnet 5.5(Fennec)泄露：200万Token上下文，性能逼近Fable 5，对标DeepSeek', category:'ai-models', url:'https://www.sohu.com/a/1061259860_130887' },
-  { title:'Meta宣布开源Muse Spark 1.2旗舰模型，扎克伯格发14页长文呼吁"超级智能应遍布每个人"', category:'ai-models', url:'https://qz.com/meta-muse-glimmer-open-source-ai-model-laptop-081026' },
-  { title:'苹果确认Siri中国AI功能由阿里千问模型驱动，需单独Qwen账户', category:'industry', url:'https://tpsreport.news/' },
-  { title:'Anthropic永久保留Claude Sonnet 5优惠定价，取消50%涨价计划', category:'industry', url:'https://www.sohu.com/a/1061259860_130887' },
-  { title:'Claude Code自动模式5天后默认启用：AI自动拦截危险命令成功率89%远超人工13.6%', category:'ai-products', url:'https://www.sohu.com/a/1061259860_130887' },
-  { title:'英伟达联合华尔街Apollo/黑石/KKR等六大巨头筹集5000亿美元AI基础设施基金', category:'industry', url:'https://www.sohu.com/a/1061259860_130887' },
-  { title:'OpenAI推出ChatGPT Business Premium：$125/月，5倍用量，取消高级功能5小时/天限制', category:'ai-products', url:'https://tpsreport.news/' },
-  { title:'Agent Plugins 1.0标准发布：OpenAI联合AWS/Cursor/GitHub/微软/Vercel五大平台', category:'industry', url:'https://cloud.tencent.com/developer/article/2723596' },
-  { title:'NVIDIA Magpie TTS多语言更新：364M参数开源，12种语言，32ms首音延迟', category:'ai-models', url:'https://tpsreport.news/' },
-  { title:'微信朋友圈灰度上线"AI帮写"功能', category:'ai-products', url:'https://weibo.com/7905315703/5330641445980479' },
-  { title:'阿里千问开放平台上线：支持手机/PC/眼镜三端统一接入', category:'ai-products', url:'https://weibo.com/7905315703/5330641445980479' },
-  { title:'微软计划2027年大幅增产自研AI芯片Maia', category:'industry', url:'https://weibo.com/7905315703/5330641445980479' },
-  { title:'高盛报告预测2026年底全球AI投资将破1万亿美元', category:'industry', url:'https://www.sohu.com/a/1061259860_130887' },
-  { title:'美众院致信OpenAI/Anthropic要求解释Agent失控事件，呼吁国会听证', category:'industry', url:'https://view.inews.qq.com/a/20260811A024PN00' },
-  { title:'疑似OpenAI新图像模型mona-lisa-1现身Arena平台，或为GPT Image 2后续版本', category:'ai-models', url:'https://www.sohu.com/a/1061193334_455313' },
-  { title:'Token正式定名"词元"：全国科技名词委发布AI术语规范，日均调用量突破140万亿', category:'industry', url:'https://k.sina.cn/article_7879848900_1d5acf3c4068039sc0.html' },
+  { title:'英伟达发布Nemotron 3.5 Lightning：30B MoE/3B激活，Agent执行层专用，开源可本地部署', category:'ai-models', url:'https://developer.nvidia.com/blog/nvidia-nemotron-3-5-lightning-delivers-fast-accurate-specialized-task-execution-for-long-running-agents/' },
+  { title:'英伟达开源NeMo Switchyard智能路由库：Agent工作流成本降至Opus 4.8的1/3', category:'ai-products', url:'https://github.com/NVIDIA/NeMo-Switchyard' },
+  { title:'智源发布AREX自主研究智能体：首创"研究→验证→再研究"双循环框架，权重已开源', category:'ai-models', url:'https://arex-research.com' },
+  { title:'Anthropic用60子代理36小时推进黎曼猜想：3100万token，150年数学难题取得突破', category:'industry', url:'https://tpsreport.news/' },
+  { title:'OpenAI完成70亿美元员工要约收购：估值维持8520亿美元，二级市场流动性释放', category:'industry', url:'https://tpsreport.news/' },
+  { title:'Google Gemini月活突破10亿：Pichai宣布第14个十亿级产品，63%用户使用语音', category:'industry', url:'https://blog.google/products/gemini/' },
+  { title:'Anthropic签91亿美元20年算力租约：与Riot Platforms合作德州Rockdale 191MW', category:'industry', url:'https://tpsreport.news/' },
+  { title:'新型攻击可解密三家主流AI提供商思维链：恢复367个PII和182个凭证，均已修复', category:'industry', url:'https://tpsreport.news/' },
+  { title:'智谱ZCode用户突破百万：上线Goal/Subagents/Remote Control，Coding额度重置+1.5倍', category:'ai-products', url:'https://zcode.cn' },
+  { title:'中国模型包揽OpenRouter调用量前四：DeepSeek V4 Flash 9.39万亿Token领跑', category:'industry', url:'https://openrouter.ai/trending' },
+  { title:'DeepSeek开设Harness团队公众号对标Claude Code，招土木工程师建IDC', category:'industry', url:'https://mp.weixin.qq.com' },
+  { title:'林俊旸创立语用科技Pragmatik Labs：腾讯/红杉投资，估值20亿美元，下一代Agent', category:'industry', url:'https://tpsreport.news/' },
+  { title:'Manus恢复独立运营：Meta收购在北京市令下解除，回归原初创团队', category:'industry', url:'https://tpsreport.news/' },
+  { title:'英伟达联合Apollo/黑石/贝莱德/KKR组建5000亿美元AI基建融资平台', category:'industry', url:'https://blogs.nvidia.com/' },
+  { title:'IBM发布ALTK-Evolve智能体记忆系统：将Agent Token消耗降低85%', category:'ai-models', url:'https://research.ibm.com/' },
+  { title:'扎克伯格6500字长文《未来属于所有人》：推"个人超级智能"概念', category:'industry', url:'https://about.fb.com/news/' },
+  { title:'字节成立AI数据与安全一级部门：与Seed/Flow/抖音平行，强化AI安全', category:'industry', url:'https://tpsreport.news/' },
+  { title:'OpenAI扩展Daybreak计划为Blue/Red双层：向防御者开放高级攻防模型', category:'ai-products', url:'https://openai.com' },
+  { title:'梁文锋财富一年增长3850%登顶全球富豪增速榜，DeepSeek估值突破万亿', category:'industry', url:'https://tpsreport.news/' },
+  { title:'华为天才少年楼燚航创立引力蓝移：200B+参数具身大脑，瞄准机器人智能化', category:'industry', url:'https://tpsreport.news/' },
 ];
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧' };
 
