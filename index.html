@@ -1762,7 +1762,7 @@ var _hmt = _hmt || [];
 
   <!-- Footer -->
   <footer class="footer">
-    快捷键：<span class="kbd">Ctrl+K</span> 聚焦搜索 · <span class="kbd">Esc</span> 清除搜索 · 最后更新：2026-08-12
+    快捷键：<span class="kbd">Ctrl+K</span> 聚焦搜索 · <span class="kbd">Esc</span> 清除搜索 · 最后更新：2026-08-13
   </footer>
 
 </div><!-- /mainContent -->
@@ -2197,22 +2197,22 @@ const GLOSSARY_SUBCATS = [
 const TOOLS = [
   // ===== 对话聊天 =====
   { id:'chatgpt',    name:'ChatGPT',        vendor:'OpenAI',   cat:'chat', region:'intl',  desc:'OpenAI 旗舰对话模型，最新 GPT-5.6 系列（Sol/Terra/Luna）支持速度拨盘可调推理深度，GPT-Live 全双工语音模型边听边说。ChatGPT Work 可跨应用自主工作数小时，ChatGPT Sites 一键将创意变可发布网站。内置 DALL·E 3 图像生成，文本理解精准。',  tags:['GPT-5.6','多模态','Work','Sites','DALL·E'], url:'https://chat.openai.com',       icon:'🤖' },
-  { id:'claude',     name:'Claude',          vendor:'Anthropic',cat:'chat', region:'intl',  desc:'旗舰模型 Claude Opus 5（7月24日发布，$5/$25每百万Token），性能逼近 Fable 5 但成本减半，CursorBench 3.2 偏差仅0.5%，OSWorld 2.0 超越 Fable 5。支持 1M token 超长上下文与五级努力拨盘。Agent Teams 多智能体协同，Fable 5 可自主完成复杂多步骤任务，代码和推理能力全球顶尖。',     tags:['Opus 5','Fable 5','超长上下文','Agent','降价'],    url:'https://claude.ai',             icon:'🧠' },
+  { id:'claude',     name:'Claude',          vendor:'Anthropic',cat:'chat', region:'intl',  desc:'旗舰模型 Claude Opus 5（7月24日发布，$5/$25每百万Token），性能逼近 Fable 5 但成本减半，CursorBench 3.2 偏差仅0.5%，OSWorld 2.0 超越 Fable 5。支持 1M token 超长上下文与五级努力拨盘。8月2日起新模型默认启用隐形文本水印与 C2PA 溯源元数据，以响应欧盟 AI Act 第50条，覆盖 Claude、API、Claude Code、Claude Cowork 等全产品线，全球生效。Agent Teams 多智能体协同，Fable 5 可自主完成复杂多步骤任务，代码和推理能力全球顶尖。',     tags:['Opus 5','Fable 5','超长上下文','Agent','C2PA','水印'],    url:'https://claude.ai',             icon:'🧠' },
   { id:'gemini',     name:'Gemini',          vendor:'Google',   cat:'chat', region:'intl',  desc:'谷歌多模态大模型，最新 Gemini 3.6 Flash（$1.50/$7.50）以低价应对全球AI价格战。深度集成 Google 生态，支持超长上下文。Gemini 3.5 Pro 即将发布，3.5 系列全面升级多模态理解能力。',      tags:['多模态','3.6 Flash','低价','Google生态'],          url:'https://gemini.google.com',     icon:'💎' },
   { id:'llama',      name:'LLaMA',           vendor:'Meta',     cat:'chat', region:'intl',  desc:'Meta 旗舰开源大模型 Llama 4 系列（Scout/Maverick/Behemoth），Apache 2.0 协议开源，支持多模态，参数量最高达 4000B，总下载量突破 3 亿。', tags:['开源','多模态','Apache 2.0','Meta'], url:'https://llama.meta.com',         icon:'🦙' },
   { id:'muse-spark', name:'Muse Spark',      vendor:'Meta',     cat:'chat', region:'intl',  desc:'Meta 超级智能实验室第二代多模态推理模型 Muse Spark 1.1，百万 Token 上下文，Agent 模式自主拆解任务，税务/医疗/法律三大榜单第一，定价仅为 Claude Fable 5 的十分之一。Muse Image/Video 媒体生成模型精确指令遵循、原生音频，通过 Meta AI/Instagram/WhatsApp 使用。', tags:['多模态','Agent','Meta','低价','Muse Image/Video'], url:'https://www.meta.ai',              icon:'🔥' },
-  { id:'deepseek',   name:'DeepSeek',        vendor:'深度求索',  cat:'chat', region:'cn',  desc:'国产开源大模型旗舰。最新 V4-Flash-0731 正式版（7月31日公测），以六分之一参数反超 V4-Pro 预览版，Agent 能力暴涨 7.5 倍（DeepSWE 54.4），逼近 Claude Opus 4.8。原生支持 Responses API 与 Codex 适配，MIT 开源。每百万 Token 输入 $0.14/输出 $0.28，缓存仅 $0.0028，性价比碾压全球。8月6日公告计划整体上调 API 定价，并推出 1M Token 上下文与峰谷定价机制。V4-Pro 正式版即将发布。',    tags:['开源','全球第一','V4-Flash','Agent','MIT','极致低价','涨价','峰谷定价'],    url:'https://chat.deepseek.com',      icon:'🐋' },
+  { id:'deepseek',   name:'DeepSeek',        vendor:'深度求索',  cat:'chat', region:'cn',  desc:'国产开源大模型旗舰。8月12日晚 V4 Pro 正式版（DeepSeek-V4-Pro-0813）上线：1M 上下文/384K 输出，支持 thinking/non-thinking 双模式，Agent 能力翻倍提升，定价 3元/6元每百万 Token（缓存命中仅 0.025元）。V4-Flash-0731 正式版保持 1元/2元极致低价，登顶全球调用量榜首。原生支持 Responses API、Codex 与 Anthropic API 兼容格式，MIT 开源。',    tags:['开源','全球第一','V4-Pro','V4-Flash','Agent','MIT','极致低价','涨价'],    url:'https://chat.deepseek.com',      icon:'🐋' },
   { id:'ernie',      name:'文心一言',         vendor:'百度',      cat:'chat', region:'cn',  desc:'百度知识增强大模型，中文理解深入，集成百度搜索和文心一格。',      tags:['中文优化'],              url:'https://yiyan.baidu.com',        icon:'📘' },
-  { id:'tongyi',     name:'通义千问',         vendor:'阿里云',    cat:'chat', region:'cn',  desc:'阿里云旗舰大模型 Qwen3.8（2.4T/95B激活/1M上下文），Arena榜仅次于Claude系列，编程与办公Cowork能力重大突破。千问办公Agent产品整合Qoder Work等，Qwen-Audio 3.0 Realtime全双工语音已集成至Apple智能。Qwen3.8-Max将开源。', tags:['Qwen3.8','2.4T','开源','Coding','Cowork','语音','苹果合作'], url:'https://tongyi.aliyun.com',      icon:'☁️' },
+  { id:'tongyi',     name:'通义千问',         vendor:'阿里云',    cat:'chat', region:'cn',  desc:'阿里云旗舰大模型 Qwen3.8。8月12日深夜 Qwen团队首次开源 Max 级权重 Qwen3.8-2.4T-A95B：2.4T 总参/95B 激活/512 专家 MoE，原生 262K 上下文可扩展至 1M，采用 Qwen 自定义许可。重点强化编程、办公、科研与长周期 Agent 任务。云端 Qwen3.8-Max 支持视觉输入、非思考模式与内置工具。Qwen-Audio 3.0 Realtime 全双工语音已集成至 Apple 智能，高德地图也接入通义推出 AI 原生 Agent。', tags:['Qwen3.8','2.4T','Max开源','Coding','Cowork','Agent','语音','苹果合作'], url:'https://tongyi.aliyun.com',      icon:'☁️' },
   { id:'hunyuan',    name:'腾讯混元',         vendor:'腾讯',      cat:'chat', region:'cn',  desc:'腾讯全链路自研通用大模型，具备跨领域知识理解和多模态能力。最新 Hyra 推理模型攻克 50 年未解数学难题，AI for Science 取得里程碑突破。深度集成腾讯生态，提供 WorkBuddy 桌面 Agent 服务。', tags:['多模态','腾讯生态','Hyra','数学突破'],      url:'https://hunyuan.tencent.com',     icon:'🐧' },
   { id:'doubao',     name:'豆包',             vendor:'字节跳动',  cat:'chat', region:'cn',  desc:'字节跳动旗下 AI 助手，最新 Seeduplex 端到端语音大模型支持全双工实时对话，可在多人对话中待命、主动加入，抗干扰能力强。',        tags:['语音对话','全双工','免费'],        url:'https://www.doubao.com',         icon:'🫘' },
   { id:'kimi',       name:'Kimi',            vendor:'月之暗面',  cat:'chat', region:'cn',  desc:'月之暗面旗舰大模型，最新 Kimi K3（2.8万亿参数，7月17日发布）为全球最大开源模型，基于KDA混合线性注意力与注意力残差技术、896专家MoE（激活16）、100万Token上下文、原生视觉理解。综合智能仅次于Claude Fable 5和GPT-5.6 Sol，长程编程与知识工作能力顶尖。Kimi Code编程工具与Kimi Work桌面客户端同步升级。', tags:['K3','全球最大开源','2.8万亿','长程编程','Agent','Kimi Work','Kimi Code'],      url:'https://kimi.moonshot.cn',       icon:'🌙' },
-  { id:'zhipu',      name:'智谱清言',         vendor:'智谱AI',    cat:'chat', region:'cn',  desc:'最新旗舰 GLM-5.2 开源模型（MIT 协议），专注 Coding 与长程任务，支持 1M 超长上下文，遵循生产级工程规范，支持真机调试闭环，全球开源模型评测 SOTA。旗下 AutoGLM 2.0 为全球首个手机 Agent，结合云手机技术实现跨端任务代理；GLM-4.5V 视觉推理模型（106B参数）同步开源，具备推理、代码与多模态全能能力。',       tags:['GLM-5.2','开源','超长上下文','Coding','AutoGLM','GLM-4.5V','手机Agent'],        url:'https://chatglm.cn',             icon:'🔮' },
-  { id:'grok',       name:'Grok',            vendor:'xAI',      cat:'chat', region:'intl',  desc:'最新 Grok 4.5 旗舰模型 1.5 万亿参数，与 Cursor 联合训练，编程能力登顶（88分），推理速度 80 TPS，API 价格比对手便宜 60%。Grok Build 提供一体化 coding agentic workflow，内建图像与视频生成。Grok Voice Think Fast 2.0 语音模型首字延迟仅 0.70s，支持超低延迟全双工实时对话。', tags:['Grok 4.5','编程第一','Grok Build','Voice','全双工'], url:'https://grok.com',               icon:'⚡' },
+  { id:'zhipu',      name:'智谱清言',         vendor:'智谱AI',    cat:'chat', region:'cn',  desc:'最新旗舰 GLM-5.2 开源模型（MIT 协议），专注 Coding 与长程任务，支持 1M 超长上下文，遵循生产级工程规范，支持真机调试闭环，全球开源模型评测 SOTA。8月13日开源 GLM-4.5V 视觉推理模型：106B 参数，41 个视觉多模态榜单 SOTA，支持图像推理、视频理解、GUI 任务，新增"思考模式"开关。旗下 AutoGLM 2.0 为全球首个手机 Agent，结合云手机技术实现跨端任务代理。',       tags:['GLM-5.2','GLM-4.5V','开源','视觉推理','超长上下文','Coding','AutoGLM','手机Agent'],        url:'https://chatglm.cn',             icon:'🔮' },
+  { id:'grok',       name:'Grok',            vendor:'xAI',      cat:'chat', region:'intl',  desc:'xAI/SpaceXAI 旗舰模型。8月12日发布的 Grok 4.6 沿用 1.5T V9 基础模型，经更长后训练与 Agent 强化学习，重点强化长时间运行 Agent、复杂交互与视觉任务。Intelligence Index 61 分追平 GPT-5.6 Sol，GDPVal-AA v2 知识工作评测领先。API $2/$6 每百万 Token（快速版翻倍），已上线 Cursor、Grok Build、OpenRouter、Vercel、Cloudflare。Grok Build 提供一体化 coding agentic workflow。', tags:['Grok 4.6','Agent','编程','Grok Build','OpenRouter','高性价比'], url:'https://grok.com',               icon:'⚡' },
   { id:'mistral',    name:'Mistral',         vendor:'Mistral AI', cat:'chat', region:'intl',  desc:'法国顶尖 AI 公司 Mistral 旗舰模型 Mistral Large 3（675B）+ Leanstral 1.5 定理证明模型，Apache 2.0 开源，支持 256K 上下文，多语言能力强。', tags:['开源','多语言','Apache 2.0','Leanstral'], url:'https://chat.mistral.ai',      icon:'🌬️' },
   { id:'hailuo',     name:'MiniMax',          vendor:'MiniMax',   cat:'chat', region:'cn',  desc:'MiniMax 旗下 AI 助手，搭载自研万亿参数 MoE 大模型，支持文本对话、语音合成、多模态理解，服务超 2 亿用户。', tags:['万亿参数','MoE','多模态'],   url:'https://agent.minimaxi.com',      icon:'🪄' },
   { id:'longcat',    name:'LongCat AI',       vendor:'美团',      cat:'chat', region:'cn',  desc:'美团自研大模型，最新 LongCat-2.0 采用 1.6T 参数 MoE 架构（48B 活跃参数），原生 1M 上下文，LSA 稀疏注意力与 Zero-Compute Experts 技术，专为 Agentic Coding 设计。', tags:['开源','MoE','1.6T','Agentic Coding'], url:'https://longcat.chat',           icon:'🐱' },
-  { id:'ling-ant',   name:'蚂蚁百灵',          vendor:'蚂蚁集团',  cat:'chat', region:'cn',  desc:'蚂蚁集团自研大模型家族，7月底发布 Ling-3.0-flash 原生混合推理模型，支持快速响应与深度思考的灵活切换，兼顾效率与复杂推理能力。延续百灵系列在金融、生活服务等场景的落地优势，是国产大模型新力量。', tags:['国产','混合推理','蚂蚁集团','金融科技'], url:'https://www.antgroup.com', icon:'🐜' },
+  { id:'ling-ant',   name:'蚂蚁百灵',          vendor:'蚂蚁集团',  cat:'chat', region:'cn',  desc:'蚂蚁集团自研大模型家族。8月11日开源 Ling-3.0-tiny：7.9B 总参/1.3B 激活 MoE，128 路由专家，KDA+MLA 混合线性架构，支持 enable_thinking 原生混合推理。提供 BF16/FP8/INT4 量化，已在 DGX Spark、MacBook、Mac mini 验证，M4 Pro 上 86-90 tok/s，8K 上下文峰值内存仅 8.34GiB。7月底发布的 Ling-3.0-flash 同样支持快速响应与深度思考切换。', tags:['开源','国产','混合推理','端侧','Agent','蚂蚁集团','金融科技'], url:'https://www.antgroup.com', icon:'🐜' },
   { id:'nemotron',   name:'Nemotron TwoTower', vendor:'NVIDIA',   cat:'chat', region:'intl',  desc:'NVIDIA 7月1日发布的开源扩散式语言模型。在自回归模型基础上仅训练第二个去噪网络即可实现并行生成，吞吐量提升 2.42 倍而质量保持 98.7%，为并行解码提供了首个严肃的开源实现。', tags:['开源','扩散LM','并行解码','NVIDIA'], url:'https://www.nvidia.com/en-us/ai/', icon:'🖥️' },
   { id:'jiutian',    name:'中移九天',          vendor:'中国移动',  cat:'chat', region:'cn',  desc:'中国移动自研"九天"大模型平台，全栈国产化 AI，安全可信，覆盖智算基础设施、核心算法到智能化应用，赋能通信、工业、农业等垂直行业。', tags:['国产','央企','全栈国产'],   url:'https://jiutian.10086.cn/portal', icon:'📶' },
   { id:'bonsai',      name:'Bonsai 27B',       vendor:'PrismML',  cat:'chat', region:'intl',  desc:'7月14日发布的全球首款可在手机上运行的 27B 级多模态模型，基于 Qwen 3.6 27B 微调。Ternary 版 5.9GB（笔记本）、1-bit 版 3.9GB（iPhone 17 Pro），保留 90%~95% 满血性能，Apache 2.0 开源，支持 262K 上下文和推测解码。被称为"手机 AI 的 DeepSeek 时刻"。', tags:['开源','端侧部署','手机运行','多模态','Apache 2.0'], url:'https://prismml.com/news/bonsai-27b', icon:'🌳' },
@@ -2481,6 +2481,13 @@ const TOOLS = [
   { id:'nemo-switchyard', name:'NeMo Switchyard', vendor:'NVIDIA', cat:'dev', region:'intl',  desc:'NVIDIA 8月11日开源的智能模型路由库，Apache 2.0协议，Rust编写+Python CLI。自动将Agent工作流每一步路由到最佳模型，内置LLM分类/阶段/升级/随机四种路由器。LangChain 145项多轮测试中成本降低74%（仅7%调用发往前沿模型），Cognition Devin Desktop中成本降低28%。支持Claude Code、Codex CLI、vLLM、Ollama等主流工具。', tags:['开源','Apache 2.0','路由','成本优化','Rust','Agent','NVIDIA'], url:'https://github.com/NVIDIA/NeMo-Switchyard', icon:'🔀' },
   { id:'arex',         name:'AREX', vendor:'智源(BAAI)', cat:'agent', region:'cn',  desc:'智源研究院8月11日发布的自主研究智能体。首创"研究→验证→再研究"双循环递归框架：内层循环负责搜索与推理，外层循环审计与修正，让AI在长程任务中持续逼近正确答案。10B激活参数在BrowseComp/DeepSearchQA/GAIA/HLE等六大基准上达闭源旗舰级性能。模型权重已开源，科研体验版提供资讯追踪、论文筛选、播客摘要。', tags:['开源','自主研究','Agent','科研','BAAI','双循环'], url:'https://arex-research.com', icon:'🔬' },
 
+  // ===== 2026-08-13 新增工具/模型 =====
+  { id:'ltx-25',     name:'LTX-2.5',      vendor:'LTX',     cat:'video', region:'intl', desc:'Lightricks分拆成立的开放世界模型公司LTX于8月11日发布的开放权重音视频世界模型。22B参数，原生多镜头单次渲染、同步音画生成、扩散视频解码器，针对物理AI与机器人提供专用预训练检查点。上线Hugging Face，原生集成ComfyUI，并提供托管API；年经常性收入低于1000万美元的组织可免费使用。', tags:['开源','世界模型','视频生成','ComfyUI','多镜头','音频'], url:'https://ltx.io', icon:'🎬' },
+  { id:'matrix-game2', name:'Matrix-Game 2.0', vendor:'昆仑万维', cat:'video', region:'cn',  desc:'昆仑万维8月13日开源的通用场景实时长序列世界模型。业内首个可实时生成分钟级25fps高连贯视频的开放世界模型，用于游戏、影视、VR。摒弃语言提示，通过纯视觉驱动交互，适应多风格场景。', tags:['开源','世界模型','实时生成','游戏','昆仑万维'], url:'https://github.com/QwenLM', icon:'🎮' },
+  { id:'matrix-3d',  name:'Matrix-3D',    vendor:'昆仑万维', cat:'video', region:'cn',  desc:'昆仑万维8月13日开源的3D世界生成模型。单张图像即可产出高质量全景视频与可探索3D场景，采用Mesh渲染图驱动扩散模型，保证相机轨迹一致性。全面开放代码与数据集。', tags:['开源','3D生成','世界模型','单图生视频','昆仑万维'], url:'https://github.com/QwenLM', icon:'🌐' },
+  { id:'amap-agent', name:'高德AI Agent',  vendor:'高德',    cat:'search', region:'cn',  desc:'高德地图8月13日宣布全面接入通义大模型推出的AI原生Agent。内置智能体"小高老师"，支持音频/文本等多模态全双工语音交互，基于36万亿token预训练的Qwen大模型实现空间语义深度理解，联合推出复杂POI推理Agent，提供精准推荐与导航。', tags:['AI Agent','地图','导航','通义','多模态','全双工'], url:'https://www.amap.com', icon:'🗺️' },
+  { id:'light-if',   name:'360 Light-IF', vendor:'360智脑', cat:'code', region:'cn',  desc:'360智脑8月13日开源的Light-IF系列模型。采用"预览-自检式推理+信息熵控制"框架专治"懒惰推理"，在SuperCLUE等四大基准全面领先，小参数可越级打大模型。模型权重、数据集与代码将陆续在Hugging Face和GitHub发布。', tags:['开源','推理模型','懒惰推理','SuperCLUE','360'], url:'https://ai.360.com', icon:'💡' },
+
   // ===== 2026-08-11 新增术语 =====
   { id:'gl-agent-plugins', name:'Agent Plugins', vendor:'AI智能体插件标准', cat:'glossary', subcat:'gl-frontier', desc:'OpenAI联合AWS、Cursor、GitHub/微软、Vercel于2026年8月6日发布的开放AI智能体插件标准（v1.0）。定义以plugin.json为清单、skills/SKILL.md为工作流描述、mcp.json为外部工具连接的可移植目录结构。开发者写一套配置即可在VS Code、Cursor、GitHub Copilot、ChatGPT/Codex和Kiro五个客户端中加载。与MCP互补——MCP解决"客户端如何连接外部工具"，Agent Plugins解决"插件如何被跨平台识别和组织"，两者共同构成多平台AI插件生态的基础设施。', tags:['前沿','标准','OpenAI','跨平台','2026新词'], icon:'🔌' },
 
@@ -2491,6 +2498,12 @@ const TOOLS = [
   { id:'gl-cot-decrypt', name:'思维链解密攻击', vendor:'Chain-of-Thought Decryption Attack', cat:'glossary', subcat:'gl-frontier', desc:'2026年8月学界披露的新型AI安全攻击。攻击者可解密主流AI提供商（Anthropic、OpenAI、Google）模型的思维链推理过程——研究团队成功解密315,320个推理块，从中恢复367个PII（个人身份信息）和182个凭证。攻击利用推理过程中间表示的统计特征重建原始推理逻辑。三家提供商均已确认漏洞并部署修复。该攻击揭示了"推理即看到一切"的根本安全隐患，对隐私高度敏感的金融、医疗、法律等领域影响尤为深远。', tags:['前沿','安全','隐私','攻击','2026新词'], icon:'🔓' },
   { id:'gl-personal-si', name:'个人超级智能', vendor:'Personal Superintelligence', cat:'glossary', subcat:'gl-frontier', desc:'扎克伯格在2026年8月6500字长文《未来属于所有人》中提出的核心概念。主张超级智能不应垄断于少数机构，而应通过开源模型使每个人拥有"私人超级智能"。技术路径：端侧运行的开源Agent模型（如Meta Muse Glimmer 30B经量化可在消费级GPU运行），支持多步工具调用、离线隐私保护、零API费用。与"集体超级智能"（centralized superintelligence）形成对立叙事，是AI治理从"控制"转向"赋权"的标志性主张。', tags:['前沿','开源','端侧','Meta','2026新词'], icon:'🧠' },
   { id:'gl-agentic-memory', name:'智能体记忆系统', vendor:'Agentic Memory System', cat:'glossary', subcat:'gl-frontier', desc:'IBM于2026年8月推出的ALTK-Evolve所代表的AI Agent记忆管理范式。解决Agent在长程任务中上下文膨胀、token消耗失控的核心问题。通过层次化记忆存储（短期/工作/长期）+ 智能压缩/检索机制，将Agent执行任务时的token消耗降低85%，同时保持任务完成质量。与简单的向量检索不同，智能体记忆系统理解任务语义来决策"该记住什么"和"该遗忘什么"，是Agent从"单次问答"走向"持续协作"的关键基础设施。', tags:['前沿','Agent','效率','记忆','IBM','2026新词'], icon:'🧩' },
+
+  // ===== 2026-08-13 新增术语 =====
+  { id:'gl-c2pa', name:'C2PA', vendor:'内容来源与真实性联盟', cat:'glossary', subcat:'gl-tech', desc:'Coalition for Content Provenance and Authenticity（内容来源与真实性联盟）的缩写。一个开放密码学标准，用于为数字内容（图片、视频、音频等）添加可验证的来源与修改历史元数据。2026年8月Anthropic率先在Claude生成内容中采用C2PA，以满足欧盟AI法案第50条透明度要求，成为AI生成内容溯源的核心技术之一。', tags:['标准','安全','溯源','欧盟AI法案','2026新词'], icon:'🔐' },
+  { id:'gl-invisible-watermark', name:'隐形水印', vendor:'Invisible Watermark', cat:'glossary', subcat:'gl-tech', desc:'一种嵌入在AI生成文本、图像、音频等内容中的机器可读标识，肉眼不可见或不可感知，但能在复制、粘贴和轻度编辑后继续存在。2026年8月Anthropic在Claude新模型中启用隐形文本水印，Google Gemini使用SynthID，均旨在满足监管透明度要求并帮助平台识别AI生成内容。', tags:['安全','溯源','内容标识','2026新词'], icon:'💧' },
+  { id:'gl-agent-swarm', name:'Agent Swarm', vendor:'智能体群集', cat:'glossary', subcat:'gl-frontier', desc:'由大量简单或专用AI Agent组成的群体系统，通过协作、竞争和自组织来完成复杂任务。与单个全能Agent不同，Swarm强调"群体智能"——每个Agent只负责局部能力，通过通信协议和动态任务分配涌现出整体智能。被视为下一代Agent架构的重要方向，尤其在科学研究、软件工程和自动化运维领域。', tags:['前沿','Agent','群体智能','2026新词'], icon:'🐝' },
+  { id:'gl-hybrid-reasoning', name:'混合推理', vendor:'Hybrid Reasoning', cat:'glossary', subcat:'gl-tech', desc:'让模型在单次请求中灵活切换"快速响应"与"深度思考"两种推理模式的机制。代表产品包括DeepSeek-R1、蚂蚁Ling-3.0-tiny（enable_thinking参数）、GPT-5.6 Sol effort滑块等。通过让简单问题快速处理、复杂问题充分推理，兼顾用户体验与任务准确率，是2026年推理模型产品化的关键方向。', tags:['技术方案','推理模型','2026新词'], icon:'⚖️' },
 ];
 
 // ==================== STATE ====================
@@ -2776,26 +2789,26 @@ const CORS_PROXIES = [
   url => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
 ];
 const FALLBACK_DATA = [
-  { title:'英伟达发布Nemotron 3.5 Lightning：30B MoE/3B激活，Agent执行层专用，开源可本地部署', category:'ai-models', url:'https://developer.nvidia.com/blog/nvidia-nemotron-3-5-lightning-delivers-fast-accurate-specialized-task-execution-for-long-running-agents/' },
-  { title:'英伟达开源NeMo Switchyard智能路由库：Agent工作流成本降至Opus 4.8的1/3', category:'ai-products', url:'https://github.com/NVIDIA/NeMo-Switchyard' },
-  { title:'智源发布AREX自主研究智能体：首创"研究→验证→再研究"双循环框架，权重已开源', category:'ai-models', url:'https://arex-research.com' },
-  { title:'Anthropic用60子代理36小时推进黎曼猜想：3100万token，150年数学难题取得突破', category:'industry', url:'https://tpsreport.news/' },
-  { title:'OpenAI完成70亿美元员工要约收购：估值维持8520亿美元，二级市场流动性释放', category:'industry', url:'https://tpsreport.news/' },
-  { title:'Google Gemini月活突破10亿：Pichai宣布第14个十亿级产品，63%用户使用语音', category:'industry', url:'https://blog.google/products/gemini/' },
-  { title:'Anthropic签91亿美元20年算力租约：与Riot Platforms合作德州Rockdale 191MW', category:'industry', url:'https://tpsreport.news/' },
-  { title:'新型攻击可解密三家主流AI提供商思维链：恢复367个PII和182个凭证，均已修复', category:'industry', url:'https://tpsreport.news/' },
-  { title:'智谱ZCode用户突破百万：上线Goal/Subagents/Remote Control，Coding额度重置+1.5倍', category:'ai-products', url:'https://zcode.cn' },
-  { title:'中国模型包揽OpenRouter调用量前四：DeepSeek V4 Flash 9.39万亿Token领跑', category:'industry', url:'https://openrouter.ai/trending' },
-  { title:'DeepSeek开设Harness团队公众号对标Claude Code，招土木工程师建IDC', category:'industry', url:'https://mp.weixin.qq.com' },
-  { title:'林俊旸创立语用科技Pragmatik Labs：腾讯/红杉投资，估值20亿美元，下一代Agent', category:'industry', url:'https://tpsreport.news/' },
-  { title:'Manus恢复独立运营：Meta收购在北京市令下解除，回归原初创团队', category:'industry', url:'https://tpsreport.news/' },
-  { title:'英伟达联合Apollo/黑石/贝莱德/KKR组建5000亿美元AI基建融资平台', category:'industry', url:'https://blogs.nvidia.com/' },
-  { title:'IBM发布ALTK-Evolve智能体记忆系统：将Agent Token消耗降低85%', category:'ai-models', url:'https://research.ibm.com/' },
-  { title:'扎克伯格6500字长文《未来属于所有人》：推"个人超级智能"概念', category:'industry', url:'https://about.fb.com/news/' },
-  { title:'字节成立AI数据与安全一级部门：与Seed/Flow/抖音平行，强化AI安全', category:'industry', url:'https://tpsreport.news/' },
-  { title:'OpenAI扩展Daybreak计划为Blue/Red双层：向防御者开放高级攻防模型', category:'ai-products', url:'https://openai.com' },
-  { title:'梁文锋财富一年增长3850%登顶全球富豪增速榜，DeepSeek估值突破万亿', category:'industry', url:'https://tpsreport.news/' },
-  { title:'华为天才少年楼燚航创立引力蓝移：200B+参数具身大脑，瞄准机器人智能化', category:'industry', url:'https://tpsreport.news/' },
+  { title:'DeepSeek V4 Pro正式版上线：1M上下文+384K输出，Agent能力翻倍，定价3元/6元每百万Token', category:'ai-models', url:'https://new.qq.com/rain/a/20260813A00FS000?refer=cp_1009' },
+  { title:'阿里开源Qwen3.8-2.4T-A95B：Max级首次开放权重，2.4T总参/95B激活/512专家MoE', category:'ai-models', url:'https://www.163.com/dy/article/L4613T3I05561FZO.html' },
+  { title:'xAI发布Grok 4.6：Intelligence Index 61分追平GPT-5.6 Sol，$2/$6每百万Token', category:'ai-models', url:'https://www.163.com/dy/article/L45VSRPS05119GLN.html' },
+  { title:'LTX发布开放权重世界模型LTX-2.5：22B参数，原生多镜头/同步音画，ComfyUI原生集成', category:'ai-models', url:'https://venturebeat.com/technology/ltx-2-5-can-generate-a-10-second-ai-video-from-an-image-in-just-6-8-seconds-on-nvidia-superchips-and-its-open-weights' },
+  { title:'蚂蚁百灵开源Ling-3.0-tiny：7.9B总参/1.3B激活，MacBook本地运行Agent', category:'ai-models', url:'https://new.qq.com/rain/a/20260811A0CBZX00?refer=cp_1009' },
+  { title:'Anthropic为Claude启用隐形水印与C2PA溯源：响应欧盟AI法案第50条，全球生效', category:'ai-products', url:'https://dig.watch/updates/claude-content-invisible-markers-eu-ai-rules' },
+  { title:'谷歌发布Pixel 11系列：Gemini智能体系跨应用自动执行任务，打响AI手机竞赛', category:'ai-products', url:'https://www.163.com/dy/article/L4603BNP05568W0A.html' },
+  { title:'智谱开源GLM-4.5V视觉推理模型：106B参数，41个视觉多模态榜单SOTA', category:'ai-models', url:'https://www.xiaoyuzhoufm.com/episode/689b416c032793b18a0d4450' },
+  { title:'OpenAI GPT-5.6 Luna向免费/Go用户开放无限文本聊天，默认模型切换', category:'ai-products', url:'https://new.qq.com/rain/a/20260810A09ZI400?refer=cp_1009' },
+  { title:'阿里达摩院开源三项具身智能核心技术：VLA模型/世界理解模型/机器人上下文协议', category:'ai-models', url:'https://www.xiaoyuzhoufm.com/episode/689b416c032793b18a0d4450' },
+  { title:'高德地图全面接入通义大模型，推出AI原生Agent"小高老师"', category:'ai-products', url:'https://www.xiaoyuzhoufm.com/episode/689b416c032793b18a0d4450' },
+  { title:'360智脑开源Light-IF系列模型：预览-自检式推理框架专治"懒惰推理"', category:'ai-models', url:'https://www.xiaoyuzhoufm.com/episode/689b416c032793b18a0d4450' },
+  { title:'字节跳动推出视频字幕无痕擦除方案：DiT模型实现像素级修复+多语言口型同步', category:'ai-products', url:'https://www.xiaoyuzhoufm.com/episode/689b416c032793b18a0d4450' },
+  { title:'昆仑万维开源世界模型Matrix-Game2.0：实时长序列游戏/影视/VR场景生成', category:'ai-models', url:'https://www.xiaoyuzhoufm.com/episode/689b416c032793b18a0d4450' },
+  { title:'昆仑万维开源Matrix-3D：单图生成全景视频与可探索3D场景', category:'ai-models', url:'https://www.xiaoyuzhoufm.com/episode/689b416c032793b18a0d4450' },
+  { title:'Claude AI上线记忆功能：支持多背景切换与跨会话无缝衔接', category:'ai-products', url:'https://www.xiaoyuzhoufm.com/episode/689b416c032793b18a0d4450' },
+  { title:'宇树科技出征首届世界人形机器人运动会：16国280支队伍参赛', category:'industry', url:'https://www.xiaoyuzhoufm.com/episode/689b416c032793b18a0d4450' },
+  { title:'苹果计划将Apple Intelligence升级至GPT-5，首次向开发者开放设备端API', category:'ai-products', url:'https://www.xiaoyuzhoufm.com/episode/689b416c032793b18a0d4450' },
+  { title:'DeepSeek V4-Flash登顶全球调用量榜首，中国模型包揽OpenRouter前四', category:'industry', url:'https://openrouter.ai/trending' },
+  { title:'英伟达联合Apollo/黑石/贝莱德/KKR组建5000亿美元AI基础设施融资平台', category:'industry', url:'https://blogs.nvidia.com/' },
 ];
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧' };
 
