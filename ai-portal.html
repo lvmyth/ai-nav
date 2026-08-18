@@ -1762,7 +1762,7 @@ var _hmt = _hmt || [];
 
   <!-- Footer -->
   <footer class="footer">
-    快捷键：<span class="kbd">Ctrl+K</span> 聚焦搜索 · <span class="kbd">Esc</span> 清除搜索 · 最后更新：2026-08-13
+    快捷键：<span class="kbd">Ctrl+K</span> 聚焦搜索 · <span class="kbd">Esc</span> 清除搜索 · 最后更新：2026-08-18
   </footer>
 
 </div><!-- /mainContent -->
@@ -2197,17 +2197,17 @@ const GLOSSARY_SUBCATS = [
 const TOOLS = [
   // ===== 对话聊天 =====
   { id:'chatgpt',    name:'ChatGPT',        vendor:'OpenAI',   cat:'chat', region:'intl',  desc:'OpenAI 旗舰对话模型，最新 GPT-5.6 系列（Sol/Terra/Luna）支持速度拨盘可调推理深度，GPT-Live 全双工语音模型边听边说。ChatGPT Work 可跨应用自主工作数小时，ChatGPT Sites 一键将创意变可发布网站。内置 DALL·E 3 图像生成，文本理解精准。',  tags:['GPT-5.6','多模态','Work','Sites','DALL·E'], url:'https://chat.openai.com',       icon:'🤖' },
-  { id:'claude',     name:'Claude',          vendor:'Anthropic',cat:'chat', region:'intl',  desc:'旗舰模型 Claude Opus 5（7月24日发布，$5/$25每百万Token），性能逼近 Fable 5 但成本减半，CursorBench 3.2 偏差仅0.5%，OSWorld 2.0 超越 Fable 5。支持 1M token 超长上下文与五级努力拨盘。8月2日起新模型默认启用隐形文本水印与 C2PA 溯源元数据，以响应欧盟 AI Act 第50条，覆盖 Claude、API、Claude Code、Claude Cowork 等全产品线，全球生效。Agent Teams 多智能体协同，Fable 5 可自主完成复杂多步骤任务，代码和推理能力全球顶尖。',     tags:['Opus 5','Fable 5','超长上下文','Agent','C2PA','水印'],    url:'https://claude.ai',             icon:'🧠' },
-  { id:'gemini',     name:'Gemini',          vendor:'Google',   cat:'chat', region:'intl',  desc:'谷歌多模态大模型，最新 Gemini 3.6 Flash（$1.50/$7.50）以低价应对全球AI价格战。深度集成 Google 生态，支持超长上下文。Gemini 3.5 Pro 即将发布，3.5 系列全面升级多模态理解能力。',      tags:['多模态','3.6 Flash','低价','Google生态'],          url:'https://gemini.google.com',     icon:'💎' },
-  { id:'llama',      name:'LLaMA',           vendor:'Meta',     cat:'chat', region:'intl',  desc:'Meta 旗舰开源大模型 Llama 4 系列（Scout/Maverick/Behemoth），Apache 2.0 协议开源，支持多模态，参数量最高达 4000B，总下载量突破 3 亿。', tags:['开源','多模态','Apache 2.0','Meta'], url:'https://llama.meta.com',         icon:'🦙' },
+  { id:'claude',     name:'Claude',          vendor:'Anthropic',cat:'chat', region:'intl',  desc:'旗舰模型 Claude Opus 5（$5/$25每百万Token），性能逼近 Fable 5 但成本减半。Anthropic 年化营收突破 650 亿美元（Q2 同比增14倍首度扭亏），冲刺 2 万亿美元 IPO。8月2日起新模型默认启用隐形文本水印与 C2PA 溯源。Agent Teams 多智能体协同，Fable 5 可自主完成复杂多步骤任务。8月17日发生大规模服务故障（验证问题，超1.5万投诉），CEO 阿莫迪公开回应监管与信任质疑。',     tags:['Opus 5','Fable 5','超长上下文','Agent','C2PA','水印','IPO','650亿营收'],    url:'https://claude.ai',             icon:'🧠' },
+  { id:'gemini',     name:'Gemini',          vendor:'Google',   cat:'chat', region:'intl',  desc:'谷歌多模态大模型，最新 Gemini 3.7 Flash（8月13日发布）编程基准翻倍（FrontierCode 34.4%→43.6%、DeepSWE 49%→65.3%），价格仅为前代一半（$0.75/$3.75每百万Token），专为 AI Agent 和编码场景优化。支持 1M Token 上下文窗口，深度集成 Google 生态。',      tags:['多模态','3.7 Flash','低价','编程优化','Google生态'],          url:'https://gemini.google.com',     icon:'💎' },
+  { id:'llama',      name:'LLaMA',           vendor:'Meta',     cat:'chat', region:'intl',  desc:'Meta 旗舰开源大模型，最新 Llama 5（8月15日发布）支持文本/图像/音频/视频四模态融合，端到端统一架构。Llama 4 系列（Scout/Maverick/Behemoth）Apache 2.0 协议开源，参数量最高达 4000B，总下载量突破 3 亿。', tags:['开源','多模态','Apache 2.0','Meta','Llama 5','四模态'], url:'https://llama.meta.com',         icon:'🦙' },
   { id:'muse-spark', name:'Muse Spark',      vendor:'Meta',     cat:'chat', region:'intl',  desc:'Meta 超级智能实验室第二代多模态推理模型 Muse Spark 1.1，百万 Token 上下文，Agent 模式自主拆解任务，税务/医疗/法律三大榜单第一，定价仅为 Claude Fable 5 的十分之一。Muse Image/Video 媒体生成模型精确指令遵循、原生音频，通过 Meta AI/Instagram/WhatsApp 使用。', tags:['多模态','Agent','Meta','低价','Muse Image/Video'], url:'https://www.meta.ai',              icon:'🔥' },
-  { id:'deepseek',   name:'DeepSeek',        vendor:'深度求索',  cat:'chat', region:'cn',  desc:'国产开源大模型旗舰。8月12日晚 V4 Pro 正式版（DeepSeek-V4-Pro-0813）上线：1M 上下文/384K 输出，支持 thinking/non-thinking 双模式，Agent 能力翻倍提升，定价 3元/6元每百万 Token（缓存命中仅 0.025元）。V4-Flash-0731 正式版保持 1元/2元极致低价，登顶全球调用量榜首。原生支持 Responses API、Codex 与 Anthropic API 兼容格式，MIT 开源。',    tags:['开源','全球第一','V4-Pro','V4-Flash','Agent','MIT','极致低价','涨价'],    url:'https://chat.deepseek.com',      icon:'🐋' },
+  { id:'deepseek',   name:'DeepSeek',        vendor:'深度求索',  cat:'chat', region:'cn',  desc:'国产开源大模型旗舰。8月13日发布 V4 Pro 正式版（0813）+ Harness 智能体框架（MIT 开源）。V4 Pro：1M 上下文/384K 输出，thinking/non-thinking 双模式，Agent 能力翻倍，Agentic Coding 开源最佳。峰谷定价 8月17日生效（高峰 0.30/9/27元，空闲 0.15/4.5/13.5元每百万 Token）。Harness："一切皆插件"架构，模型/工具/技能/会话/沙箱均由插件组合，GitHub 42小时破10万星刷新纪录，两天涌现近三千插件仓库。V4-Flash 登顶全球调用量榜首。',    tags:['开源','全球第一','V4-Pro','Harness','Agent','MIT','峰谷定价','插件生态'],    url:'https://chat.deepseek.com',      icon:'🐋' },
   { id:'ernie',      name:'文心一言',         vendor:'百度',      cat:'chat', region:'cn',  desc:'百度知识增强大模型，中文理解深入，集成百度搜索和文心一格。',      tags:['中文优化'],              url:'https://yiyan.baidu.com',        icon:'📘' },
   { id:'tongyi',     name:'通义千问',         vendor:'阿里云',    cat:'chat', region:'cn',  desc:'阿里云旗舰大模型 Qwen3.8。8月12日深夜 Qwen团队首次开源 Max 级权重 Qwen3.8-2.4T-A95B：2.4T 总参/95B 激活/512 专家 MoE，原生 262K 上下文可扩展至 1M，采用 Qwen 自定义许可。重点强化编程、办公、科研与长周期 Agent 任务。云端 Qwen3.8-Max 支持视觉输入、非思考模式与内置工具。Qwen-Audio 3.0 Realtime 全双工语音已集成至 Apple 智能，高德地图也接入通义推出 AI 原生 Agent。', tags:['Qwen3.8','2.4T','Max开源','Coding','Cowork','Agent','语音','苹果合作'], url:'https://tongyi.aliyun.com',      icon:'☁️' },
   { id:'hunyuan',    name:'腾讯混元',         vendor:'腾讯',      cat:'chat', region:'cn',  desc:'腾讯全链路自研通用大模型，具备跨领域知识理解和多模态能力。最新 Hyra 推理模型攻克 50 年未解数学难题，AI for Science 取得里程碑突破。深度集成腾讯生态，提供 WorkBuddy 桌面 Agent 服务。', tags:['多模态','腾讯生态','Hyra','数学突破'],      url:'https://hunyuan.tencent.com',     icon:'🐧' },
   { id:'doubao',     name:'豆包',             vendor:'字节跳动',  cat:'chat', region:'cn',  desc:'字节跳动旗下 AI 助手，最新 Seeduplex 端到端语音大模型支持全双工实时对话，可在多人对话中待命、主动加入，抗干扰能力强。',        tags:['语音对话','全双工','免费'],        url:'https://www.doubao.com',         icon:'🫘' },
   { id:'kimi',       name:'Kimi',            vendor:'月之暗面',  cat:'chat', region:'cn',  desc:'月之暗面旗舰大模型，最新 Kimi K3（2.8万亿参数，7月17日发布）为全球最大开源模型，基于KDA混合线性注意力与注意力残差技术、896专家MoE（激活16）、100万Token上下文、原生视觉理解。综合智能仅次于Claude Fable 5和GPT-5.6 Sol，长程编程与知识工作能力顶尖。Kimi Code编程工具与Kimi Work桌面客户端同步升级。', tags:['K3','全球最大开源','2.8万亿','长程编程','Agent','Kimi Work','Kimi Code'],      url:'https://kimi.moonshot.cn',       icon:'🌙' },
-  { id:'zhipu',      name:'智谱清言',         vendor:'智谱AI',    cat:'chat', region:'cn',  desc:'最新旗舰 GLM-5.2 开源模型（MIT 协议），专注 Coding 与长程任务，支持 1M 超长上下文，遵循生产级工程规范，支持真机调试闭环，全球开源模型评测 SOTA。8月13日开源 GLM-4.5V 视觉推理模型：106B 参数，41 个视觉多模态榜单 SOTA，支持图像推理、视频理解、GUI 任务，新增"思考模式"开关。旗下 AutoGLM 2.0 为全球首个手机 Agent，结合云手机技术实现跨端任务代理。',       tags:['GLM-5.2','GLM-4.5V','开源','视觉推理','超长上下文','Coding','AutoGLM','手机Agent'],        url:'https://chatglm.cn',             icon:'🔮' },
+  { id:'zhipu',      name:'智谱清言',         vendor:'智谱AI',    cat:'chat', region:'cn',  desc:'最新旗舰 GLM-5.3（8月14日发布），不换基座（743B GLM-5.2）仅靠后训练 Scaling 将编程能力提升 50%，CyberGym 漏洞推理 84.5% 追平 Anthropic Mythos 5，开源模型网络安全第一。红队测试发现 2404 个潜在漏洞含 40 余年 DNS 协议级风险。100万 Token 上下文、128K 输出，权重两周安全审计后开放。旗下 AutoGLM 2.0 为全球首个手机 Agent，金山办公灵犀专业版首发接入。',       tags:['GLM-5.3','后训练Scaling','网络安全','开源','Coding','AutoGLM','手机Agent'],        url:'https://chatglm.cn',             icon:'🔮' },
   { id:'grok',       name:'Grok',            vendor:'xAI',      cat:'chat', region:'intl',  desc:'xAI/SpaceXAI 旗舰模型。8月12日发布的 Grok 4.6 沿用 1.5T V9 基础模型，经更长后训练与 Agent 强化学习，重点强化长时间运行 Agent、复杂交互与视觉任务。Intelligence Index 61 分追平 GPT-5.6 Sol，GDPVal-AA v2 知识工作评测领先。API $2/$6 每百万 Token（快速版翻倍），已上线 Cursor、Grok Build、OpenRouter、Vercel、Cloudflare。Grok Build 提供一体化 coding agentic workflow。', tags:['Grok 4.6','Agent','编程','Grok Build','OpenRouter','高性价比'], url:'https://grok.com',               icon:'⚡' },
   { id:'mistral',    name:'Mistral',         vendor:'Mistral AI', cat:'chat', region:'intl',  desc:'法国顶尖 AI 公司 Mistral 旗舰模型 Mistral Large 3（675B）+ Leanstral 1.5 定理证明模型，Apache 2.0 开源，支持 256K 上下文，多语言能力强。', tags:['开源','多语言','Apache 2.0','Leanstral'], url:'https://chat.mistral.ai',      icon:'🌬️' },
   { id:'hailuo',     name:'MiniMax',          vendor:'MiniMax',   cat:'chat', region:'cn',  desc:'MiniMax 旗下 AI 助手，搭载自研万亿参数 MoE 大模型，支持文本对话、语音合成、多模态理解，服务超 2 亿用户。', tags:['万亿参数','MoE','多模态'],   url:'https://agent.minimaxi.com',      icon:'🪄' },
@@ -2504,6 +2504,14 @@ const TOOLS = [
   { id:'gl-invisible-watermark', name:'隐形水印', vendor:'Invisible Watermark', cat:'glossary', subcat:'gl-tech', desc:'一种嵌入在AI生成文本、图像、音频等内容中的机器可读标识，肉眼不可见或不可感知，但能在复制、粘贴和轻度编辑后继续存在。2026年8月Anthropic在Claude新模型中启用隐形文本水印，Google Gemini使用SynthID，均旨在满足监管透明度要求并帮助平台识别AI生成内容。', tags:['安全','溯源','内容标识','2026新词'], icon:'💧' },
   { id:'gl-agent-swarm', name:'Agent Swarm', vendor:'智能体群集', cat:'glossary', subcat:'gl-frontier', desc:'由大量简单或专用AI Agent组成的群体系统，通过协作、竞争和自组织来完成复杂任务。与单个全能Agent不同，Swarm强调"群体智能"——每个Agent只负责局部能力，通过通信协议和动态任务分配涌现出整体智能。被视为下一代Agent架构的重要方向，尤其在科学研究、软件工程和自动化运维领域。', tags:['前沿','Agent','群体智能','2026新词'], icon:'🐝' },
   { id:'gl-hybrid-reasoning', name:'混合推理', vendor:'Hybrid Reasoning', cat:'glossary', subcat:'gl-tech', desc:'让模型在单次请求中灵活切换"快速响应"与"深度思考"两种推理模式的机制。代表产品包括DeepSeek-R1、蚂蚁Ling-3.0-tiny（enable_thinking参数）、GPT-5.6 Sol effort滑块等。通过让简单问题快速处理、复杂问题充分推理，兼顾用户体验与任务准确率，是2026年推理模型产品化的关键方向。', tags:['技术方案','推理模型','2026新词'], icon:'⚖️' },
+  // ===== 2026-08-18 新增工具/模型 =====
+  { id:'ds-harness',  name:'DeepSeek Harness',  vendor:'深度求索',  cat:'code', region:'cn',  desc:'DeepSeek 8月13日开源的首款 Agent 运行框架（MIT 协议），"一切皆插件"架构——模型、工具、技能、会话、沙箱均由插件组合。四种运行模式（标准/PTC/极简/创意），模型可在运行中改写自身行为。GitHub 上线42小时破10万星刷新纪录，两天涌现近三千插件仓库，被评价为"自进化软件"雏形。缓存命中率从 Claude Code 的98%提升至99%。', tags:['开源','MIT','Agent框架','插件生态','自进化','10万星'], url:'https://api-docs.deepseek.com', icon:'🔧' },
+  { id:'cosmos-edge', name:'Cosmos 3 Edge',     vendor:'NVIDIA',    cat:'chat', region:'intl',  desc:'NVIDIA 8月17日发布的4B参数开放世界模型，专为 Jetson Thor 等边缘设备设计。支持实时机器人推理、物理世界模拟与具身智能决策，将世界模型能力从云端下沉到边缘侧。是 NVIDIA Cosmos 世界模型系列的端侧版本，推动 Physical AI 在低功耗场景的落地。', tags:['开源','世界模型','端侧','机器人','NVIDIA','Physical AI'], url:'https://www.nvidia.com/en-us/ai/cosmos/', icon:'🌐' },
+  // ===== 2026-08-18 新增术语 =====
+  { id:'gl-ultrafast', name:'Ultrafast Inference', vendor:'超速推理', cat:'glossary', subcat:'gl-tech', desc:'OpenAI 8月14日推出的推理加速新模式。GPT-5.6 Sol 通过 Cerebras 晶圆级芯片实现高达 750 tokens/s 的输出速度，为标准模式的14倍。标志着 AI 推理从"够用"到"即时"的跨越——用户等待时间从秒级压缩到亚秒级，使实时对话、即时编程和交互式 Agent 等场景体验发生质变。该模式依赖专用推理硬件（Cerebras WSE），是"推理即基础设施"趋势的典型代表。', tags:['技术方案','推理加速','Cerebras','OpenAI','2026新词'], icon:'⚡' },
+  { id:'gl-cpo',       name:'CPO（共封装光学）', vendor:'Co-Packaged Optics', cat:'glossary', subcat:'gl-tech', desc:'将光收发器与交换芯片封装在同一基板上的硅光互连技术。NVIDIA 2026年8月宣布 CPO 交换机全面量产，AI 数据中心正式迈入"硅光时代"。相比传统可插拔光模块，CPO 将互连功耗降低30%以上、带宽密度提升数倍，解决万卡级 GPU 集群中"数据搬运输送"成为瓶颈的问题。是支撑万亿参数模型训练和超大规模推理的关键网络基础设施。', tags:['技术方案','硬件','硅光','NVIDIA','基础设施','2026新词'], icon:'💡' },
+  { id:'gl-pt-scaling', name:'后训练扩展',  vendor:'Post-Training Scaling', cat:'glossary', subcat:'gl-frontier', desc:'2026年8月智谱 GLM-5.3 验证的新型 Scaling 路径：不更换基座模型（GLM-5.2 743B），仅通过极致后训练便将编程能力提升50%、网络安全能力追平闭源旗舰。与"更大参数=更强"的传统 Scaling Law 不同，后训练扩展证明在基座模型达到一定规模后，后训练数据质量、训练策略和强化学习才是性能跃升的核心杠杆。DeepSeek Harness、智谱 GLM-5.3、阿里 Qwen3.8 均是该范式的实践者，标志着大模型竞争从"预训练参数竞赛"转向"后训练工程竞赛"。', tags:['前沿','训练方法','GLM-5.3','Scaling','2026新词','热门'], icon:'📈' },
+  { id:'gl-agent-economy', name:'Agent Economy', vendor:'智能体经济', cat:'glossary', subcat:'gl-frontier', desc:'围绕 AI Agent 平台形成的新经济生态。DeepSeek Harness 上线两天涌现近三千插件仓库，标志着 Agent 时代的"App Store 时刻"——开发者围绕 Agent 框架构建插件市场、技能商店和工具生态，形成"框架→插件→用户→更多插件"的正向飞轮。与传统 App 经济不同，Agent 经济中的"应用"是可被 AI 自主发现和调用的能力单元（Skills/Plugins），交易对象从"软件许可"变为"AI 调用次数"和"任务完成质量"。被视为继移动互联网之后的下一个万亿级平台经济。', tags:['前沿','经济生态','Agent','插件','2026新词','热门'], icon:'💰' },
 ];
 
 // ==================== STATE ====================
@@ -2789,26 +2797,27 @@ const CORS_PROXIES = [
   url => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
 ];
 const FALLBACK_DATA = [
-  { title:'DeepSeek V4 Pro正式版上线：1M上下文+384K输出，Agent能力翻倍，定价3元/6元每百万Token', category:'ai-models', url:'https://new.qq.com/rain/a/20260813A00FS000?refer=cp_1009' },
-  { title:'阿里开源Qwen3.8-2.4T-A95B：Max级首次开放权重，2.4T总参/95B激活/512专家MoE', category:'ai-models', url:'https://www.163.com/dy/article/L4613T3I05561FZO.html' },
-  { title:'xAI发布Grok 4.6：Intelligence Index 61分追平GPT-5.6 Sol，$2/$6每百万Token', category:'ai-models', url:'https://www.163.com/dy/article/L45VSRPS05119GLN.html' },
-  { title:'LTX发布开放权重世界模型LTX-2.5：22B参数，原生多镜头/同步音画，ComfyUI原生集成', category:'ai-models', url:'https://venturebeat.com/technology/ltx-2-5-can-generate-a-10-second-ai-video-from-an-image-in-just-6-8-seconds-on-nvidia-superchips-and-its-open-weights' },
-  { title:'蚂蚁百灵开源Ling-3.0-tiny：7.9B总参/1.3B激活，MacBook本地运行Agent', category:'ai-models', url:'https://new.qq.com/rain/a/20260811A0CBZX00?refer=cp_1009' },
-  { title:'Anthropic为Claude启用隐形水印与C2PA溯源：响应欧盟AI法案第50条，全球生效', category:'ai-products', url:'https://dig.watch/updates/claude-content-invisible-markers-eu-ai-rules' },
-  { title:'谷歌发布Pixel 11系列：Gemini智能体系跨应用自动执行任务，打响AI手机竞赛', category:'ai-products', url:'https://www.163.com/dy/article/L4603BNP05568W0A.html' },
-  { title:'智谱开源GLM-4.5V视觉推理模型：106B参数，41个视觉多模态榜单SOTA', category:'ai-models', url:'https://www.xiaoyuzhoufm.com/episode/689b416c032793b18a0d4450' },
-  { title:'OpenAI GPT-5.6 Luna向免费/Go用户开放无限文本聊天，默认模型切换', category:'ai-products', url:'https://new.qq.com/rain/a/20260810A09ZI400?refer=cp_1009' },
-  { title:'阿里达摩院开源三项具身智能核心技术：VLA模型/世界理解模型/机器人上下文协议', category:'ai-models', url:'https://www.xiaoyuzhoufm.com/episode/689b416c032793b18a0d4450' },
-  { title:'高德地图全面接入通义大模型，推出AI原生Agent"小高老师"', category:'ai-products', url:'https://www.xiaoyuzhoufm.com/episode/689b416c032793b18a0d4450' },
-  { title:'360智脑开源Light-IF系列模型：预览-自检式推理框架专治"懒惰推理"', category:'ai-models', url:'https://www.xiaoyuzhoufm.com/episode/689b416c032793b18a0d4450' },
-  { title:'字节跳动推出视频字幕无痕擦除方案：DiT模型实现像素级修复+多语言口型同步', category:'ai-products', url:'https://www.xiaoyuzhoufm.com/episode/689b416c032793b18a0d4450' },
-  { title:'昆仑万维开源世界模型Matrix-Game2.0：实时长序列游戏/影视/VR场景生成', category:'ai-models', url:'https://www.xiaoyuzhoufm.com/episode/689b416c032793b18a0d4450' },
-  { title:'昆仑万维开源Matrix-3D：单图生成全景视频与可探索3D场景', category:'ai-models', url:'https://www.xiaoyuzhoufm.com/episode/689b416c032793b18a0d4450' },
-  { title:'Claude AI上线记忆功能：支持多背景切换与跨会话无缝衔接', category:'ai-products', url:'https://www.xiaoyuzhoufm.com/episode/689b416c032793b18a0d4450' },
-  { title:'宇树科技出征首届世界人形机器人运动会：16国280支队伍参赛', category:'industry', url:'https://www.xiaoyuzhoufm.com/episode/689b416c032793b18a0d4450' },
-  { title:'苹果计划将Apple Intelligence升级至GPT-5，首次向开发者开放设备端API', category:'ai-products', url:'https://www.xiaoyuzhoufm.com/episode/689b416c032793b18a0d4450' },
-  { title:'DeepSeek V4-Flash登顶全球调用量榜首，中国模型包揽OpenRouter前四', category:'industry', url:'https://openrouter.ai/trending' },
-  { title:'英伟达联合Apollo/黑石/贝莱德/KKR组建5000亿美元AI基础设施融资平台', category:'industry', url:'https://blogs.nvidia.com/' },
+  { title:'DeepSeek Harness开源：MIT协议Agent框架，42小时GitHub破10万星刷新纪录', category:'ai-models', url:'https://new.qq.com/rain/a/20260816A087PD00?refer=cp_1009' },
+  { title:'DeepSeek V4 Pro峰谷定价8月17日生效：高峰0.30/9/27元，空闲0.15/4.5/13.5元每百万Token', category:'ai-models', url:'https://www.toutiao.com/article/7674660213202469430' },
+  { title:'智谱GLM-5.3发布：不换基座仅靠后训练编程提升50%，CyberGym 84.5%追平Mythos 5', category:'ai-models', url:'https://new.qq.com/rain/a/20260817A03F6O00?refer=cp_1009' },
+  { title:'阿里开源Qwen3.8-27B：27B多模态模型Apache 2.0，家用5060Ti即可本地运行', category:'ai-models', url:'https://new.qq.com/rain/a/20260816A087PD00?refer=cp_1009' },
+  { title:'谷歌发布Gemini 3.7 Flash：编程基准翻倍（FrontierCode 43.6%），价格减半$0.75/$3.75', category:'ai-models', url:'https://aibars.net/en/library/ai-news/list' },
+  { title:'Anthropic年化营收突破650亿美元：Q2营收115亿同比增14倍首度扭亏，冲刺2万亿美元IPO', category:'industry', url:'https://tech.ifeng.com/c/8vgQKqcBi8B' },
+  { title:'OpenAI上线GPT-5.6多智能体V2：主Agent可委派子任务，网络请求降98.2%', category:'ai-products', url:'https://new.qq.com/rain/a/20260816A087PD00?refer=cp_1009' },
+  { title:'OpenAI签署10吉瓦俄亥俄数据中心20年租约，英伟达投资15亿美元入股SB Energy', category:'industry', url:'https://www.163.com/dy/article/L4IT34UG05198CJN.html' },
+  { title:'NVIDIA Cosmos 3 Edge发布：4B参数开放世界模型，Jetson Thor边缘设备实时推理', category:'ai-models', url:'https://www.163.com/dy/article/L4H6JBI20512B07B.html' },
+  { title:'腾讯混元Hy4-V开源多模态大模型：12项基准刷新SOTA，文心5.0全栈AI能力同步开放', category:'ai-models', url:'https://www.163.com/dy/article/L4H6JBI20512B07B.html' },
+  { title:'Meta Llama 5多模态发布：文本/图像/音频/视频四模态融合，端到端统一架构', category:'ai-models', url:'https://www.163.com/dy/article/L4H6JBI20512B07B.html' },
+  { title:'GPT-5.6 Sol Ultrafast模式上线：750 tokens/s（14倍标准速），基于Cerebras晶圆级芯片', category:'ai-products', url:'https://aibars.net/en/library/ai-news/list' },
+  { title:'Claude大规模服务故障：8月17日全球验证问题，美东高峰超1.5万投诉', category:'ai-products', url:'https://new.qq.com/rain/a/20260818A0238400?refer=cp_1009' },
+  { title:'千问下载量破30亿居全球第一：超越Meta和谷歌，基于Qwen的衍生模型超15万个', category:'industry', url:'https://www.toutiao.com/article/7674660213202469430' },
+  { title:'英伟达缩减OpenAI数据中心担保：从2500亿美元降至1200亿美元以下，仅覆盖一期', category:'industry', url:'https://www.163.com/dy/article/L4IT34UG05198CJN.html' },
+  { title:'阶跃星辰完成25亿美元融资：腾讯跟投，全球首款大模型原生智能体手机STEPX Neo亮相', category:'industry', url:'https://www.163.com/dy/article/L4H6JBI20512B07B.html' },
+  { title:'英伟达CPO交换机全面量产：AI数据中心迈入硅光时代，LG签约2027年人形机器人', category:'industry', url:'https://so.html5.qq.com/page/real/search_news?docid=70000021_7576a82464118252' },
+  { title:'小红书开源dots3-note大模型：华为昇腾Atlas 800 A3完成0 Day全量适配', category:'ai-models', url:'https://new.qq.com/rain/a/20260816A087PD00?refer=cp_1009' },
+  { title:'Jane Street 7月巨亏150亿美元：AI对冲基金Situational Awareness爆仓拖累', category:'industry', url:'https://so.html5.qq.com/page/real/search_news?docid=70000021_7576a82464118252' },
+  { title:'DeepSeek Harness社区生态爆发：上线两天涌现近三千插件仓库，被评价为"自进化软件"雏形', category:'ai-models', url:'https://new.qq.com/rain/a/20260817A03F6O00?refer=cp_1009' },
+  { title:'中国大模型"一周三更"：DeepSeek涨价+Harness开源、智谱后训练Scaling、阿里开源换打法', category:'industry', url:'https://www.toutiao.com/article/7674660213202469430' },
 ];
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧' };
 
