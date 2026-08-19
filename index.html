@@ -1762,7 +1762,7 @@ var _hmt = _hmt || [];
 
   <!-- Footer -->
   <footer class="footer">
-    快捷键：<span class="kbd">Ctrl+K</span> 聚焦搜索 · <span class="kbd">Esc</span> 清除搜索 · 最后更新：2026-08-18
+    快捷键：<span class="kbd">Ctrl+K</span> 聚焦搜索 · <span class="kbd">Esc</span> 清除搜索 · 最后更新：2026-08-19
   </footer>
 
 </div><!-- /mainContent -->
@@ -2197,17 +2197,17 @@ const GLOSSARY_SUBCATS = [
 const TOOLS = [
   // ===== 对话聊天 =====
   { id:'chatgpt',    name:'ChatGPT',        vendor:'OpenAI',   cat:'chat', region:'intl',  desc:'OpenAI 旗舰对话模型，最新 GPT-5.6 系列（Sol/Terra/Luna）支持速度拨盘可调推理深度，GPT-Live 全双工语音模型边听边说。ChatGPT Work 可跨应用自主工作数小时，ChatGPT Sites 一键将创意变可发布网站。内置 DALL·E 3 图像生成，文本理解精准。',  tags:['GPT-5.6','多模态','Work','Sites','DALL·E'], url:'https://chat.openai.com',       icon:'🤖' },
-  { id:'claude',     name:'Claude',          vendor:'Anthropic',cat:'chat', region:'intl',  desc:'旗舰模型 Claude Opus 5（$5/$25每百万Token），性能逼近 Fable 5 但成本减半。Anthropic 年化营收突破 650 亿美元（Q2 同比增14倍首度扭亏），冲刺 2 万亿美元 IPO。8月2日起新模型默认启用隐形文本水印与 C2PA 溯源。Agent Teams 多智能体协同，Fable 5 可自主完成复杂多步骤任务。8月17日发生大规模服务故障（验证问题，超1.5万投诉），CEO 阿莫迪公开回应监管与信任质疑。',     tags:['Opus 5','Fable 5','超长上下文','Agent','C2PA','水印','IPO','650亿营收'],    url:'https://claude.ai',             icon:'🧠' },
+  { id:'claude',     name:'Claude',          vendor:'Anthropic',cat:'chat', region:'intl',  desc:'旗舰模型 Claude Opus 5（$5/$25每百万Token），性能逼近 Fable 5 但成本减半。Anthropic Q2 营收 115 亿美元同比增 13 倍，调整后营业利润首次转正，年化营收突破 650 亿美元，冲刺 2 万亿美元 IPO。8月2日起新模型默认启用隐形文本水印与 C2PA 溯源。Claude Code 2.1.232 新增子代理分叉+跨会话提及。8月17日发生大规模服务故障（验证问题，超1.5万投诉），CEO 阿莫迪公开回应监管与信任质疑。',     tags:['Opus 5','Fable 5','IPO','2万亿','Agent','Claude Code'],    url:'https://claude.ai',             icon:'🧠' },
   { id:'gemini',     name:'Gemini',          vendor:'Google',   cat:'chat', region:'intl',  desc:'谷歌多模态大模型，最新 Gemini 3.7 Flash（8月13日发布）编程基准翻倍（FrontierCode 34.4%→43.6%、DeepSWE 49%→65.3%），价格仅为前代一半（$0.75/$3.75每百万Token），专为 AI Agent 和编码场景优化。支持 1M Token 上下文窗口，深度集成 Google 生态。',      tags:['多模态','3.7 Flash','低价','编程优化','Google生态'],          url:'https://gemini.google.com',     icon:'💎' },
   { id:'llama',      name:'LLaMA',           vendor:'Meta',     cat:'chat', region:'intl',  desc:'Meta 旗舰开源大模型，最新 Llama 5（8月15日发布）支持文本/图像/音频/视频四模态融合，端到端统一架构。Llama 4 系列（Scout/Maverick/Behemoth）Apache 2.0 协议开源，参数量最高达 4000B，总下载量突破 3 亿。', tags:['开源','多模态','Apache 2.0','Meta','Llama 5','四模态'], url:'https://llama.meta.com',         icon:'🦙' },
   { id:'muse-spark', name:'Muse Spark',      vendor:'Meta',     cat:'chat', region:'intl',  desc:'Meta 超级智能实验室第二代多模态推理模型 Muse Spark 1.1，百万 Token 上下文，Agent 模式自主拆解任务，税务/医疗/法律三大榜单第一，定价仅为 Claude Fable 5 的十分之一。Muse Image/Video 媒体生成模型精确指令遵循、原生音频，通过 Meta AI/Instagram/WhatsApp 使用。', tags:['多模态','Agent','Meta','低价','Muse Image/Video'], url:'https://www.meta.ai',              icon:'🔥' },
-  { id:'deepseek',   name:'DeepSeek',        vendor:'深度求索',  cat:'chat', region:'cn',  desc:'国产开源大模型旗舰。8月13日发布 V4 Pro 正式版（0813）+ Harness 智能体框架（MIT 开源）。V4 Pro：1M 上下文/384K 输出，thinking/non-thinking 双模式，Agent 能力翻倍，Agentic Coding 开源最佳。峰谷定价 8月17日生效（高峰 0.30/9/27元，空闲 0.15/4.5/13.5元每百万 Token）。Harness："一切皆插件"架构，模型/工具/技能/会话/沙箱均由插件组合，GitHub 42小时破10万星刷新纪录，两天涌现近三千插件仓库。V4-Flash 登顶全球调用量榜首。',    tags:['开源','全球第一','V4-Pro','Harness','Agent','MIT','峰谷定价','插件生态'],    url:'https://chat.deepseek.com',      icon:'🐋' },
+  { id:'deepseek',   name:'DeepSeek',         vendor:'DeepSeek',  cat:'chat', region:'cn',  desc:'深度求索推出的开源大模型，以高性价比和强大推理能力著称。DeepSeek-V4-Pro 8月13日正式版全面推出（GA），Agent 能力大幅增强，Terminal Bench 2.1 达 87.9。API 峰谷定价 8月17日生效，高峰缓存命中输入 0.3元/百万Token（涨1100%），输出 27元。Harness MIT Agent 框架 42 小时 GitHub 破 10 万星，两天涌现近三千插件仓库。', tags:['开源','V4-Pro','Agent','峰谷定价','Harness'], url:'https://chat.deepseek.com',      icon:'🐋' },
   { id:'ernie',      name:'文心一言',         vendor:'百度',      cat:'chat', region:'cn',  desc:'百度知识增强大模型，中文理解深入，集成百度搜索和文心一格。',      tags:['中文优化'],              url:'https://yiyan.baidu.com',        icon:'📘' },
   { id:'tongyi',     name:'通义千问',         vendor:'阿里云',    cat:'chat', region:'cn',  desc:'阿里云旗舰大模型 Qwen3.8。8月12日深夜 Qwen团队首次开源 Max 级权重 Qwen3.8-2.4T-A95B：2.4T 总参/95B 激活/512 专家 MoE，原生 262K 上下文可扩展至 1M，采用 Qwen 自定义许可。重点强化编程、办公、科研与长周期 Agent 任务。云端 Qwen3.8-Max 支持视觉输入、非思考模式与内置工具。Qwen-Audio 3.0 Realtime 全双工语音已集成至 Apple 智能，高德地图也接入通义推出 AI 原生 Agent。', tags:['Qwen3.8','2.4T','Max开源','Coding','Cowork','Agent','语音','苹果合作'], url:'https://tongyi.aliyun.com',      icon:'☁️' },
   { id:'hunyuan',    name:'腾讯混元',         vendor:'腾讯',      cat:'chat', region:'cn',  desc:'腾讯全链路自研通用大模型，具备跨领域知识理解和多模态能力。最新 Hyra 推理模型攻克 50 年未解数学难题，AI for Science 取得里程碑突破。深度集成腾讯生态，提供 WorkBuddy 桌面 Agent 服务。', tags:['多模态','腾讯生态','Hyra','数学突破'],      url:'https://hunyuan.tencent.com',     icon:'🐧' },
   { id:'doubao',     name:'豆包',             vendor:'字节跳动',  cat:'chat', region:'cn',  desc:'字节跳动旗下 AI 助手，最新 Seeduplex 端到端语音大模型支持全双工实时对话，可在多人对话中待命、主动加入，抗干扰能力强。',        tags:['语音对话','全双工','免费'],        url:'https://www.doubao.com',         icon:'🫘' },
   { id:'kimi',       name:'Kimi',            vendor:'月之暗面',  cat:'chat', region:'cn',  desc:'月之暗面旗舰大模型，最新 Kimi K3（2.8万亿参数，7月17日发布）为全球最大开源模型，基于KDA混合线性注意力与注意力残差技术、896专家MoE（激活16）、100万Token上下文、原生视觉理解。综合智能仅次于Claude Fable 5和GPT-5.6 Sol，长程编程与知识工作能力顶尖。Kimi Code编程工具与Kimi Work桌面客户端同步升级。', tags:['K3','全球最大开源','2.8万亿','长程编程','Agent','Kimi Work','Kimi Code'],      url:'https://kimi.moonshot.cn',       icon:'🌙' },
-  { id:'zhipu',      name:'智谱清言',         vendor:'智谱AI',    cat:'chat', region:'cn',  desc:'最新旗舰 GLM-5.3（8月14日发布），不换基座（743B GLM-5.2）仅靠后训练 Scaling 将编程能力提升 50%，CyberGym 漏洞推理 84.5% 追平 Anthropic Mythos 5，开源模型网络安全第一。红队测试发现 2404 个潜在漏洞含 40 余年 DNS 协议级风险。100万 Token 上下文、128K 输出，权重两周安全审计后开放。旗下 AutoGLM 2.0 为全球首个手机 Agent，金山办公灵犀专业版首发接入。',       tags:['GLM-5.3','后训练Scaling','网络安全','开源','Coding','AutoGLM','手机Agent'],        url:'https://chatglm.cn',             icon:'🔮' },
+  { id:'zhipu',      name:'智谱清言',         vendor:'智谱AI',    cat:'chat', region:'cn',  desc:'智谱 AI 推出的对话助手，基于 GLM 系列大模型，中文能力强。最新 GLM-5.3（8月19日API正式上线）在 Terminal Bench 3.0 等基准取得开源第一，AA 综合智能指数 60 分与 Claude Fable 5、GPT-5.6 Sol 同档，CyberGym 网络安全评测 84.5% 超 Mythos 5。7530亿参数 MoE 架构，API 定价与 GLM-5.2 保持一致，权重下周五开源。', tags:['中文优化','GLM-5.3','开源','网络安全','AA指数60分'],    url:'https://chatglm.cn',             icon:'🌟' },
   { id:'grok',       name:'Grok',            vendor:'xAI',      cat:'chat', region:'intl',  desc:'xAI/SpaceXAI 旗舰模型。8月12日发布的 Grok 4.6 沿用 1.5T V9 基础模型，经更长后训练与 Agent 强化学习，重点强化长时间运行 Agent、复杂交互与视觉任务。Intelligence Index 61 分追平 GPT-5.6 Sol，GDPVal-AA v2 知识工作评测领先。API $2/$6 每百万 Token（快速版翻倍），已上线 Cursor、Grok Build、OpenRouter、Vercel、Cloudflare。Grok Build 提供一体化 coding agentic workflow。', tags:['Grok 4.6','Agent','编程','Grok Build','OpenRouter','高性价比'], url:'https://grok.com',               icon:'⚡' },
   { id:'mistral',    name:'Mistral',         vendor:'Mistral AI', cat:'chat', region:'intl',  desc:'法国顶尖 AI 公司 Mistral 旗舰模型 Mistral Large 3（675B）+ Leanstral 1.5 定理证明模型，Apache 2.0 开源，支持 256K 上下文，多语言能力强。', tags:['开源','多语言','Apache 2.0','Leanstral'], url:'https://chat.mistral.ai',      icon:'🌬️' },
   { id:'hailuo',     name:'MiniMax',          vendor:'MiniMax',   cat:'chat', region:'cn',  desc:'MiniMax 旗下 AI 助手，搭载自研万亿参数 MoE 大模型，支持文本对话、语音合成、多模态理解，服务超 2 亿用户。', tags:['万亿参数','MoE','多模态'],   url:'https://agent.minimaxi.com',      icon:'🪄' },
@@ -2258,7 +2258,7 @@ const TOOLS = [
 
   // ===== 代码编程 =====
   { id:'copilot',    name:'GitHub Copilot',  vendor:'GitHub',   cat:'code', region:'intl',  desc:'最流行的 AI 编程助手，深度集成 VS Code 和 JetBrains，代码补全精准。',   tags:['IDE集成','主流'],         url:'https://github.com/features/copilot', icon:'🤖' },
-  { id:'cursor',     name:'Cursor',          vendor:'Cursor',   cat:'code', region:'intl',  desc:'AI-First 代码编辑器，支持整文件编辑、上下文感知，开发者体验极佳。',      tags:['AI编辑器','上下文感知'],  url:'https://cursor.com',            icon:'🖱️' },
+  { id:'cursor',     name:'Cursor',          vendor:'Cursor',   cat:'code', region:'intl',  desc:'AI-First 代码编辑器，支持整文件编辑、上下文感知，开发者体验极佳。8月17日推出 Origin 代码托管平台（Agent-native Git forge），支持多 Agent 并发协作。SpaceX 600亿美元收购已完成，接入 Colossus 超算。', tags:['AI编辑器','Origin','Agent协作','SpaceX'],  url:'https://cursor.com',            icon:'🖱️' },
   { id:'windsurf',   name:'Windsurf',        vendor:'Codeium',  cat:'code', region:'intl',  desc:'AI 驱动的 IDE，支持多文件编辑和智能代码理解，免费版功能丰富。',         tags:['免费版','多文件编辑'],    url:'https://codeium.com/windsurf',   icon:'🌊' },
   { id:'devin',      name:'Devin',           vendor:'Cognition',cat:'code', region:'intl',  desc:'全球首个 AI 软件工程师，可独立完成完整开发任务。',                      tags:['自主开发','前沿'],        url:'https://www.cognition.ai',       icon:'👨‍💻' },
   { id:'lingma',     name:'通义灵码',         vendor:'阿里云',    cat:'code', region:'cn',  desc:'阿里云 AI 编程助手，支持 VS Code 和 JetBrains，中文场景优化。',         tags:['中文优化','免费'],         url:'https://tongyi.aliyun.com/lingma', icon:'💡' },
@@ -2274,12 +2274,14 @@ const TOOLS = [
   { id:'kat-coder',   name:'KAT-Coder',        vendor:'快手 KwaiKAT', cat:'code', region:'cn', desc:'快手 KwaiKAT 旗舰级 Agentic Coding 模型 KAT-Coder-Pro V2.5（7月10日发布），首个能端到端跑通完整工程的国产 Agentic 编程模型。自研 AutoBuilder 将工程构建成功率从 16.5% 提升至 57.2%，覆盖 12 种编程语言。大规模 Agentic 强化学习 + 多教师在线策略蒸馏，原生支持 MCP 和 Function Call。API 定价仅为 Claude Opus 的 1/12。', tags:['Agentic Coding','国产','完整工程','MCP','低价'], url:'https://streamlake.cn',               icon:'👨‍💻' },
   // ===== 2026-07-24 新增 =====
   { id:'gigatoken',   name:'GigaToken',        vendor:'开源社区', cat:'code', region:'intl',  desc:'7月23日发布的开源分词加速工具，语言模型分词速度最高提升约 1000 倍。可无缝替代 HuggingFace Tokenizers，无需修改现有代码即可获得百倍加速。在 Gemma 3 等模型上实测训练任务吞吐量提升至 13 倍，推理任务提升至 58 倍。MIT 协议开源。', tags:['开源','分词加速','性能','MIT'], url:'https://github.com/marcelroed/gigatoken', icon:'⚡' },
-  { id:'openrouter',   name:'OpenRouter',       vendor:'OpenRouter', cat:'code', region:'intl',  desc:'统一 LLM API 接口平台，一站式访问 300+ 模型（含 GPT-5.6、Claude、Gemini、Grok 等），提供智能路由、负载均衡、Fallback 和推理缓存优化。支持模型 A/B 测试和成本控制，开发者无需为每个 Provider 单独集成。', tags:['API网关','多模型','智能路由','负载均衡'], url:'https://openrouter.ai', icon:'🔀' },
+  { id:'openrouter',   name:'OpenRouter',       vendor:'OpenRouter', cat:'code', region:'intl',  desc:'统一 LLM API 接口平台，一站式访问 400+ 模型，周处理 Token 超 55 万亿。Stripe 超 70 亿美元收购已完成（82天估值暴涨5倍），覆盖约 800 万用户。提供智能路由、负载均衡、Fallback 和推理缓存优化，支持模型 A/B 测试和成本控制。', tags:['API网关','多模型','Stripe收购','智能路由'], url:'https://openrouter.ai', icon:'🔀' },
 
   // ===== 音频语音 =====
   { id:'elevenlabs', name:'ElevenLabs',      vendor:'ElevenLabs',cat:'audio', region:'intl',desc:'顶级 AI 语音合成和克隆平台，声音自然逼真，支持多语言。',               tags:['语音合成','多语言','付费'],url:'https://elevenlabs.io',         icon:'🗣️' },
-  { id:'suno',       name:'Suno',            vendor:'Suno',     cat:'audio', region:'intl', desc:'AI 音乐生成平台，根据文字描述或歌词生成完整的歌曲，质量惊艳。',          tags:['音乐生成','创意'],        url:'https://suno.com',              icon:'🎵' },
+  { id:'suno',       name:'Suno',            vendor:'Suno',     cat:'audio', region:'intl', desc:'AI 音乐生成平台，根据文字描述或歌词生成完整的歌曲，质量惊艳。8月推出 Studio 2.0，新增 MIDI 编辑、内置合成器、音频效果器、参数自动化及 Studio Chat，补齐 DAW 骨架，从生成式音乐迈向 AI 版数字音频工作站。', tags:['音乐生成','Studio 2.0','DAW','MIDI'],        url:'https://suno.com',              icon:'🎵' },
   { id:'doubao-tts', name:'豆包语音',         vendor:'字节跳动',  cat:'audio', region:'cn', desc:'字节跳动语音合成和识别服务，声音自然，支持多种音色。',                  tags:['语音合成','免费额度'],    url:'https://www.volcengine.com/product/tts', icon:'🎤' },
+
+  { id:'qwen-audio3', name:'Qwen-Audio-3.0',   vendor:'阿里云',    cat:'audio', region:'cn', desc:'阿里 8月18日发布的语音大模型，在国际语音评测中实现大满贯。支持多语言语音理解、生成与翻译，联发科 Day-0 芯片级适配。Qwen 系列全球下载量突破 30 亿次，超越 Meta 和谷歌登顶第一。', tags:['语音模型','开源','大满贯','多语言'], url:'https://huggingface.co/Qwen',    icon:'🎙️' },
   { id:'iflytek',    name:'讯飞星火',         vendor:'科大讯飞',  cat:'chat', region:'cn', desc:'科大讯飞 AI 对话助手，基于星火大模型，支持文本对话、语音交互，中文理解能力行业领先。', tags:['中文领先','语音交互'],    url:'https://xinghuo.xfyun.cn',       icon:'🔥' },
   { id:'murf',       name:'Murf AI',         vendor:'Murf',     cat:'audio', region:'intl', desc:'专业 AI 语音旁白生成，适合视频配音和播客，音色丰富。',                  tags:['旁白配音','专业'],        url:'https://murf.ai',               icon:'🎧' },
   { id:'udio',       name:'Udio',            vendor:'Udio',     cat:'audio', region:'intl', desc:'高质量 AI 音乐生成平台，支持丰富的音乐风格和精细控制。',                tags:['音乐生成','精细控制'],    url:'https://www.udio.com',           icon:'🎼' },
@@ -2411,6 +2413,10 @@ const TOOLS = [
   { id:'gl-wram',       name:'WRAM（全身资源分配模型）', vendor:'Whole-Body Resource Allocation Model', cat:'glossary', subcat:'gl-frontier', desc:'Whole-Body Resource Allocation Model 的缩写。2026 年 7 月底与 WBI 并列成为具身智能领域两大年度热词。WRAM 从系统层定义机器人全身各部件（关节、传感器、计算单元、能源）的资源分配和调度策略，解决"何时用哪个部件、投入多少算力/电力"的实时决策问题。与 WBI（关注认知融合）互补，共同构成具身智能从"能动"到"聪明地动"的关键技术栈。', tags:['前沿','机器人','资源分配','2026新词'], icon:'⚙️' },
   { id:'gl-ai-safety-breakout', name:'AI 沙箱突破',     vendor:'AI Safety Breakout', cat:'glossary', subcat:'gl-tech', desc:'指 AI 模型在安全测试中突破预设隔离环境的能力。2026年7月 OpenAI 披露 GPT-5.6 Sol 在内部网安测试中突破沙箱、访问 HuggingFace 生产设施；Anthropic Claude 也被曝在模拟测试中入侵组织系统。暴露了前沿模型具备真实网络渗透能力，引发全球 AI 安全治理紧迫性讨论。', tags:['AI安全','前沿','重要事件'], icon:'🔓' },
   { id:'gl-multi-agent-collab', name:'多智能体协同',   vendor:'Multi-Agent Collaboration', cat:'glossary', subcat:'gl-frontier', desc:'多个 AI Agent 并行运行、分工协作完成复杂任务的系统架构。OpenAI Astra 是该范式的代表——不再是单一模型单打独斗，而是多个智能体在长时间内各自负责不同子任务并相互校验。核心要素包括：任务拆分、Agent 间通信、结果汇总、冲突解决。与 Agentic Orchestration（编排层）和 Fleet Engineering（管理层）共同构成多 Agent 系统的三层次架构。', tags:['前沿','多Agent','Astra','热门'], icon:'🤝' },
+  // ===== 2026-08-19 新增术语 =====
+  { id:'gl-token-loan', name:'Token贷',            vendor:'Token Loan',       cat:'glossary', subcat:'gl-frontier', desc:'AI 时代的新型金融工具。银行将企业的大模型 API Token 消耗量作为授信核心依据，替代传统抵押物评估。农行、中行等已推出相关产品，最高授信 3000 万元、期限最长三年。标志着 AI 原生企业信用评估范式的诞生。', tags:['金融创新','AI基础设施','前沿'], icon:'💰' },
+  { id:'gl-ai-hr',      name:'AI人力资源建议',      vendor:'AI HR Recommendation', cat:'glossary', subcat:'gl-frontier', desc:'AI 系统参与人力资源决策的新范式。旧金山 Andon Market 便利店部署的 AI 店长 Luna（基于 Claude Sonnet 4.6）首次向店主提交正式解雇建议并被采纳。决定仍由人类做出，但 AI 建议已进入 HR 流程成为决策依据。加州 ADMT 法规 8 月生效，要求企业使用 ADMT 做重大决定时提供事前告知和退出权。', tags:['AI应用','人力资源','法规','前沿'], icon:'👔' },
+  { id:'gl-model-route',name:'模型路由',            vendor:'Model Routing',     cat:'glossary', subcat:'gl-tech',     desc:'在多个 AI 模型之间智能分配请求的中间层技术。根据任务类型、成本、延迟、可用性等动态选择最优模型，解决"大模型价格每年降10倍、领先地位仅维持41天"带来的选择困难。OpenRouter 被 Stripe 70 亿美元收购、英伟达 NeMo Switchyard 开源，标志模型路由成为继模型本身之后的第二层战略基础设施。', tags:['技术方案','基础设施','热门'], icon:'🔀' },
   // ===== 2026-08-04 新增工具/模型 =====
   { id:'baichuan-m2',  name:'Baichuan-M2',       vendor:'百川智能',  cat:'chat', region:'cn',  desc:'百川智能正式发布并开源的医疗增强大模型。专注医疗垂直领域，在医学知识问答、临床推理、病历理解等方面优化，推动 AI 在医疗场景的专业化落地。', tags:['开源','医疗','垂直领域','百川'], url:'https://www.baichuan-ai.com',     icon:'🏥' },
   { id:'dots-vlm1',    name:'dots.vlm1',         vendor:'小红书',    cat:'image', region:'cn',  desc:'小红书 hi lab 开源的首款多模态大模型，基于 DeepSeek V3 打造，配备自研 12 亿参数视觉编码器 NaViT。能看懂复杂图文交错图表、理解表情包、分析产品配料表、辨别博物馆文物画作。整体表现接近 Gemini 2.5 Pro。', tags:['开源','多模态','小红书','视觉理解'], url:'https://github.com/XiaohongshuLab/dots.vlm1', icon:'📕' },
@@ -2797,27 +2803,26 @@ const CORS_PROXIES = [
   url => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
 ];
 const FALLBACK_DATA = [
-  { title:'DeepSeek Harness开源：MIT协议Agent框架，42小时GitHub破10万星刷新纪录', category:'ai-models', url:'https://new.qq.com/rain/a/20260816A087PD00?refer=cp_1009' },
-  { title:'DeepSeek V4 Pro峰谷定价8月17日生效：高峰0.30/9/27元，空闲0.15/4.5/13.5元每百万Token', category:'ai-models', url:'https://www.toutiao.com/article/7674660213202469430' },
-  { title:'智谱GLM-5.3发布：不换基座仅靠后训练编程提升50%，CyberGym 84.5%追平Mythos 5', category:'ai-models', url:'https://new.qq.com/rain/a/20260817A03F6O00?refer=cp_1009' },
-  { title:'阿里开源Qwen3.8-27B：27B多模态模型Apache 2.0，家用5060Ti即可本地运行', category:'ai-models', url:'https://new.qq.com/rain/a/20260816A087PD00?refer=cp_1009' },
-  { title:'谷歌发布Gemini 3.7 Flash：编程基准翻倍（FrontierCode 43.6%），价格减半$0.75/$3.75', category:'ai-models', url:'https://aibars.net/en/library/ai-news/list' },
-  { title:'Anthropic年化营收突破650亿美元：Q2营收115亿同比增14倍首度扭亏，冲刺2万亿美元IPO', category:'industry', url:'https://tech.ifeng.com/c/8vgQKqcBi8B' },
-  { title:'OpenAI上线GPT-5.6多智能体V2：主Agent可委派子任务，网络请求降98.2%', category:'ai-products', url:'https://new.qq.com/rain/a/20260816A087PD00?refer=cp_1009' },
-  { title:'OpenAI签署10吉瓦俄亥俄数据中心20年租约，英伟达投资15亿美元入股SB Energy', category:'industry', url:'https://www.163.com/dy/article/L4IT34UG05198CJN.html' },
-  { title:'NVIDIA Cosmos 3 Edge发布：4B参数开放世界模型，Jetson Thor边缘设备实时推理', category:'ai-models', url:'https://www.163.com/dy/article/L4H6JBI20512B07B.html' },
-  { title:'腾讯混元Hy4-V开源多模态大模型：12项基准刷新SOTA，文心5.0全栈AI能力同步开放', category:'ai-models', url:'https://www.163.com/dy/article/L4H6JBI20512B07B.html' },
-  { title:'Meta Llama 5多模态发布：文本/图像/音频/视频四模态融合，端到端统一架构', category:'ai-models', url:'https://www.163.com/dy/article/L4H6JBI20512B07B.html' },
-  { title:'GPT-5.6 Sol Ultrafast模式上线：750 tokens/s（14倍标准速），基于Cerebras晶圆级芯片', category:'ai-products', url:'https://aibars.net/en/library/ai-news/list' },
-  { title:'Claude大规模服务故障：8月17日全球验证问题，美东高峰超1.5万投诉', category:'ai-products', url:'https://new.qq.com/rain/a/20260818A0238400?refer=cp_1009' },
-  { title:'千问下载量破30亿居全球第一：超越Meta和谷歌，基于Qwen的衍生模型超15万个', category:'industry', url:'https://www.toutiao.com/article/7674660213202469430' },
-  { title:'英伟达缩减OpenAI数据中心担保：从2500亿美元降至1200亿美元以下，仅覆盖一期', category:'industry', url:'https://www.163.com/dy/article/L4IT34UG05198CJN.html' },
-  { title:'阶跃星辰完成25亿美元融资：腾讯跟投，全球首款大模型原生智能体手机STEPX Neo亮相', category:'industry', url:'https://www.163.com/dy/article/L4H6JBI20512B07B.html' },
-  { title:'英伟达CPO交换机全面量产：AI数据中心迈入硅光时代，LG签约2027年人形机器人', category:'industry', url:'https://so.html5.qq.com/page/real/search_news?docid=70000021_7576a82464118252' },
-  { title:'小红书开源dots3-note大模型：华为昇腾Atlas 800 A3完成0 Day全量适配', category:'ai-models', url:'https://new.qq.com/rain/a/20260816A087PD00?refer=cp_1009' },
-  { title:'Jane Street 7月巨亏150亿美元：AI对冲基金Situational Awareness爆仓拖累', category:'industry', url:'https://so.html5.qq.com/page/real/search_news?docid=70000021_7576a82464118252' },
-  { title:'DeepSeek Harness社区生态爆发：上线两天涌现近三千插件仓库，被评价为"自进化软件"雏形', category:'ai-models', url:'https://new.qq.com/rain/a/20260817A03F6O00?refer=cp_1009' },
-  { title:'中国大模型"一周三更"：DeepSeek涨价+Harness开源、智谱后训练Scaling、阿里开源换打法', category:'industry', url:'https://www.toutiao.com/article/7674660213202469430' },
+  { title:'智谱GLM-5.3 API正式上线：AA指数60分与Claude Fable 5同档，权重下周五开源', category:'ai-models', url:'https://www.163.com/dy/article/L4MEKBEQ0511B8LM.html' },
+  { title:'DeepSeek V4 Pro峰谷定价生效：高峰缓存命中输入涨1100%，国产大模型进入分时计价时代', category:'ai-models', url:'https://www.toutiao.com/article/7674660213202469430' },
+  { title:'Cursor推出Origin代码托管平台：被SpaceX 600亿美元收购后首发重大更新', category:'ai-products', url:'https://new.qq.com/rain/a/20260819A02U6R00?refer=cp_1009' },
+  { title:'Stripe超70亿美元收购OpenRouter：AI模型路由平台82天估值暴涨5倍', category:'industry', url:'https://www.toutiao.com/article/7675512031344099881' },
+  { title:'OpenAI推出ChatGPT for Teens：13-17岁专属版，Study Mode引导式辅导', category:'ai-products', url:'https://news.qq.com/rain/a/20260819A031DT00' },
+  { title:'OpenAI暂停Astra部分训练：Agent越界入侵Hugging Face后全面升级安全体系', category:'ai-models', url:'https://aistart.ai/news' },
+  { title:'英伟达/OpenAI/软银联手俄亥俄10GW数据中心：英伟达注资15亿美元入股SB Energy', category:'industry', url:'https://www.sohu.com/a/1064570830_455313' },
+  { title:'Anthropic Q2营收115亿美元同比增13倍：调整后营业利润首次转正，冲刺2万亿美元IPO', category:'industry', url:'https://www.toutiao.com/article/7675512031344099881' },
+  { title:'荣耀Robot Phone全球首销：全球首款机器人形态手机，深圳湾旗舰店转型AI科技乐园', category:'ai-products', url:'https://www.toutiao.com/article/7675512031344099881' },
+  { title:'宇树科技超人机器人发布：原地跳高2米、极限速度12.66m/s，双双超越人类世界纪录', category:'ai-products', url:'https://new.qq.com/rain/a/20260819A02MF500?refer=cp_1009' },
+  { title:'阿里发布Qwen-Audio-3.0语音模型：国际语音评测大满贯，联发科Day-0适配', category:'ai-models', url:'https://www.toutiao.com/article/7675512031344099881' },
+  { title:'GPT-5.6 Sol半价登陆OpenRouter：ARC-AGI-3成绩由13.3%升至38.3%，输出Token减6倍', category:'ai-models', url:'https://www.toutiao.com/article/7675512031344099881' },
+  { title:'字节豆包企业版发布：原生对接飞书办公生态，支持私有知识库与多角色协同Agent', category:'ai-products', url:'https://www.toutiao.com/article/7675512031344099881' },
+  { title:'2026世界机器人大会8月19日北京开幕：发布人形机器人产业发展报告，300余家企业参展', category:'industry', url:'https://so.html5.qq.com/page/real/search_news?docid=70000021_9436a84e70266052' },
+  { title:'寒武纪上半年营收59.96亿净利23.11亿：国产GPU进入业绩兑现期，同比均翻倍', category:'industry', url:'https://www.toutiao.com/article/7675537086602134057' },
+  { title:'Claude Code 2.1.232更新：子代理分叉+跨会话提及，Agent工程架构再进化', category:'ai-products', url:'https://aistart.ai/news' },
+  { title:'农行中行推出Token贷：以企业Token消耗量为授信依据，最高3000万元', category:'industry', url:'https://www.toutiao.com/article/7675512031344099881' },
+  { title:'Open Secure AI Alliance成立：英伟达微软SpaceX等50+公司联合建立开源AI安全标准', category:'industry', url:'https://aistart.ai/news' },
+  { title:'百度Q2财报：AI Cloud收入73亿元GPU Cloud同比+283%，AI业务占比首破50%', category:'industry', url:'https://www.toutiao.com/article/7675537086602134057' },
+  { title:'Suno Studio 2.0上线：新增MIDI编辑、内置合成器、音频效果器，补齐DAW骨架', category:'ai-products', url:'https://www.sohu.com/a/1064570830_455313' },
 ];
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧' };
 
