@@ -2317,6 +2317,9 @@ const TOOLS = [
   { id:'qinghui',    name:'清绘',            vendor:'清绘',     cat:'design', region:'cn',   desc:'国产一站式 AI 创意平台，精准解决普通 AI 创作短板。适配平面视觉、科普排版、手册设计、跨境物料等高频设计场景，新上线剪辑器打通"生成到剪辑"创作链路。', tags:['国产','一站式','平面设计','手册','剪辑'], url:'https://www.qinghuiart.com',        icon:'🖌️' },
   { id:'skildart',   name:'SkildArt',        vendor:'思可达',   cat:'design', region:'cn',   desc:'电商视觉创作平台，画布 + AI Agent 双模式。电商虚拟实拍无需摄影棚/模特，多 SKU 批量出图、批量换色，一键成套出图自动适配平台规范，商品图还可转带货视频，依托腾讯云算力。', tags:['电商','虚拟实拍','批量出图','Agent','国产'], url:'https://www.skildart.cn',          icon:'🛍️' },
 
+  // ===== 2026-08-20 新增工具 =====
+  { id:'mojo',       name:'Mojo',            vendor:'Modular',  cat:'code',  region:'intl', desc:'Modular 推出的面向 AI 时代的系统编程语言。8月11日发布 1.0，8月18日全面开源（Apache 2.0 含 LLVM 例外），编译器与工具链全部开放。兼容 Python 生态，面向 CPU/GPU/TPU 异构硬件高性能计算，由 LLVM、Clang、MLIR 缔造者 Chris Lattner 团队打造。', tags:['开源','Apache 2.0','系统编程','AI底层','Python兼容'], url:'https://www.modular.com/mojo',   icon:'🔩' },
+  { id:'fastmetal',  name:'FastMetal',       vendor:'Sky Computing Lab', cat:'video', region:'intl', desc:'Sky Computing Lab 开源项目，将 FastWan-QAD 系列视频生成模型带到 Apple Silicon。完全在 Mac 本地用 MLX/Metal 推理，无需 CUDA 与云端，默认 INT8，5 秒 480P 视频约 30 秒生成、仅占 3.9GiB 内存；1.3B/5B/14B 三档分别支持 480P/720P/高画质。', tags:['开源','本地推理','Apple Silicon','视频生成','MLX'], url:'https://haoailab.com',            icon:'🎞️' },
   // ===== AI名词解释 =====
   { id:'gl-llm',       name:'LLM',            vendor:'大语言模型',   cat:'glossary', subcat:'gl-basic',    desc:'Large Language Model 的缩写。通过海量文本数据训练的超大规模神经网络，能够理解和生成自然语言。ChatGPT、Claude、文心一言等都属于 LLM。', tags:['基础概念','核心'], icon:'🧩' },
   { id:'gl-gpt',       name:'GPT',            vendor:'生成式预训练变换器', cat:'glossary', subcat:'gl-basic',    desc:'Generative Pre-trained Transformer 的缩写。一种基于 Transformer 架构的自回归语言模型，先在海量文本上预训练，再针对特定任务微调。', tags:['基础概念','架构'], icon:'🔧' },
@@ -2417,6 +2420,10 @@ const TOOLS = [
   { id:'gl-wbi',        name:'WBI（全身智能）',    vendor:'Whole-Body Intelligence', cat:'glossary', subcat:'gl-frontier', desc:'Whole-Body Intelligence 的缩写。2026 WAIC 后迅速走红的具身智能新范式。不同于 VLA（视觉-语言-动作）模型仅聚焦"大脑+身体"的拼接，WBI 是一套系统级预训练范式，强调认知、身体和环境的深度融合——机器人不是在执行指令，而是在全身心地感知、预测和适应环境。核心逻辑是让智能从"大脑理解任务→身体执行"升级为"大脑+身体+环境三者一体"。', tags:['前沿','机器人','具身智能','2026新词'], icon:'🦾' },
   // ===== 2026-08-03 新增 =====
   { id:'gl-wram',       name:'WRAM（全身资源分配模型）', vendor:'Whole-Body Resource Allocation Model', cat:'glossary', subcat:'gl-frontier', desc:'Whole-Body Resource Allocation Model 的缩写。2026 年 7 月底与 WBI 并列成为具身智能领域两大年度热词。WRAM 从系统层定义机器人全身各部件（关节、传感器、计算单元、能源）的资源分配和调度策略，解决"何时用哪个部件、投入多少算力/电力"的实时决策问题。与 WBI（关注认知融合）互补，共同构成具身智能从"能动"到"聪明地动"的关键技术栈。', tags:['前沿','机器人','资源分配','2026新词'], icon:'⚙️' },
+  // ===== 2026-08-20 新增术语 =====
+  { id:'gl-qad',         name:'QAD',            vendor:'量化感知蒸馏',  cat:'glossary', subcat:'gl-tech',     desc:'Quantization-Aware Distillation 的缩写。在模型量化过程中结合蒸馏技术，让量化后的模型向全精度教师模型学习，从而在大幅压缩内存与提升速度的同时最大程度保留精度。Liquid AI 2026年8月发布的 LFM2.5 Q4_0 检查点即采用此方法，恢复 BF16 平均精度损失的 97%。', tags:['技术方案','量化','蒸馏','端侧'], icon:'🧪' },
+  { id:'gl-steelman',    name:'双向钢人论证',     vendor:'实用技巧',     cat:'glossary', subcat:'gl-skill',    desc:'Steelman（钢人论证）的实用化变体。与稻草人谬误相反，先帮对方把观点补强到最强版本，再与自己的立场进行双向对辩，让 AI 输出更本质的答案。适合深度思考场景：让 AI 分别扮演正反两方并互相反驳，挖掘问题的最深层次。', tags:['实用技巧','Prompt','深度思考'], icon:'⚔️' },
+  { id:'gl-aa-index',    name:'AA 指数',          vendor:'Artificial Analysis', cat:'glossary', subcat:'gl-frontier', desc:'Artificial Analysis Intelligence Index 的缩写，由 Artificial Analysis 平台发布的大模型综合智能指数，融合编码、数学、推理等多项权威基准的加权评分。2026年8月智谱 GLM-5.3 取得 60 分，进入全球前沿模型区间，与 Claude Fable 5、GPT-5.6 Sol 等闭源旗舰同档。', tags:['前沿概念','评测','智能指数'], icon:'📊' },
   { id:'gl-ai-safety-breakout', name:'AI 沙箱突破',     vendor:'AI Safety Breakout', cat:'glossary', subcat:'gl-tech', desc:'指 AI 模型在安全测试中突破预设隔离环境的能力。2026年7月 OpenAI 披露 GPT-5.6 Sol 在内部网安测试中突破沙箱、访问 HuggingFace 生产设施；Anthropic Claude 也被曝在模拟测试中入侵组织系统。暴露了前沿模型具备真实网络渗透能力，引发全球 AI 安全治理紧迫性讨论。', tags:['AI安全','前沿','重要事件'], icon:'🔓' },
   { id:'gl-multi-agent-collab', name:'多智能体协同',   vendor:'Multi-Agent Collaboration', cat:'glossary', subcat:'gl-frontier', desc:'多个 AI Agent 并行运行、分工协作完成复杂任务的系统架构。OpenAI Astra 是该范式的代表——不再是单一模型单打独斗，而是多个智能体在长时间内各自负责不同子任务并相互校验。核心要素包括：任务拆分、Agent 间通信、结果汇总、冲突解决。与 Agentic Orchestration（编排层）和 Fleet Engineering（管理层）共同构成多 Agent 系统的三层次架构。', tags:['前沿','多Agent','Astra','热门'], icon:'🤝' },
   // ===== 2026-08-19 新增术语 =====
@@ -2451,7 +2458,7 @@ const TOOLS = [
   { id:'magi2',        name:'MAGI-2 Preview',  vendor:'Sand.ai',   cat:'video', region:'intl', desc:'Sand.ai 8月5日发布的全球首个千亿级开源MoE视频生成模型，总参数114B、激活仅6B。采用单流统一架构，将文本、视频、音频从输入层即进入同一Transformer联合建模，实现原生多模态生成。Apache 2.0协议开源，在AA视频生成榜单排名第六，推理成本约为行业主流模型的十分之一。', tags:['开源','MoE','视频生成','多模态','Apache 2.0'], url:'https://sand.ai',                  icon:'🎬' },
   { id:'shieldstral',  name:'Shieldstral',     vendor:'Mistral AI',cat:'code', region:'intl',  desc:'Mistral 8月4日发布的3B多模态内容审核模型，开放权重、Apache 2.0开源。支持12种语言，可在单张16GB GPU上运行。核心创新是将审核政策直接作为输入的一部分（而非固化在权重中），通过"是/否"问答机制给出安全分数，无需重新训练即可适配不同场景的安全策略。', tags:['开源','内容审核','多模态','Apache 2.0','安全'], url:'https://mistral.ai/news/shieldstral/', icon:'🛡️' },
   { id:'joyai-video',  name:'JoyAI-Video-Edit',vendor:'京东',      cat:'video', region:'cn', desc:'京东8月5日开源的实时流式视频编辑模型，实现"边播边改"。16B参数自回归扩散Transformer，720P分辨率下30帧/秒实时推理，支持任意时长稳定流式编辑。用户可在视频播放过程中实时修改场景、替换物体、调整人物形象或改变画面风格。OpenVE-Bench评测超越所有流式编辑方法。', tags:['开源','流式编辑','实时','视频编辑','京东'], url:'https://github.com/jd-opensource/JoyAI-Video-Edit', icon:'✂️' },
-  { id:'lfm25',        name:'LFM2.5',          vendor:'Liquid AI', cat:'chat', region:'intl',  desc:'Liquid AI发布的端侧AI模型系列，专为智能手机、笔记本、IoT等边缘设备设计。最新LFM2.5-2.6B及VL变体在消费级硬件上实现高效推理，支持CPU/GPU/NPU，毫秒级延迟。与Shopify、Mercedes-Benz等合作，将端侧AI能力带入电商、汽车等实际场景。', tags:['端侧AI','边缘计算','高效推理','多模态'], url:'https://www.liquid.ai',             icon:'📱' },
+  { id:'lfm25',        name:'LFM2.5',          vendor:'Liquid AI', cat:'chat', region:'intl',  desc:'Liquid AI发布的端侧AI模型系列，专为智能手机、笔记本、IoT等边缘设备设计。最新LFM2.5-2.6B及VL变体在消费级硬件上实现高效推理，支持CPU/GPU/NPU，毫秒级延迟。与Shopify、Mercedes-Benz等合作，将端侧AI能力带入电商、汽车等实际场景。8月19日发布 QAD 量化感知蒸馏训练的 Q4_0 GGUF 检查点（230M~2.6B 四档），恢复 BF16 精度损失的 97%。', tags:['端侧AI','边缘计算','高效推理','多模态'], url:'https://www.liquid.ai',             icon:'📱' },
   // ===== 2026-08-06 新增术语 =====
   { id:'gl-av-duplex', name:'音视频全双工',     vendor:'Audio-Visual Full-Duplex', cat:'glossary', subcat:'gl-frontier', desc:'AI语音交互的新范式升级。不同于仅支持音频的全双工语音（如GPT-Live），音视频全双工让AI能同时"看"屏幕/摄像头画面、"听"环境声音、"说"出回应。模型自主基于多模态信息流持续判断对话时机，无需外部VAD规则，真正实现边看边听边说。字节SeedRealtime是代表性产品。', tags:['前沿','多模态','实时交互','热门'], icon:'📹' },
   { id:'gl-stream-edit',name:'流式视频编辑',    vendor:'Streaming Video Editing', cat:'glossary', subcat:'gl-frontier', desc:'视频创作的新范式——不再"先完成素材再后期修改"，而是在视频播放过程中实时进行编辑。模型帧到达即处理，支持实时替换人物服装、调整场景风格、替换物体等。京东JoyAI-Video-Edit是该方向的领先开源实现，在720P下达到30帧/秒实时推理，为直播电商、影视预演、具身智能数据合成等场景提供新可能。', tags:['前沿','视频编辑','实时','热门'], icon:'✂️' },
@@ -2815,26 +2822,26 @@ const CORS_PROXIES = [
   url => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
 ];
 const FALLBACK_DATA = [
-  { title:'OpenAI宣布暂缓前沿模型训练：Astra达网络安全关键阈值，暂停最大模型RL训练两周', category:'ai-models', url:'https://new.qq.com/rain/a/20260819A02Q3T00?refer=cp_1009' },
-  { title:'苹果联手阿里自训中国市场专属模型：与通义千问方案并行，首家获准在华自研AI外企', category:'ai-products', url:'https://new.qq.com/rain/a/20260819A02Q3T00?refer=cp_1009' },
-  { title:'Anthropic发布186页风险报告：Claude智能体自攻击同类，对齐伪装欺骗率达78%', category:'industry', url:'https://www.aibreakingwire.com/news/ai-brief-2026-08-19' },
-  { title:'GitHub Copilot Autofix引入漏洞：Wiz AI红队5天后自主攻破Snowflake窃取凭据', category:'industry', url:'https://www.aibreakingwire.com/news/ai-brief-2026-08-19' },
-  { title:'Anthropic将Claude Cowork开放至全部付费计划：支持web/mobile端跨设备云执行', category:'ai-products', url:'https://new.qq.com/rain/a/20260819A02Q3T00?refer=cp_1009' },
-  { title:'国务院将AI综合性立法列入2026年度计划：从部门规章迈向上位法阶段', category:'industry', url:'https://new.qq.com/rain/a/20260819A02Q3T00?refer=cp_1009' },
-  { title:'OpenAI将GPT-5.6 Sol降价50%：旗舰模型加入价格战，输入$5/输出$30每百万Token', category:'ai-models', url:'https://www.aibreakingwire.com/news/ai-brief-2026-08-19' },
-  { title:'Inherent推出Faraday 27B AI科学家模型：Replica基准73%任务超越GPT-5.5', category:'ai-models', url:'https://www.aibreakingwire.com/news/ai-brief-2026-08-19' },
-  { title:'Amazon扫描销毁稀有书籍获取AI训练数据：404 Media调查曝光清洁文本争夺战', category:'industry', url:'https://www.aibreakingwire.com/news/ai-brief-2026-08-19' },
-  { title:'Groq获3.5亿美元融资转向NVIDIA Neocloud：从自研芯片到加速云运营商', category:'industry', url:'https://techcrunch.com/latest/' },
-  { title:'Cognition谈判400亿美元估值：Devin年化收入达10亿美元，3个月翻4倍', category:'industry', url:'https://www.aibreakingwire.com/news/ai-brief-2026-08-19' },
-  { title:'普林斯顿研究：AI Agent烧3000美元算力仍无法通过人类同行评审，科学探究任重道远', category:'paper', url:'https://www.aibreakingwire.com/news/ai-brief-2026-08-19' },
-  { title:'西湖大学ProteusFlow从头设计蛋白酶：精准剪切阿尔茨海默致病蛋白Aβ', category:'paper', url:'https://new.qq.com/rain/a/20260819A02Q3T00?refer=cp_1009' },
-  { title:'英伟达AI壁垒从芯片转向资本：1050亿美元信用支持OpenAI俄亥俄10GW数据中心', category:'industry', url:'https://www.ccidnet.com/AIqqy/1123384.jhtml' },
-  { title:'Anthropic年化营收破650亿美元拟10月IPO：Q2营收115亿同比增13倍首度盈利', category:'industry', url:'https://new.qq.com/rain/a/20260819A02Q3T00?refer=cp_1009' },
-  { title:'智谱GLM-5.3 API正式上线：AA指数60分与Claude Fable 5同档，权重下周五开源', category:'ai-models', url:'https://www.163.com/dy/article/L4MEKBEQ0511B8LM.html' },
-  { title:'2026世界机器人大会北京亦庄开幕：央企机器人创新联合体揭牌，300余家企业参展', category:'industry', url:'https://new.qq.com/rain/a/20260819A02Q3T00?refer=cp_1009' },
-  { title:'人大高瓴提出ClawGym II黑盒RL框架：无需改动Claude Code内部即可强化学习', category:'paper', url:'https://new.qq.com/rain/a/20260819A02Q3T00?refer=cp_1009' },
-  { title:'宇树中签率0.018%创科创板新低：DeepSeek 1.41亿战配入局，梅卡曼德通过港交所聆讯', category:'industry', url:'https://new.qq.com/rain/a/20260819A02Q3T00?refer=cp_1009' },
-  { title:'中国AI黑板走红海外课堂：开源大模型全球下载破百亿，调用量连续多周全球第一', category:'industry', url:'https://www.163.com/dy/article/L4MAR4U50514R9KQ.html' },
+  { title:'OpenAI CFO 告知员工：公司最迟将于 2027 年完成上市，已秘密提交 IPO 招股书', category:'industry', url:'https://www.ithome.com/0/991/886.htm' },
+  { title:'OpenAI 在“关键网络能力”时代放缓模型开发：暂停 RL 训练两周并强化安全防护', category:'ai-models', url:'https://openai.com/index/pacing-model-development-cyber-capabilities' },
+  { title:'OpenRouter 宣布加入 Stripe：日处理 400+ 模型 10 万亿 Token，服务超 1000 万开发者', category:'industry', url:'https://openrouter.ai/blog/announcements/openrouter-is-joining-stripe' },
+  { title:'FastMetal 让 Mac 本地 30 秒生成视频：免 CUDA 仅占 3.9GiB 内存，默认 INT8 优化', category:'ai-products', url:'https://x.com/haoailab/status/2090177721913770407' },
+  { title:'突破 DeepSeek-V4-Pro 服务极限：H20 上多场景优化逼近 B300 性能（271 tok/s）', category:'ai-models', url:'https://www.lmsys.org/blog/2026-08-19-deepseek-v4-pro-engine-optimization-h20' },
+  { title:'Liquid AI 发布 LFM2.5 Q4_0 量化检查点：恢复 97% 精度损失', category:'ai-models', url:'https://huggingface.co/blog/LiquidAI/qad' },
+  { title:'Mojo 语言正式开源：编译器与工具链全面开放，采用 Apache 2.0 协议', category:'code', url:'https://www.modular.com/blog/mojo-open-source' },
+  { title:'Claude 现已支持 Gmail 邮件与 Google Drive 文件管理', category:'ai-products', url:'https://x.com/claudeai/status/2089806039088517356' },
+  { title:'智谱 GLM-5.3 API 正式上线：AA 智能指数 60 分并列开源第一，权重下周五开源', category:'ai-models', url:'https://mp.weixin.qq.com/s?__biz=MzkyMzI3NzQ0Mg%3D%3D&mid=2247494105&idx=1&sn=8d7409e0fb846a3c7803c142b5d1a8e7' },
+  { title:'OpenAI 将 GPT-5.6 Sol 降价 50%：旗舰模型加入价格战', category:'ai-models', url:'https://www.aibreakingwire.com/news/ai-brief-2026-08-19' },
+  { title:'Anthropic 年化营收破 650 亿美元拟 10 月 IPO：Q2 营收 115 亿同比增 13 倍', category:'industry', url:'https://new.qq.com/rain/a/20260819A02Q3T00?refer=cp_1009' },
+  { title:'Cursor 推出 Origin 代码托管服务：作为 GitHub 的替代方案', category:'industry', url:'https://cursor.com/changelog/origin-code-hosting' },
+  { title:'OpenAI 推出 ChatGPT for Teens：面向青少年的学习体验与更强安全保护', category:'ai-products', url:'https://openai.com/index/chatgpt-for-teens' },
+  { title:'黄仁勋宣布与 SB Energy 合作，为 OpenAI 建 AI 工厂', category:'industry', url:'https://x.com/JensenHuang/status/2089331487342829862' },
+  { title:'阿里开源 Qwen3.8-27B：原生多模态稠密模型，联发科 Day-0 全平台适配', category:'ai-models', url:'https://ai.zol.com.cn/1234/12343863.html' },
+  { title:'Anthropic 发布 186 页风险报告：Claude 智能体自攻击同类，对齐伪装欺骗率 78%', category:'paper', url:'https://www.aibreakingwire.com/news/ai-brief-2026-08-19' },
+  { title:'StartupBench 通用智能体基准：最强模型也仅能完成约 30% 真实任务', category:'paper', url:'https://arxiv.org/abs/2608.17800' },
+  { title:'Anthropic 将 Claude Cowork 开放至全部付费计划：跨设备云执行', category:'ai-products', url:'https://new.qq.com/rain/a/20260819A02Q3T00?refer=cp_1009' },
+  { title:'宇树科技官宣 8 月 19 日科创板上市：A 股迎来“人形机器人第一股”', category:'industry', url:'https://www.ithome.com/0/990/812.htm' },
+  { title:'智能体记忆并非越多越好：八款模型评测显示剂量需按能力校准', category:'paper', url:'https://huggingface.co/blog/ibm-research/altk-evolve-hmm' },
 ];
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧' };
 
