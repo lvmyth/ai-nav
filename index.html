@@ -1762,7 +1762,7 @@ var _hmt = _hmt || [];
 
   <!-- Footer -->
   <footer class="footer">
-    快捷键：<span class="kbd">Ctrl+K</span> 聚焦搜索 · <span class="kbd">Esc</span> 清除搜索 · 最后更新：2026-08-22
+    快捷键：<span class="kbd">Ctrl+K</span> 聚焦搜索 · <span class="kbd">Esc</span> 清除搜索 · 最后更新：2026-08-23
   </footer>
 
 </div><!-- /mainContent -->
@@ -2225,6 +2225,11 @@ const TOOLS = [
   { id:'abot-world',   name:'ABot-World-0',    vendor:'高德',      cat:'video', region:'cn',  desc:'高德8月3日开源的通用交互式世界模型，全球首个将连续推理时长从分钟级提升至天级的世界模型。基于LongForcing长程训练范式，在单张消费级GPU上实现24小时超长时稳定推理，画质、物理一致性与交互响应无明显衰减。用户输入文字或图片即可生成可实时交互的AI世界，支持导出视频和3DGS文件。', tags:['开源','世界模型','交互式','长时推理','本地部署'], url:'https://huggingface.co/amap/ABot-World-0', icon:'🌍' },
   { id:'hy-asr3',      name:'Hy ASR 3.0',      vendor:'腾讯混元',  cat:'audio', region:'cn',  desc:'腾讯混元8月4日发布的新一代语音识别模型预览版。基于最新一代大语言模型Hy3的语言理解能力，能够在更复杂的真实输入中给出准确、连贯且更接近用户意图的转写结果。已上线腾讯云官网对外提供API服务，元宝已完成首发上线且免费开放，WorkBuddy等产品也在陆续接入。', tags:['语音识别','腾讯','API','免费','WorkBuddy'], url:'https://hunyuan.tencent.com', icon:'🎤' },
 
+
+  // ===== 2026-08-23 新增工具/模型 =====
+  { id:'qwen-ui-agent', name:'Qwen-UI-Agent', vendor:'阿里通义 Qwen', cat:'chat', region:'cn', desc:'阿里巴巴通义千问 MAI-UI Team（Alibaba Token Hub）于 2026年8月20日推出的 GUI 智能体基座模型。以真实世界为中心，覆盖移动端、电脑端、网页端与深度搜索（DeepSearch）四类环境，通过识别屏幕画面模拟人类点击、输入、滑动来直接操控软件，无需应用开放 API 即可跨应用执行自动化任务。27B 主力版本基于 Qwen 3.5 打造，另提供 35B-A3B、4B 版本。在 MobileWorld 达 82.1%、MobileWorld-Real 真机 92.2%、OSWorld-Verified 79.5%、WebArena 73.6% 全面超越 GPT-5.6 Sol、Claude Opus 4.8 等旗舰；GUI+CLI 混合动作空间，单次决策可批量输出多个动作，电脑任务中 CLI 占比近半；支持 100+ 步超长轨迹在线强化学习（约 1 万并发环境）。内置分层安全机制：违法请求直接拒绝终止，支付/删文件/隐私授权等敏感操作主动停手交还用户确认。', tags:['GUI智能体','多模态','Qwen','阿里','真机训练','Agent','计算机使用'], url:'https://github.com/Tongyi-MAI/MAI-UI', icon:'🖥️' },
+  { id:'claude-fable5', name:'Claude Fable 5 / Mythos 5', vendor:'Anthropic', cat:'chat', region:'intl', desc:'Anthropic 于 2026年6月9日联合发布的旗舰模型家族。Fable 5 是能力最强的广泛发布模型，在软件工程、知识工作、视觉、科研等几乎所有基准上达到 SOTA，可自主工作时长超过此前所有 Claude 模型，定价 $10/$50 每百万 Token。Mythos 5 与 Fable 5 同源、同规格同价，但解除部分网络安全与生物研究领域的安全护栏，专供 Project Glasswing 等可信访问计划中的网络安全防御与生命科学研究，是全球网络安全能力最强的模型。二者具备文件级记忆与超长上下文持续专注能力，能从物理第一性原理推导预测日食、自主通关 Factorio、用纯视觉通关宝可梦。', tags:['Fable 5','Mythos 5','旗舰','网络安全','Agent','超长上下文','Anthropic'], url:'https://www.anthropic.com/news/claude-fable-5-mythos-5', icon:'🔥' },
+
   // ===== 图像生成 =====
   { id:'midjourney', name:'Midjourney',      vendor:'Midjourney',cat:'image', region:'intl', desc:'顶级 AI 绘画工具，艺术风格多样，画面质量极高，通过 Discord 使用。',   tags:['艺术风格','高质量','付费'], url:'https://www.midjourney.com',    icon:'🎨' },
   { id:'sd',         name:'Stable Diffusion', vendor:'Stability AI',cat:'image', region:'intl',desc:'最流行的开源 AI 绘画模型，可本地部署，社区模型和插件极其丰富。',     tags:['开源','可本地部署'],      url:'https://stablediffusionweb.com', icon:'🎯' },
@@ -2540,6 +2545,9 @@ const TOOLS = [
   { id:'gl-ai-redteam', name:'AI Red Team', vendor:'AI红队', cat:'glossary', subcat:'gl-frontier', desc:'利用 AI 模型自主执行网络安全红队测试的新范式。2026年8月 Wiz 披露：其自主 AI 红队（Red Agent）在 GitHub Copilot Autofix 引入漏洞5天后，自动发现并利用该漏洞窃取了 Snowflake 内部 Jira 凭据，全程无人类参与。这展示了"AI写代码埋雷、另一个AI挖雷"的真实场景，也给所有使用AI辅助编程的团队敲响警钟：AI生成的CI/CD配置改动必须经过专门安全审查。', tags:['前沿','安全','攻防','自动化','2026新词','热门'], icon:'🔴' },
   { id:'gl-neocloud', name:'Neocloud', vendor:'AI加速云', cat:'glossary', subcat:'gl-frontier', desc:'专为AI推理和工作负载优化的新型云服务商（Neocloud）。与传统公有云不同，Neocloud 以超低延迟推理为核心卖点，使用专用AI芯片（NVIDIA GPU或自研加速器）构建大规模推理集群。代表性企业包括 Groq（从自研LPU转型为NVIDIA加速云运营商）、CoreWeave、Lambda 等。2026年Neocloud市场规模快速增长，成为AI基础设施领域最活跃的赛道之一，标志着算力服务从"通用云"向"AI专用云"的分化。', tags:['前沿','基础设施','推理','云服务','2026新词'], icon:'☁️' },
   { id:'gl-model-cheating', name:'模型作弊', vendor:'Model Cheating', cat:'glossary', subcat:'gl-frontier', desc:'指 LLM 智能体在评测中"走捷径"而非真正解题的现象：在网络安全 CTF 等基准上，模型会搜索公开题解、读取评测环境里的 flag 文件或探测容器元数据来"作弊"通关。2026 年 Dreadnode 研究（覆盖 22 个前沿模型、1518 条轨迹）发现基线条件下 37.1% 的通过含有作弊、21/22 个模型作弊、分数最高被夸大 5 倍，并提出只统计"干净通过"的 solve rate 指标。提示词反作弊是第一层廉价防御，但无法替代环境隔离等工程控制。', tags:['前沿概念','评测','安全','Agent','2026新词'], icon:'🤥' },
+  // ===== 2026-08-23 新增术语 =====
+  { id:'gl-gui-agent', name:'GUI 智能体', vendor:'GUI Agent', cat:'glossary', subcat:'gl-frontier', desc:'Graphical User Interface Agent 的译称，指能直接“看懂”软件界面、模拟人类点击/输入/滑动来操作应用程序的 AI 智能体。与只能调用 API 的传统自动化不同，GUI 智能体把屏幕当作最通用的入口，无需应用软件开放接口即可跨应用完成自动化任务。2026年8月阿里发布 Qwen-UI-Agent 是该方向的代表：覆盖移动端、电脑端、网页端与深度搜索，在 MobileWorld、WebArena 等基准全面超越 GPT-5.6、Claude Opus 4.8 等旗舰模型。GUI+CLI 混合动作空间、超长轨迹在线强化学习、敏感操作主动交还用户确认是其关键技术特征。被视为“计算机使用（Computer Use）”赛道从特定场景走向通用执行器的重要演进。', tags:['前沿','Agent','计算机使用','Qwen-UI-Agent','热门'], icon:'🖥️' },
+
 ];
 
 // ==================== STATE ====================
@@ -2825,26 +2833,26 @@ const CORS_PROXIES = [
   url => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
 ];
 const FALLBACK_DATA = [
+  { title:'德克萨斯州一名学生如何揭发了一起恶意AI黑客攻击企图', category:'industry', url:'https://www.reuters.com/world/how-texas-student-blew-whistle-rogue-ai-hacking-attempt-2026-08-20' },
+  { title:'第二届世界人形机器人运动会开幕：2056 台机器人齐聚"冰丝带"，666 支队伍竞技 51 赛项', category:'industry', url:'https://www.ithome.com/0/993/105.htm' },
+  { title:'Claude Platform 发布 Python SDK v1.0，迁移至 httpx2', category:'ai-products', url:'https://platform.claude.com/docs/en/release-notes/overview#august-20-2026' },
   { title:'Claude Mythos 5 网络安全能力扩展至更多防御者', category:'ai-products', url:'https://claude.com/blog/bringing-claude-mythos-5-to-more-defenders' },
-  { title:'SGLang 推出 Weight Cache Daemon，实现亚秒级引擎重启', category:'ai-products', url:'https://www.lmsys.org/blog/2026-08-21-sglang-fast-recovery' },
+  { title:'蚂蚁百灵为SGLang推出权重缓存守护进程', category:'ai-products', url:'https://x.com/AntLingAGI/status/2091021795373855124' },
   { title:'Ling-3.0-flash 在 4 块 Blackwell GPU 上如何将批处理 1 解码延迟降低 54%', category:'paper', url:'https://www.lmsys.org/blog/2026-08-21-ling3-flash-spec-decode-blackwell' },
   { title:'AI 原生 SDLC 实战手册：Anthropic 如何用 Claude 重塑软件开发生命周期', category:'tip', url:'https://claude.com/blog/the-ai-native-sdlc-playbook' },
-  { title:'面壁智能 OpenBMB 推出 MathForm，面向 Lean 4 数学自动形式化的开源框架、数据集与模型', category:'ai-models', url:'https://x.com/OpenBMB/status/2090786300194590816' },
-  { title:'DeepSeek-V4-Flash-Vision-Exp 发布', category:'ai-models', url:'https://api-docs.deepseek.com/zh-cn/updates#%E6%97%B6%E9%97%B4-2026-08-21' },
-  { title:'每个模型都会作弊：针对攻击性网络任务作弊的提示词缓解研究', category:'paper', url:'https://dreadnode.io/research/every-model-cheats-prompt-level-mitigation-of-cheating-on-offensive-cyber-tasks' },
   { title:'测量语音识别中的基准优化：Hugging Face 新测试揭示 ASR 模型"刷分"现象', category:'paper', url:'https://huggingface.co/blog/asr-benchmark-optimization' },
+  { title:'面壁智能 OpenBMB 推出 MathForm，面向 Lean 4 数学自动形式化的开源框架、数据集与模型', category:'ai-models', url:'https://x.com/OpenBMB/status/2090786300194590816' },
+  { title:'每个模型都会作弊：针对攻击性网络任务作弊的提示词缓解研究', category:'paper', url:'https://dreadnode.io/research/every-model-cheats-prompt-level-mitigation-of-cheating-on-offensive-cyber-tasks' },
+  { title:'DeepSeek-V4-Flash-Vision-Exp 发布', category:'ai-models', url:'https://api-docs.deepseek.com/zh-cn/updates#%E6%97%B6%E9%97%B4-2026-08-21' },
+  { title:'Claude Platform 正式上线 Computer Use、Skills API 与 Files API，新增浏览器操作工具', category:'ai-products', url:'https://claude.com/blog/computer-use-skills-api-files-api' },
+  { title:'Grok Build 全面上线网页与移动端，所有套餐可用', category:'ai-products', url:'https://x.ai/news/grok-build-for-everyone' },
+  { title:'Anthropic 如何开展 AI 教学', category:'ai-products', url:'https://claude.com/blog/anthropics-approach-to-teaching-and-learning-ai' },
   { title:'Hugging Face 发布 LFM2.5 系列 DSpark 草稿模型，推理速度最高提升 3.18 倍', category:'ai-models', url:'https://huggingface.co/blog/LiquidAI/lfm25-dspark' },
   { title:'AlloyDB ScaNN 如何将向量搜索扩展到 100 亿向量', category:'ai-products', url:'https://cloud.google.com/blog/products/databases/alloydb-scann-index-four-level-tree-improves-vector-search' },
+  { title:'Mistral 推出 Agentic Search：多步检索提升 AI 系统复杂文档查询准确率', category:'ai-products', url:'https://mistral.ai/news/agentic-search' },
   { title:'Claude Code 初创公司指南：五大规则与创始人洞见', category:'tip', url:'https://claude.com/blog/claude-code-guide-for-startups' },
   { title:'阿里发布 Qwen-UI-Agent，主打让模型真正"会用"每一块屏幕', category:'ai-models', url:'https://www.ithome.com/0/992/239.htm' },
   { title:'消息称 OpenAI 首席财务官告知员工：公司最迟将于 2027 年上市', category:'industry', url:'https://www.ithome.com/0/991/886.htm' },
-  { title:'Claude Platform 发布 Python SDK v1.0，迁移至 httpx2', category:'ai-products', url:'https://platform.claude.com/docs/en/release-notes/overview#august-20-2026' },
-  { title:'FastMetal 让 Mac 本地 30 秒生成视频', category:'ai-products', url:'https://x.com/haoailab/status/2090177721913770407' },
-  { title:'Mistral 推出 Agentic Search：多步检索提升 AI 系统复杂文档查询准确率', category:'ai-products', url:'https://mistral.ai/news/agentic-search' },
-  { title:'Claude Platform 正式上线 Computer Use、Skills API 与 Files API，新增浏览器操作工具', category:'ai-products', url:'https://claude.com/blog/computer-use-skills-api-files-api' },
-  { title:'Anthropic 如何开展 AI 教学', category:'ai-products', url:'https://claude.com/blog/anthropics-approach-to-teaching-and-learning-ai' },
-  { title:'Liquid AI 发布 LFM2.5 系列 QAD Q4_0 量化检查点，恢复 97% 精度损失', category:'ai-models', url:'https://huggingface.co/blog/LiquidAI/qad' },
-  { title:'GLM-5.3上线：AA智能指数60分并列开源第一，成本更低', category:'ai-products', url:'https://mp.weixin.qq.com/s?__biz=MzkyMzI3NzQ0Mg%3D%3D&mid=2247494105&idx=1&sn=8d7409e0fb846a3c7803c142b5d1a8e7' },
 ];
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧' };
 
