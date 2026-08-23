@@ -2202,9 +2202,11 @@ const GLOSSARY_SUBCATS = [
 
 // 图标渲染:支持 emoji 或品牌 logo 图片路径
 function iconHtml(icon, fallback) {
-  if (!icon) return fallback || '🔧';
+  var fb = fallback || '🔧';
+  if (!icon) return fb;
   if (icon.indexOf('images/') === 0 || icon.indexOf('http') === 0) {
-    return '<img class="tool-logo" src="' + icon + '" alt="" loading="lazy" onerror="this.style.display=\'none\'">';
+    var safeFb = fb.replace(/'/g, "\\'");
+    return '<img class="tool-logo" src="' + icon + '" alt="" loading="lazy" onerror="this.outerHTML=\'' + safeFb + '\'">';
   }
   return icon;
 }
