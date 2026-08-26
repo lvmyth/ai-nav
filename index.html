@@ -1829,10 +1829,8 @@ function dealCards(region) {
   }
   if(tools.length === 0) return;
 
-  // AI术语：走通用飞牌流程(从 AI 术语按钮起飞),发前 30 张避免卡顿
-  if(region === 'glossary') {
-    tools = tools.slice(0, 30);
-  }
+  // AI术语：走通用飞牌流程(从 AI 术语按钮起飞),飞牌动画仅 30 张,牌桌渲染全部术语
+  // (totalCards 限制在下方,无需截断 tools)
 
   isDealing = true;
   dealtRegion = region;
