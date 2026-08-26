@@ -1829,22 +1829,9 @@ function dealCards(region) {
   }
   if(tools.length === 0) return;
 
-  // AI术语：直接显示卡片，无需飞牌
+  // AI术语：走通用飞牌流程(从 AI 术语按钮起飞),发前 30 张避免卡顿
   if(region === 'glossary') {
-    playDealSound();
-    isDealing = true;
-    dealtRegion = 'glossary';
-    var felt = document.getElementById('tableFelt');
-    felt.innerHTML = '';
-    document.getElementById('pokerPhase').classList.add('dealt');
-    // 显示对应搜索栏
-    document.getElementById('tableSearch').classList.add('show');
-    document.getElementById('searchGlossary').classList.add('active');
-    document.getElementById('searchTools').classList.remove('active');
-    renderCardsToFelt(tools, felt);
-    buildCategoryBar(tools, felt, 'glossary');
-    isDealing = false;
-    return;
+    tools = tools.slice(0, 30);
   }
 
   isDealing = true;
@@ -1885,8 +1872,13 @@ function dealCards(region) {
   document.getElementById('pokerPhase').classList.add('dealt');
   // 显示对应搜索栏
   document.getElementById('tableSearch').classList.add('show');
-  document.getElementById('searchTools').classList.add('active');
-  document.getElementById('searchGlossary').classList.remove('active');
+  if(region === 'glossary'){
+    document.getElementById('searchGlossary').classList.add('active');
+    document.getElementById('searchTools').classList.remove('active');
+  } else {
+    document.getElementById('searchTools').classList.add('active');
+    document.getElementById('searchGlossary').classList.remove('active');
+  }
 
   // 创建飞牌 — 扇形散开效果
   var duration = 500;
@@ -1953,7 +1945,11 @@ function collectCards(region) {
   playCollectSound();
   var felt = document.getElementById('tableFelt');
   var cards = felt.querySelectorAll('.table-card');
+  // 收牌起点:优先找牌堆,术语则用 AI 术语按钮
   var deck = document.querySelector('.poker-deck[data-region="'+region+'"]');
+  if(region === 'glossary') {
+    deck = document.getElementById('glossaryBtn');
+  }
   if(!deck || cards.length === 0) {
     // 没有卡片直接重置
     felt.innerHTML = '';
