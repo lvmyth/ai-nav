@@ -158,6 +158,19 @@
     color: var(--text-secondary);
     letter-spacing: 0.5px;
   }
+  .update-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    color: #7dd3fc;
+    background: rgba(56, 189, 248, 0.12);
+    border: 1px solid rgba(56, 189, 248, 0.35);
+    padding: 3px 12px;
+    border-radius: 20px;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+  }
   .poker-search-sm { margin-top: 4px; }
   .poker-search-sm-input {
     width: 200px;
@@ -1651,6 +1664,7 @@ var _hmt = _hmt || [];
       </div>
       <div class="poker-info">
         <div class="poker-subtitle">精选优质 AI 工具与核心技术术语</div>
+        <div class="update-badge">🕒 更新于 <span id="navUpdateDate">--</span></div>
         <button class="poker-glossary-btn" id="glossaryBtn" onclick="dealCards('glossary')">📖 AI 术语</button>
       </div>
     </div>
@@ -1768,7 +1782,7 @@ var _hmt = _hmt || [];
 
   <!-- Footer -->
   <footer class="footer">
-    快捷键：<span class="kbd">Ctrl+K</span> 聚焦搜索 · <span class="kbd">Esc</span> 清除搜索 · 最后更新：2026-08-27
+    快捷键：<span class="kbd">Ctrl+K</span> 聚焦搜索 · <span class="kbd">Esc</span> 清除搜索 · 最后更新：<span id="footUpdateDate">--</span>
   </footer>
 
 </div><!-- /mainContent -->
@@ -2209,6 +2223,15 @@ function iconHtml(icon, fallback) {
   }
   return icon;
 }
+
+// ===== 更新日期:每日更新时只需修改此变量 =====
+var NAV_UPDATE_DATE = '2026-08-27';
+(function(){
+  var el1 = document.getElementById('navUpdateDate');
+  var el2 = document.getElementById('footUpdateDate');
+  if(el1) el1.textContent = NAV_UPDATE_DATE;
+  if(el2) el2.textContent = NAV_UPDATE_DATE;
+})();
 
 const TOOLS = [
   // ===== 对话聊天 =====
