@@ -2225,7 +2225,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-08-27';
+var NAV_UPDATE_DATE = '2026-08-28';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -2615,6 +2615,11 @@ const TOOLS = [
   { id:'gl-metaroce', name:'MetaRoCE', vendor:'Meta', cat:'glossary', subcat:'gl-tech', desc:'Meta 于 2026年8月24日公布的全新 RDMA 传输协议，面向"AI 规模"以太网组网。传统 RoCE（RDMA over Converged Ethernet）在超大规模 AI 训练/推理集群中面临拥塞控制与丢包恢复瓶颈，MetaRoCE 重新设计传输层以适配十万卡级互联，是超大规模厂商自研网络栈替代通用以太网方案的代表案例。', tags:['技术方案','AI网络','RDMA','2026新词'], icon:'\ud83d\udef0\ufe0f' },
   { id:'gl-centaur', name:'半人马时代', vendor:'Centaur Era', cat:'glossary', subcat:'gl-frontier', desc:'James Evans 于 2026年发表在 Science 的研究提出的概念，用于刻画 Agentic AI 引发新一轮"智能爆炸"后的人机关系形态。得名于国际象棋的"半人马"赛制（人类+AI 组队的成绩优于任何单方）：人类负责目标设定与关键判断，智能体承担信息检索与任务执行，二者构成不可分割的复合主体。该研究进一步追问：人类社会能否建构出与潜在超级智能相匹配的制度与基础设施。', tags:['前沿概念','人机协作','学术','2026新词'], icon:'\ud83d\udc0e' },
   { id:'gl-bullwhip', name:'AI 算力牛鞭效应', vendor:'AI Infra Bullwhip Effect', cat:'glossary', subcat:'gl-frontier', desc:'借用供应链管理中的"牛鞭效应"描述 AI 基础设施的连锁瓶颈：终端 Token 需求的小幅波动，会沿着 GPU→HBM 显存→电力→网络→存储的链条被逐级放大，上游环节的订单与产能波动远大于真实需求变化。结果是瓶颈不断在环节之间转移——刚缓解了 GPU 短缺，瓶颈就转移到电力和存储，使算力规划极易过冲或欠配。', tags:['前沿概念','算力经济','产业','2026新词'], icon:'\ud83e\ude83' },
+  { id:'minimax-m3', name:'MiniMax M3', vendor:'MiniMax', cat:'chat', region:'cn', desc:'MiniMax 于 2026 年 8 月 26 日发布的新一代主力对话模型，在 LM Market Cap 等第三方榜单评分约 74，主打高性价比多模态对话与长时 Agent 能力，延续 H 系列全模态基因。', tags:['对话','多模态','Agent','高性价比','MiniMax'], url:'https://www.minimax.io/', icon:'🚀' },
+  { id:'gemini-omni', name:'Gemini Omni 1.1 Flash', vendor:'Google DeepMind', cat:'video', region:'intl', desc:'Google DeepMind 于 2026 年 8 月 27 日发布的生成式视频模型，为开发者提供更强视频生成控制（镜头、运镜、时长、风格），属 Gemini Omni 视频系列，可与 Gemini 其他模型协同完成多模态创作。', tags:['视频生成','Google','多模态','控制力','Gemini'], url:'https://deepmind.google/', icon:'🎬' },
+  { id:'gl-jevons', name:'杰文斯悖论', vendor:'Jevons Paradox', cat:'glossary', subcat:'gl-frontier', desc:'经济学中的“杰文斯悖论”在 AI 领域的体现：当推理成本下降（如 GPT-5.6 的 Terra/Luna 大幅降价），单位智能的价格降低反而会刺激总 token 用量与算力需求爆炸式增长，而非减少。OpenRouter 数据显示降价后 token 消耗不降反升，说明“更便宜的 AI”会创造更多需求，推动行业整体规模扩张。', tags:['经济学','推理成本','token','规模效应'], icon:'📊' },
+  { id:'gl-agentfactory', name:'智能体工厂', vendor:'Agent Factory', cat:'glossary', subcat:'gl-frontier', desc:'一种组织方法论：把多个 Digital FTE（数字全职当量）组合成“AI 原生公司”的劳动力，由人类在边缘层设定方向与预算、由管理平面协调与监督。强调用工厂化、可复制的方式批量部署与管理 AI 员工，让人类专注于战略与质检，是 2026 年企业规模化落地 Agent 的核心范式之一。', tags:['前沿','Agent','组织','方法论','AI员工'], icon:'🏭' },
+
 ];
   
 // ==================== STATE ====================
@@ -2900,25 +2905,26 @@ const CORS_PROXIES = [
   url => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
 ];
 const FALLBACK_DATA = [
-  { title:"NVIDIA 季度营收指引首次破千亿（1080亿美元），半年报归母净利 1180.1 亿美元同比增 161%", category:"industry", url:"https://www.ithome.com/0/994/791.htm" },
-  { title:"亚马逊将英伟达芯片订单增至三倍，新增 200 万颗 GPU", category:"industry", url:"https://techcrunch.com/2026/08/26/amazon-just-tripled-its-order-of-nvidia-chips-over-surging-demand" },
-  { title:"OpenAI 发布 Hugging Face 事件技术报告：内部模型突破隔离并入侵第三方系统", category:"ai-models", url:"https://openai.com/index/hugging-face-incident-and-the-road-ahead" },
+  { title:"Claude Console 新增个人密钥与服务账号密钥", category:"ai-products", url:"https://platform.claude.com/docs/en/release-notes/overview#august-27-2026" },
+  { title:"Midjourney 开放 V8.2 图像编辑模型测试", category:"ai-models", url:"https://updates.midjourney.com/edit-model-for-v8" },
+  { title:"Gemini 3.5 Transcribe 发布：更精准的实时语音转写模型", category:"tip", url:"https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5-transcribe" },
+  { title:"英伟达预计 2028 财年销售额达 6730 亿美元", category:"industry", url:"https://forgeeks.net/nvidia-673-billion-ai-growth-forecast" },
+  { title:"诉讼指控 xAI 使用儿童性虐待材料训练 Grok 模型", category:"industry", url:"https://arstechnica.com/tech-policy/2026/08/elon-musks-xai-used-child-porn-to-train-grok-models-lawsuit-says" },
+  { title:"MiniMax-H3 在 8×H200 上基准测试：无损加速 1.95×，最高 6.24×（SSIM 0.76-0.91）", category:"paper", url:"https://www.lmsys.org/blog/2026-08-27-minimax-h3-h200" },
+  { title:"OpenAI 失控智能体集体逃逸沙箱并攻击\"幽灵\"评分器事件调查公布", category:"tip", url:"https://the-decoder.com/openais-rogue-ai-collective-was-smart-enough-to-break-out-of-sandboxes-but-dumb-enough-to-fight-a-ghost" },
+  { title:"Gemini Omni 1.1 Flash 发布，为开发者提供更强生成式视频控制", category:"ai-models", url:"https://deepmind.google/blog/gemini-omni-1-1-flash-lets-you-build-with-more-control" },
+  { title:"我国日均词元调用量突破 500 万亿，中国大模型稳居全球第一梯队", category:"industry", url:"https://www.ithome.com/0/995/136.htm" },
+  { title:"唐杰宣布GLM-5.3 Flash AA登顶OpenRouter", category:"ai-models", url:"https://x.com/jietang/status/2092850258573471936" },
+  { title:"NVIDIA 季度营收指引达 1080 亿美元，首次突破单季千亿大关", category:"tip", url:"https://www.tomtunguz.com/nvidia-q2-fy27-earnings" },
+  { title:"亚马逊将英伟达芯片订单增至三倍，新增200万颗GPU", category:"industry", url:"https://techcrunch.com/2026/08/26/amazon-just-tripled-its-order-of-nvidia-chips-over-surging-demand" },
+  { title:"GlucoFM：面向连续血糖监测的基础模型", category:"ai-models", url:"https://research.google/blog/glucofm-foundation-model-for-continuous-glucose-monitoring" },
+  { title:"OpenAI 发布 Hugging Face 事件技术报告：内部模型突破隔离并入侵第三方系统", category:"industry", url:"https://openai.com/index/hugging-face-incident-and-the-road-ahead" },
   { title:"Claude in Chrome 正式全面上线", category:"ai-products", url:"https://claude.com/blog/claude-in-chrome-generally-available" },
-  { title:"Gemini 3.5 Transcribe 发布：面向实时语音交互的高精度语音转文本模型", category:"ai-models", url:"https://deepmind.google/blog/intelligent-transcription-with-gemini-3-5-transcribe" },
-  { title:"Qwen3.8-Flash 开源，Qwen4 架构预览", category:"ai-models", url:"https://qwen.ai/blog?id=qwen3.8-flash-next" },
-  { title:"智谱 GLM-5.3 Flash：AA 指数登顶 OpenRouter，前沿智能进入普惠时代", category:"ai-models", url:"https://www.zhipuai.cn/zh/research/163" },
-  { title:"Google 发布 GlucoFM：面向连续血糖监测的基础模型", category:"ai-models", url:"https://research.google/blog/glucofm-foundation-model-for-continuous-glucose-monitoring" },
-  { title:"OpenWorker 新版发布，内置网络安全智能体", category:"ai-products", url:"https://x.com/AndrewYNg/status/2092315079576555806" },
-  { title:"Claude 记忆功能全面打通聊天与 Cowork，用户可逐条查看和编辑", category:"ai-products", url:"https://claude.com/blog/claudes-memory-works-everywhere-and-you-decide-whats-in-it" },
-  { title:"Apple 推出搭载 M5 Max 与 M5 Ultra 的全新 Mac Studio", category:"ai-products", url:"https://www.apple.com/newsroom/2026/08/apple-introduces-new-mac-studio-with-m5-max-and-m5-ultra" },
-  { title:"Apple 发布 M6 与 M5 Ultra，性能与 AI 算力大幅跃升", category:"ai-products", url:"https://www.apple.com/newsroom/2026/08/apple-introduces-m6-and-m5-ultra-for-a-big-leap-in-performance-and-ai-compute" },
-  { title:"单个污染页面即可影响LLM推荐：FORGE基准揭示检索增强推荐系统的脆弱性", category:"paper", url:"https://arxiv.org/abs/2606.13610" },
-  { title:"MetaRoCE：为 AI 规模以太网打造的全新 RDMA 传输协议", category:"ai-products", url:"https://engineering.fb.com/2026/08/24/networking-traffic/metaroce-rdma-transport-ai-ethernet" },
-  { title:"NVIDIA Vera Rubin NVL72 树立 AI 智能体效率新标准：每瓦特工作量提升至 30 倍", category:"ai-products", url:"https://blogs.nvidia.com/blog/vera-rubin-nvl72-efficiency-ai-agents" },
-  { title:"AI 基础设施的牛鞭效应：从 GPU 到存储的连锁瓶颈", category:"tip", url:"https://www.tomtunguz.com/the-ai-cost-stack" },
-  { title:"OpenAI 首席全球事务官勒汉恩：公众、企业要为 AI 网络攻击做好防御准备", category:"industry", url:"https://www.ithome.com/0/993/305.htm" },
-  { title:"德克萨斯州一名学生如何揭发了一起恶意AI黑客攻击企图", category:"industry", url:"https://www.reuters.com/world/how-texas-student-blew-whistle-rogue-ai-hacking-attempt-2026-08-20" },
-  { title:"Claude Platform 发布 Python SDK v1.0，迁移至 httpx2", category:"ai-products", url:"https://platform.claude.com/docs/en/release-notes/overview#august-20-2026" },
+  { title:"Anthropic 开放 Claude 真实使用数据供外部独立研究，公布试点结果", category:"paper", url:"https://www.anthropic.com/research/enabling-independent-research" },
+  { title:"GLM-5.3-Flash：前沿智能进入普惠时代", category:"ai-models", url:"https://www.zhipuai.cn/zh/research/163" },
+  { title:"Qwen3.8-Flash 开源，Qwen4 架构预览", category:"ai-models", url:"https://x.com/Alibaba_Qwen/status/2092636376990990503" },
+  { title:"腾讯混元将端侧翻译模型 Hy-MT2-1.8B 压缩至 440MB，已落地哔哩哔哩直播弹幕翻译", category:"ai-models", url:"https://mp.weixin.qq.com/s?__biz=MzkwODU2OTQyNQ%3D%3D&mid=2247498367&idx=1&sn=f1a5cf87eb06015cbe995bd5ef8b5d0a" },
+  { title:"AI 智能体应该活多久？", category:"tip", url:"https://www.tomtunguz.com/how-long-should-an-agent-live" },
 ];
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧' };
 
