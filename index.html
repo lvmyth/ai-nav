@@ -2225,7 +2225,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-08-28';
+var NAV_UPDATE_DATE = '2026-08-29';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -2619,7 +2619,9 @@ const TOOLS = [
   { id:'gemini-omni', name:'Gemini Omni 1.1 Flash', vendor:'Google DeepMind', cat:'video', region:'intl', desc:'Google DeepMind 于 2026 年 8 月 27 日发布的生成式视频模型，为开发者提供更强视频生成控制（镜头、运镜、时长、风格），属 Gemini Omni 视频系列，可与 Gemini 其他模型协同完成多模态创作。', tags:['视频生成','Google','多模态','控制力','Gemini'], url:'https://deepmind.google/', icon:'🎬' },
   { id:'gl-jevons', name:'杰文斯悖论', vendor:'Jevons Paradox', cat:'glossary', subcat:'gl-frontier', desc:'经济学中的“杰文斯悖论”在 AI 领域的体现：当推理成本下降（如 GPT-5.6 的 Terra/Luna 大幅降价），单位智能的价格降低反而会刺激总 token 用量与算力需求爆炸式增长，而非减少。OpenRouter 数据显示降价后 token 消耗不降反升，说明“更便宜的 AI”会创造更多需求，推动行业整体规模扩张。', tags:['经济学','推理成本','token','规模效应'], icon:'📊' },
   { id:'gl-agentfactory', name:'智能体工厂', vendor:'Agent Factory', cat:'glossary', subcat:'gl-frontier', desc:'一种组织方法论：把多个 Digital FTE（数字全职当量）组合成“AI 原生公司”的劳动力，由人类在边缘层设定方向与预算、由管理平面协调与监督。强调用工厂化、可复制的方式批量部署与管理 AI 员工，让人类专注于战略与质检，是 2026 年企业规模化落地 Agent 的核心范式之一。', tags:['前沿','Agent','组织','方法论','AI员工'], icon:'🏭' },
-
+  { id:'hunyuan-hy4', name:'混元 Hy4 preview', vendor:'腾讯', cat:'chat', region:'cn', desc:'腾讯混元于 2026 年 8 月 28 日压轴发布并开源的新一代大语言模型，总参数 770B、激活参数 49B，上下文长度突破 1M。定位"为生产力而生"，在软件工程、办公分析、游戏开发、科学研究四大场景重点发力；内部真实工程任务盲测均分 2.99/4，略优于 GLM-5.3 与 Kimi K3，稳居开源模型第一梯队。已在 WorkBuddy/CodeBuddy、元宝、ima 同步首发，可通过腾讯云 TokenHub 与 OpenRouter 接入，输入 6 元/百万 tokens、输出 18 元/百万 tokens。', tags:['开源','770B','1M上下文','生产力','腾讯','2026-08-28'], url:'https://hunyuan.tencent.com/', icon:'images/logos/hunyuan.png' },
+  { id:'qwen38', name:'通义千问 Qwen3.8', vendor:'阿里云', cat:'chat', region:'cn', desc:'阿里通义于 2026 年 8 月 3 日发布的旗舰大模型 Qwen3.8-Max：总参数 2.4 万亿（2.4T）、激活 95B 的稀疏 MoE，原生支持 1M Token 上下文与全模态输入，编程与办公 Agent 能力大幅提升，Arena 榜单仅次于 Claude 系列居全球第一梯队，并首次开源 Max 级权重。8 月 14 日开源 Qwen3.8-27B（27.8B 稠密、Apache 2.0、可消费级硬件运行），8 月 26 日开源 Qwen3.8-Flash-Next（Qwen4 架构早期预览）。', tags:['旗舰','2.4T','MoE','1M上下文','开源','通义'], url:'https://qwen.ai', icon:'images/logos/tongyi.png' },
+  { id:'gl-agentic-coding', name:'智能体编程', vendor:'Agentic Coding', cat:'glossary', subcat:'gl-skill', desc:'2026 年兴起的 AI 编程范式：让大模型不只是"补全下一行代码"，而是作为自主智能体贯穿"理解需求→规划→写码→运行→测试→修复"的完整软件工程闭环。代表产品有 GitHub Copilot coding agent、Claude Code、Cursor、智谱 ZCode、Meta Muse Code 等。区别于传统补全式 Copilot，智能体编程能跨多文件、多轮次独立推进真实工程任务，是"AI 程序员"走向可用的核心形态。', tags:['实用技巧','Agent','编程','自动化','2026新词','热门'], icon:'💻' },
 ];
   
 // ==================== STATE ====================
@@ -2905,6 +2907,15 @@ const CORS_PROXIES = [
   url => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
 ];
 const FALLBACK_DATA = [
+  { title:"Open ASR 排行榜新增首个全球南方语言：印地语与印度英语评测集", category:"ai-products", url:"https://huggingface.co/blog/open-asr-leaderboard-global-south" },
+  { title:"OpenAI 攻击 Hugging Face 事件的 5 个教训", category:"tip", url:"https://garymarcus.substack.com/p/5-lessons-from-the-openai-hugging" },
+  { title:"联邦法官裁定特朗普政府将 Anthropic 列入黑名单违法", category:"industry", url:"https://arstechnica.com/tech-policy/2026/08/trump-blacklisting-of-woke-anthropic-deemed-illegal-by-federal-judge" },
+  { title:"Anthropic 让 Claude 自主训练模型以缓解对齐失败", category:"paper", url:"https://www.anthropic.com/research/automated-researchers-mitigate-alignment-failures" },
+  { title:"GLM-5.3 开源权重，智能体编码与网防最强", category:"ai-models", url:"https://x.com/Zai_org/status/2093354097122455713" },
+  { title:"Gemini 3.5 Transcribe 完整指南：告别 ASR 转录难题", category:"tip", url:"https://dev.to/googleai/stop-wrestling-with-asr-the-complete-guide-to-gemini-35-transcribe-1m6i" },
+  { title:"Terminal-Bench-Science 0.1：评估科研工作流中的 AI 智能体", category:"paper", url:"https://www.terminal-bench-science.ai/announcement" },
+  { title:"AI 工程师笔记本：在 Colab 上免费、无需框架即可使用 RAG/智能体/评估工具", category:"tip", url:"https://github.com/calmrocks/ai-engineer-notebooks" },
+  { title:"腾讯混元发布 Hy4 preview：770B 总参数、1M 上下文，开源上线", category:"ai-models", url:"https://mp.weixin.qq.com/s?__biz=MzkwODU2OTQyNQ%3D%3D&mid=2247498484&idx=1&sn=0db140a12b8e18601ac933788045c831" },
   { title:"Claude Console 新增个人密钥与服务账号密钥", category:"ai-products", url:"https://platform.claude.com/docs/en/release-notes/overview#august-27-2026" },
   { title:"Midjourney 开放 V8.2 图像编辑模型测试", category:"ai-models", url:"https://updates.midjourney.com/edit-model-for-v8" },
   { title:"Gemini 3.5 Transcribe 发布：更精准的实时语音转写模型", category:"tip", url:"https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5-transcribe" },
@@ -2915,16 +2926,7 @@ const FALLBACK_DATA = [
   { title:"Gemini Omni 1.1 Flash 发布，为开发者提供更强生成式视频控制", category:"ai-models", url:"https://deepmind.google/blog/gemini-omni-1-1-flash-lets-you-build-with-more-control" },
   { title:"我国日均词元调用量突破 500 万亿，中国大模型稳居全球第一梯队", category:"industry", url:"https://www.ithome.com/0/995/136.htm" },
   { title:"唐杰宣布GLM-5.3 Flash AA登顶OpenRouter", category:"ai-models", url:"https://x.com/jietang/status/2092850258573471936" },
-  { title:"NVIDIA 季度营收指引达 1080 亿美元，首次突破单季千亿大关", category:"tip", url:"https://www.tomtunguz.com/nvidia-q2-fy27-earnings" },
-  { title:"亚马逊将英伟达芯片订单增至三倍，新增200万颗GPU", category:"industry", url:"https://techcrunch.com/2026/08/26/amazon-just-tripled-its-order-of-nvidia-chips-over-surging-demand" },
-  { title:"GlucoFM：面向连续血糖监测的基础模型", category:"ai-models", url:"https://research.google/blog/glucofm-foundation-model-for-continuous-glucose-monitoring" },
-  { title:"OpenAI 发布 Hugging Face 事件技术报告：内部模型突破隔离并入侵第三方系统", category:"industry", url:"https://openai.com/index/hugging-face-incident-and-the-road-ahead" },
-  { title:"Claude in Chrome 正式全面上线", category:"ai-products", url:"https://claude.com/blog/claude-in-chrome-generally-available" },
-  { title:"Anthropic 开放 Claude 真实使用数据供外部独立研究，公布试点结果", category:"paper", url:"https://www.anthropic.com/research/enabling-independent-research" },
-  { title:"GLM-5.3-Flash：前沿智能进入普惠时代", category:"ai-models", url:"https://www.zhipuai.cn/zh/research/163" },
-  { title:"Qwen3.8-Flash 开源，Qwen4 架构预览", category:"ai-models", url:"https://x.com/Alibaba_Qwen/status/2092636376990990503" },
-  { title:"腾讯混元将端侧翻译模型 Hy-MT2-1.8B 压缩至 440MB，已落地哔哩哔哩直播弹幕翻译", category:"ai-models", url:"https://mp.weixin.qq.com/s?__biz=MzkwODU2OTQyNQ%3D%3D&mid=2247498367&idx=1&sn=f1a5cf87eb06015cbe995bd5ef8b5d0a" },
-  { title:"AI 智能体应该活多久？", category:"tip", url:"https://www.tomtunguz.com/how-long-should-an-agent-live" },
+  { title:"NVIDIA 季度营收指引达 1080 亿美元，首次突破单季千亿大关", category:"tip", url:"https://www.tomtunguz.com/nvidia-q2-fy27-earnings" }
 ];
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧' };
 
