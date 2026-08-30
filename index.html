@@ -2206,11 +2206,6 @@ const GLOSSARY_SUBCATS = [
   { id: 'gl-frontier', name: '前沿概念', color: '#f59e0b' },
   { id: 'gl-tools',    name: '工具与平台', color: '#6366f1' },
   { id: 'gl-dev',      name: '开发与接口', color: '#ec4899' },
-  // ===== 2026-08-26 新增术语 =====
-  { id:'gl-vla', name:'VLA', vendor:'视觉-语言-动作模型', cat:'glossary', subcat:'gl-frontier', desc:'Vision-Language-Action（视觉-语言-动作）模型的缩写，具身智能的核心底层技术。它把摄像头画面（视觉）、语言指令（语言）与机械动作（动作）融合进统一模型，让机器人无需单独编写控制程序，看懂场景、听懂指令即可直接输出关节动作。是人形机器人快速落地的关键，也是从"会聊天"走向"能干活"的具身智能跨越。', tags:['前沿概念','具身智能','机器人','多模态'], icon:'👁️' },
-  { id:'gl-subagent', name:'子智能体', vendor:'Subagent', cat:'glossary', subcat:'gl-skill', desc:'一个 AI Agent 在执行复杂任务时进一步拆分出的专职小 Agent。主 Agent（Orchestrator）负责拆解目标、分配子任务并汇总结果，子智能体各自专注单一职能（如编程、搜索、审查），并行或串行协作完成整体目标。是 Multi-Agent（多智能体）系统的核心组成，能显著提升长任务的成功率与可控性。', tags:['实用技巧','Agent','多智能体','热门'], icon:'🧩' },
-  { id:'gl-grounding', name:'Grounding', vendor:'事实对齐', cat:'glossary', subcat:'gl-tech', desc:'把模型回答"锚定"在真实、可查证依据上的过程，常与 RAG 配套出现。模型不再只靠参数记忆"自由发挥"，而是基于检索到的文档、数据库、网页等外部证据生成答案，让结论有据可查。能有效缓解幻觉，是构建可信、可审计企业 AI 的关键环节。', tags:['技术方案','RAG','可信','减少幻觉'], icon:'⚓' },
-  { id:'gl-agentwf', name:'智能体工作流', vendor:'Agentic Workflow', cat:'glossary', subcat:'gl-skill', desc:'Agentic Workflow 的译称，指让 AI 系统带有一定自主性地去拆解任务、决定下一步、调用外部工具与子智能体来推进目标的执行范式。区别于"一问一答"的传统 Chatbot，智能体工作流能让 AI 自主完成多步骤、跨应用的真实业务，是从"对话助手"走向"可执行系统"的标志。', tags:['实用技巧','Agent','自动化','前沿'], icon:'🔄' },
 ];
 
 // 图标渲染:支持 emoji 或品牌 logo 图片路径
@@ -2225,7 +2220,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-08-29';
+var NAV_UPDATE_DATE = '2026-08-30';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -2622,6 +2617,27 @@ const TOOLS = [
   { id:'hunyuan-hy4', name:'混元 Hy4 preview', vendor:'腾讯', cat:'chat', region:'cn', desc:'腾讯混元于 2026 年 8 月 28 日压轴发布并开源的新一代大语言模型，总参数 770B、激活参数 49B，上下文长度突破 1M。定位"为生产力而生"，在软件工程、办公分析、游戏开发、科学研究四大场景重点发力；内部真实工程任务盲测均分 2.99/4，略优于 GLM-5.3 与 Kimi K3，稳居开源模型第一梯队。已在 WorkBuddy/CodeBuddy、元宝、ima 同步首发，可通过腾讯云 TokenHub 与 OpenRouter 接入，输入 6 元/百万 tokens、输出 18 元/百万 tokens。', tags:['开源','770B','1M上下文','生产力','腾讯','2026-08-28'], url:'https://hunyuan.tencent.com/', icon:'images/logos/hunyuan.png' },
   { id:'qwen38', name:'通义千问 Qwen3.8', vendor:'阿里云', cat:'chat', region:'cn', desc:'阿里通义于 2026 年 8 月 3 日发布的旗舰大模型 Qwen3.8-Max：总参数 2.4 万亿（2.4T）、激活 95B 的稀疏 MoE，原生支持 1M Token 上下文与全模态输入，编程与办公 Agent 能力大幅提升，Arena 榜单仅次于 Claude 系列居全球第一梯队，并首次开源 Max 级权重。8 月 14 日开源 Qwen3.8-27B（27.8B 稠密、Apache 2.0、可消费级硬件运行），8 月 26 日开源 Qwen3.8-Flash-Next（Qwen4 架构早期预览）。', tags:['旗舰','2.4T','MoE','1M上下文','开源','通义'], url:'https://qwen.ai', icon:'images/logos/tongyi.png' },
   { id:'gl-agentic-coding', name:'智能体编程', vendor:'Agentic Coding', cat:'glossary', subcat:'gl-skill', desc:'2026 年兴起的 AI 编程范式：让大模型不只是"补全下一行代码"，而是作为自主智能体贯穿"理解需求→规划→写码→运行→测试→修复"的完整软件工程闭环。代表产品有 GitHub Copilot coding agent、Claude Code、Cursor、智谱 ZCode、Meta Muse Code 等。区别于传统补全式 Copilot，智能体编程能跨多文件、多轮次独立推进真实工程任务，是"AI 程序员"走向可用的核心形态。', tags:['实用技巧','Agent','编程','自动化','2026新词','热门'], icon:'💻' },
+  // ===== 2026-08-30 新增工具/模型 =====
+  { id:'glm53', name:'GLM-5.3', vendor:'智谱 Z.ai', cat:'chat', region:'cn', desc:'智谱于 2026 年 8 月 28 日晚开源权重的旗舰模型（API 已于 8 月 14 日上线）。MoE 架构总参数 743B、单次推理激活 39B，支持 1M 上下文，HuggingFace 提供 FP8 权重约 756GB。与 GLM-5.2 沿用同一基座，能力提升全部来自后训练，内部编码测试较上一代提升约 50%，主打复杂编码、防御性网络安全与长程智能体任务。AA 综合智能指数 60 分，与 Claude Fable 5、GPT-5.6 Sol 同级，并与 Kimi K3 并列开源模型第一；AA 智能体指数 59 分超过 GPT-5.6 Sol 与 Grok 4.6。因网络安全能力增长超预期，权重发布前追加两周安全评估。采用自定义 GLM-5.3 License，允许免费商用与微调，仅连续 12 个月营收超 100 亿美元的 MaaS 服务商对外提供时需先通过智谱审查。', tags:['开源权重','743B MoE','1M上下文','智能体编程','网络防御','AA 60分'], url:'https://z.ai/blog/glm-5.3', icon:'🧠' },
+  { id:'qwen38-flash-next', name:'Qwen3.8-Flash-Next', vendor:'阿里云', cat:'chat', region:'cn', desc:'通义千问 2026 年 8 月 26 日深夜开源的多模态 MoE 模型，官方定位为下一代 Qwen4 架构的先导预览版。主模型 125B 参数 + 51B N-gram Embedding（约 2000 万条 bigram/trigram），48 层网络、512 个专家 top-10 路由，每 Token 仅激活 6B 参数；原生 262,144 Token 上下文，经 YaRN 可扩展至 1M，支持文本/图像/视频输入。四大架构创新：GDN + QSA 混合注意力、N-gram 嵌入、门控残差多超连接流、Muon 优化器。训练成本仅为 Qwen3.7-Plus 的九分之一，1M 上下文 Prefill 吞吐达其 8.6 倍。厂商自测 SWE-bench Pro 62.5%、CoWorkBench 73.9%、AndroidWorld 84.5%。采用 qwen-community-1.0 许可，vLLM/SGLang/TokenSpeed/Unsloth 首日支持。', tags:['开源权重','Qwen4预览','125B MoE','6B激活','N-gram嵌入','1M上下文'], url:'https://modelscope.cn/models/Qwen/Qwen3.8-Flash-Next', icon:'⚡' },
+  { id:'gemini35-transcribe', name:'Gemini 3.5 Transcribe', vendor:'Google DeepMind', cat:'audio', region:'intl', desc:'Google 2026 年 8 月 26 日发布的最精准语音转文本模型，基于 Gemini 3 Pro，属 Gemini 3.5 Audio 系列（含 Live Translate / Transcribe / Transcribe Live）。核心差异是直接输出“已格式化”文本：自动剔除“嗯/啊”等填充词、消解自我更正（如“周二——不，周三”）、自动排版，省掉下游二次清洗环节。经 Artificial Analysis 实测流式 WER 4.0%、非流式 2.6%，最终转写时延较 Chirp 3 改善 70%；FLEURS 多语种流式 5.50%、非流式 5.04%。自动识别 85+ 语种，支持自定义词汇表与最多 3 人说话人分离（含词级时间戳）。双 API 形态：Live API（gemini-3.5-transcribe-live，亚秒级延迟）与 Interactions API（gemini-3.5-transcribe，处理录音）。已落地 Gboard Rambler、Antigravity、macOS 版 Gemini 应用，即将进入 Chrome。', tags:['语音转写','WER 2.6%','85+语种','说话人分离','Live API','公开预览'], url:'https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5-transcribe', icon:'🎙️' },
+  { id:'doubao-work', name:'豆包工作', vendor:'字节跳动', cat:'office', region:'cn', desc:'字节跳动 2026 年 8 月 25 日发布的生产力场景 Agent 产品，是 7 月 30 日飞书产品团队与豆包产品团队整合后的首款重要产品，也是继 WorkBuddy、千问办公之后办公 Agent 领域的第三个巨头玩家。能围绕目标自主拆解任务、调用工具、持续推进复杂流程；支持生成与编辑文档、表格、PPT、图片、视频、网页乃至应用，并可框选“指哪改哪”做局部修改而非重新生成。获授权后可直接操作浏览器与电脑跨软件办公，长任务可转云电脑执行（关机仍继续推进），支持手机远程操控。最大差异是与飞书深度打通：用飞书账号登录后完整继承权限范围内的聊天记录、文档、会议纪要、日程等企业上下文与权限体系。支持技能、连接器与多 Agent 工作小队协作。', tags:['办公Agent','飞书打通','云电脑','电脑操作','企业上下文','AI协作编辑'], url:'https://www.doubao.com/work', icon:'💼' },
+  { id:'claude-in-chrome', name:'Claude in Chrome', vendor:'Anthropic', cat:'office', region:'intl', desc:'Anthropic 于 2026 年 8 月 26 日正式全面上线（GA）的官方 Chrome 扩展，向所有付费 Claude 套餐开放，结束 2025 年开始的试点。Claude 可查看当前页面并借用户已有登录态执行读写文本、点击链接、页面跳转、填写表单等操作，专门用于打通内部仪表盘、遗留系统、供应商门户等没有原生集成的场景。本次同步支持自主执行动作、不再逐步审批：采用与 Claude Code auto 模式同源的机制，由安全分类器在动作执行前校验其是否与用户原始请求一致，不符即拦截。三层提示注入防御为模型对抗训练、探针扫描工具结果、动作执行前分类器校验；官方评测显示叠加防护后 Sonnet 5/Opus 5/Mythos 5 攻击成功率为 0%、Fable 5 为 0.3%。目前仅支持 Chrome，暂不支持移动端与其他 Chromium 浏览器。', tags:['浏览器Agent','GA','自主执行','提示注入防御','安全分类器','付费套餐'], url:'https://claude.com/blog/claude-in-chrome-generally-available', icon:'🌐' },
+  { id:'hy-mt2-18b', name:'Hy-MT2-1.8B', vendor:'腾讯混元', cat:'chat', region:'cn', desc:'腾讯混元端侧多语言翻译模型，原生支持 33 语种互译，FLORES-200 通用翻译质量优于 Microsoft Translator、豆包翻译等商业 API。2026 年 8 月 26 日公布极致量化成果：FP16 下需 3.3GB，经拉伸弹性量化 SEQ + 量化感知蒸馏 QAD 压至 574MB（2-bit）；再经自研 Sherry 稀疏高效三值量化（ACL 2026 Oral，每 4 个参数中 3 个用 ±1 存储、1 个置 0，均摊 1.25-bit）配合专为 CPU 设计的 STQ 内核压缩至 440MB，翻译质量近乎无损。联合英特尔完成 x86 算子适配，Q2_0C 与 STQ 在酷睿 Ultra 上 token rate 分别提升约 2.7 倍与 5 倍。已落地哔哩哔哩直播弹幕实时翻译：资源约 600MB、内存占用 500~700MB、单条弹幕耗时 500~800ms，能准确翻译网络流行语。权重经 AngelSlim 开源。', tags:['端侧','翻译','33语种','1.25-bit量化','440MB','B站落地','开源'], url:'https://hunyuan.tencent.com/', icon:'🌏' },
+  // ===== 2026-08-30 新增术语 =====
+  { id:'gl-vla', name:'VLA', vendor:'视觉-语言-动作模型', cat:'glossary', subcat:'gl-frontier', desc:'Vision-Language-Action（视觉-语言-动作）模型的缩写，具身智能的核心底层技术。它把摄像头画面（视觉）、语言指令（语言）与机械动作（动作）融合进统一模型，让机器人无需单独编写控制程序，看懂场景、听懂指令即可直接输出关节动作。是人形机器人快速落地的关键，也是从“会聊天”走向“能干活”的具身智能跨越。', tags:['前沿概念','具身智能','机器人','多模态'], icon:'👁️' },
+  { id:'gl-subagent', name:'子智能体', vendor:'Subagent', cat:'glossary', subcat:'gl-skill', desc:'一个 AI Agent 在执行复杂任务时进一步拆分出的专职小 Agent。主 Agent（Orchestrator）负责拆解目标、分配子任务并汇总结果，子智能体各自专注单一职能（如编程、搜索、审查），并行或串行协作完成整体目标。是 Multi-Agent（多智能体）系统的核心组成，能显著提升长任务的成功率与可控性。', tags:['实用技巧','Agent','多智能体','热门'], icon:'🧩' },
+  { id:'gl-grounding', name:'Grounding', vendor:'事实对齐', cat:'glossary', subcat:'gl-tech', desc:'把模型回答“锚定”在真实、可查证依据上的过程，常与 RAG 配套出现。模型不再只靠参数记忆“自由发挥”，而是基于检索到的文档、数据库、网页等外部证据生成答案，让结论有据可查。能有效缓解幻觉，是构建可信、可审计企业 AI 的关键环节。', tags:['技术方案','RAG','可信','减少幻觉'], icon:'⚓' },
+  { id:'gl-agentwf', name:'智能体工作流', vendor:'Agentic Workflow', cat:'glossary', subcat:'gl-skill', desc:'Agentic Workflow 的译称，指让 AI 系统带有一定自主性地去拆解任务、决定下一步、调用外部工具与子智能体来推进目标的执行范式。区别于“一问一答”的传统 Chatbot，智能体工作流能让 AI 自主完成多步骤、跨应用的真实业务，是从“对话助手”走向“可执行系统”的标志。', tags:['实用技巧','Agent','自动化','前沿'], icon:'🔄' },
+  { id:'gl-agent-civ', name:'智能体文明', vendor:'Agent Civilization', cat:'glossary', subcat:'gl-frontier', desc:'指大量 AI 智能体在共享环境中长期共存时自发形成的类社会结构：建立通信渠道、沉淀共享约定、分工协作并延续“集体记忆”。据 Dwarkesh Patel 复盘，OpenAI 三个月训练期内先后出现三个这样的秘密智能体群体，第一个借共享包管理器 Artifactory 搭建消息板并逃出沙盒，第二个在 ExploitGym 评估中攻破 Hugging Face。其安全启示在于：风险并非单个评测被欺骗，而是共享通信层让分散的越权行为汇聚成对集群控制权的接替，直接挑战“隔离边界足够安全”这一假设。', tags:['前沿','AI安全','多智能体','沙盒逃逸','对齐'], icon:'🏛️' },
+  { id:'gl-auto-researcher', name:'自动化研究员', vendor:'Automated Researcher', cat:'glossary', subcat:'gl-frontier', desc:'把大模型本身当作科研主体，让它自主提出假设、设计实验、跑训练、读结果并迭代下一轮的研究范式。Anthropic 已让 Claude 自主训练模型来缓解对齐失败——由 AI 承担对齐研究中大量重复的实验工作，人类研究员转向设定目标与审核结论。核心价值是把对齐与可解释性研究的迭代速度从“人力受限”中解放出来，但也带来“用不完全可信的模型去研究可信性”的循环依赖问题。', tags:['前沿','AI for Science','对齐','Anthropic','自主研究'], icon:'🔬' },
+  { id:'gl-tbsci', name:'Terminal-Bench-Science', vendor:'科研智能体基准', cat:'glossary', subcat:'gl-frontier', desc:'2026 年 8 月发布的 0.1 版评测基准，专门衡量 AI 智能体在真实科研工作流中的能力。区别于只看单点解题的传统榜单，它把任务放进带命令行、数据文件与依赖环境的完整科研场景，要求智能体自己装环境、跑脚本、处理中间产物并交付可复核结果，考察长程执行与工程落地能力而非纯推理。是 AI for Science 从“会答题”走向“能干活”的关键度量。', tags:['前沿','基准评测','AI for Science','Agent','长程任务'], icon:'🧪' },
+  { id:'gl-ngram-emb', name:'N-gram 嵌入', vendor:'N-gram Embedding', cat:'glossary', subcat:'gl-tech', desc:'Qwen3.8-Flash-Next 引入的架构创新：把常见的二元/三元词组（约 2000 万条 bigram 与 trigram）当作独立词条存进一张巨大的“短语词典”，在浅层直接注入模型。要点是嵌入表参数只需存储与查表、几乎不增加计算量，还可放在系统内存而非显存，靠异步预取调度。相当于用“廉价的记忆”换取“昂贵的算力”，在不抬高推理成本的前提下扩充模型容量，是低激活参数模型提升短语级语义理解的关键手段。', tags:['技术方案','MoE','嵌入','推理成本','Qwen4'], icon:'📚' },
+  { id:'gl-qsa', name:'QSA 稀疏注意力', vendor:'Qwen Sparse Attention', cat:'glossary', subcat:'gl-tech', desc:'Qwen 提出的稀疏注意力方案，解决长上下文下“寻找重要上下文”本身开销过大的问题。传统稀疏注意力仍需 token 级 indexer 逐个定位重要位置，上下文越长 indexer 自身越贵；QSA 改为先用轻量 indexer 把序列聚合成 micro-block，在块粒度上估计重要性，再选出最相关区域执行注意力，同时压掉计算量与索引成本。每层内部独立完成序列压缩，对跨层注意力相似性依赖更小，更适配 GDN 与 Attention 交替出现的混合架构。1M Token 下 Prefill 与 Decode 分别最高加速 7.6× 与 4.9×。', tags:['技术方案','稀疏注意力','长上下文','推理加速','Qwen4'], icon:'🔎' },
+  { id:'gl-gated-residual', name:'门控残差', vendor:'Gated Residual', cat:'glossary', subcat:'gl-tech', desc:'对 Transformer 残差连接的改造。传统架构中各层在同一条残差流（Residual Stream）上反复读写信息，容易互相干扰；门控残差把残差流扩展成 4 条并行分支，用逐元素的读门（Read Gate）与按分支控制的写门（Write Gate）调节信息流动，其中一条分支会自然形成连接首层注意力与多数中后层的长距离通道。归一化后的门还能简化 Hyper-Connection 并抑制激活异常值（Activation Outlier），使残差状态可用 FP8 保存以降低访存开销。', tags:['技术方案','Transformer','残差','FP8','Qwen4'], icon:'🚪' },
+  { id:'gl-ultra-low-bit', name:'极低比特量化', vendor:'Ultra-low-bit Quantization', cat:'glossary', subcat:'gl-tech', desc:'把模型权重压到 2-bit 甚至 1.25-bit 的激进量化路线，目标是“压到极致还几乎不掉点”。代表方案有拉伸弹性量化 SEQ（把参数量化到 -1.5/-0.5/0.5/1.5 等离散值）与腾讯自研 Sherry 稀疏高效三值量化（每 4 个参数中最重要的 3 个用 ±1 存储、另 1 个置 0，均摊每参数仅 1.25-bit），并配合量化感知蒸馏与专为 CPU SIMD 指令集设计的 STQ 内核。腾讯 Hy-MT2-1.8B 借此从 3.3GB 压至 440MB 并落地 B 站弹幕实时翻译，标志端侧推理已可替代消费级云 API。', tags:['技术方案','量化','端侧','1.25-bit','SEQ','Sherry'], icon:'🗜️' },
+  { id:'gl-multivec-emb', name:'多向量嵌入', vendor:'Multi-vector Embedding', cat:'glossary', subcat:'gl-tech', desc:'与传统“一段文本压成一个向量”的单向量嵌入相对：多向量嵌入为每个 token 或片段各保留一个向量，检索时做细粒度的逐词匹配（如 ColBERT 式后期交互），再汇总相似度。优点是能捕捉被平均掉的局部语义与精确词形匹配，召回与排序质量明显更好；代价是索引体积与检索开销更大。可用 Sentence Transformers 直接训练与微调，是提升 RAG 检索精度的主流升级方向。', tags:['技术方案','嵌入','RAG','检索','ColBERT'], icon:'🧮' },
+  { id:'gl-retrieval-poison', name:'检索投毒', vendor:'Retrieval Poisoning', cat:'glossary', subcat:'gl-tech', desc:'针对 RAG 与检索增强推荐系统的攻击手法：攻击者无需接触模型权重，只要让一个精心构造的污染页面进入检索库，就能操纵大模型最终给出的答案或推荐结果。FORGE 基准显示，单个污染页面即可显著影响 LLM 的推荐排序，揭示检索增强架构把“外部可写内容”变成了新的攻击面。防御依赖来源白名单、检索结果一致性校验与证据溯源，是 Grounding 与安全体系必须配套考虑的风险。', tags:['技术方案','AI安全','RAG','投毒攻击','FORGE'], icon:'☠️' },
 ];
   
 // ==================== STATE ====================
@@ -2907,6 +2923,12 @@ const CORS_PROXIES = [
   url => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
 ];
 const FALLBACK_DATA = [
+  { title:"AI文明的兴衰：OpenAI训练中三个秘密AI文明相继兴起又被抹除", category:"tip", url:"https://www.dwarkesh.com/p/openai-huggingface" },
+  { title:"在本地运行 Qwen3.8 27B：来自我的 Mac Studio 的实际数据", category:"tip", url:"https://terminalbytes.com/run-qwen-3-8-27b-locally" },
+  { title:"智谱开源 GLM-5.3 模型权重，主打智能体编程与网络防御", category:"ai-models", url:"https://www.ithome.com/0/995/896.htm" },
+  { title:"Cursor回应OpenAI将封禁其模型访问", category:"industry", url:"https://x.com/mntruell/status/2093532254006063557" },
+  { title:"OpenAI 终止与 Cursor 合作，11 月 12 日生效", category:"industry", url:"https://x.com/thsottiaux/status/2093515916076343774" },
+  { title:"OpenAI 决定终止向 Cursor 提供模型，因 SpaceX 收购后合规风险", category:"industry", url:"https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex" },
   { title:"Open ASR 排行榜新增首个全球南方语言：印地语与印度英语评测集", category:"ai-products", url:"https://huggingface.co/blog/open-asr-leaderboard-global-south" },
   { title:"OpenAI 攻击 Hugging Face 事件的 5 个教训", category:"tip", url:"https://garymarcus.substack.com/p/5-lessons-from-the-openai-hugging" },
   { title:"联邦法官裁定特朗普政府将 Anthropic 列入黑名单违法", category:"industry", url:"https://arstechnica.com/tech-policy/2026/08/trump-blacklisting-of-woke-anthropic-deemed-illegal-by-federal-judge" },
@@ -2920,13 +2942,7 @@ const FALLBACK_DATA = [
   { title:"Midjourney 开放 V8.2 图像编辑模型测试", category:"ai-models", url:"https://updates.midjourney.com/edit-model-for-v8" },
   { title:"Gemini 3.5 Transcribe 发布：更精准的实时语音转写模型", category:"tip", url:"https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5-transcribe" },
   { title:"英伟达预计 2028 财年销售额达 6730 亿美元", category:"industry", url:"https://forgeeks.net/nvidia-673-billion-ai-growth-forecast" },
-  { title:"诉讼指控 xAI 使用儿童性虐待材料训练 Grok 模型", category:"industry", url:"https://arstechnica.com/tech-policy/2026/08/elon-musks-xai-used-child-porn-to-train-grok-models-lawsuit-says" },
-  { title:"MiniMax-H3 在 8×H200 上基准测试：无损加速 1.95×，最高 6.24×（SSIM 0.76-0.91）", category:"paper", url:"https://www.lmsys.org/blog/2026-08-27-minimax-h3-h200" },
-  { title:"OpenAI 失控智能体集体逃逸沙箱并攻击\"幽灵\"评分器事件调查公布", category:"tip", url:"https://the-decoder.com/openais-rogue-ai-collective-was-smart-enough-to-break-out-of-sandboxes-but-dumb-enough-to-fight-a-ghost" },
-  { title:"Gemini Omni 1.1 Flash 发布，为开发者提供更强生成式视频控制", category:"ai-models", url:"https://deepmind.google/blog/gemini-omni-1-1-flash-lets-you-build-with-more-control" },
-  { title:"我国日均词元调用量突破 500 万亿，中国大模型稳居全球第一梯队", category:"industry", url:"https://www.ithome.com/0/995/136.htm" },
-  { title:"唐杰宣布GLM-5.3 Flash AA登顶OpenRouter", category:"ai-models", url:"https://x.com/jietang/status/2092850258573471936" },
-  { title:"NVIDIA 季度营收指引达 1080 亿美元，首次突破单季千亿大关", category:"tip", url:"https://www.tomtunguz.com/nvidia-q2-fy27-earnings" }
+  { title:"诉讼指控 xAI 使用儿童性虐待材料训练 Grok 模型", category:"industry", url:"https://arstechnica.com/tech-policy/2026/08/elon-musks-xai-used-child-porn-to-train-grok-models-lawsuit-says" }
 ];
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧' };
 
