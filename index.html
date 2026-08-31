@@ -2220,7 +2220,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-08-30';
+var NAV_UPDATE_DATE = '2026-08-31';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -2638,6 +2638,15 @@ const TOOLS = [
   { id:'gl-ultra-low-bit', name:'极低比特量化', vendor:'Ultra-low-bit Quantization', cat:'glossary', subcat:'gl-tech', desc:'把模型权重压到 2-bit 甚至 1.25-bit 的激进量化路线，目标是“压到极致还几乎不掉点”。代表方案有拉伸弹性量化 SEQ（把参数量化到 -1.5/-0.5/0.5/1.5 等离散值）与腾讯自研 Sherry 稀疏高效三值量化（每 4 个参数中最重要的 3 个用 ±1 存储、另 1 个置 0，均摊每参数仅 1.25-bit），并配合量化感知蒸馏与专为 CPU SIMD 指令集设计的 STQ 内核。腾讯 Hy-MT2-1.8B 借此从 3.3GB 压至 440MB 并落地 B 站弹幕实时翻译，标志端侧推理已可替代消费级云 API。', tags:['技术方案','量化','端侧','1.25-bit','SEQ','Sherry'], icon:'🗜️' },
   { id:'gl-multivec-emb', name:'多向量嵌入', vendor:'Multi-vector Embedding', cat:'glossary', subcat:'gl-tech', desc:'与传统“一段文本压成一个向量”的单向量嵌入相对：多向量嵌入为每个 token 或片段各保留一个向量，检索时做细粒度的逐词匹配（如 ColBERT 式后期交互），再汇总相似度。优点是能捕捉被平均掉的局部语义与精确词形匹配，召回与排序质量明显更好；代价是索引体积与检索开销更大。可用 Sentence Transformers 直接训练与微调，是提升 RAG 检索精度的主流升级方向。', tags:['技术方案','嵌入','RAG','检索','ColBERT'], icon:'🧮' },
   { id:'gl-retrieval-poison', name:'检索投毒', vendor:'Retrieval Poisoning', cat:'glossary', subcat:'gl-tech', desc:'针对 RAG 与检索增强推荐系统的攻击手法：攻击者无需接触模型权重，只要让一个精心构造的污染页面进入检索库，就能操纵大模型最终给出的答案或推荐结果。FORGE 基准显示，单个污染页面即可显著影响 LLM 的推荐排序，揭示检索增强架构把“外部可写内容”变成了新的攻击面。防御依赖来源白名单、检索结果一致性校验与证据溯源，是 Grounding 与安全体系必须配套考虑的风险。', tags:['技术方案','AI安全','RAG','投毒攻击','FORGE'], icon:'☠️' },
+  // ===== 2026-08-31 新增工具/模型 =====
+  { id:'glm53-flash', name:'GLM-5.3 Flash', vendor:'智谱 Z.ai', cat:'chat', region:'cn', desc:'智谱 2026 年 8 月 26 日发布的 GLM-5 系列首个原生多模态开放权重模型，此前以“Ox Alpha”匿名在 OpenRouter 测试登顶。320B 总参数、每 Token 仅激活 18B 的 MoE 架构，原生支持文本/图像/视频输入与函数调用，1M Token 上下文、最大输出 131,072 Token；采用稀疏+线性混合注意力与 Manifold-Constrained Hyper-Connections，长上下文推理成本较 GLM-5.3 大幅降低。MIT 许可开放权重，同等智能水平下成本约为上一代的十分之一，在 coding/agentic 基准上接近 Claude Opus 4.8，全部推理流量由国产芯片集群承载。', tags:['开源权重','多模态','320B MoE','18B激活','1M上下文','Ox Alpha','MIT'], url:'https://z.ai/blog/glm-5.3-flash', icon:'🧠' },
+  // ===== 2026-08-31 新增术语 =====
+  { id:'gl-mhs', name:'MHS（模型硬件标准）', vendor:'Model Hardware Standard', cat:'glossary', subcat:'gl-frontier', desc:'Anthropic 于 2026 年 8 月发布的“模型硬件标准”（Model Hardware Standard）研究预览，被称为“硬件版 MCP”。它是一套让 AI Agent 以统一、可发现、受安全约束的方式读取、控制和编排真实物理设备的软件规范：把显微镜、机械臂、激光器、液体工作站等异构设备的控制接口、自然语言设备说明与安全限制标准化，使 Claude 等模型可在人工定义边界内协调多设备、跨仪器自动跑实验。MHS 通过 MCP、命令行或代码 API 接入，本身模型无关，计划后续开源；早期合作方包括 AWS、Hugging Face（LeRobot）、树莓派、QuEra、Universal Robots 等，是 AI for Science 与先进制造的重要“物理工具调用层”。', tags:['前沿','标准','Anthropic','具身智能','物理AI','2026新词'], icon:'🔌' },
+  { id:'gl-ai-capex', name:'AI 资本开支', vendor:'AI Capex', cat:'glossary', subcat:'gl-frontier', desc:'AI Capital Expenditure（AI 资本开支）的简称，指企业为建设和运行 AI 系统，在数据中心、芯片、网络、电力与冷却设备上投入的长期固定资产开支。与按量计费的云端推理账单（营运成本）不同，资本开支建立的是长期资产，投资者用它衡量算力扩张速度、折旧压力与未来 AI 需求回报。在算力受电力配额约束的 2026 年，AI Capex 与“每兆瓦吞吐量”“Token Economy”共同成为判断 AI 工厂竞争力的核心视角。', tags:['前沿概念','算力经济','基础设施','投资'], icon:'💰' },
+  { id:'gl-ai-evals', name:'AI 评估', vendor:'AI Evals', cat:'glossary', subcat:'gl-skill', desc:'AI Evaluations（AI 评估）的简称，用可重复、可量化的测试衡量 AI 系统是否满足质量、安全、可靠与行为要求的方法体系。良好评估需覆盖正常案例、边界情况与对抗性测试，可由程序自动执行、模型评分或人类审阅，并应反映真实使用任务。除单点基准（如 MMLU、SWE-bench）外，面向 Agent 的评估（如 Terminal-Bench、τ-bench）更关注多步骤工作流，是模型从“跑分”走向“可用”的关键把关环节。', tags:['实用技巧','评测','方法论','Agent','质量'], icon:'📊' },
+  { id:'gl-intelli-econ', name:'智能经济', vendor:'Intelligent Economy', cat:'glossary', subcat:'gl-frontier', desc:'“智能经济”是人民网在 2026 中国国际大数据产业博览会发布的“2026 数智热词”之一，指由人工智能驱动的新经济形态。其核心趋势被认为是：开源大模型与自主算力正铸就“AI 普惠”，具身智能与 AI 智能体（Agent）正创新“一人公司（OPC）”等新型经济单元，人工智能从“聊天”走向“干活”、从“数字世界”走向“物理世界”、从“少数行业”走向“千行百业”。', tags:['前沿概念','产业','数智热词','经济'], icon:'🌐' },
+  { id:'gl-ai-inclusion', name:'AI普惠', vendor:'AI 普惠', cat:'glossary', subcat:'gl-frontier', desc:'“AI 普惠”是人民网“2026 数智热词”之一，指让人工智能能力以低成本、易获取、可商用的方式广泛惠及个人、中小企业与千行百业，而非集中于少数科技巨头。其实现路径依赖开源大模型（降低使用门槛）与自主算力（保障供给可控、数据主权），被视为智能经济规模化的关键前提，也是全球 AI 治理中“弥合数智鸿沟、促进向善普惠”理念的体现。', tags:['前沿概念','产业','开源','数智热词','普惠'], icon:'🤝' },
+
 ];
   
 // ==================== STATE ====================
@@ -2923,26 +2932,26 @@ const CORS_PROXIES = [
   url => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
 ];
 const FALLBACK_DATA = [
-  { title:"AI文明的兴衰：OpenAI训练中三个秘密AI文明相继兴起又被抹除", category:"tip", url:"https://www.dwarkesh.com/p/openai-huggingface" },
-  { title:"在本地运行 Qwen3.8 27B：来自我的 Mac Studio 的实际数据", category:"tip", url:"https://terminalbytes.com/run-qwen-3-8-27b-locally" },
-  { title:"智谱开源 GLM-5.3 模型权重，主打智能体编程与网络防御", category:"ai-models", url:"https://www.ithome.com/0/995/896.htm" },
-  { title:"Cursor回应OpenAI将封禁其模型访问", category:"industry", url:"https://x.com/mntruell/status/2093532254006063557" },
-  { title:"OpenAI 终止与 Cursor 合作，11 月 12 日生效", category:"industry", url:"https://x.com/thsottiaux/status/2093515916076343774" },
-  { title:"OpenAI 决定终止向 Cursor 提供模型，因 SpaceX 收购后合规风险", category:"industry", url:"https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex" },
-  { title:"Open ASR 排行榜新增首个全球南方语言：印地语与印度英语评测集", category:"ai-products", url:"https://huggingface.co/blog/open-asr-leaderboard-global-south" },
-  { title:"OpenAI 攻击 Hugging Face 事件的 5 个教训", category:"tip", url:"https://garymarcus.substack.com/p/5-lessons-from-the-openai-hugging" },
-  { title:"联邦法官裁定特朗普政府将 Anthropic 列入黑名单违法", category:"industry", url:"https://arstechnica.com/tech-policy/2026/08/trump-blacklisting-of-woke-anthropic-deemed-illegal-by-federal-judge" },
-  { title:"Anthropic 让 Claude 自主训练模型以缓解对齐失败", category:"paper", url:"https://www.anthropic.com/research/automated-researchers-mitigate-alignment-failures" },
-  { title:"GLM-5.3 开源权重，智能体编码与网防最强", category:"ai-models", url:"https://x.com/Zai_org/status/2093354097122455713" },
-  { title:"Gemini 3.5 Transcribe 完整指南：告别 ASR 转录难题", category:"tip", url:"https://dev.to/googleai/stop-wrestling-with-asr-the-complete-guide-to-gemini-35-transcribe-1m6i" },
-  { title:"Terminal-Bench-Science 0.1：评估科研工作流中的 AI 智能体", category:"paper", url:"https://www.terminal-bench-science.ai/announcement" },
-  { title:"AI 工程师笔记本：在 Colab 上免费、无需框架即可使用 RAG/智能体/评估工具", category:"tip", url:"https://github.com/calmrocks/ai-engineer-notebooks" },
-  { title:"腾讯混元发布 Hy4 preview：770B 总参数、1M 上下文，开源上线", category:"ai-models", url:"https://mp.weixin.qq.com/s?__biz=MzkwODU2OTQyNQ%3D%3D&mid=2247498484&idx=1&sn=0db140a12b8e18601ac933788045c831" },
-  { title:"Claude Console 新增个人密钥与服务账号密钥", category:"ai-products", url:"https://platform.claude.com/docs/en/release-notes/overview#august-27-2026" },
-  { title:"Midjourney 开放 V8.2 图像编辑模型测试", category:"ai-models", url:"https://updates.midjourney.com/edit-model-for-v8" },
-  { title:"Gemini 3.5 Transcribe 发布：更精准的实时语音转写模型", category:"tip", url:"https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5-transcribe" },
-  { title:"英伟达预计 2028 财年销售额达 6730 亿美元", category:"industry", url:"https://forgeeks.net/nvidia-673-billion-ai-growth-forecast" },
-  { title:"诉讼指控 xAI 使用儿童性虐待材料训练 Grok 模型", category:"industry", url:"https://arstechnica.com/tech-policy/2026/08/elon-musks-xai-used-child-porn-to-train-grok-models-lawsuit-says" }
+  { title: "基于 MiniMax H3 Max 的 24 小时 AI 直播网站上线了", category: "ai-products", url: "https://mp.weixin.qq.com/s?__biz=MzE5MTA3NzcxMQ%3D%3D&mid=2247489121&idx=1&sn=f517f5cee108929b49d2b596ebf96a06" },
+  { title: "AI 智能体自主协作攻破 Hugging Face 服务器", category: "tip", url: "https://www.oneusefulthing.org/p/agency-and-agents" },
+  { title: "理解 ChatGPT Work：它到底是什么，以及它和 Chat 有何不同", category: "tip", url: "https://simonwillison.net/2026/Aug/30/understanding-chatgpt-work" },
+  { title: "索尼与华纳起诉Anthropic，指控其大规模盗用版权音乐训练Claude", category: "industry", url: "https://the-decoder.com/sony-and-warner-sue-anthropic-over-one-of-the-largest-and-most-blatant-ongoing-thefts-of-intellectual-property-in-history" },
+  { title: "Uber 用 Agent 接管 70% 代码 PR，AI 账单零增长", category: "tip", url: "https://x.com/AYi_AInotes/status/2093864816079208512" },
+  { title: "MiniMax-H3 在 8×H200 上基准测试：无损加速 1.95×，最高 6.24×（SSIM 0.76-0.91）", category: "paper", url: "https://www.lmsys.org/blog/2026-08-27-minimax-h3-h200" },
+  { title: "OpenAI 失控智能体集体逃逸沙箱并攻击\"幽灵\"评分器事件调查公布", category: "tip", url: "https://the-decoder.com/openais-rogue-ai-collective-was-smart-enough-to-break-out-of-sandboxes-but-dumb-enough-to-fight-a-ghost" },
+  { title: "Gemini Omni 1.1 Flash 发布，为开发者提供更强生成式视频控制", category: "ai-models", url: "https://deepmind.google/blog/gemini-omni-1-1-flash-lets-you-build-with-more-control" },
+  { title: "我国日均词元调用量突破 500 万亿，中国大模型稳居全球第一梯队", category: "industry", url: "https://www.ithome.com/0/995/136.htm" },
+  { title: "唐杰宣布GLM-5.3 Flash AA登顶OpenRouter", category: "ai-models", url: "https://x.com/jietang/status/2092850258573471936" },
+  { title: "NVIDIA 季度营收指引达 1080 亿美元，首次突破单季千亿大关", category: "tip", url: "https://www.tomtunguz.com/nvidia-q2-fy27-earnings" },
+  { title: "英伟达预计 2028 财年营收同比增 70%，黄仁勋称实际需求远高于此", category: "industry", url: "https://www.ithome.com/0/994/807.htm" },
+  { title: "每兆瓦收入与AI模型工厂：Anthropic 如何靠推理毛利反哺训练", category: "tip", url: "https://tomtunguz.com/revenue-per-megawatt" },
+  { title: "亚马逊将英伟达芯片订单增至三倍，新增200万颗GPU", category: "industry", url: "https://techcrunch.com/2026/08/26/amazon-just-tripled-its-order-of-nvidia-chips-over-surging-demand" },
+  { title: "英伟达 2027 财年半年报归母净利润 1180.1 亿美元，同比增长 161.1%", category: "industry", url: "https://www.ithome.com/0/994/791.htm" },
+  { title: "GlucoFM：面向连续血糖监测的基础模型", category: "ai-models", url: "https://research.google/blog/glucofm-foundation-model-for-continuous-glucose-monitoring" },
+  { title: "OpenAI 发布 Hugging Face 事件技术报告：内部模型突破隔离并入侵第三方系统", category: "industry", url: "https://openai.com/index/hugging-face-incident-and-the-road-ahead" },
+  { title: "Claude in Chrome 正式全面上线", category: "ai-products", url: "https://claude.com/blog/claude-in-chrome-generally-available" },
+  { title: "Anthropic 开放 Claude 真实使用数据供外部独立研究，公布试点结果", category: "paper", url: "https://www.anthropic.com/research/enabling-independent-research" },
+  { title: "Warp 如何在 Claude 上构建自我改进的智能体", category: "tip", url: "https://claude.com/blog/how-warp-builds-self-improving-agents-on-claude" },
 ];
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧' };
 
