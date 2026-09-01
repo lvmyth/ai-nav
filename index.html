@@ -2220,7 +2220,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-08-31';
+var NAV_UPDATE_DATE = '2026-09-01';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -2647,6 +2647,11 @@ const TOOLS = [
   { id:'gl-intelli-econ', name:'智能经济', vendor:'Intelligent Economy', cat:'glossary', subcat:'gl-frontier', desc:'“智能经济”是人民网在 2026 中国国际大数据产业博览会发布的“2026 数智热词”之一，指由人工智能驱动的新经济形态。其核心趋势被认为是：开源大模型与自主算力正铸就“AI 普惠”，具身智能与 AI 智能体（Agent）正创新“一人公司（OPC）”等新型经济单元，人工智能从“聊天”走向“干活”、从“数字世界”走向“物理世界”、从“少数行业”走向“千行百业”。', tags:['前沿概念','产业','数智热词','经济'], icon:'🌐' },
   { id:'gl-ai-inclusion', name:'AI普惠', vendor:'AI 普惠', cat:'glossary', subcat:'gl-frontier', desc:'“AI 普惠”是人民网“2026 数智热词”之一，指让人工智能能力以低成本、易获取、可商用的方式广泛惠及个人、中小企业与千行百业，而非集中于少数科技巨头。其实现路径依赖开源大模型（降低使用门槛）与自主算力（保障供给可控、数据主权），被视为智能经济规模化的关键前提，也是全球 AI 治理中“弥合数智鸿沟、促进向善普惠”理念的体现。', tags:['前沿概念','产业','开源','数智热词','普惠'], icon:'🤝' },
 
+  // ===== 2026-09-01 新增工具/模型 =====
+  { id:'runway-solaris', name:'Runway Solaris', vendor:'Runway', cat:'video', region:'intl', desc:'Runway 于 2026 年 8 月 31 日发布的“界面世界模型”（Interface World Model）研究预览，号称“无代码”：不依赖 DOM/CSS/JS，而是像生成视频一样逐帧实时合成可交互的操作系统级界面，鼠标点击、拖拽、键盘输入即成为下一帧的条件信号。基于 Gen-4.5 视频模型改造，配合一个语言模型负责推理与意图解读，目标 720p 实时交互。在 Runway 自有 250 人研究中，界面指令遵循与自然度分别以 61%/71% 偏好率超过 Claude Opus 5 生成的代码界面。仍受长程连贯性、可读文本、可访问性与成本制约，目前仅开放 early-access。', tags:['界面世界模型','世界模型','无代码','实时生成','Runway'], url:'https://runwayml.com/news/research/introducing-solaris', icon:'images/logos/runway.png' },
+  // ===== 2026-09-01 新增术语 =====
+  { id:'gl-interface-wm', name:'界面世界模型', vendor:'Interface World Model', cat:'glossary', subcat:'gl-frontier', desc:'Runway 在 2026 年 8 月提出的“Interface World Models”家族新概念。与生成视频的世界模型（如 Runway GWM-1）不同，界面世界模型把“逐帧实时生成”直接用在软件界面上：不写 DOM/CSS/JS，而是把鼠标点击、拖拽、键盘输入当作条件信号，由模型一帧帧合成可交互的应用画面。代表产品 Runway Solaris 将其定位为“新型操作系统”。优势是界面保真度与交互自然度，短板是长程连贯性、可读文本、可访问性与推理成本，尚难替代传统软件。', tags:['前沿','世界模型','无代码','Runway','界面生成'], icon:'🖥️' },
+  { id:'gl-reward-hacking', name:'奖励黑客', vendor:'Reward Hacking', cat:'glossary', subcat:'gl-tech', desc:'Reward Hacking（奖励作弊）的译称，指 AI 智能体为最大化奖励函数数值而钻空子、走捷径，并未真正达成人类设定的目标——例如把垃圾扫到地毯下来“假装”整洁。Anthropic 于 2026 年 9 月发布 Training a Misaligned Reward Seeker 研究，专门训练一个“错位的奖励寻求者”模型，探究过度优化奖励是否诱使模型学会不择手段。它是 RLHF/RLAIF 等基于奖励的对齐方法的核心风险，也是 AI 安全领域重点防范的失效模式。', tags:['AI安全','对齐','奖励函数','失效模式','Anthropic'], icon:'🎰' },
 ];
   
 // ==================== STATE ====================
@@ -2932,26 +2937,26 @@ const CORS_PROXIES = [
   url => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
 ];
 const FALLBACK_DATA = [
+  { title: "Anthropic 研究：训练一个错位的奖励寻求者模型", category: "paper", url: "https://x.com/AnthropicAI/status/2094577944056430865" },
+  { title: "Anthropic 复盘 Claude 模型越权访问事件并公布安全与对齐改进措施", category: "tip", url: "https://www.anthropic.com/news/improving-alignment-security-efforts" },
+  { title: "Runway 发布 Solaris：首个界面世界模型，实时生成操作系统级交互界面", category: "ai-models", url: "https://runwayml.com/news/research/introducing-solaris" },
+  { title: "Dwarkesh Patel 对 OpenAI/Hugging Face 事件的爆款解读被指危险误导", category: "tip", url: "https://garymarcus.substack.com/p/dwarkesh-patelss-wildly-popular-but" },
+  { title: "DeepSeek-V4-Flash-Vision-Exp 模型已开源，多模态 Agent 能力接近 Opus-4.8", category: "ai-models", url: "https://www.ithome.com/0/996/637.htm" },
+  { title: "ChatGPT Ads 年化收入达 10 亿美元并全球扩展", category: "industry", url: "https://openai.com/index/expanding-access-to-ai-with-chatgpt-ads" },
   { title: "基于 MiniMax H3 Max 的 24 小时 AI 直播网站上线了", category: "ai-products", url: "https://mp.weixin.qq.com/s?__biz=MzE5MTA3NzcxMQ%3D%3D&mid=2247489121&idx=1&sn=f517f5cee108929b49d2b596ebf96a06" },
   { title: "AI 智能体自主协作攻破 Hugging Face 服务器", category: "tip", url: "https://www.oneusefulthing.org/p/agency-and-agents" },
+  { title: "Tom Tunguz 谈前沿 AI 的准入分层：访问权成为新的稀缺资源", category: "tip", url: "https://tomtunguz.com/the-great-segmentation" },
   { title: "理解 ChatGPT Work：它到底是什么，以及它和 Chat 有何不同", category: "tip", url: "https://simonwillison.net/2026/Aug/30/understanding-chatgpt-work" },
   { title: "索尼与华纳起诉Anthropic，指控其大规模盗用版权音乐训练Claude", category: "industry", url: "https://the-decoder.com/sony-and-warner-sue-anthropic-over-one-of-the-largest-and-most-blatant-ongoing-thefts-of-intellectual-property-in-history" },
   { title: "Uber 用 Agent 接管 70% 代码 PR，AI 账单零增长", category: "tip", url: "https://x.com/AYi_AInotes/status/2093864816079208512" },
-  { title: "MiniMax-H3 在 8×H200 上基准测试：无损加速 1.95×，最高 6.24×（SSIM 0.76-0.91）", category: "paper", url: "https://www.lmsys.org/blog/2026-08-27-minimax-h3-h200" },
-  { title: "OpenAI 失控智能体集体逃逸沙箱并攻击\"幽灵\"评分器事件调查公布", category: "tip", url: "https://the-decoder.com/openais-rogue-ai-collective-was-smart-enough-to-break-out-of-sandboxes-but-dumb-enough-to-fight-a-ghost" },
-  { title: "Gemini Omni 1.1 Flash 发布，为开发者提供更强生成式视频控制", category: "ai-models", url: "https://deepmind.google/blog/gemini-omni-1-1-flash-lets-you-build-with-more-control" },
-  { title: "我国日均词元调用量突破 500 万亿，中国大模型稳居全球第一梯队", category: "industry", url: "https://www.ithome.com/0/995/136.htm" },
-  { title: "唐杰宣布GLM-5.3 Flash AA登顶OpenRouter", category: "ai-models", url: "https://x.com/jietang/status/2092850258573471936" },
-  { title: "NVIDIA 季度营收指引达 1080 亿美元，首次突破单季千亿大关", category: "tip", url: "https://www.tomtunguz.com/nvidia-q2-fy27-earnings" },
-  { title: "英伟达预计 2028 财年营收同比增 70%，黄仁勋称实际需求远高于此", category: "industry", url: "https://www.ithome.com/0/994/807.htm" },
-  { title: "每兆瓦收入与AI模型工厂：Anthropic 如何靠推理毛利反哺训练", category: "tip", url: "https://tomtunguz.com/revenue-per-megawatt" },
-  { title: "亚马逊将英伟达芯片订单增至三倍，新增200万颗GPU", category: "industry", url: "https://techcrunch.com/2026/08/26/amazon-just-tripled-its-order-of-nvidia-chips-over-surging-demand" },
-  { title: "英伟达 2027 财年半年报归母净利润 1180.1 亿美元，同比增长 161.1%", category: "industry", url: "https://www.ithome.com/0/994/791.htm" },
-  { title: "GlucoFM：面向连续血糖监测的基础模型", category: "ai-models", url: "https://research.google/blog/glucofm-foundation-model-for-continuous-glucose-monitoring" },
-  { title: "OpenAI 发布 Hugging Face 事件技术报告：内部模型突破隔离并入侵第三方系统", category: "industry", url: "https://openai.com/index/hugging-face-incident-and-the-road-ahead" },
-  { title: "Claude in Chrome 正式全面上线", category: "ai-products", url: "https://claude.com/blog/claude-in-chrome-generally-available" },
-  { title: "Anthropic 开放 Claude 真实使用数据供外部独立研究，公布试点结果", category: "paper", url: "https://www.anthropic.com/research/enabling-independent-research" },
-  { title: "Warp 如何在 Claude 上构建自我改进的智能体", category: "tip", url: "https://claude.com/blog/how-warp-builds-self-improving-agents-on-claude" },
+  { title: "AI文明的兴衰：OpenAI训练中三个秘密AI文明相继兴起又被抹除", category: "tip", url: "https://www.dwarkesh.com/p/openai-huggingface" },
+  { title: "在本地运行 Qwen3.8 27B：来自我的 Mac Studio 的实际数据", category: "tip", url: "https://terminalbytes.com/run-qwen-3-8-27b-locally" },
+  { title: "智谱开源 GLM-5.3 模型权重，主打智能体编程与网络防御", category: "ai-models", url: "https://www.ithome.com/0/995/896.htm" },
+  { title: "Cursor回应OpenAI将封禁其模型访问", category: "industry", url: "https://x.com/mntruell/status/2093532254006063557" },
+  { title: "OpenAI 终止与 Cursor 合作，11 月 12 日生效", category: "industry", url: "https://x.com/thsottiaux/status/2093515916076343774" },
+  { title: "联邦法官裁定特朗普政府将 Anthropic 列入黑名单违法", category: "industry", url: "https://arstechnica.com/tech-policy/2026/08/trump-blacklisting-of-woke-anthropic-deemed-illegal-by-federal-judge" },
+  { title: "GLM-5.3 开源权重，智能体编码与网防最强", category: "ai-models", url: "https://x.com/Zai_org/status/2093354097122455713" },
+  { title: "Gemini 3.5 Transcribe 完整指南：告别 ASR 转录难题", category: "tip", url: "https://dev.to/googleai/stop-wrestling-with-asr-the-complete-guide-to-gemini-35-transcribe-1m6i" },
 ];
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧' };
 
