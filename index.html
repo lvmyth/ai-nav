@@ -637,12 +637,15 @@
   }
   .tag-filter-bar.show { opacity: 1; pointer-events: auto; }
   .tf-tag {
-    font-size: 11px; padding: 3px 10px; border-radius: 14px; cursor: pointer;
-    background: rgba(100,180,255,0.08); color: var(--primary);
-    border: 1px solid rgba(100,180,255,0.12); font-weight: 500; transition: all .2s;
+    font-size: 11px; padding: 3px 8px 3px 10px; border-radius: 14px; cursor: pointer;
+    background: rgba(100,180,255,0.16); color: var(--primary);
+    border: 1px solid rgba(100,180,255,0.28); font-weight: 500; transition: all .2s;
+    display: inline-flex; align-items: center; gap: 5px;
   }
-  .tf-tag:hover { background: rgba(100,180,255,0.16); }
-  .tf-tag.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+  .tf-tag:hover { background: rgba(255,120,120,0.18); border-color: rgba(255,120,120,0.4); color: #ff8a8a; }
+  .tf-tag .rm { font-size: 12px; opacity: .8; }
+  .tf-label { font-size: 11px; color: var(--text-muted); align-self: center; margin-right: 2px; }
+  .table-card .tc-tag.selected { background: var(--primary); color: #fff; border-color: var(--primary); }
 
   /* 卡片收藏星标 + 可点击标签 */
   .table-card { position: relative; }
@@ -2059,9 +2062,9 @@ function dealCards(region) {
     var sg0 = document.getElementById('searchGlossary'); if(sg0) sg0.value = '';
     document.getElementById('tableToolbar').classList.add('show');
 
-    // 构建分类筛选栏 + 标签筛选栏
+    // 构建分类筛选栏 + 刷新已选标签显示
     buildCategoryBar(tools, felt, region);
-    buildTagFilterBar();
+    updateSelectedTagsUI();
 
     // 统一筛选渲染
     applyTableFilters();
@@ -2157,7 +2160,10 @@ function renderCardsToFelt(tools, felt, animate) {
       var showTags = allTags.slice(0, hasOS ? 4 : 5);
       if(hasOS) showTags.push('开源');
       var tags = showTags.length ? '<div class="tc-tags">' +
-        showTags.map(function(tag){ return '<span class="tc-tag clickable" data-tag="' + tag + '">' + tag + '</span>'; }).join('') +
+        showTags.map(function(tag){
+          var sel = selTags.indexOf(tag) !== -1;
+          return '<span class="tc-tag clickable' + (sel ? ' selected' : '') + '" data-tag="' + tag + '" title="点击按「' + tag + '」筛选">' + tag + '</span>';
+        }).join('') +
         '</div>' : '';
 
       card.innerHTML =
@@ -3269,7 +3275,7 @@ function recordRecent(id){
 function toggleTagFilter(tag){
   var i = selTags.indexOf(tag);
   if(i === -1) selTags.push(tag); else selTags.splice(i, 1);
-  syncTagFilterUI(); applyTableFilters();
+  updateSelectedTagsUI(); applyTableFilters();
 }
 function applyTableFilters(){
   var felt = document.getElementById('tableFelt');
@@ -3287,26 +3293,25 @@ function applyTableFilters(){
   renderCardsToFelt(list, felt, false);
   updateTableCount(list.length);
 }
-function buildTagFilterBar(){
+// 已选标签显示区（整合后：标签只在卡片上展示一次，此处仅显示当前筛选条件，避免两处重复）
+function updateSelectedTagsUI(){
   var bar = document.getElementById('tagFilterBar');
   if(!bar) return;
-  var freq = {};
-  curTools.forEach(function(t){ (t.tags || []).forEach(function(tag){ freq[tag] = (freq[tag] || 0) + 1; }); });
-  var top = Object.keys(freq).sort(function(a, b){ return freq[b] - freq[a]; }).slice(0, 16);
   bar.innerHTML = '';
-  top.forEach(function(tag){
+  if(!selTags.length){ bar.classList.remove('show'); return; }
+  var lab = document.createElement('span');
+  lab.className = 'tf-label';
+  lab.textContent = '已选标签：';
+  bar.appendChild(lab);
+  selTags.forEach(function(tag){
     var b = document.createElement('button');
-    b.className = 'tf-tag' + (selTags.indexOf(tag) !== -1 ? ' active' : '');
-    b.textContent = tag;
+    b.className = 'tf-tag';
+    b.innerHTML = tag + '<span class="rm">×</span>';
+    b.title = '点击移除该标签筛选';
     b.onclick = function(){ toggleTagFilter(tag); };
     bar.appendChild(b);
   });
   bar.classList.add('show');
-}
-function syncTagFilterUI(){
-  document.querySelectorAll('#tagFilterBar .tf-tag').forEach(function(b){
-    b.classList.toggle('active', selTags.indexOf(b.textContent) !== -1);
-  });
 }
 function updateFavUI(id){
   document.querySelectorAll('#tableFelt .tc-star[data-id="' + id + '"]').forEach(function(s){
@@ -3332,7 +3337,7 @@ function updateTableCount(n){ var el = document.getElementById('tableCount'); if
     var sg = document.getElementById('searchGlossary'); if(sg) sg.value = '';
     var ss2 = document.getElementById('sortSelect'); if(ss2) ss2.value = 'default';
     document.querySelectorAll('#catBar .cb-btn').forEach(function(b){ b.classList.toggle('active', b.dataset.cat === 'all'); });
-    document.querySelectorAll('#tagFilterBar .tf-tag').forEach(function(b){ b.classList.remove('active'); });
+    updateSelectedTagsUI();
     var f = document.getElementById('favToggle'); if(f) f.classList.remove('active');
     var r = document.getElementById('recentToggle'); if(r) r.classList.remove('active');
     applyTableFilters();
