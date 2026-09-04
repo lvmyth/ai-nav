@@ -610,6 +610,53 @@
     border-color: rgba(215,200,190,0.15);
   }
 
+  /* ===== 工具操作栏（排序/收藏/最近/标签筛选） ===== */
+  .table-toolbar {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+    padding: 10px 0 4px; justify-content: center;
+    opacity: 0; pointer-events: none; transition: opacity 0.5s;
+  }
+  .table-toolbar.show { opacity: 1; pointer-events: auto; }
+  .sort-select {
+    padding: 6px 12px; border-radius: 20px; font-size: 13px; cursor: pointer;
+    background: var(--glass-bg, rgba(60,120,200,0.03)); color: var(--text-secondary);
+    border: 1px solid var(--border, rgba(80,180,255,0.1)); font-family: inherit;
+  }
+  .view-toggle {
+    padding: 6px 14px; border-radius: 20px; font-size: 13px; cursor: pointer;
+    background: var(--glass-bg, rgba(60,120,200,0.03)); color: var(--text-secondary);
+    border: 1px solid var(--border, rgba(80,180,255,0.1)); font-family: inherit; transition: all .2s;
+  }
+  .view-toggle:hover { border-color: var(--primary); color: var(--primary); }
+  .view-toggle.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+  .table-count { font-size: 12px; color: var(--text-muted); margin-left: 4px; }
+
+  .tag-filter-bar {
+    display: flex; flex-wrap: wrap; gap: 6px; padding: 4px 0 12px; justify-content: center;
+    opacity: 0; pointer-events: none; transition: opacity 0.5s; max-width: 1000px; margin: 0 auto;
+  }
+  .tag-filter-bar.show { opacity: 1; pointer-events: auto; }
+  .tf-tag {
+    font-size: 11px; padding: 3px 10px; border-radius: 14px; cursor: pointer;
+    background: rgba(100,180,255,0.08); color: var(--primary);
+    border: 1px solid rgba(100,180,255,0.12); font-weight: 500; transition: all .2s;
+  }
+  .tf-tag:hover { background: rgba(100,180,255,0.16); }
+  .tf-tag.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+  /* 卡片收藏星标 + 可点击标签 */
+  .table-card { position: relative; }
+  .table-card .tc-star {
+    position: absolute; top: 10px; right: 10px; width: 28px; height: 28px;
+    border: none; background: rgba(255,255,255,0.08); border-radius: 50%;
+    cursor: pointer; font-size: 15px; line-height: 1; color: var(--text-muted);
+    display: flex; align-items: center; justify-content: center; transition: all .2s; z-index: 3;
+  }
+  .table-card .tc-star:hover { background: rgba(255,210,90,0.18); }
+  .table-card .tc-star.active { color: #ffcf4d; background: rgba(255,207,77,0.16); }
+  .table-card .tc-tag.clickable { cursor: pointer; }
+  .table-card .tc-tag.clickable:hover { background: rgba(100,180,255,0.24); }
+
   /* ===== 发牌动画 ===== */
   .dealing-card {
     position: fixed;
@@ -1754,6 +1801,19 @@ var _hmt = _hmt || [];
     <input type="text" class="table-search-input" id="searchGlossary" placeholder="🔍 搜索术语…" autocomplete="off" oninput="searchFilter(this, 'searchGlossary')">
   </div>
   <div class="cat-bar" id="catBar"></div>
+  <div class="table-toolbar" id="tableToolbar">
+    <select class="sort-select" id="sortSelect" title="排序方式">
+      <option value="default">↕ 默认排序</option>
+      <option value="name-asc">🔤 名称 A→Z</option>
+      <option value="name-desc">🔡 名称 Z→A</option>
+      <option value="recent">🆕 最近添加</option>
+    </select>
+    <button class="view-toggle" id="favToggle" type="button">⭐ 收藏</button>
+    <button class="view-toggle" id="recentToggle" type="button">🕘 最近</button>
+    <button class="view-toggle" id="clearFilters" type="button">✕ 清除筛选</button>
+    <span class="table-count" id="tableCount"></span>
+  </div>
+  <div class="tag-filter-bar" id="tagFilterBar"></div>
   <div class="table-felt" id="tableFelt"></div>
 </div>
 
@@ -1992,11 +2052,20 @@ function dealCards(region) {
     var felt = document.getElementById('tableFelt');
     felt.innerHTML = '';
 
-    // 在桌上渲染工具卡片
-    renderCardsToFelt(tools, felt);
+    // 初始化筛选状态（避免上一次筛选残留）
+    curTools = tools; curRegion = region;
+    selCats = []; selTags = []; ossOnly = false; favOnly = false; recentOnly = false; sortMode = 'default'; searchQ = '';
+    var st0 = document.getElementById('searchTools'); if(st0) st0.value = '';
+    var sg0 = document.getElementById('searchGlossary'); if(sg0) sg0.value = '';
+    document.getElementById('tableToolbar').classList.add('show');
 
-    // 构建分类筛选栏
+    // 构建分类筛选栏 + 标签筛选栏
     buildCategoryBar(tools, felt, region);
+    buildTagFilterBar();
+
+    // 统一筛选渲染
+    applyTableFilters();
+    updateFavCount();
 
     isDealing = false;
   }, totalAnimTime);
@@ -2071,14 +2140,16 @@ function collectCards(region) {
 }
 
 // 渲染卡片到桌面
-function renderCardsToFelt(tools, felt) {
+function renderCardsToFelt(tools, felt, animate) {
   felt.innerHTML = '';
   felt.classList.add('has-cards');
+  var step = animate === false ? 0 : 15;
   tools.forEach(function(t, i){
-    setTimeout(function(){
+    var make = function(){
       var card = document.createElement('div');
       card.className = 'table-card';
-
+      var isFav = favSet.has(t.id);
+      var star = '<button class="tc-star' + (isFav ? ' active' : '') + '" data-id="' + t.id + '" title="收藏">' + (isFav ? '★' : '☆') + '</button>';
       var allTags = t.tags ? t.tags.slice(0) : [];
       var hasOS = false;
       var osIdx = allTags.indexOf('开源');
@@ -2086,20 +2157,29 @@ function renderCardsToFelt(tools, felt) {
       var showTags = allTags.slice(0, hasOS ? 4 : 5);
       if(hasOS) showTags.push('开源');
       var tags = showTags.length ? '<div class="tc-tags">' +
-        showTags.map(function(tag){ return '<span class="tc-tag">'+tag+'</span>'; }).join('') +
+        showTags.map(function(tag){ return '<span class="tc-tag clickable" data-tag="' + tag + '">' + tag + '</span>'; }).join('') +
         '</div>' : '';
 
       card.innerHTML =
-        '<div class="tc-icon">'+iconHtml(t.icon,'🔧')+'</div>' +
-        '<div class="tc-name">'+t.name+'</div>' +
-        '<div class="tc-vendor">'+t.vendor+'</div>' +
-        '<div class="tc-desc">'+(t.desc||'').substring(0, 180)+'</div>' +
+        star +
+        '<div class="tc-icon">' + iconHtml(t.icon, '🔧') + '</div>' +
+        '<div class="tc-name">' + t.name + '</div>' +
+        '<div class="tc-vendor">' + t.vendor + '</div>' +
+        '<div class="tc-desc">' + (t.desc || '').substring(0, 180) + '</div>' +
         tags;
 
       card.style.cursor = 'pointer';
-      card.onclick = function(){ showTermModal(t); };
+      card.onclick = function(e){
+        var starEl = e.target.closest('.tc-star');
+        if(starEl){ toggleFav(starEl.dataset.id); return; }
+        var tagEl = e.target.closest('.tc-tag');
+        if(tagEl){ toggleTagFilter(tagEl.dataset.tag); return; }
+        recordRecent(t.id);
+        showTermModal(t);
+      };
       felt.appendChild(card);
-    }, i * 15);
+    };
+    if(step === 0) make(); else setTimeout(make, i * step);
   });
 }
 
@@ -2132,25 +2212,20 @@ document.addEventListener('keydown', function(e){
   if(e.key === 'Escape') closeTermModal();
 });
 
-// 分类筛选桌上卡片
-function filterTableCards(catId, allTools, felt) {
-  var btns = document.querySelectorAll('.cb-btn');
-  btns.forEach(function(b){ b.classList.remove('active'); });
-  if(this && this.classList) this.classList.add('active');
-  // 判断是否是术语子分类
-  var isGlossary = false;
-  for(var g = 0; g < GLOSSARY_SUBCATS.length; g++){
-    if(GLOSSARY_SUBCATS[g].id === catId) { isGlossary = true; break; }
-  }
-  var filtered;
+// 分类筛选桌上卡片（支持多选叠加）
+function filterTableCards(catId) {
   if(catId === 'all') {
-    filtered = allTools;
-  } else if(isGlossary) {
-    filtered = allTools.filter(function(t){ return t.subcat === catId; });
+    selCats = [];
   } else {
-    filtered = allTools.filter(function(t){ return t.cat === catId; });
+    var idx = selCats.indexOf(catId);
+    if(idx === -1) selCats.push(catId); else selCats.splice(idx, 1);
   }
-  renderCardsToFelt(filtered, felt);
+  document.querySelectorAll('#catBar .cb-btn').forEach(function(b){
+    if(!b.dataset.cat) return;
+    if(b.dataset.cat === 'all') b.classList.toggle('active', selCats.length === 0);
+    else b.classList.toggle('active', selCats.indexOf(b.dataset.cat) !== -1);
+  });
+  applyTableFilters();
 }
 
 // 构建分类筛选栏
@@ -2173,6 +2248,7 @@ function buildCategoryBar(tools, felt, region) {
   var allLabel = (region === 'glossary') ? '📖 全部术语' : '🃏 全部';
   var allBtn = document.createElement('button');
   allBtn.className = 'cb-btn active';
+  allBtn.dataset.cat = 'all';
   allBtn.textContent = allLabel + ' ('+tools.length+')';
   allBtn.onclick = function(){ filterTableCards.call(this, 'all', tools, felt); };
   catBar.appendChild(allBtn);
@@ -2180,6 +2256,7 @@ function buildCategoryBar(tools, felt, region) {
   usedCats.forEach(function(cid){
     var btn = document.createElement('button');
     btn.className = 'cb-btn';
+    btn.dataset.cat = cid;
     var displayName = cid;
     if(region === 'glossary') {
       for(var ci = 0; ci < GLOSSARY_SUBCATS.length; ci++){
@@ -2204,21 +2281,10 @@ function buildCategoryBar(tools, felt, region) {
     var ossBtn = document.createElement('button');
     ossBtn.className = 'cb-btn';
     ossBtn.textContent = '🔓 开源 ('+ossCount+')';
-    var ossActive = false;
-    var allToolsForOS = tools;
     ossBtn.onclick = function(){
-      ossActive = !ossActive;
-      if(ossActive){
-        var allBtns = document.querySelectorAll('.cb-btn');
-        allBtns.forEach(function(b){ if(b !== ossBtn) b.classList.remove('active'); });
-      }
-      this.classList.toggle('active', ossActive);
-      if(ossActive){
-        var ossTools = allToolsForOS.filter(function(t){ return t.tags && t.tags.indexOf('开源') !== -1; });
-        renderCardsToFelt(ossTools, felt);
-      } else {
-        renderCardsToFelt(allToolsForOS, felt);
-      }
+      ossOnly = !ossOnly;
+      this.classList.toggle('active', ossOnly);
+      applyTableFilters();
     };
     catBar.appendChild(ossBtn);
   }
@@ -3025,13 +3091,13 @@ function renderTools() {
 
 function updateStats() {
   const tools = TOOLS.filter(t => t.cat !== 'glossary');
-  document.getElementById('statTools').textContent = tools.length;
-  document.getElementById('statGlossary').textContent = TOOLS.filter(t => t.cat === 'glossary').length;
+  const st = document.getElementById('statTools'); if(st) st.textContent = tools.length;
+  const sg = document.getElementById('statGlossary'); if(sg) sg.textContent = TOOLS.filter(t => t.cat === 'glossary').length;
   const cnCount = tools.filter(t => t.region === 'cn').length;
   const intlCount = tools.filter(t => t.region === 'intl').length;
-  document.getElementById('regionAll').textContent = '(' + tools.length + ')';
-  document.getElementById('regionCN').textContent = '(' + cnCount + ')';
-  document.getElementById('regionIntl').textContent = '(' + intlCount + ')';
+  const ra = document.getElementById('regionAll'); if(ra) ra.textContent = '(' + tools.length + ')';
+  const rc = document.getElementById('regionCN'); if(rc) rc.textContent = '(' + cnCount + ')';
+  const ri = document.getElementById('regionIntl'); if(ri) ri.textContent = '(' + intlCount + ')';
 }
 
 // ==================== SEARCH ====================
@@ -3159,8 +3225,6 @@ async function loadNewsTicker() {
 try { renderNewsTicker(FALLBACK_DATA); } catch(e) {}
 loadNewsTicker();
 
-init();
-
 // 绑定扑克牌和术语按钮点击
 document.querySelectorAll('.poker-deck[data-region]').forEach(function(el){
   el.addEventListener('click', function(){ dealCards(this.getAttribute('data-region')); });
@@ -3176,14 +3240,107 @@ if(document.getElementById('deckCountIntl')) document.getElementById('deckCountI
 
 // 搜索过滤函数
 function searchFilter(input, id) {
-  var q = input.value.trim().toLowerCase();
+  searchQ = (input.value || '').trim().toLowerCase();
+  applyTableFilters();
+}
+
+/* ============ 增强筛选：标签多选 / 排序 / 收藏 / 最近浏览 ============ */
+var curTools = [], curRegion = '', selCats = [], selTags = [], ossOnly = false,
+    favOnly = false, recentOnly = false, sortMode = 'default', searchQ = '';
+var favSet = new Set(), recentArr = [], tIndex = {};
+TOOLS.forEach(function(t, i){ tIndex[t.id] = i; });
+
+(function(){
+  try { favSet = new Set(JSON.parse(localStorage.getItem('aiNavFav2') || '[]')); } catch(e){ favSet = new Set(); }
+  try { recentArr = JSON.parse(localStorage.getItem('aiNavRecent2') || '[]'); } catch(e){ recentArr = []; }
+})();
+
+function toggleFav(id){
+  if(favSet.has(id)) favSet.delete(id); else favSet.add(id);
+  try { localStorage.setItem('aiNavFav2', JSON.stringify(Array.from(favSet))); } catch(e){}
+  updateFavUI(id); updateFavCount(); applyTableFilters();
+}
+function recordRecent(id){
+  recentArr = recentArr.filter(function(x){ return x !== id; });
+  recentArr.unshift(id);
+  if(recentArr.length > 20) recentArr = recentArr.slice(0, 20);
+  try { localStorage.setItem('aiNavRecent2', JSON.stringify(recentArr)); } catch(e){}
+}
+function toggleTagFilter(tag){
+  var i = selTags.indexOf(tag);
+  if(i === -1) selTags.push(tag); else selTags.splice(i, 1);
+  syncTagFilterUI(); applyTableFilters();
+}
+function applyTableFilters(){
   var felt = document.getElementById('tableFelt');
-  var cards = felt.querySelectorAll('.table-card');
-  if(!q){ cards.forEach(function(c){ c.style.display = ''; }); return; }
-  cards.forEach(function(c){
-    c.style.display = c.textContent.toLowerCase().indexOf(q) !== -1 ? '' : 'none';
+  if(!felt || !curTools.length){ updateTableCount(0); return; }
+  var list = curTools.slice();
+  if(selCats.length) list = list.filter(function(t){ return selCats.indexOf(curRegion === 'glossary' ? t.subcat : t.cat) !== -1; });
+  if(ossOnly) list = list.filter(function(t){ return t.tags && t.tags.indexOf('开源') !== -1; });
+  if(favOnly) list = list.filter(function(t){ return favSet.has(t.id); });
+  if(recentOnly) list = list.filter(function(t){ return recentArr.indexOf(t.id) !== -1; });
+  if(selTags.length) list = list.filter(function(t){ return selTags.every(function(tag){ return t.tags && t.tags.indexOf(tag) !== -1; }); });
+  if(searchQ) list = list.filter(function(t){ return (t.name + ' ' + t.vendor + ' ' + (t.desc || '') + ' ' + (t.tags || []).join(' ')).toLowerCase().indexOf(searchQ) !== -1; });
+  if(sortMode === 'name-asc') list = list.slice().sort(function(a, b){ return a.name.localeCompare(b.name, 'zh'); });
+  else if(sortMode === 'name-desc') list = list.slice().sort(function(a, b){ return b.name.localeCompare(a.name, 'zh'); });
+  else if(sortMode === 'recent') list = list.slice().sort(function(a, b){ return (tIndex[b.id] || 0) - (tIndex[a.id] || 0); });
+  renderCardsToFelt(list, felt, false);
+  updateTableCount(list.length);
+}
+function buildTagFilterBar(){
+  var bar = document.getElementById('tagFilterBar');
+  if(!bar) return;
+  var freq = {};
+  curTools.forEach(function(t){ (t.tags || []).forEach(function(tag){ freq[tag] = (freq[tag] || 0) + 1; }); });
+  var top = Object.keys(freq).sort(function(a, b){ return freq[b] - freq[a]; }).slice(0, 16);
+  bar.innerHTML = '';
+  top.forEach(function(tag){
+    var b = document.createElement('button');
+    b.className = 'tf-tag' + (selTags.indexOf(tag) !== -1 ? ' active' : '');
+    b.textContent = tag;
+    b.onclick = function(){ toggleTagFilter(tag); };
+    bar.appendChild(b);
+  });
+  bar.classList.add('show');
+}
+function syncTagFilterUI(){
+  document.querySelectorAll('#tagFilterBar .tf-tag').forEach(function(b){
+    b.classList.toggle('active', selTags.indexOf(b.textContent) !== -1);
   });
 }
+function updateFavUI(id){
+  document.querySelectorAll('#tableFelt .tc-star[data-id="' + id + '"]').forEach(function(s){
+    var on = favSet.has(id);
+    s.classList.toggle('active', on);
+    s.textContent = on ? '★' : '☆';
+  });
+}
+function updateFavCount(){ var b = document.getElementById('favToggle'); if(b) b.textContent = '⭐ 收藏 (' + favSet.size + ')'; }
+function updateTableCount(n){ var el = document.getElementById('tableCount'); if(el) el.textContent = '共 ' + n + ' 项'; }
+
+(function bindToolbar(){
+  var ss = document.getElementById('sortSelect');
+  if(ss) ss.addEventListener('change', function(){ sortMode = this.value; applyTableFilters(); });
+  var ft = document.getElementById('favToggle');
+  if(ft) ft.addEventListener('click', function(){ favOnly = !favOnly; this.classList.toggle('active', favOnly); applyTableFilters(); });
+  var rt = document.getElementById('recentToggle');
+  if(rt) rt.addEventListener('click', function(){ recentOnly = !recentOnly; this.classList.toggle('active', recentOnly); applyTableFilters(); });
+  var cl = document.getElementById('clearFilters');
+  if(cl) cl.addEventListener('click', function(){
+    selCats = []; selTags = []; ossOnly = false; favOnly = false; recentOnly = false; sortMode = 'default'; searchQ = '';
+    var st = document.getElementById('searchTools'); if(st) st.value = '';
+    var sg = document.getElementById('searchGlossary'); if(sg) sg.value = '';
+    var ss2 = document.getElementById('sortSelect'); if(ss2) ss2.value = 'default';
+    document.querySelectorAll('#catBar .cb-btn').forEach(function(b){ b.classList.toggle('active', b.dataset.cat === 'all'); });
+    document.querySelectorAll('#tagFilterBar .tf-tag').forEach(function(b){ b.classList.remove('active'); });
+    var f = document.getElementById('favToggle'); if(f) f.classList.remove('active');
+    var r = document.getElementById('recentToggle'); if(r) r.classList.remove('active');
+    applyTableFilters();
+  });
+})();
+
+// 在所有定义就绪后再初始化 UI（避免 init 早于新增逻辑导致引用未定义）
+init();
 </script>
 
 <!-- Logo Modal -->
