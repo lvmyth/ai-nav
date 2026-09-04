@@ -1235,6 +1235,49 @@
     box-shadow: 0 0 16px rgba(60,140,255,0.05);
   }
 
+  /* ===== View chips (全部/收藏/最近) ===== */
+  .view-bar { display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap; }
+  .view-chip {
+    padding: 7px 16px;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    background: rgba(255,255,255,0.03);
+    color: var(--text-muted);
+    display: inline-flex; align-items: center; gap: 5px;
+  }
+  .view-chip:hover { color: #c0d8ff; background: rgba(255,255,255,0.06); }
+  .view-chip.active {
+    background: rgba(60, 140, 255, 0.10);
+    color: #66ccff;
+    border-color: rgba(60, 140, 255, 0.2);
+  }
+  .view-chip .badge { font-size: 11px; opacity: 0.7; }
+
+  /* ===== Favorite button on card ===== */
+  .card-top { padding-right: 36px; }
+  .fav-btn {
+    position: absolute;
+    top: 12px; right: 12px;
+    width: 30px; height: 30px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+    color: var(--text-muted);
+    font-size: 16px; line-height: 1;
+    cursor: pointer;
+    z-index: 3;
+    display: flex; align-items: center; justify-content: center;
+    transition: var(--transition);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+  .fav-btn:hover { background: rgba(255,255,255,0.12); color: #ffcc44; transform: scale(1.1); }
+  .fav-btn.active { color: #ffcc44; background: rgba(255,200,60,0.12); }
+
   /* ===== Region Bar ===== */
   .region-bar {
     display: flex;
@@ -1752,6 +1795,13 @@ var _hmt = _hmt || [];
         <input type="text" class="search-input" id="searchInput" placeholder="搜索工具名称、厂商或关键词…" autocomplete="off">
         <button class="search-clear" id="searchClear" title="清除">&times;</button>
       </div>
+    </div>
+
+    <!-- View chips (全部/收藏/最近) -->
+    <div class="view-bar" id="viewBar">
+      <button class="view-chip active" data-view="all">📋 全部</button>
+      <button class="view-chip" data-view="favorites">⭐ 收藏 <span class="badge" id="favCount">0</span></button>
+      <button class="view-chip" data-view="recent">🕘 最近</button>
     </div>
 
     <!-- Categories -->
@@ -2690,6 +2740,40 @@ let currentGlossarySub = 'all';
 let currentRegion = 'all';
 let currentOss = false;
 let currentQuery = '';
+let currentView = 'all';
+
+// ==================== 收藏 / 最近浏览 (localStorage) ====================
+const LS_FAV = 'aiNavFav';
+const LS_RECENT = 'aiNavRecent';
+const RECENT_CAP = 20;
+
+function getFav() { try { return JSON.parse(localStorage.getItem(LS_FAV)) || []; } catch (e) { return []; } }
+function setFav(a) { try { localStorage.setItem(LS_FAV, JSON.stringify(a)); } catch (e) {} }
+function isFav(id) { return getFav().includes(id); }
+function toggleFav(id) {
+  let f = getFav();
+  if (f.includes(id)) f = f.filter(x => x !== id); else f.push(id);
+  setFav(f);
+  updateFavCount();
+  return f.includes(id);
+}
+function getRecent() { try { return JSON.parse(localStorage.getItem(LS_RECENT)) || []; } catch (e) { return []; } }
+function addRecent(id) {
+  let r = getRecent().filter(x => x !== id);
+  r.unshift(id);
+  if (r.length > RECENT_CAP) r = r.slice(0, RECENT_CAP);
+  try { localStorage.setItem(LS_RECENT, JSON.stringify(r)); } catch (e) {}
+}
+function updateFavCount() {
+  const el = document.getElementById('favCount');
+  if (el) el.textContent = getFav().length;
+}
+
+function selectView(v) {
+  currentView = v;
+  document.querySelectorAll('.view-chip').forEach(b => b.classList.toggle('active', b.dataset.view === v));
+  renderTools();
+}
 
 function selectRegion(region) {
   currentRegion = region;
@@ -2806,7 +2890,7 @@ function updateCounts() {
 }
 
 function filterTools() {
-  return TOOLS.filter(t => {
+  let filtered = TOOLS.filter(t => {
     if (currentMode === 'tools' && t.cat === 'glossary') return false;
     if (currentMode === 'glossary' && t.cat !== 'glossary') return false;
     if (currentMode === 'tools' && currentRegion !== 'all' && t.region !== currentRegion) return false;
@@ -2823,6 +2907,15 @@ function filterTools() {
       (CATEGORIES.find(c => c.id === t.cat)?.name || '').includes(q)
     );
   });
+  if (currentView === 'favorites') {
+    const f = getFav();
+    filtered = filtered.filter(t => f.includes(t.id));
+  } else if (currentView === 'recent') {
+    const r = getRecent();
+    filtered = filtered.filter(t => r.includes(t.id));
+    filtered.sort((a, b) => r.indexOf(a.id) - r.indexOf(b.id));
+  }
+  return filtered;
 }
 
 function renderTools() {
@@ -2836,12 +2929,20 @@ function renderTools() {
     empty.classList.add('visible');
     grid.style.display = 'none';
     resultInfo.classList.remove('visible');
+    const et = empty.querySelector('.empty-text');
+    if (currentView === 'favorites') et.textContent = '还没有收藏，点击卡片右上角 ☆ 收藏常用工具';
+    else if (currentView === 'recent') et.textContent = '还没有浏览记录';
+    else et.textContent = '没有找到匹配的工具，试试换个关键词？';
   } else {
     empty.classList.remove('visible');
     grid.style.display = '';
     resultInfo.classList.add('visible');
-    const ossLabel = currentOss ? '🔓 开源' : '';
-    if (currentQuery) {
+    const ossInfo = currentOss ? '🔓 开源 · ' : '';
+    if (currentView === 'favorites') {
+      resultInfo.innerHTML = '⭐ 我的收藏 · <strong>' + filtered.length + '</strong> 项';
+    } else if (currentView === 'recent') {
+      resultInfo.innerHTML = '🕘 最近浏览 · <strong>' + filtered.length + '</strong> 项';
+    } else if (currentQuery) {
       const label = currentMode === 'glossary' ? '个词条' : '个工具';
       const filters = [];
       if (currentRegion !== 'all') filters.push(currentRegion === 'cn' ? '🇨🇳 国内' : '🌍 国外');
@@ -2856,7 +2957,6 @@ function renderTools() {
     } else if (currentMode === 'tools' && currentCategory !== 'all') {
       const cat = CATEGORIES.find(c => c.id === currentCategory);
       const regionLabel = currentRegion === 'cn' ? '🇨🇳 国内 · ' : currentRegion === 'intl' ? '🌍 国外 · ' : '';
-      const ossInfo = currentOss ? '🔓 开源 · ' : '';
       resultInfo.innerHTML = ossInfo + regionLabel + '<strong>' + (cat ? cat.name : '') + '</strong> · ' + filtered.length + ' 个工具';
     } else if (currentMode === 'tools' && currentRegion !== 'all') {
       const regionName = currentRegion === 'cn' ? '🇨🇳 国内' : '🌍 国外';
@@ -2876,6 +2976,7 @@ function renderTools() {
       if (!isGlossary) {
         card.addEventListener('click', (e) => {
           if (e.target.tagName === 'A') return;
+          addRecent(tool.id);
           window.open(tool.url, '_blank');
         });
       }
@@ -2891,8 +2992,10 @@ function renderTools() {
         return '<span class="' + cls + '">' + tag + '</span>';
       }).join('');
 
+      const favOn = isFav(tool.id);
       card.innerHTML = `
         <div class="card-top">
+          <button class="fav-btn ${favOn ? 'active' : ''}" aria-label="收藏">${favOn ? '★' : '☆'}</button>
           <div class="card-icon">${iconHtml(tool.icon,'🔧')}</div>
           <div class="card-info">
             <div class="card-name">
@@ -2904,8 +3007,17 @@ function renderTools() {
         </div>
         <div class="card-desc">${tool.desc}</div>
         <div class="card-tags">${tagsHTML}</div>
-        ${isGlossary ? '' : '<div class="card-actions"><a href="' + tool.url + '" target="_blank" class="btn-visit" onclick="event.stopPropagation()">前往使用 →</a></div>'}
+        ${isGlossary ? '' : '<div class="card-actions"><a href="' + tool.url + '" target="_blank" class="btn-visit" onclick="event.stopPropagation();addRecent(\'' + tool.id + '\')">前往使用 →</a></div>'}
       `;
+      const favBtn = card.querySelector('.fav-btn');
+      favBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        e.preventDefault();
+        const on = toggleFav(tool.id);
+        favBtn.classList.toggle('active', on);
+        favBtn.textContent = on ? '★' : '☆';
+        if (currentView === 'favorites') renderTools();
+      });
       grid.appendChild(card);
     });
   }
@@ -2950,8 +3062,10 @@ document.addEventListener('keydown', (e) => {
 // ==================== INIT ====================
 function init() {
   document.querySelectorAll('.region-btn').forEach(btn => btn.addEventListener('click', () => selectRegion(btn.dataset.region)));
+  document.querySelectorAll('.view-chip').forEach(b => b.addEventListener('click', () => selectView(b.dataset.view)));
   initCategories();
   updateStats();
+  updateFavCount();
   renderTools();
 }
 
