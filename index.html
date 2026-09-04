@@ -544,7 +544,7 @@
     border-color: #c88460;
   }
 
-  /* ===== 细粒度标签行（术语桌，从 tags 字段聚合） ===== */
+  /* ===== 细粒度标签行（工具桌/术语桌统一，从 tags 字段聚合） ===== */
   .fine-tag-bar {
     display: flex; flex-wrap: wrap; gap: 6px;
     padding: 0 0 12px; justify-content: center;
@@ -2094,7 +2094,7 @@ function dealCards(region) {
     var sg0 = document.getElementById('searchGlossary'); if(sg0) sg0.value = '';
     document.getElementById('tableToolbar').classList.add('show');
 
-    // 构建分类筛选栏 + 细标签行（术语桌）+ 刷新已选标签显示
+    // 构建分类筛选栏 + 细标签行 + 刷新已选标签显示
     buildCategoryBar(tools, felt, region);
     buildFineTagBar(tools, region);
     updateSelectedTagsUI();
@@ -2270,10 +2270,8 @@ function filterTableCards(catId) {
   applyTableFilters();
 }
 
-// 构建分类筛选栏
-// 工具桌：保留 cat 全部分类 + 开源快捷按钮；
-// 术语桌：subcat（基础概念/前沿概念…）范围太粗，改为只显示「全部术语」，
-// 更细的标签在下方 .fine-tag-bar 中以 tags 字段聚合展示。
+// 构建分类栏：术语桌与工具桌统一排版，只显示「全部」一个入口，
+// 更细的筛选统一走下方 .fine-tag-bar（从各自 tags 字段聚合的细粒度标签）。
 function buildCategoryBar(tools, felt, region) {
   var catBar = document.getElementById('catBar');
   catBar.innerHTML = '';
@@ -2286,39 +2284,6 @@ function buildCategoryBar(tools, felt, region) {
   allBtn.textContent = allLabel + ' ('+tools.length+')';
   allBtn.onclick = function(){ filterTableCards.call(this, 'all', tools, felt); };
   catBar.appendChild(allBtn);
-
-  if(region === 'glossary') return;   // 术语桌不再展开 subcat 按钮
-
-  var usedCats = [];
-  tools.forEach(function(t){
-    if(usedCats.indexOf(t.cat) === -1) usedCats.push(t.cat);
-  });
-  usedCats.forEach(function(cid){
-    var btn = document.createElement('button');
-    btn.className = 'cb-btn';
-    btn.dataset.cat = cid;
-    var displayName = cid;
-    for(var ci = 0; ci < CATEGORIES.length; ci++){
-      if(CATEGORIES[ci].id === cid) { displayName = CATEGORIES[ci].name; break; }
-    }
-    var count = tools.filter(function(t){ return t.cat === cid; }).length;
-    btn.textContent = displayName + ' ('+count+')';
-    btn.onclick = function(){ filterTableCards.call(this, cid, tools, felt); };
-    catBar.appendChild(btn);
-  });
-
-  var ossCount = tools.filter(function(t){ return t.tags && t.tags.indexOf('开源') !== -1; }).length;
-  if(ossCount > 0){
-    var ossBtn = document.createElement('button');
-    ossBtn.className = 'cb-btn';
-    ossBtn.textContent = '🔓 开源 ('+ossCount+')';
-    ossBtn.onclick = function(){
-      ossOnly = !ossOnly;
-      this.classList.toggle('active', ossOnly);
-      applyTableFilters();
-    };
-    catBar.appendChild(ossBtn);
-  }
 }
 
 // 页面加载完成后计算牌叠数量
@@ -3325,15 +3290,23 @@ function oneTermScore(term, fields){
   return best;
 }
 
-/* ===== 细粒度标签行（术语桌）：从术语 tags 字段聚合，点击进入多选筛选 ===== */
+/* ===== 细粒度标签行（工具桌 / 术语桌统一）：从各自 tags 字段聚合，点击进入多选筛选 ===== */
+// 预留隐藏名单：某些 tag 不想出现在细标签行时，加进 FT_DROP 即可
+var FT_DROP = {};
 function buildFineTagBar(tools, region){
   var bar = document.getElementById('fineTagBar');
   if(!bar) return;
   bar.innerHTML = '';
-  if(region !== 'glossary'){ bar.classList.remove('show'); return; }
+  // 厂商名过滤：tag 恰等于某条目的 vendor 时视为厂商 tag，不放进细标签行（避免 NVIDIA/Google/Meta 这类噪音）
+  var vendors = {};
+  tools.forEach(function(t){ if(t.vendor) vendors[String(t.vendor).toLowerCase()] = 1; });
   var counts = {};
   tools.forEach(function(t){
-    (t.tags || []).forEach(function(tg){ counts[tg] = (counts[tg] || 0) + 1; });
+    (t.tags || []).forEach(function(tg){
+      if(FT_DROP[tg]) return;
+      if(vendors[String(tg).toLowerCase()]) return;
+      counts[tg] = (counts[tg] || 0) + 1;
+    });
   });
   var entries = [];
   for(var k in counts) if(counts.hasOwnProperty(k)) entries.push({ tag:k, n:counts[k] });
@@ -3344,7 +3317,7 @@ function buildFineTagBar(tools, region){
     b.className = 'ft-btn';
     b.dataset.tag = e.tag;
     b.innerHTML = e.tag + '<span class="ft-count">' + e.n + '</span>';
-    b.title = e.n + ' 个术语含「' + e.tag + '」（点击加入筛选，再点取消）';
+    b.title = e.n + ' 个条目含「' + e.tag + '」（点击加入筛选，再点取消）';
     b.onclick = function(){ toggleTagFilter(e.tag); };
     bar.appendChild(b);
   });
