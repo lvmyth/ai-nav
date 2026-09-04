@@ -629,7 +629,13 @@
   }
   .view-toggle:hover { border-color: var(--primary); color: var(--primary); }
   .view-toggle.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+  /* 当前类型下没有收藏/最近记录时弱化显示，避免"有数字点开却空"的错觉 */
+  .view-toggle.empty { opacity: .5; }
   .table-count { font-size: 12px; color: var(--text-muted); margin-left: 4px; }
+  .felt-empty {
+    width: 100%; text-align: center; padding: 60px 20px; font-size: 14px;
+    color: var(--text-muted); grid-column: 1 / -1;
+  }
 
   .tag-filter-bar {
     display: flex; flex-wrap: wrap; gap: 6px; padding: 4px 0 12px; justify-content: center;
@@ -2066,9 +2072,10 @@ function dealCards(region) {
     buildCategoryBar(tools, felt, region);
     updateSelectedTagsUI();
 
-    // 统一筛选渲染
+    // 统一筛选渲染（收藏/最近计数按当前牌桌类型显示）
     applyTableFilters();
     updateFavCount();
+    updateRecentCount();
 
     isDealing = false;
   }, totalAnimTime);
@@ -2147,11 +2154,15 @@ function renderCardsToFelt(tools, felt, animate) {
   felt.innerHTML = '';
   felt.classList.add('has-cards');
   var step = animate === false ? 0 : 15;
+  if(!tools.length){
+    felt.innerHTML = '<div class="felt-empty">没有符合条件的内容，试试清除筛选 ✕</div>';
+    return;
+  }
   tools.forEach(function(t, i){
     var make = function(){
       var card = document.createElement('div');
       card.className = 'table-card';
-      var isFav = favSet.has(t.id);
+      var isFav = favSets[typeOf(t.id)].has(t.id);
       var star = '<button class="tc-star' + (isFav ? ' active' : '') + '" data-id="' + t.id + '" title="收藏">' + (isFav ? '★' : '☆') + '</button>';
       var allTags = t.tags ? t.tags.slice(0) : [];
       var hasOS = false;
@@ -2815,30 +2826,21 @@ let currentQuery = '';
 let currentView = 'all';
 
 // ==================== 收藏 / 最近浏览 (localStorage) ====================
-const LS_FAV = 'aiNavFav';
-const LS_RECENT = 'aiNavRecent';
+// 注意：真实数据统一存放在本文件末尾「增强筛选」区块的 favSets / recentArrs 中，
+// 并按「工具 / 术语」分开存储。以下仅为隐藏列表视图保留的兼容包装，避免两套数据源互相覆盖。
 const RECENT_CAP = 20;
 
-function getFav() { try { return JSON.parse(localStorage.getItem(LS_FAV)) || []; } catch (e) { return []; } }
-function setFav(a) { try { localStorage.setItem(LS_FAV, JSON.stringify(a)); } catch (e) {} }
-function isFav(id) { return getFav().includes(id); }
-function toggleFav(id) {
-  let f = getFav();
-  if (f.includes(id)) f = f.filter(x => x !== id); else f.push(id);
-  setFav(f);
-  updateFavCount();
-  return f.includes(id);
+function isFav(id) { return favSets[typeOf(id)].has(id); }
+function getRecent() { return recentArrs[curType()].slice(); }
+function addRecent(id) { recordRecent(id); }
+function listToggleFav(id) {
+  toggleFav(id);
+  listUpdateFavCount();
+  return isFav(id);
 }
-function getRecent() { try { return JSON.parse(localStorage.getItem(LS_RECENT)) || []; } catch (e) { return []; } }
-function addRecent(id) {
-  let r = getRecent().filter(x => x !== id);
-  r.unshift(id);
-  if (r.length > RECENT_CAP) r = r.slice(0, RECENT_CAP);
-  try { localStorage.setItem(LS_RECENT, JSON.stringify(r)); } catch (e) {}
-}
-function updateFavCount() {
+function listUpdateFavCount() {
   const el = document.getElementById('favCount');
-  if (el) el.textContent = getFav().length;
+  if (el) el.textContent = favSets[curType()].size;
 }
 
 function selectView(v) {
@@ -3085,7 +3087,7 @@ function renderTools() {
       favBtn.addEventListener('click', (e) => {
         e.stopPropagation();
         e.preventDefault();
-        const on = toggleFav(tool.id);
+        const on = listToggleFav(tool.id);
         favBtn.classList.toggle('active', on);
         favBtn.textContent = on ? '★' : '☆';
         if (currentView === 'favorites') renderTools();
@@ -3137,7 +3139,7 @@ function init() {
   document.querySelectorAll('.view-chip').forEach(b => b.addEventListener('click', () => selectView(b.dataset.view)));
   initCategories();
   updateStats();
-  updateFavCount();
+  listUpdateFavCount();
   renderTools();
 }
 
@@ -3253,24 +3255,64 @@ function searchFilter(input, id) {
 /* ============ 增强筛选：标签多选 / 排序 / 收藏 / 最近浏览 ============ */
 var curTools = [], curRegion = '', selCats = [], selTags = [], ossOnly = false,
     favOnly = false, recentOnly = false, sortMode = 'default', searchQ = '';
-var favSet = new Set(), recentArr = [], tIndex = {};
-TOOLS.forEach(function(t, i){ tIndex[t.id] = i; });
 
-(function(){
-  try { favSet = new Set(JSON.parse(localStorage.getItem('aiNavFav2') || '[]')); } catch(e){ favSet = new Set(); }
-  try { recentArr = JSON.parse(localStorage.getItem('aiNavRecent2') || '[]'); } catch(e){ recentArr = []; }
+/* ---- 收藏 / 最近浏览：工具 与 术语 完全分开存储 ---- */
+var TYPES = ['tools', 'glossary'];
+var LS_FAV2    = { tools: 'aiNavFav2_tools',    glossary: 'aiNavFav2_glossary' };
+var LS_RECENT2 = { tools: 'aiNavRecent2_tools', glossary: 'aiNavRecent2_glossary' };
+var RECENT_CAP2 = 20;
+var favSets    = { tools: new Set(), glossary: new Set() };
+var recentArrs = { tools: [], glossary: [] };
+var tIndex = {}, tType = {};
+TOOLS.forEach(function(t, i){
+  tIndex[t.id] = i;
+  tType[t.id]  = (t.cat === 'glossary') ? 'glossary' : 'tools';
+});
+// 按 id 判定归属类型；未知 id 回退到当前牌桌类型
+function typeOf(id){ return tType[id] || curType(); }
+// 当前牌桌类型（发牌区域为 glossary 时即术语，否则为工具）
+function curType(){ return (curRegion === 'glossary') ? 'glossary' : 'tools'; }
+function favArrOf(ty){ try { return Array.from(favSets[ty] || []); } catch(e){ return []; } }
+function lsGet(k, d){ try { var v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch(e){ return d; } }
+function lsSet(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch(e){} }
+
+(function loadFavRecent(){
+  TYPES.forEach(function(ty){
+    favSets[ty]    = new Set(lsGet(LS_FAV2[ty], []));
+    recentArrs[ty] = lsGet(LS_RECENT2[ty], []);
+  });
+  // 迁移旧版「未分类型」的键，按 id 归属拆分，历史收藏不丢失
+  var oldFav = lsGet('aiNavFav2', null);
+  if(oldFav){
+    oldFav.forEach(function(id){ favSets[typeOf(id)].add(id); });
+    TYPES.forEach(function(ty){ lsSet(LS_FAV2[ty], favArrOf(ty)); });
+    try { localStorage.removeItem('aiNavFav2'); } catch(e){}
+  }
+  var oldRec = lsGet('aiNavRecent2', null);
+  if(oldRec){
+    oldRec.forEach(function(id){
+      var ty = typeOf(id);
+      if(recentArrs[ty].indexOf(id) === -1) recentArrs[ty].push(id);
+    });
+    TYPES.forEach(function(ty){ lsSet(LS_RECENT2[ty], recentArrs[ty].slice(0, RECENT_CAP2)); });
+    try { localStorage.removeItem('aiNavRecent2'); } catch(e){}
+  }
 })();
 
 function toggleFav(id){
-  if(favSet.has(id)) favSet.delete(id); else favSet.add(id);
-  try { localStorage.setItem('aiNavFav2', JSON.stringify(Array.from(favSet))); } catch(e){}
-  updateFavUI(id); updateFavCount(); applyTableFilters();
+  var ty = typeOf(id), s = favSets[ty];
+  if(s.has(id)) s.delete(id); else s.add(id);
+  lsSet(LS_FAV2[ty], favArrOf(ty));
+  updateFavUI(id); updateFavCount(); updateRecentCount(); applyTableFilters();
 }
 function recordRecent(id){
-  recentArr = recentArr.filter(function(x){ return x !== id; });
-  recentArr.unshift(id);
-  if(recentArr.length > 20) recentArr = recentArr.slice(0, 20);
-  try { localStorage.setItem('aiNavRecent2', JSON.stringify(recentArr)); } catch(e){}
+  var ty = typeOf(id);
+  var a = recentArrs[ty].filter(function(x){ return x !== id; });
+  a.unshift(id);
+  if(a.length > RECENT_CAP2) a = a.slice(0, RECENT_CAP2);
+  recentArrs[ty] = a;
+  lsSet(LS_RECENT2[ty], a);
+  updateRecentCount();
 }
 function toggleTagFilter(tag){
   var i = selTags.indexOf(tag);
@@ -3283,8 +3325,8 @@ function applyTableFilters(){
   var list = curTools.slice();
   if(selCats.length) list = list.filter(function(t){ return selCats.indexOf(curRegion === 'glossary' ? t.subcat : t.cat) !== -1; });
   if(ossOnly) list = list.filter(function(t){ return t.tags && t.tags.indexOf('开源') !== -1; });
-  if(favOnly) list = list.filter(function(t){ return favSet.has(t.id); });
-  if(recentOnly) list = list.filter(function(t){ return recentArr.indexOf(t.id) !== -1; });
+  if(favOnly) list = list.filter(function(t){ return favSets[typeOf(t.id)].has(t.id); });
+  if(recentOnly) list = list.filter(function(t){ return recentArrs[typeOf(t.id)].indexOf(t.id) !== -1; });
   if(selTags.length) list = list.filter(function(t){ return selTags.every(function(tag){ return t.tags && t.tags.indexOf(tag) !== -1; }); });
   if(searchQ) list = list.filter(function(t){ return (t.name + ' ' + t.vendor + ' ' + (t.desc || '') + ' ' + (t.tags || []).join(' ')).toLowerCase().indexOf(searchQ) !== -1; });
   if(sortMode === 'name-asc') list = list.slice().sort(function(a, b){ return a.name.localeCompare(b.name, 'zh'); });
@@ -3315,12 +3357,37 @@ function updateSelectedTagsUI(){
 }
 function updateFavUI(id){
   document.querySelectorAll('#tableFelt .tc-star[data-id="' + id + '"]').forEach(function(s){
-    var on = favSet.has(id);
+    var on = favSets[typeOf(id)].has(id);
     s.classList.toggle('active', on);
     s.textContent = on ? '★' : '☆';
   });
 }
-function updateFavCount(){ var b = document.getElementById('favToggle'); if(b) b.textContent = '⭐ 收藏 (' + favSet.size + ')'; }
+// 计数口径：「当前牌桌里」的收藏/最近条目数。
+// 这样工具桌不会显示术语的收藏数，国内桌也不会显示国外工具的收藏数 —— 点开必然找得到。
+function favInDeck(){
+  return curTools.filter(function(t){ return favSets[typeOf(t.id)].has(t.id); }).length;
+}
+function recentInDeck(){
+  return curTools.filter(function(t){ return recentArrs[typeOf(t.id)].indexOf(t.id) !== -1; }).length;
+}
+function updateFavCount(){
+  var ty = curType(), n = favInDeck();
+  var b = document.getElementById('favToggle');
+  if(b){
+    b.textContent = (ty === 'glossary' ? '⭐ 收藏术语 (' : '⭐ 收藏工具 (') + n + ')';
+    b.classList.toggle('empty', n === 0);
+    b.title = (ty === 'glossary' ? '只看本牌桌收藏的术语' : '只看本牌桌收藏的工具') + (n ? '' : '（暂无）');
+  }
+}
+function updateRecentCount(){
+  var ty = curType(), n = recentInDeck();
+  var b = document.getElementById('recentToggle');
+  if(b){
+    b.textContent = (ty === 'glossary' ? '🕘 最近术语 (' : '🕘 最近工具 (') + n + ')';
+    b.classList.toggle('empty', n === 0);
+    b.title = (ty === 'glossary' ? '只看本牌桌最近看过的术语' : '只看本牌桌最近看过的工具') + (n ? '' : '（暂无）');
+  }
+}
 function updateTableCount(n){ var el = document.getElementById('tableCount'); if(el) el.textContent = '共 ' + n + ' 项'; }
 
 (function bindToolbar(){
