@@ -2124,6 +2124,7 @@ function collectCards(region) {
     document.getElementById('pokerPhase').classList.remove('dealt');
     document.getElementById('catBar').className = 'cat-bar';
     document.getElementById('tableSearch').classList.remove('show');
+    resetTableFilterUI();
     dealtRegion = null;
     return;
   }
@@ -2171,8 +2172,21 @@ function collectCards(region) {
     document.getElementById('pokerPhase').classList.remove('dealt');
     document.getElementById('catBar').className = 'cat-bar';
     document.getElementById('tableSearch').classList.remove('show');
+    resetTableFilterUI();
     dealtRegion = null;
   }, maxWait);
+}
+
+// 收牌后清掉桌面相关的筛选 UI（工具栏、细标签行、已选标签区）+ 清空搜索框
+function resetTableFilterUI(){
+  ['tableToolbar','tagFilterBar','fineTagBar'].forEach(function(id){
+    var el = document.getElementById(id);
+    if(!el) return;
+    el.classList.remove('show');
+    if(id === 'tagFilterBar' || id === 'fineTagBar') el.innerHTML = '';
+  });
+  var st = document.getElementById('searchTools'); if(st) st.value = '';
+  var sg = document.getElementById('searchGlossary'); if(sg) sg.value = '';
 }
 
 // 渲染卡片到桌面
