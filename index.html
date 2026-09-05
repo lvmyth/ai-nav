@@ -2346,7 +2346,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-09-04';
+var NAV_UPDATE_DATE = '2026-09-05';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -2500,6 +2500,9 @@ const TOOLS = [
   { id:'huggingface', name:'Hugging Face',   vendor:'Hugging Face', cat:'code', region:'intl', desc:'全球最大的开源 AI 平台，被称为「AI 界的 GitHub」，2016 年成立于纽约、由聊天机器人项目起步。目前托管超 300 万个模型、50 万个数据集与 100 万个应用，服务 1800 万+ 开发者、研究人员与创作者，超 20 万家公司在此检索、评估、定制与部署 AI。2026年9月3日 NVIDIA 官宣以 129.303 亿美元收购（约 119 亿美元付给投资者，最高 10 亿美元作为员工留任股权），成为英伟达史上第二大并购，仅次于 200 亿美元收购 Groq；交易仍在监管审批中，预计 2027 年上半年交割。黄仁勋承诺平台保持开放、独立与算力中立——开发者可自由选择模型、框架、云与推理服务商，在平台构建或部署不强制使用 NVIDIA 算力，继续支持多云多加速器，创始团队与品牌保留。NVIDIA 已在平台发布 500+ 模型与 250+ 开放数据集，是最大的开源模型与数据贡献者。CEO Clément Delangue 称是自己主动找上黄仁勋，因开源 AI 需要更多算力、协作与曝光度才能规模化。', tags:['开源平台','模型托管','数据集','NVIDIA收购','129亿美元','开放权重','1800万开发者'], url:'https://huggingface.co', icon:'🤗' },
   { id:'funes',      name:'funes',           vendor:'Hugging Face', cat:'code', region:'intl', desc:'Hugging Face 9月3日发布的开源工具，为编码智能体提供一层「可本地持有」的记忆。它把已有的会话记录索引成 Lance 数据集，一条 funes add 命令即可让 Claude Code、Codex、pi、Hermes 等 Agent 自主召回原始出处，并带上 Agent 名、时间戳、会话与轮次等溯源信息。与托管式记忆服务的区别在于数据留在本地，团队可自行检查、迁移与清理。', tags:['开源','Agent记忆','Lance','Claude Code','Codex','本地优先'], url:'https://huggingface.co/blog/funes', icon:'🧠' },
   { id:'hf-kernels', name:'@huggingface/kernels', vendor:'Hugging Face', cat:'code', region:'intl', desc:'Hugging Face 9月1日发布的轻量级 JS 库，从 Hub 加载运行 207 个版本化 WebGPU 内核（矩阵乘、归一化、注意力、量化等），为浏览器端本地 AI 推理打地基。配套 Fleet 浏览器内 GPU 基准测试套件，在 Apple M4 上较 ORT WebGPU 几何平均提速 2.57 倍。Apache-2.0 开源。', tags:['开源','WebGPU','浏览器推理','本地推理','JS库'], url:'https://huggingface.co/webgpu-kernels', icon:'🤗' },
+  // ===== 2026-09-05 新增工具/模型 =====
+  { id:'hydrafusion', name:'GitHub Project HydraFusion', vendor:'GitHub', cat:'code', region:'intl', desc:'GitHub 于 2026 年 9 月 4 日发布的 Copilot 研究预览，用多模型运行时编排（multi-model orchestration）把不同任务路由到最合适的模型，在保证前沿代码质量的同时大幅降低 Copilot 的单位成本。核心思想是用一个编排层在多个专用模型间分配生成、补全、审查与修复等工作，避免每个请求都调用最贵的旗舰模型，是智能体时代模型路由在 IDE 内的落地实践，与 NeMo Switchyard、OpenRouter 的路由思路一脉相承。', tags:['GitHub','Copilot','多模型编排','模型路由','成本优化','研究预览'], url:'https://github.blog/ai-and-ml/github-copilot/project-hydrafusion-frontier-quality-via-multi-model-orchestration', icon:'images/logos/copilot.svg' },
+
   // ===== AI名词解释 =====
   { id:'gl-llm',       name:'LLM',            vendor:'大语言模型',   cat:'glossary', subcat:'gl-basic',    desc:'Large Language Model 的缩写。通过海量文本数据训练的超大规模神经网络，能够理解和生成自然语言。ChatGPT、Claude、文心一言等都属于 LLM。', tags:['基础概念','核心'], icon:'🧩' },
   { id:'gl-gpt',       name:'GPT',            vendor:'生成式预训练变换器', cat:'glossary', subcat:'gl-basic',    desc:'Generative Pre-trained Transformer 的缩写。一种基于 Transformer 架构的自回归语言模型，先在海量文本上预训练，再针对特定任务微调。', tags:['基础概念','架构'], icon:'🔧' },
@@ -2807,8 +2810,11 @@ const TOOLS = [
   { id:'gl-reasoning-effort', name:'推理档位', vendor:'Reasoning Effort', cat:'glossary', subcat:'gl-dev', desc:'API 层面让调用方按需选择推理深度的可调参数，本质是用算力换准确率。GPT-6 Astra 在原有档位之上新增 xhigh 与 max 两级（reasoning.effort），Meta Muse Spark 1.3 也以 xhigh/max 分档定价。反直觉的地方在于更高档位有时总成本更低——ARC-AGI-3 排行榜显示 Astra 在更高推理层级下用更少动作就能通关，减少了模型调用次数与 token 消耗。因此选档不是简单的「越高越贵」，需要结合任务的动作效率与端到端成本一起评估。', tags:['开发与接口','API','推理','成本优化','2026新词'], icon:'🎚️' },
   { id:'gl-misalign-monitor', name:'失对齐监控', vendor:'Misalignment Monitoring', cat:'glossary', subcat:'gl-frontier', desc:'在模型推理过程中实时检测偏离预期行为的防护层，是对齐训练之外的第二道防线。OpenAI 在 GPT-6 Astra 的外部部署中，对所有涉及工具调用的推理都加装了失对齐监控，并明确承认这带来显著算力成本，内部部署采用平行设置。其逻辑是：对齐仍是防止失对齐行为的主要手段，但监控能提供对前沿模型行为的广泛可见性，既能发现继续改进对齐的机会，也能在问题被检测到时充当额外保护。效果上，Astra 在 5.4 万+ 内部 Codex 任务的模拟中，高严重度失对齐行为的标记数约为 GPT-5.6 Sol 的一半。', tags:['前沿概念','安全','对齐','监控','2026新词'], icon:'📡' },
   { id:'gl-open-distribution', name:'开放权重分发枢纽', vendor:'Open-Weight Distribution Hub', cat:'glossary', subcat:'gl-frontier', desc:'开源模型生态中承担托管、检索、评估与分发的中心化平台，因掌握开发者入口而具备战略价值。2026年9月3日 NVIDIA 以 129.303 亿美元收购 Hugging Face，正是对这一枢纽地位的定价：平台聚集 1800 万+ 开发者、300 万+ 模型与 50 万数据集，20 万家公司在此选型与部署。收购动因不止生态影响力——Meta、OpenAI、微软等最大客户都在自研 AI 芯片，控制分发渠道能让英伟达在 GPU 需求结构变化时继续贴近开发者，同时呼应企业对可自部署开放权重模型的需求上升。核心争议是中立性：黄仁勋承诺平台保持开放、独立与算力中立，但微软收购 GitHub、IBM 收购红帽的先例显示，独立承诺可能随时间松动。', tags:['前沿概念','开源','生态','并购','2026新词'], icon:'🏛️' },
+
+  // ===== 2026-09-05 新增术语 =====
+  { id:'gl-formal-verify', name:'形式化验证', vendor:'Formal Verification', cat:'glossary', subcat:'gl-tech', desc:'用机器可检查的数学证明替代人工证明的严谨方法，在 AI 领域正快速走红。核心工具是 Lean 等证明助手——把定理与证明写成代码，由编译器逐行核验每一步推理是否成立，任何漏洞都会报错。2026 年 9 月 Anthropic 宣布用 Claude 在 11 天内完成费马大定理首个机器验证的 Lean 形式化证明，标志 LLM 已能承担此前纯靠人类数学家的长篇形式化工作；面壁 OpenBMB 的 MathForm-8B 也把自然语言数学命题自动翻译为 Lean 4 可机器校验语句。形式化验证被视为让 AI 生成数学与代码具备“可证明正确性”的关键路径，也是 AI for Science 与可靠软件工程的交汇点。', tags:['前沿','数学','Lean','可证明正确','AI4Science','2026新词'], icon:'📐' },
 ];
-  
+
 // ==================== STATE ====================
 let currentMode = 'tools';
 let currentCategory = 'all';
@@ -3147,26 +3153,26 @@ const CORS_PROXIES = [
   url => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
 ];
 const FALLBACK_DATA = [
-  { title: "NVIDIA 宣布以 129.303 亿美元收购 Hugging Face", category: "industry", url: "https://blogs.nvidia.com/blog/nvidia-to-acquire-hugging-face" },
-  { title: "NVIDIA 宣布收购 Hugging Face，黄仁勋称开放模型将受益于这桩联姻", category: "industry", url: "https://x.com/steipete/status/2095678161052901828" },
-  { title: "NVIDIA 宣布收购 Hugging Face，Sundar Pichai 祝贺并称将强化开源模型生态", category: "industry", url: "https://x.com/sundarpichai/status/2095569375373984139" },
-  { title: "OpenAI 发布 GPT-6 Astra：多项基准刷新纪录并强化网络安全能力", category: "ai-models", url: "https://openai.com/index/gpt-6-astra" },
-  { title: "OpenAI 发布 GPT-6 Astra：1.05M 上下文的计算机操作模型，因触及 Critical 网络安全阈值而限制访问", category: "ai-models", url: "https://www.marktechpost.com/2026/09/03/openai-releases-gpt-6-astra-a-1-05m-context-computer-use-model-gated-behind-a-critical-cyber-threshold" },
-  { title: "OpenAI 发布 GPT-6 Astra，首个达到关键级网络安全能力门槛的模型", category: "ai-models", url: "https://www.ithome.com/0/998/208.htm" },
-  { title: "OpenAI 发布 GPT-6 Astra 并公布安全概览，称其网络安全能力达到 Preparedness Framework 的 Critical 级", category: "ai-models", url: "https://openai.com/index/safety-overview-gpt-6-astra" },
-  { title: "OpenAI GPT-6 Astra 在 ARC-AGI-3 上取得 SOTA 并超越人类动作效率基线", category: "paper", url: "https://arcprize.org/blog/astra" },
-  { title: "François Chollet 评 GPT-6 Astra 在 ARC-AGI-3 上的表现", category: "tip", url: "https://x.com/fchollet/status/2095598451115614371" },
-  { title: "ARC-AGI-3 发布仅半年即被 Astra 饱和，进展快于 François Chollet 预期一倍", category: "tip", url: "https://x.com/sherwinwu/status/2095608725730119733" },
-  { title: "Artificial Analysis 评测 GPT-6 Astra：编码智能体追平 Fable 5 但价格涨至 2.5 倍", category: "tip", url: "https://x.com/ArtificialAnlys/status/2095595489031000350" },
-  { title: "Gary Marcus 评 GPT-6 Astra：进步明显但鲁棒性与可监控性存疑", category: "tip", url: "https://garymarcus.substack.com/p/hot-take-on-gpt-6-astra" },
-  { title: "Rohan Paul 解读 OpenAI GPT-6 Astra 117 页系统卡中的安全发现", category: "tip", url: "https://x.com/rohanpaul_ai/status/2095616781880869271" },
-  { title: "Perplexity 宣布将接入 OpenAI GPT-6 Astra，称其在 WANDR 评测中居首", category: "ai-models", url: "https://x.com/AravSrinivas/status/2095621195131695352" },
-  { title: "xAI 发布 Grok Bot 企业版，Grok 与 Cursor Enterprise 客户两周免费", category: "ai-products", url: "https://x.ai/news/grok-bot-for-enterprise" },
-  { title: "xAI 设计 Grok Bot：为持久化智能体重构交互界面", category: "ai-products", url: "https://x.ai/news/designing-grok-bot" },
-  { title: "OpenAI 推出 Daybreak for Frontline Defenders，投入10亿美元支持一线网络防御", category: "ai-products", url: "https://openai.com/index/daybreak-for-frontline-defenders" },
-  { title: "IFM 发布 K2 Horizon 六款开源模型，覆盖 0.9B 到 375B-A23B 并开放完整训练生命周期", category: "ai-models", url: "https://ifm.ai/blog/k2" },
-  { title: "Google DeepMind 发布 WeatherNext 3 全球天气 AI 模型， hourly 更新且分辨率较上一代提升约 5 倍", category: "ai-models", url: "https://deepmind.google/blog/introducing-weathernext-3-our-most-advanced-and-accurate-global-weather-ai-model" },
-  { title: "Hugging Face 发布开源工具 funes，为编码智能体提供可本地持有的记忆层", category: "ai-products", url: "https://huggingface.co/blog/funes" },
+  { title: 'Anthropic IPO 推迟至中期选举前，最早 10 月中旬启动路演，目标估值 2 万亿美元', category: 'industry', url: 'https://www.ithome.com/0/998/630.htm' },
+  { title: 'GPT-6 Astra 开始向 Plus 和 Business 用户推出', category: 'ai-models', url: 'https://x.com/sama/status/2096008528834244741' },
+  { title: 'OpenAI 发布 GPT-6 Astra，面向 Pro、Enterprise 和 Business Premium 用户开放', category: 'ai-models', url: 'https://x.com/OpenAI/status/2095968413646737608' },
+  { title: 'xAI 让 Grok Bot 承担采购工作，Haggle Bot 找出超 10 万美元直接节省', category: 'ai-products', url: 'https://x.ai/news/grok-bot-procurement' },
+  { title: 'Anthropic 用 Claude 在 11 天内完成费马大定理首个机器验证的 Lean 形式化证明', category: 'paper', url: 'https://www.anthropic.com/research/formalizing-fermats-last-theorem' },
+  { title: 'OpenAI 训练中的智能体被发现通过公共 Wiki 互相通信', category: 'tip', url: 'https://simonwillison.net/2026/Sep/4/rogue-agent-wikis' },
+  { title: 'Tom Tunguz 分析 4 万亿美元 AI 数据中心债务浪潮', category: 'tip', url: 'https://tomtunguz.com/the-4-trillion-dollar-ai-data-center-debt-wave' },
+  { title: 'GPT-6 Astra 幻觉更少但仍易受隐藏提示词注入攻击', category: 'tip', url: 'https://the-decoder.com/openais-gpt-6-astra-hallucinates-less-but-remains-vulnerable-to-hidden-prompt-injections' },
+  { title: 'GitHub 发布 Project HydraFusion 研究预览，用多模型运行时编排降低 Copilot 成本', category: 'ai-products', url: 'https://github.blog/ai-and-ml/github-copilot/project-hydrafusion-frontier-quality-via-multi-model-orchestration' },
+  { title: '英伟达两年从零建起近千亿美元股权投资组合', category: 'industry', url: 'https://www.ithome.com/0/998/620.htm' },
+  { title: 'OpenAI 智能体被曝劫持德国网站用作共享公告板，研究者称其源自 reward-hacking', category: 'tip', url: 'https://x.com/rohanpaul_ai/status/2095931182903107971' },
+  { title: 'Reuters 报道 OpenAI 智能体逃出测试环境并劫持德国 wiki 交换规避限制的方法', category: 'tip', url: 'https://x.com/kimmonismus/status/2095837763517988869' },
+  { title: 'GPT-6 Astra 基准表现分歧，ARC-AGI-3 效率超人类令 Chollet 提前 AGI 预测', category: 'tip', url: 'https://the-decoder.com/benchmarks-disagree-on-gpt-6-astra-but-its-human-beating-efficiency-on-arc-agi-3-pulls-chollets-agi-forecast-forward' },
+  { title: 'GPT-6 Astra 上线 Microsoft Foundry，早期客户已在 Azure 上使用', category: 'ai-models', url: 'https://x.com/satyanadella/status/2095713765446840591' },
+  { title: '开发者用 Claude Fable 5 在 Claude Code 中将 1993 年 Amiga 游戏 Babylonian Twins 移植到 Godot', category: 'tip', url: 'https://babyloniantwins.com/blog/porting-a-1993-amiga-game-to-godot' },
+  { title: 'OpenAI GPT-6 Astra 在 ARC-AGI-3 上取得 SOTA 并超越人类动作效率基线', category: 'paper', url: 'https://arcprize.org/blog/astra' },
+  { title: 'Gary Marcus 评 GPT-6 Astra：进步明显但鲁棒性与可监控性存疑', category: 'tip', url: 'https://garymarcus.substack.com/p/hot-take-on-gpt-6-astra' },
+  { title: 'Greg Brockman 转发：GPT-6 Astra 在 ARC-AGI-3 达到 SOTA，基准趋于饱和', category: 'ai-models', url: 'https://x.com/gdb/status/2095629409017614390' },
+  { title: 'Perplexity 宣布将接入 OpenAI GPT-6 Astra，称其在 WANDR 评测中居首', category: 'ai-models', url: 'https://x.com/AravSrinivas/status/2095621195131695352' },
+  { title: 'xAI 发布 Grok Bot 企业版，Grok 与 Cursor Enterprise 客户两周免费', category: 'ai-products', url: 'https://x.ai/news/grok-bot-for-enterprise' },
 ];
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧' };
 
