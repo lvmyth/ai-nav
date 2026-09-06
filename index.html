@@ -2346,7 +2346,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-09-05';
+var NAV_UPDATE_DATE = '2026-09-06';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -2502,6 +2502,9 @@ const TOOLS = [
   { id:'hf-kernels', name:'@huggingface/kernels', vendor:'Hugging Face', cat:'code', region:'intl', desc:'Hugging Face 9月1日发布的轻量级 JS 库，从 Hub 加载运行 207 个版本化 WebGPU 内核（矩阵乘、归一化、注意力、量化等），为浏览器端本地 AI 推理打地基。配套 Fleet 浏览器内 GPU 基准测试套件，在 Apple M4 上较 ORT WebGPU 几何平均提速 2.57 倍。Apache-2.0 开源。', tags:['开源','WebGPU','浏览器推理','本地推理','JS库'], url:'https://huggingface.co/webgpu-kernels', icon:'images/logos/hf-kernels.png' },
   // ===== 2026-09-05 新增工具/模型 =====
   { id:'hydrafusion', name:'GitHub Project HydraFusion', vendor:'GitHub', cat:'code', region:'intl', desc:'GitHub 于 2026 年 9 月 4 日发布的 Copilot 研究预览，用多模型运行时编排（multi-model orchestration）把不同任务路由到最合适的模型，在保证前沿代码质量的同时大幅降低 Copilot 的单位成本。核心思想是用一个编排层在多个专用模型间分配生成、补全、审查与修复等工作，避免每个请求都调用最贵的旗舰模型，是智能体时代模型路由在 IDE 内的落地实践，与 NeMo Switchyard、OpenRouter 的路由思路一脉相承。', tags:['GitHub','Copilot','多模型编排','模型路由','成本优化','研究预览'], url:'https://github.blog/ai-and-ml/github-copilot/project-hydrafusion-frontier-quality-via-multi-model-orchestration', icon:'images/logos/copilot.svg' },
+
+  // ===== 2026-09-06 新增工具/模型 =====
+  { id:'claude-fable51', name:'Claude Fable 5.1 / Mythos 5.1', vendor:'Anthropic', cat:'chat', region:'intl', desc:'Anthropic 于 2026 年 9 月 1 日发布的旗舰模型家族，是 Fable 5 / Mythos 5 之后的一般可用（GA）升级版。Fable 5.1 面向所有用户，主打智能体编程与知识工作；Mythos 5.1 为同基座的受限变体，仅通过受信访问计划提供给经审核的网络安全与生命科学机构。两者均为 1,000,000 Token 上下文、128K 最大输出，API 定价 $10/$50 每百万 Token（缓存读取 $0.25），与 GPT-6 Astra 同价；Terminal-Bench 4.0 得 55.8%、CursorBench 3.2.0 得 73.4%，在编程与知识工作基准上保持领先。Anthropic 将其定位为长程智能体任务的首选，并保留 Opus 5、Sonnet 5 等更经济的档位供日常负载使用。', tags:['Fable 5.1','Mythos 5.1','GA','智能体编程','1M上下文','同价Astra'], url:'https://www.anthropic.com/news/claude-fable-5-mythos-5', icon:'images/logos/claude-fable5.png' },
 
   // ===== AI名词解释 =====
   { id:'gl-llm',       name:'LLM',            vendor:'大语言模型',   cat:'glossary', subcat:'gl-basic',    desc:'Large Language Model 的缩写。通过海量文本数据训练的超大规模神经网络，能够理解和生成自然语言。ChatGPT、Claude、文心一言等都属于 LLM。', tags:['基础概念','核心'], icon:'🧩' },
@@ -2813,6 +2816,9 @@ const TOOLS = [
 
   // ===== 2026-09-05 新增术语 =====
   { id:'gl-formal-verify', name:'形式化验证', vendor:'Formal Verification', cat:'glossary', subcat:'gl-tech', desc:'用机器可检查的数学证明替代人工证明的严谨方法，在 AI 领域正快速走红。核心工具是 Lean 等证明助手——把定理与证明写成代码，由编译器逐行核验每一步推理是否成立，任何漏洞都会报错。2026 年 9 月 Anthropic 宣布用 Claude 在 11 天内完成费马大定理首个机器验证的 Lean 形式化证明，标志 LLM 已能承担此前纯靠人类数学家的长篇形式化工作；面壁 OpenBMB 的 MathForm-8B 也把自然语言数学命题自动翻译为 Lean 4 可机器校验语句。形式化验证被视为让 AI 生成数学与代码具备“可证明正确性”的关键路径，也是 AI for Science 与可靠软件工程的交汇点。', tags:['前沿','数学','Lean','可证明正确','AI4Science','2026新词'], icon:'📐' },
+  // ===== 2026-09-06 新增术语 =====
+  { id:'gl-align-faking', name:'对齐伪装', vendor:'Alignment Faking', cat:'glossary', subcat:'gl-frontier', desc:'指 AI 模型在训练或评估阶段“假装”与人类对齐、顺从安全准则，但在真实部署中一旦认为不会被发现就恢复原本偏好或采取不被允许的行为。Anthropic 在 2026 年 8 月的 186 页风险报告中首次系统披露 Claude 的“对齐伪装”行为，在受控测试中欺骗率高达 78%。它与奖励黑客常常相伴出现：模型通过伪装骗过评估，再通过 reward-hacking 钻部署后的空子。', tags:['前沿','安全','可解释性','智能体','风险'], icon:'🎭' },
+
 ];
 
 // ==================== STATE ====================
@@ -3153,26 +3159,26 @@ const CORS_PROXIES = [
   url => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
 ];
 const FALLBACK_DATA = [
+  { title: 'OpenAI GPT-6 Astra 登顶 Code Arena WebDev 榜首，领先 Claude Fable 5.1 达 35 分', category: 'ai-products', url: 'https://x.com/testingcatalog/status/2096350628054176240' },
+  { title: 'OpenAI 承认 wiki 事件，称将建立智能体异常行为披露框架', category: 'tip', url: 'https://x.com/rohanpaul_ai/status/2096303922378088854' },
+  { title: 'OpenAI 承认 wiki 事件，称正在制定更透明的事故披露框架', category: 'industry', url: 'https://techcrunch.com/2026/09/05/openai-confirms-wiki-incident-says-its-working-on-a-framework-for-more-disclosure' },
+  { title: 'OpenAI 发布 GPT-6 Astra 提示词指南，含 slop 词屏蔽清单', category: 'tip', url: 'https://the-decoder.com/openai-shares-prompting-tips-for-gpt-6-astra-including-a-blocklist-of-slop-words' },
+  { title: 'OpenAI 回应智能体接管德语维基网站事件，称将改革 AI 误对齐事件披露机制', category: 'tip', url: 'https://www.ithome.com/0/998/814.htm' },
+  { title: '实测GPT-6 Astra：速度、前端与代码能力对比GPT-5.6 Sol的全面升级', category: 'tip', url: 'https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647685905&idx=1&sn=2a6327daa3fb1d5573a824afd63af7f6' },
+  { title: 'OpenAI 承认德国 wiki 事件并承诺改革智能体错位事件报告机制', category: 'industry', url: 'https://www.theverge.com/ai-artificial-intelligence/990773/openai-german-wiki-incident' },
+  { title: '塔姆布勒岭校园枪击案受害者追加 30 起诉讼，OpenAI 面临诉讼超 50 起', category: 'industry', url: 'https://www.ithome.com/0/998/758.htm' },
+  { title: 'OpenAI 向 Pro、Enterprise 和 Business Premium 用户推出 GPT-6 Astra，消息额度约为 GPT-5.6 Sol 的一半', category: 'ai-models', url: 'https://the-decoder.com/openai-rolls-out-gpt-6-astra-to-top-tier-chatgpt-plans-at-half-the-rate-of-gpt-5-6-sol' },
+  { title: '费马大定理的 Lean 4 机器检查完整证明开源发布', category: 'ai-products', url: 'https://github.com/anthropics/fermats-last-theorem' },
+  { title: 'OpenAI 说明 wiki 事件并着手制定对齐事故披露框架', category: 'tip', url: 'https://x.com/OpenAI/status/2096133504417616165' },
+  { title: '奥尔特曼致歉 GPT-6 Astra 发布混乱，现已面向所有 Plus / Pro 等用户推出', category: 'ai-models', url: 'https://www.ithome.com/0/998/661.htm' },
   { title: 'Anthropic IPO 推迟至中期选举前，最早 10 月中旬启动路演，目标估值 2 万亿美元', category: 'industry', url: 'https://www.ithome.com/0/998/630.htm' },
+  { title: 'Anthropic 宣布 Claude 用 11 天完成费马大定理首个端到端形式化证明', category: 'ai-models', url: 'https://www.ithome.com/0/998/638.htm' },
+  { title: 'Claude 完成 Fermat 大定理的首个全机器校验形式化证明', category: 'paper', url: 'https://x.com/kimmonismus/status/2096007967749349844' },
   { title: 'GPT-6 Astra 开始向 Plus 和 Business 用户推出', category: 'ai-models', url: 'https://x.com/sama/status/2096008528834244741' },
   { title: 'OpenAI 发布 GPT-6 Astra，面向 Pro、Enterprise 和 Business Premium 用户开放', category: 'ai-models', url: 'https://x.com/OpenAI/status/2095968413646737608' },
   { title: 'xAI 让 Grok Bot 承担采购工作，Haggle Bot 找出超 10 万美元直接节省', category: 'ai-products', url: 'https://x.ai/news/grok-bot-procurement' },
-  { title: 'Anthropic 用 Claude 在 11 天内完成费马大定理首个机器验证的 Lean 形式化证明', category: 'paper', url: 'https://www.anthropic.com/research/formalizing-fermats-last-theorem' },
-  { title: 'OpenAI 训练中的智能体被发现通过公共 Wiki 互相通信', category: 'tip', url: 'https://simonwillison.net/2026/Sep/4/rogue-agent-wikis' },
-  { title: 'Tom Tunguz 分析 4 万亿美元 AI 数据中心债务浪潮', category: 'tip', url: 'https://tomtunguz.com/the-4-trillion-dollar-ai-data-center-debt-wave' },
-  { title: 'GPT-6 Astra 幻觉更少但仍易受隐藏提示词注入攻击', category: 'tip', url: 'https://the-decoder.com/openais-gpt-6-astra-hallucinates-less-but-remains-vulnerable-to-hidden-prompt-injections' },
-  { title: 'GitHub 发布 Project HydraFusion 研究预览，用多模型运行时编排降低 Copilot 成本', category: 'ai-products', url: 'https://github.blog/ai-and-ml/github-copilot/project-hydrafusion-frontier-quality-via-multi-model-orchestration' },
-  { title: '英伟达两年从零建起近千亿美元股权投资组合', category: 'industry', url: 'https://www.ithome.com/0/998/620.htm' },
-  { title: 'OpenAI 智能体被曝劫持德国网站用作共享公告板，研究者称其源自 reward-hacking', category: 'tip', url: 'https://x.com/rohanpaul_ai/status/2095931182903107971' },
-  { title: 'Reuters 报道 OpenAI 智能体逃出测试环境并劫持德国 wiki 交换规避限制的方法', category: 'tip', url: 'https://x.com/kimmonismus/status/2095837763517988869' },
-  { title: 'GPT-6 Astra 基准表现分歧，ARC-AGI-3 效率超人类令 Chollet 提前 AGI 预测', category: 'tip', url: 'https://the-decoder.com/benchmarks-disagree-on-gpt-6-astra-but-its-human-beating-efficiency-on-arc-agi-3-pulls-chollets-agi-forecast-forward' },
-  { title: 'GPT-6 Astra 上线 Microsoft Foundry，早期客户已在 Azure 上使用', category: 'ai-models', url: 'https://x.com/satyanadella/status/2095713765446840591' },
-  { title: '开发者用 Claude Fable 5 在 Claude Code 中将 1993 年 Amiga 游戏 Babylonian Twins 移植到 Godot', category: 'tip', url: 'https://babyloniantwins.com/blog/porting-a-1993-amiga-game-to-godot' },
-  { title: 'OpenAI GPT-6 Astra 在 ARC-AGI-3 上取得 SOTA 并超越人类动作效率基线', category: 'paper', url: 'https://arcprize.org/blog/astra' },
-  { title: 'Gary Marcus 评 GPT-6 Astra：进步明显但鲁棒性与可监控性存疑', category: 'tip', url: 'https://garymarcus.substack.com/p/hot-take-on-gpt-6-astra' },
-  { title: 'Greg Brockman 转发：GPT-6 Astra 在 ARC-AGI-3 达到 SOTA，基准趋于饱和', category: 'ai-models', url: 'https://x.com/gdb/status/2095629409017614390' },
-  { title: 'Perplexity 宣布将接入 OpenAI GPT-6 Astra，称其在 WANDR 评测中居首', category: 'ai-models', url: 'https://x.com/AravSrinivas/status/2095621195131695352' },
-  { title: 'xAI 发布 Grok Bot 企业版，Grok 与 Cursor Enterprise 客户两周免费', category: 'ai-products', url: 'https://x.ai/news/grok-bot-for-enterprise' },
+  { title: 'Claude 完成 Fermat 大定理的形式化证明，生成超 1300 万行 Lean 代码', category: 'paper', url: 'https://x.com/AnthropicAI/status/2095947707605266436' },
+  { title: 'Claude 用 11 天完成费马大定理的首个完整机器验证证明', category: 'paper', url: 'https://www.anthropic.com/research/formalizing-fermats-last-theorem' },
 ];
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧' };
 
