@@ -693,6 +693,14 @@
   .table-card .tc-star.active { color: #ffcf4d; background: rgba(255,207,77,0.16); }
   .table-card .tc-tag.clickable { cursor: pointer; }
   .table-card .tc-tag.clickable:hover { background: rgba(100,180,255,0.24); }
+  /* 热度徽标（仅在「按热度」排序时显示） */
+  .table-card .tc-hot {
+    position: absolute; top: 10px; left: 10px; z-index: 3;
+    font-size: 11px; font-weight: 600; line-height: 1; color: #ff9d3c;
+    background: rgba(255,141,60,0.14); border: 1px solid rgba(255,141,60,0.28);
+    border-radius: 10px; padding: 3px 7px; letter-spacing: .3px;
+  }
+  body.day-mode .table-card .tc-hot { color: #d97706; background: rgba(217,119,6,0.1); border-color: rgba(217,119,6,0.25); }
 
   /* ===== 发牌动画 ===== */
   .dealing-card {
@@ -1842,6 +1850,7 @@ var _hmt = _hmt || [];
     <select class="sort-select" id="sortSelect" title="排序方式">
       <option value="default">↕ 默认排序</option>
       <option value="recent">🆕 最近添加</option>
+      <option value="hot">🔥 按热度(本地)</option>
     </select>
     <button class="view-toggle" id="favToggle" type="button">⭐ 收藏</button>
     <button class="view-toggle" id="clearFilters" type="button">✕ 清除筛选</button>
@@ -2217,8 +2226,16 @@ function renderCardsToFelt(tools, felt, animate) {
         }).join('') +
         '</div>' : '';
 
+      // 按热度排序时展示使用次数徽标
+      var hotBadge = '';
+      if(sortMode === 'hot'){
+        var hc = hotOf(typeOf(t.id), t.id);
+        if(hc > 0) hotBadge = '<span class="tc-hot" title="本设备已打开 ' + hc + ' 次">🔥 ' + hc + '</span>';
+      }
+
       card.innerHTML =
         star +
+        hotBadge +
         '<div class="tc-icon">' + iconHtml(t.icon, '🔧') + '</div>' +
         '<div class="tc-name">' + t.name + '</div>' +
         '<div class="tc-vendor">' + t.vendor + '</div>' +
@@ -2241,6 +2258,7 @@ function renderCardsToFelt(tools, felt, animate) {
 
 // 显示术语详情弹窗
 function showTermModal(t) {
+  bumpHot(t.id); // 每次打开卡片即记一次使用次数（本地热度）
   document.getElementById('tmIcon').innerHTML = iconHtml(t.icon, '📖');
   document.getElementById('tmName').textContent = t.name;
   document.getElementById('tmVendor').textContent = t.vendor || '';
@@ -3405,6 +3423,24 @@ function lsSet(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch(
   try { localStorage.removeItem('aiNavRecent2_glossary'); } catch(e){}
 })();
 
+/* ---- 热度（本地使用次数）计数：工具 与 术语 完全分开存储 ----
+   纯静态站点无后端/分析，热度 = 当前浏览器中该卡片被打开的次数，
+   仅反映「本设备使用偏好」，非全网排名。 */
+var LS_HOT2 = { tools: 'aiNavHot2_tools', glossary: 'aiNavHot2_glossary' };
+var hotCounts = { tools: {}, glossary: {} };
+(function loadHot(){
+  TYPES.forEach(function(ty){
+    var obj = lsGet(LS_HOT2[ty], {});
+    hotCounts[ty] = (obj && typeof obj === 'object') ? obj : {};
+  });
+})();
+function hotOf(ty, id){ return hotCounts[ty][id] || 0; }
+function bumpHot(id){
+  var ty = typeOf(id);
+  hotCounts[ty][id] = (hotCounts[ty][id] || 0) + 1;
+  lsSet(LS_HOT2[ty], hotCounts[ty]);
+}
+
 function toggleFav(id){
   var ty = typeOf(id), s = favSets[ty];
   if(s.has(id)) s.delete(id); else s.add(id);
@@ -3437,6 +3473,13 @@ function applyTableFilters(){
     list = scored.map(function(x){ return x.t; });
   } else if(sortMode === 'recent') {
     list = list.slice().sort(function(a, b){ return (tIndex[b.id] || 0) - (tIndex[a.id] || 0); });
+  } else if(sortMode === 'hot') {
+    var hty = curType();
+    list = list.slice().sort(function(a, b){
+      var da = hotCounts[hty][a.id] || 0, db = hotCounts[hty][b.id] || 0;
+      if(db !== da) return db - da;                  // 热度高的在前
+      return (tIndex[a.id] || 0) - (tIndex[b.id] || 0); // 相同则保持默认序
+    });
   }
   renderCardsToFelt(list, felt, false);
   updateTableCount(list.length);
