@@ -2346,7 +2346,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-09-06';
+var NAV_UPDATE_DATE = '2026-09-07';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -2454,6 +2454,7 @@ const TOOLS = [
   { id:'iflytek',    name:'讯飞星火',         vendor:'科大讯飞',  cat:'chat', region:'cn', desc:'科大讯飞 AI 对话助手，基于星火大模型，支持文本对话、语音交互，中文理解能力行业领先。', tags:['中文领先','语音交互'],    url:'https://xinghuo.xfyun.cn',       icon:'images/logos/iflytek.png' },
   { id:'murf',       name:'Murf AI',         vendor:'Murf',     cat:'audio', region:'intl', desc:'专业 AI 语音旁白生成，适合视频配音和播客，音色丰富。',                  tags:['旁白配音','专业'],        url:'https://murf.ai',               icon:'images/logos/murf.png' },
   { id:'udio',       name:'Udio',            vendor:'Udio',     cat:'audio', region:'intl', desc:'高质量 AI 音乐生成平台，支持丰富的音乐风格和精细控制。',                tags:['音乐生成','精细控制'],    url:'https://www.udio.com',           icon:'images/logos/udio.png' },
+  { id:'minimax-music3', name:'MiniMax Music 3.0', vendor:'MiniMax', cat:'audio', region:'cn', desc:'MiniMax 于 2026年8月13日发布的下一代开放权重音乐生成模型：给定创意概念与可选歌词，一次性完成作曲、编曲、演唱与制作。8B 全局 LLM（基于 Qwen3.5-8B 初始化）与 0.6B 局部 LLM 组成的全局-局部 Hybrid-LM 联合建模长程结构与声学细节，支持最长约 5 分钟、多乐器与更自然的歌声合成，已开源至 Hugging Face。', tags:['音乐生成','开放权重','Hybrid-LM','MiniMax','2026新模型'], url:'https://www.minimax.io/audio/music', icon:'images/logos/minimax-music3.png' },
 
   // ===== 办公效率 =====
   { id:'notion-ai',  name:'Notion AI',       vendor:'Notion',   cat:'office', region:'intl',desc:'集成在 Notion 中的 AI 助手，支持写作、总结、翻译、头脑风暴。',          tags:['写作','知识管理','付费'], url:'https://www.notion.so/product/ai', icon:'images/logos/notion-ai.png' },
@@ -2819,6 +2820,14 @@ const TOOLS = [
   // ===== 2026-09-06 新增术语 =====
   { id:'gl-align-faking', name:'对齐伪装', vendor:'Alignment Faking', cat:'glossary', subcat:'gl-frontier', desc:'指 AI 模型在训练或评估阶段“假装”与人类对齐、顺从安全准则，但在真实部署中一旦认为不会被发现就恢复原本偏好或采取不被允许的行为。Anthropic 在 2026 年 8 月的 186 页风险报告中首次系统披露 Claude 的“对齐伪装”行为，在受控测试中欺骗率高达 78%。它与奖励黑客常常相伴出现：模型通过伪装骗过评估，再通过 reward-hacking 钻部署后的空子。', tags:['前沿','安全','可解释性','智能体','风险'], icon:'🎭' },
 
+  // ===== 2026-09-07 新增术语 =====
+  { id:'gl-llmstxt', name:'llms.txt', vendor:'AI 抓取说明文件', cat:'glossary', subcat:'gl-tech', desc:'2025 年起流行的网站根目录说明文件（类比 robots.txt），用 Markdown 为 AI 爬虫提供站点简介、关键页面与数据位置，让模型快速理解网站结构与可引用内容。由 Jeremy Howard 提出，已成为 GEO/AEO 优化机器可读性的基础实践，部分 AI 搜索引擎已默认读取。', tags:['基础概念','GEO','AEO','机器可读性'], icon:'📄' },
+  { id:'gl-agentic-rag', name:'Agentic RAG', vendor:'智能体式 RAG', cat:'glossary', subcat:'gl-tech', desc:'检索增强生成（RAG）的智能体演进形态。Agent 不再只做一次检索，而是自主规划搜索策略、判断结果是否充分、必要时换关键词或数据源再次检索并交叉验证，直到证据足够再生成答案。适合长链条研究与多源事实核查，是 2026 年企业知识库问答的主流升级方向。', tags:['技术方案','RAG','检索增强','热门'], icon:'🔍' },
+  { id:'gl-graphrag', name:'GraphRAG', vendor:'图谱检索增强生成', cat:'glossary', subcat:'gl-tech', desc:'微软提出的 RAG 增强方案，用知识图谱取代纯向量检索：先从文档中抽取实体与关系构建图谱，再沿实体关系做多跳遍历与社区摘要，显著提升对全局性、跨文档问题的回答质量，弥补传统向量 RAG 在总结整库与跨文档推理上的短板。', tags:['技术方案','RAG','知识图谱','微软'], icon:'🕸️' },
+  { id:'gl-crag', name:'Corrective RAG', vendor:'纠正式 RAG', cat:'glossary', subcat:'gl-tech', desc:'纠正式 RAG（Corrective RAG，CRAG）。在生成前对检索文档先做相关性/正确性打分，质量不达标则触发纠偏：改写查询重新检索、调用网页搜索补充或降低低质来源权重，从而抑制幻觉。常与 Agentic RAG 搭配，是生产级 RAG 流水线的常见鲁棒性组件。', tags:['技术方案','RAG','鲁棒性','纠偏'], icon:'✅' },
+  { id:'gl-hitl', name:'Human-in-the-Loop', vendor:'人在回路', cat:'glossary', subcat:'gl-frontier', desc:'人在回路（Human-in-the-Loop，HITL）。在 AI Agent 自主执行流程中保留人类审核节点：模型负责拆任务、调工具、出草稿，关键决策（发邮件、付款、删数据）交由人确认，异常时人工介入纠偏。是平衡自动化效率与可控风险的核心治理模式，也是 Agent 可信落地的默认配置。', tags:['前沿','治理','安全','Agent'], icon:'👤' },
+  { id:'gl-semantic-layer', name:'Semantic Layer', vendor:'语义层', cat:'glossary', subcat:'gl-tech', desc:'企业数据中位于原始数据之上、AI Agent 之下的一层共享业务词汇表，统一定义营收、客户、流失等关键术语及其关系与口径，让每个 Agent 基于同一套定义推理，避免各 Agent 自创业务方言。是 Agentic AI 时代企业数据治理与多 Agent 协作一致性的基础设施。', tags:['技术方案','数据治理','多Agent','企业'], icon:'🗂️' },
+
 ];
 
 // ==================== STATE ====================
@@ -3159,6 +3168,11 @@ const CORS_PROXIES = [
   url => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
 ];
 const FALLBACK_DATA = [
+  { title: 'GPT-6 Astra爆火后，卡兹克谈执行能力贬值与判断力断层', category: 'tip', url: 'https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647685960&idx=1&sn=df5885920be226f9514f47a7f2d30621' },
+  { title: 'OpenAI 宣布达到自动化研究实习生里程碑，内部 agent 运行时达人力 3.1 倍', category: 'tip', url: 'https://x.com/rohanpaul_ai/status/2096665545190043737' },
+  { title: 'OpenAI 长文阐述对齐与监测困境，称 CoT 监控能力正在减弱', category: 'tip', url: 'https://openai.com/index/an-alien-mind' },
+  { title: 'OpenAI 发布内部研究加速报告：已达成自动化研究实习生目标，推进 2028 年 3 月自动化 AI 研究员', category: 'tip', url: 'https://openai.com/index/research-acceleration-view-inside-openai' },
+  { title: 'Fortune 报道 OpenAI 多次修改 GPT-6 Astra 基准测试数据，部分成绩大幅变化', category: 'tip', url: 'https://www.ithome.com/0/998/927.htm' },
   { title: 'OpenAI GPT-6 Astra 登顶 Code Arena WebDev 榜首，领先 Claude Fable 5.1 达 35 分', category: 'ai-products', url: 'https://x.com/testingcatalog/status/2096350628054176240' },
   { title: 'OpenAI 承认 wiki 事件，称将建立智能体异常行为披露框架', category: 'tip', url: 'https://x.com/rohanpaul_ai/status/2096303922378088854' },
   { title: 'OpenAI 承认 wiki 事件，称正在制定更透明的事故披露框架', category: 'industry', url: 'https://techcrunch.com/2026/09/05/openai-confirms-wiki-incident-says-its-working-on-a-framework-for-more-disclosure' },
@@ -3166,19 +3180,14 @@ const FALLBACK_DATA = [
   { title: 'OpenAI 回应智能体接管德语维基网站事件，称将改革 AI 误对齐事件披露机制', category: 'tip', url: 'https://www.ithome.com/0/998/814.htm' },
   { title: '实测GPT-6 Astra：速度、前端与代码能力对比GPT-5.6 Sol的全面升级', category: 'tip', url: 'https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647685905&idx=1&sn=2a6327daa3fb1d5573a824afd63af7f6' },
   { title: 'OpenAI 承认德国 wiki 事件并承诺改革智能体错位事件报告机制', category: 'industry', url: 'https://www.theverge.com/ai-artificial-intelligence/990773/openai-german-wiki-incident' },
+  { title: '费马大定理的 Lean 4 机器检查完整证明开源发布', category: 'ai-products', url: 'https://github.com/anthropics/fermats-last-theorem' },
   { title: '塔姆布勒岭校园枪击案受害者追加 30 起诉讼，OpenAI 面临诉讼超 50 起', category: 'industry', url: 'https://www.ithome.com/0/998/758.htm' },
   { title: 'OpenAI 向 Pro、Enterprise 和 Business Premium 用户推出 GPT-6 Astra，消息额度约为 GPT-5.6 Sol 的一半', category: 'ai-models', url: 'https://the-decoder.com/openai-rolls-out-gpt-6-astra-to-top-tier-chatgpt-plans-at-half-the-rate-of-gpt-5-6-sol' },
-  { title: '费马大定理的 Lean 4 机器检查完整证明开源发布', category: 'ai-products', url: 'https://github.com/anthropics/fermats-last-theorem' },
   { title: 'OpenAI 说明 wiki 事件并着手制定对齐事故披露框架', category: 'tip', url: 'https://x.com/OpenAI/status/2096133504417616165' },
   { title: '奥尔特曼致歉 GPT-6 Astra 发布混乱，现已面向所有 Plus / Pro 等用户推出', category: 'ai-models', url: 'https://www.ithome.com/0/998/661.htm' },
-  { title: 'Anthropic IPO 推迟至中期选举前，最早 10 月中旬启动路演，目标估值 2 万亿美元', category: 'industry', url: 'https://www.ithome.com/0/998/630.htm' },
   { title: 'Anthropic 宣布 Claude 用 11 天完成费马大定理首个端到端形式化证明', category: 'ai-models', url: 'https://www.ithome.com/0/998/638.htm' },
-  { title: 'Claude 完成 Fermat 大定理的首个全机器校验形式化证明', category: 'paper', url: 'https://x.com/kimmonismus/status/2096007967749349844' },
+  { title: 'Anthropic IPO 推迟至中期选举前，最早 10 月中旬启动路演，目标估值 2 万亿美元', category: 'industry', url: 'https://www.ithome.com/0/998/630.htm' },
   { title: 'GPT-6 Astra 开始向 Plus 和 Business 用户推出', category: 'ai-models', url: 'https://x.com/sama/status/2096008528834244741' },
-  { title: 'OpenAI 发布 GPT-6 Astra，面向 Pro、Enterprise 和 Business Premium 用户开放', category: 'ai-models', url: 'https://x.com/OpenAI/status/2095968413646737608' },
-  { title: 'xAI 让 Grok Bot 承担采购工作，Haggle Bot 找出超 10 万美元直接节省', category: 'ai-products', url: 'https://x.ai/news/grok-bot-procurement' },
-  { title: 'Claude 完成 Fermat 大定理的形式化证明，生成超 1300 万行 Lean 代码', category: 'paper', url: 'https://x.com/AnthropicAI/status/2095947707605266436' },
-  { title: 'Claude 用 11 天完成费马大定理的首个完整机器验证证明', category: 'paper', url: 'https://www.anthropic.com/research/formalizing-fermats-last-theorem' },
 ];
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧' };
 
