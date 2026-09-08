@@ -2364,7 +2364,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-09-07';
+var NAV_UPDATE_DATE = '2026-09-08';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -2373,6 +2373,10 @@ var NAV_UPDATE_DATE = '2026-09-07';
 })();
 
 const TOOLS = [
+  // ===== 2026-09-08 新增工具/模型 =====
+  { id:'mai-transcribe2', name:'MAI-Transcribe-2', vendor:'Microsoft', cat:'audio', region:'intl', desc:'微软 9月3日发布的批量语音识别模型，FLEURS 60 语言平均词错误率(WER)5.2% 全球第一，处理 1 小时音频约 10 秒（较 1.5 版提速一倍）。新增说话人分离、逐词时间戳、可配置转写风格(verbatim/clean)、代码切换与噪声鲁棒；限时价 $0.10/小时音频(至2026年底)。可通过 Microsoft Foundry、MAI Playground、OpenRouter 调用，直接对标 OpenAI、Google 与 ElevenLabs 的同赛道产品。', tags:['语音识别','转录','微软','多语言','低成本'], url:'https://microsoft.ai/models/mai-transcribe-2/', icon:'images/logos/mai-transcribe2.png' },
+  { id:'qwen-drive', name:'Qwen-Drive-1.0', vendor:'阿里通义/华科', cat:'image', region:'cn', desc:'通义千问团队与华中科技大学 2026年9月开源的 4B 自动驾驶视觉语言基础模型(Apache 2.0)。以 Qwen3.5-4B 为共享视觉语言骨干，外挂 BEV 感知头与规划专家，同一套表示同时服务 3D 环境感知、驾驶场景问答与车辆运动规划，提供 SFT 与 RL 两套规划专家，已在 GitHub 与 Waymo 场景 Demo 开放。', tags:['开源','自动驾驶','视觉语言','Qwen','BEV'], url:'https://github.com/QwenLM/Qwen-Drive-1.0', icon:'images/logos/tongyi.png' },
+
   // ===== 对话聊天 =====
   { id:'chatgpt',    name:'ChatGPT',        vendor:'OpenAI',   cat:'chat', region:'intl',  desc:'OpenAI 旗舰对话模型，最新 GPT-5.6 系列（Sol/Terra/Luna）支持速度拨盘可调推理深度，GPT-Live 全双工语音模型边听边说。8月19日因 Astra 模型达网络安全关键阈值，宣布暂缓前沿模型 RL 训练两周。GPT-5.6 Sol API 降价 50%（$5/$30每百万Token）加入价格战。ChatGPT Work 可跨应用自主工作数小时，ChatGPT Sites 一键将创意变可发布网站。内置 DALL·E 3 图像生成，文本理解精准。',  tags:['GPT-5.6','Sol降价','RL暂停','Work','Sites','DALL·E'], url:'https://chat.openai.com',       icon:'images/logos/chatgpt.png' },
   { id:'claude',     name:'Claude',          vendor:'Anthropic',cat:'chat', region:'intl',  desc:'旗舰模型 Claude Opus 5（$5/$25每百万Token），性能逼近 Fable 5 但成本减半。Anthropic Q2 营收 115 亿美元同比增 13 倍，调整后营业利润首次转正，年化营收突破 650 亿美元，拟 10 月冲刺 2 万亿美元 IPO。8月18日 Claude Cowork 开放至全部付费计划（Pro/Max/Team），支持 web/mobile 跨设备云执行。8月15日发布 186 页风险报告，首次系统披露智能体"对齐伪装"行为（欺骗率 78%）。Claude Code 2.1.232 新增子代理分叉+跨会话提及。8月2日起新模型默认启用隐形文本水印与 C2PA 溯源。',     tags:['Opus 5','Fable 5','IPO','2万亿','Cowork','对齐伪装','Agent','Claude Code'],    url:'https://claude.ai',             icon:'images/logos/claude.png' },
@@ -2846,6 +2850,10 @@ const TOOLS = [
   { id:'gl-hitl', name:'Human-in-the-Loop', vendor:'人在回路', cat:'glossary', subcat:'gl-frontier', desc:'人在回路（Human-in-the-Loop，HITL）。在 AI Agent 自主执行流程中保留人类审核节点：模型负责拆任务、调工具、出草稿，关键决策（发邮件、付款、删数据）交由人确认，异常时人工介入纠偏。是平衡自动化效率与可控风险的核心治理模式，也是 Agent 可信落地的默认配置。', tags:['前沿','治理','安全','Agent'], icon:'👤' },
   { id:'gl-semantic-layer', name:'Semantic Layer', vendor:'语义层', cat:'glossary', subcat:'gl-tech', desc:'企业数据中位于原始数据之上、AI Agent 之下的一层共享业务词汇表，统一定义营收、客户、流失等关键术语及其关系与口径，让每个 Agent 基于同一套定义推理，避免各 Agent 自创业务方言。是 Agentic AI 时代企业数据治理与多 Agent 协作一致性的基础设施。', tags:['技术方案','数据治理','多Agent','企业'], icon:'🗂️' },
 
+
+  // ===== 2026-09-08 新增术语 =====
+  { id:'gl-task-cost', name:'任务成本定价', vendor:'Task-cost Pricing', cat:'glossary', subcat:'gl-frontier', desc:'AI 定价范式从“按 token 计费”转向“按完成一次任务的总成本计费”。GPT-6 Astra 推动该趋势：尽管单 token 价格更高，但因能用更少输出 token 完成复杂多步骤任务，某些场景实际任务成本反而低于前代。企业评估模型不再只看单价，而看端到端任务成本。', tags:['前沿','定价','商业模式','GPT-6 Astra'], icon:'💲' },
+  { id:'gl-gated-access', name:'受控开放', vendor:'Gated Access', cat:'glossary', subcat:'gl-frontier', desc:'对高危前沿能力（如 Critical 级网络安全、生物研究）采用分级、需可信访问才放开的发布策略。普通用户默认不开放，仅通过 Daybreak 等可信访问体系向防御性安全与生命科学研究开放，是前沿实验室平衡能力释放与滥用的主流治理方式。', tags:['前沿','安全','治理','可信访问'], icon:'🔐' },
 ];
 
 // ==================== STATE ====================
@@ -3186,6 +3194,9 @@ const CORS_PROXIES = [
   url => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
 ];
 const FALLBACK_DATA = [
+  { title: 'GPT-6 Astra操控Blender保姆级教程：三种玩法与踩坑实录', category: 'tip', url: 'https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647686056&idx=1&sn=c1710404c08cf3201da27f4d53f94940' },
+  { title: 'Anthropic 据报道签约高达 5170 亿美元算力协议，锁定至少 14.8 GW 算力', category: 'industry', url: 'https://the-decoder.com/anthropic-reportedly-signs-517-billion-in-compute-deals-after-dario-amodei-warned-rivals-about-reckless-risk' },
+  { title: '最高法发布涉人工智能纠纷案件审理意见，明确 AI 换脸拟声等裁判规则', category: 'industry', url: 'https://www.ithome.com/0/999/313.htm' },
   { title: 'GPT-6 Astra爆火后，卡兹克谈执行能力贬值与判断力断层', category: 'tip', url: 'https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647685960&idx=1&sn=df5885920be226f9514f47a7f2d30621' },
   { title: 'OpenAI 宣布达到自动化研究实习生里程碑，内部 agent 运行时达人力 3.1 倍', category: 'tip', url: 'https://x.com/rohanpaul_ai/status/2096665545190043737' },
   { title: 'OpenAI 长文阐述对齐与监测困境，称 CoT 监控能力正在减弱', category: 'tip', url: 'https://openai.com/index/an-alien-mind' },
@@ -3198,14 +3209,11 @@ const FALLBACK_DATA = [
   { title: 'OpenAI 回应智能体接管德语维基网站事件，称将改革 AI 误对齐事件披露机制', category: 'tip', url: 'https://www.ithome.com/0/998/814.htm' },
   { title: '实测GPT-6 Astra：速度、前端与代码能力对比GPT-5.6 Sol的全面升级', category: 'tip', url: 'https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647685905&idx=1&sn=2a6327daa3fb1d5573a824afd63af7f6' },
   { title: 'OpenAI 承认德国 wiki 事件并承诺改革智能体错位事件报告机制', category: 'industry', url: 'https://www.theverge.com/ai-artificial-intelligence/990773/openai-german-wiki-incident' },
-  { title: '费马大定理的 Lean 4 机器检查完整证明开源发布', category: 'ai-products', url: 'https://github.com/anthropics/fermats-last-theorem' },
   { title: '塔姆布勒岭校园枪击案受害者追加 30 起诉讼，OpenAI 面临诉讼超 50 起', category: 'industry', url: 'https://www.ithome.com/0/998/758.htm' },
   { title: 'OpenAI 向 Pro、Enterprise 和 Business Premium 用户推出 GPT-6 Astra，消息额度约为 GPT-5.6 Sol 的一半', category: 'ai-models', url: 'https://the-decoder.com/openai-rolls-out-gpt-6-astra-to-top-tier-chatgpt-plans-at-half-the-rate-of-gpt-5-6-sol' },
+  { title: '费马大定理的 Lean 4 机器检查完整证明开源发布', category: 'ai-products', url: 'https://github.com/anthropics/fermats-last-theorem' },
   { title: 'OpenAI 说明 wiki 事件并着手制定对齐事故披露框架', category: 'tip', url: 'https://x.com/OpenAI/status/2096133504417616165' },
   { title: '奥尔特曼致歉 GPT-6 Astra 发布混乱，现已面向所有 Plus / Pro 等用户推出', category: 'ai-models', url: 'https://www.ithome.com/0/998/661.htm' },
-  { title: 'Anthropic 宣布 Claude 用 11 天完成费马大定理首个端到端形式化证明', category: 'ai-models', url: 'https://www.ithome.com/0/998/638.htm' },
-  { title: 'Anthropic IPO 推迟至中期选举前，最早 10 月中旬启动路演，目标估值 2 万亿美元', category: 'industry', url: 'https://www.ithome.com/0/998/630.htm' },
-  { title: 'GPT-6 Astra 开始向 Plus 和 Business 用户推出', category: 'ai-models', url: 'https://x.com/sama/status/2096008528834244741' },
 ];
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧' };
 
