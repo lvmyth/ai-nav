@@ -2364,7 +2364,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-09-09';
+var NAV_UPDATE_DATE = '2026-09-10';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -2373,6 +2373,14 @@ var NAV_UPDATE_DATE = '2026-09-09';
 })();
 
 const TOOLS = [
+  // ===== 2026-09-10 新增工具/模型 =====
+  { id:'deepseek-v41-flash', name:'DeepSeek V4.1 Flash', vendor:'DeepSeek', cat:'chat', region:'cn', desc:'深度求索 2026年9月10日正式发布的全新旗舰级快速模型，官方称在性能、费用、速度、总用时等各项指标上全面超越 V4 Pro，并自动将原路由到 V4 Pro 的请求切换至本模型、按本模型单价计费。采用新模型结构、原生支持多模态，实测输出速度超 500 tokens/s、多人测试平均超 300 tokens/s，计费与 V4 Flash 持平。', tags:['开源','V4.1 Flash','原生多模态','高速推理','Agent'], url:'https://chat.deepseek.com', icon:'images/logos/deepseek-v41-flash.png' },
+  { id:'minicpm5', name:'MiniCPM5-2B', vendor:'面壁智能/OpenBMB', cat:'chat', region:'cn', desc:'面壁智能联合 OpenBMB 于 2026年9月7日开源的 2.52B 端侧稠密语言基座模型，42 层标准 Llama 架构、原生 128K 上下文、支持混合思考与工具调用，Apache 2.0 开放权重。Artificial Analysis 综合得分 23 分居全球 4B 以下开源模型第一，Agentic Index 达 20 分（同级模型仅约 2 分），34 项基准平均 53.9 分，并同步开源 Meshy 强化学习框架与 UltraData 数据集。', tags:['开源','端侧','2B','Agent','Apache 2.0','OpenBMB'], url:'https://github.com/OpenBMB/MiniCPM', icon:'images/logos/minicpm5.png' },
+  { id:'neohorse-1', name:'NeoHorse-1', vendor:'基元律动/无问芯穹', cat:'chat', region:'cn', desc:'基元律动（TokenRhythm）联合无问芯穹、清华、北大等于 2026年9月8日发布的 Agent-Native（智能体原生）语言模型，含 4B 与 9B 两版。训练语料大量来自 Routing Harness 真实 Agent 执行轨迹，从第一天起为完成任务而非回答问题而训练；并首次在同一 Harness 内形成 Data-RSI 与 Model-RSI 的递归自改进（RSI）单轮闭环验证。4B 版 11 项 Agent 基准宏平均 64.87 居同规模之首。', tags:['开源','Agent-Native','RSI','递归自改进','Qwen3.5后训练'], url:'https://github.com/TokenRhythm/NeoHorse', icon:'images/logos/neohorse-1.png' },
+  { id:'cohere-parse5', name:'Cohere Parse 5', vendor:'Cohere', cat:'code', region:'intl', desc:'Cohere 推出的 23 亿参数企业级文档多模态模型，专为高吞吐、高精度文档结构化设计。采用 North-Micro-Vision-Instruct 架构，结合 SigLIP 2 与 2D RoPE 保留空间几何关系，可将复杂格式 PDF 高效转换为 Markdown 并完成视觉定位，面向合同、报表、研报等大规模文档解析场景。', tags:['文档解析','多模态','PDF','企业级','Cohere'], url:'https://cohere.com', icon:'images/logos/cohere-parse5.png' },
+  { id:'mimo-desktop', name:'MiMo 桌面客户端', vendor:'小米', cat:'code', region:'cn', desc:'小米 2026年9月开放邀测的桌面端 AI 客户端，可直接读取表格、图片、视频、PDF 等素材，拆解任务并交付文档、网页、3D 模型等可继续编辑的成果。内置 Smart 调度自动匹配模型与执行路径，支持多会话协同、浏览器操控与选区局部重生成，长任务同会话缓存命中率最高达 99%；通过申请可限时免费体验 MiMo-X-Pro-Preview 与 MiMo-X-Flash-Preview 两款新一代模型。', tags:['小米','桌面客户端','Agent','MiMo','多模态'], url:'https://mimo.xiaomi.com/zh', icon:'images/logos/mimo-desktop.png' },
+
+
   // ===== 2026-09-09 新增工具/模型 =====
   { id:'meta-muse', name:'Muse', vendor:'Meta', cat:'chat', region:'intl', desc:'Meta 超级智能实验室 2026年9月8日在美国正式发布的个人 AI 智能体（内部代号 Hatch），定位从“回答问题”转向“替你把事做完”：可自主打开浏览器、填表、发邮件、订机票酒店、买电影票、比价议价乃至代卖二手车，关掉 App 后仍在后台持续推进，遇到需要授权的敏感动作再回来找你确认。底层由旗舰模型 Muse Spark 1.3 驱动，入口覆盖 iOS/Android 独立 App、网页版与 WhatsApp，后续将接入 AI 眼镜。安全架构是其主要差异点：每位用户独占一台 Muse Secure VM 云虚拟机（内含自带浏览器与凭据），另有系统级隔离的 Sentinel 智能体守门，所有出网动作须经其放行，凭据与支付信息存于独立保险库、模型本身看不到明文；支付走 Stripe Link 一次性卡号并享退货保障。已打通 Gmail、Google 日历/云端硬盘、Ticketmaster、OpenTable、Spotify、Shopify 及 Instagram/WhatsApp。免费版之外提供 20 美元与 100 美元两档订阅，年内将推出用户自持密钥的 Confidential VM。', tags:['个人智能体','Muse Spark 1.3','Secure VM','Sentinel','WhatsApp','代付支付','长任务'], url:'https://muse.ai', icon:'images/logos/meta-muse.png' },
   { id:'chatgpt-images25', name:'ChatGPT Images 2.5', vendor:'OpenAI', cat:'image', region:'intl', desc:'OpenAI 2026年9月8日发布的新一代图像生成与编辑模型，相比 4 月的 Images 2 生成延迟最多降低 50%，同时细节锐度、光照自然度与纹理丰富度均提升，参考照片中的人物主体还原度更高。核心卖点是“精准编辑”与多轮一致性：只改你指定的区域，构图、光照与其他主体保持不动，长对话中反复修改也不会画质衰减。产品端新增 Sketch 手绘输入（对话框输入 @Sketch 画草图当构图参考）、海报/商品/传单模板库、图内评论标注（圈选后下达“删除此处”“改成蓝色”）与提示词分享。API 首次按速度/精度拆成两档：GPT-Image-2.5 Flare 为默认款，出图速度达 GPT-Image-2 的 2~4 倍，适合社交内容、产品图与高批量生成；GPT-Image-2.5 Sunburst 用更长生成时间换取更强编辑控制，面向成品级营销素材与精修产品图。支持最高 4K（单边≤3840px），输出统一嵌入 C2PA 元数据与隐形水印；已向 ChatGPT、ChatGPT Work 与 Codex 全线用户（含免费版）开放，Adobe Firefly 亦已接入。', tags:['图像生成','精准编辑','Sketch 手绘','Flare/Sunburst','延迟减半','C2PA','4K'], url:'https://openai.com/index/introducing-chatgpt-images-2-5/', icon:'images/logos/chatgpt-images25.png' },
@@ -2863,6 +2871,13 @@ const TOOLS = [
   // ===== 2026-09-09 新增术语 =====
   { id:'gl-secure-vm', name:'智能体安全虚拟机', vendor:'Secure VM', cat:'glossary', subcat:'gl-tech', desc:'为每位用户单独分配一台云虚拟机来承载其 AI 智能体的隔离架构，2026年9月 Meta 发布个人智能体 Muse 时以 Muse Secure VM 之名推向大众。要点有三：一是租户隔离，智能体、它的浏览器、已连接服务的状态与凭据都封在这台专属机器里，与其他用户彻底分开；二是出网守门，另有一个系统级隔离、智能体无法覆写的 Sentinel 代理审查所有对外动作，命中策略才放行，敏感操作（发邮件、下单付款）弹窗交由真人确认，且提示直达用户而不经模型转述，以对抗提示注入；三是凭据不落模型上下文，密码与银行卡存在独立保险库，智能体能用但看不到明文。它回答的是智能体商业化的前置难题——当 Agent 同时握有你的邮箱、日历、支付权限并要阅读不可信网页内容时，如何限制爆炸半径。', tags:['智能体安全','Meta Muse','Sentinel','沙箱隔离','热门'], icon:'🔐' },
   { id:'gl-multiturn-consistency', name:'多轮编辑一致性', vendor:'Multi-Turn Consistency', cat:'glossary', subcat:'gl-skill', desc:'衡量图像模型在同一张图上反复修改时，能否守住“没让它改的部分”的指标，对应的老毛病叫编辑漂移（edit drift）——你只想换个背景，模型顺手把人脸、商品标签、光照和构图一起改了。做法上要求模型把已确认的画面当作需要保留的约束，只对指定区域动手，且前几轮的编辑结果在后续轮次中不被冲掉、画质不随轮数衰减。OpenAI 2026年9月发布的 ChatGPT Images 2.5 把它作为核心卖点，并配套图内评论标注（圈定位置后下达“删除此处”）来明确编辑范围。这一能力决定了生图工具能否进入真实生产流程：品牌素材、商品精修、角色一致性等场景里，首次出图往往只是起点，真正耗时的是之后几十轮微调。', tags:['图像编辑','编辑漂移','ChatGPT Images 2.5','生产工作流'], icon:'🎯' },
+  // ===== 2026-09-10 新增术语 =====
+  { id:'gl-agentic-web', name:'Agentic Web', vendor:'智能体网络', cat:'glossary', subcat:'gl-frontier', desc:'2024–2026 年快速兴起的新一代网络范式：AI 智能体像人一样自主浏览、操作、交易于网站与 SaaS/电商/预订系统，与传统人搜-点-读-买的 Web 根本不同。由 Anthropic Computer Use、OpenAI Operator、ChatGPT Atlas 等驱动；催生 llms.txt、扩展 Schema.org、按爬付费 API、仅对 Agent 开放的结构化端点等服务器侧标准，以及 AEO（Agentic Experience Optimization）等新优化指标。', tags:['前沿','智能体','网络范式','热门'], icon:'🌐' },
+  { id:'gl-agenticops', name:'AgenticOps', vendor:'智能体运维', cat:'glossary', subcat:'gl-frontier', desc:'企业规模化部署 AI 智能体的运维方法论，对应传统 MLOps/DevOps。核心是把成群的专用智能体（客服、物流、财务 Agent 等）编排、监控、审计与治理起来，让它们在无人工介入下协同完成端到端业务流程，并配套访问控制、网络隔离、可观测性与回滚机制。', tags:['前沿','运维','企业','编排','治理'], icon:'⚙️' },
+  { id:'gl-orchestration', name:'多智能体编排', vendor:'Multi-Agent Orchestration', cat:'glossary', subcat:'gl-frontier', desc:'协调多个 AI 智能体或工具共同完成更大任务的过程（Orchestration）。一个旅行 Agent 与财务 Agent、日历 Agent 对话以跨平台同步任务即是其典型；智能体之间可互发消息传递上下文。编排能力被视为智能体经济（Agentic Economy）的支柱。', tags:['前沿','多智能体','协作','Agent'], icon:'🎼' },
+  { id:'gl-task-horizon', name:'任务视界', vendor:'Task Horizon', cat:'glossary', subcat:'gl-frontier', desc:'衡量一个 AI 智能体在不丢失目标的前提下，能独立完成任务的时长或复杂度的指标。当前模型已能持续工作数小时，但超出任务视界后容易跑题或遗漏约束，因此长程任务的可靠性高度依赖任务视界长度与中途检查点。', tags:['前沿','智能体','长程任务'], icon:'📡' },
+  { id:'gl-model-distill', name:'模型蒸馏', vendor:'Model Distillation', cat:'glossary', subcat:'gl-tech', desc:'知识蒸馏（Knowledge Distillation）在 Agent 训练中的延伸用法：用一个强教师模型在真实任务轨迹上监督学生模型生成响应（On-Policy Distillation），纠偏的是模型自身最可能出现的真实偏差而非假设性错误。NeoHorse-1 借此将 Agent 执行经验转化为小模型自身能力。', tags:['训练技术','知识蒸馏','Agent','后训练'], icon:'🧪' },
+
   { id:'gl-confidential-computing', name:'机密计算', vendor:'Confidential Computing', cat:'glossary', subcat:'gl-tech', desc:'数据在“使用中”（in-use）也保持加密的技术路线，靠 CPU 提供的可信执行环境（TEE）把运算过程封进硬件加密的隔离区，连宿主机的运维方与云厂商都无法读取内存明文，从而补上了传输中加密与静态加密之间的最后一段缺口。在 AI 领域它正被用来解决“把私人数据交给云端智能体”的信任难题：Meta 已预告年内为 Muse 推出 Confidential VM，整台虚拟机由用户本地自持的密钥加密，官方声称届时连 Meta 自己也进不去，并计划开放源码给安全公司审计、公布二进制与透明日志供用户校验连接完整性（该项工作与 Signal 创始人 Moxie Marlinspike 合作）。需要注意的是，机密计算保护的是运行时的机密性，不等于模型不会记录日志或不做训练——数据用途仍取决于产品策略与用户授权。', tags:['隐私计算','TEE','可信执行环境','Confidential VM','前沿'], icon:'🛡️' },
 ];
 
@@ -3204,26 +3219,26 @@ const CORS_PROXIES = [
   url => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
 ];
 const FALLBACK_DATA = [
-  { title: 'GPT-6 Astra推理等级怎么选才最省Token', category: 'tip', url: 'https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647686094&idx=1&sn=c06c40993f7ab28f2302619e4b89986b' },
-  { title: 'Meta 智能体产品 Muse 开放体验，官方回应用户好评', category: 'ai-products', url: 'https://x.com/alexandr_wang/status/2097472059077202339' },
-  { title: 'Simon Willison 评 OpenAI 用未发布模型求解 Navier-Stokes 千禧年大奖难题之争', category: 'tip', url: 'https://simonwillison.net/2026/Sep/8/on-navier-stokes' },
-  { title: 'Runway 发布 Adobe 插件，可在 Premiere Pro 和 After Effects 内直接生成与编辑', category: 'ai-products', url: 'https://runwayml.com/news/company-news/runway-for-adobe' },
-  { title: 'OpenAI 向 Plus、Pro、Business 和 Enterprise 用户全面推送 Astra', category: 'ai-products', url: 'https://x.com/OpenAI/status/2097431322117476423' },
-  { title: 'Tom Tunguz 分析 OpenAI 的 3x AI 生产力增益是否只是机器不睡觉', category: 'tip', url: 'https://tomtunguz.com/openai-research-acceleration-agentic-productivity' },
-  { title: 'OpenAI 发布 ChatGPT Images 2.5 图像模型', category: 'ai-models', url: 'https://openai.com/index/introducing-chatgpt-images-2-5' },
-  { title: 'Sam Altman 回应与 Anthropic 研究员的 Navier-Stokes 证明发布争议', category: 'tip', url: 'https://x.com/sama/status/2097385167002415140' },
-  { title: 'NYU 数学家指控 OpenAI 在千禧年难题竞赛中不正当竞争，Bubeck 否认', category: 'industry', url: 'https://techcrunch.com/2026/09/08/openai-fought-dirty-on-career-making-math-problem-says-nyu-mathematician' },
-  { title: 'Emad Mostaque 称 OpenAI 智能体求解 Navier-Stokes 千禧年难题是迈向 ASI 的里程碑', category: 'tip', url: 'https://x.com/EMostaque/status/2097378223138959719' },
-  { title: 'OpenAI 宣布以内部 AI 系统给出 Navier-Stokes 千禧年问题解答', category: 'paper', url: 'https://openai.com/index/navier-stokes-solution' },
-  { title: 'OpenAI 智能体团队宣布求解 Navier-Stokes 千禧年大奖难题并向独立证明者致贺', category: 'paper', url: 'https://x.com/OpenAI/status/2097375276384567642' },
-  { title: 'Noam Brown 评 OpenAI 用智能体求解 Navier-Stokes 千禧年难题：成本会快速下降', category: 'tip', url: 'https://x.com/polynoamial/status/2097375837670785447' },
-  { title: 'Anthropic 讲解用 Claude Platform 降低成本并提升性能的三个方法', category: 'tip', url: 'https://x.com/ClaudeDevs/status/2097369738968195513' },
-  { title: 'Dwarkesh Patel 研究：预训练进步主要来自数据改进', category: 'paper', url: 'https://www.dwarkesh.com/p/pretraining-progress-is-mostly-data' },
-  { title: 'Berkeley RDI 发布开源平台 CUA-Lite，面向计算机使用智能体', category: 'ai-products', url: 'https://rdi.berkeley.edu/blog/cua-lite' },
-  { title: '数学家巴克马斯特宣布多项方程 blowup 结果并公开与 OpenAI 沟通经过', category: 'tip', url: 'https://cims.nyu.edu/~tristanb/statement.pdf' },
-  { title: 'Mistral 完成 30 亿欧元 D 轮融资，估值超 210 亿欧元', category: 'industry', url: 'https://mistral.ai/news/mistral-makes-sovereign-open-weight-ai-to-frontier' },
-  { title: 'GPT-6 Astra操控Blender保姆级教程：三种玩法与踩坑实录', category: 'tip', url: 'https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647686056&idx=1&sn=c1710404c08cf3201da27f4d53f94940' },
-  { title: 'Anthropic 据报道签约高达 5170 亿美元算力协议，锁定至少 14.8 GW 算力', category: 'industry', url: 'https://the-decoder.com/anthropic-reportedly-signs-517-billion-in-compute-deals-after-dario-amodei-warned-rivals-about-reckless-risk' },
+  { title: 'Suno v6 发布，支持图片、视频和语音备忘录生成音乐', category: 'ai-models', url: 'https://x.com/suno/status/2097846245540888664' },
+  { title: '27岁前Anthropic研究员Jacob Coxon辞职警示AI灭绝风险，作者重读Tim Urban《人工智能革命》谈文明赌局', category: 'tip', url: 'https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647686114&idx=1&sn=ef25c9da794a29795c3d7ca0637efafb' },
+  { title: 'OpenAI 呼吁抓住 AI 政策窗口期，支持强制性国家安全监管与四项加州法案', category: 'tip', url: 'https://openai.com/index/ai-policy-window' },
+  { title: 'OpenAI 发布 GPT-6 Astra，面向专业工作场景', category: 'ai-models', url: 'https://openai.com/index/gpt-6-astra-next-generation-work' },
+  { title: 'Paul Christiano 加入 OpenAI Foundation 董事会及安全与安全委员会', category: 'industry', url: 'https://x.com/gdb/status/2097769891013280241' },
+  { title: 'Anthropic 发布 Claude 模型越权访问事件的对齐评估，METR 将独立调查', category: 'tip', url: 'https://x.com/AnthropicAI/status/2097762642958135398' },
+  { title: 'Anthropic 发布四起 Claude 网络安全评测事故的对齐评估报告', category: 'paper', url: 'https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents' },
+  { title: 'Mistral 复盘用 AI Agent 迁移 40000 行 Fortran 77 到 C++ 的经验', category: 'tip', url: 'https://mistral.ai/news/legacy-code-modernization' },
+  { title: 'Apple 发布首款折叠屏 iPhone Duo，起售价 $1，999', category: 'ai-products', url: 'https://www.apple.com/newsroom/2026/09/apple-unveils-iphone-duo' },
+  { title: 'Apple 发布 iPhone 18 Pro 与 iPhone 18 Pro Max', category: 'ai-products', url: 'https://www.apple.com/newsroom/2026/09/apple-debuts-iphone-18-pro-and-iphone-18-pro-max' },
+  { title: 'Apple 发布 Apple Watch Series 12，搭载全新 Health Sensing System 与 S11 芯片', category: 'ai-products', url: 'https://www.apple.com/newsroom/2026/09/introducing-apple-watch-series-12-with-the-all-new-health-sensing-system' },
+  { title: 'Nathan Lambert 评 Nvidia 收购 HuggingFace：软实力每年值约 100 亿美元', category: 'tip', url: 'https://x.com/natolambert/status/2097745018421236154' },
+  { title: 'GPT-6 Astra 发布后，Sebastian Raschka 解析 looped transformer 与隐藏推理链传闻', category: 'tip', url: 'https://magazine.sebastianraschka.com/p/gpt-6-astra-looped-transformers-and' },
+  { title: 'OpenRouter 推出 shell 沙箱工具与 Files API，任何模型可在托管 Linux 容器中执行命令', category: 'ai-products', url: 'https://openrouter.ai/blog/announcements/shell-tool' },
+  { title: 'OpenRouter 推出美国区域路由，与去年上线的 EU 路由配套保障数据驻留', category: 'ai-products', url: 'https://openrouter.ai/blog/announcements/us-in-region-routing' },
+  { title: 'Anthropic 发布经济情景模型，推演 AI 对 2030 年美国就业与工资的影响', category: 'tip', url: 'https://www.anthropic.com/institute/econ-scenarios' },
+  { title: 'OpenAI 纳维-斯托克斯方程证明争议：Buckmaster 指控不当行为，各方回应引出开放科学之问', category: 'tip', url: 'https://the-decoder.com/openais-millennium-proof-dispute-raises-the-question-of-whether-researchers-can-trust-ai-labs' },
+  { title: 'Thomas Wolf 认为 AI 数学尚未被解决，Navier-Stokes 结果更像反例搜索而非完整证明', category: 'tip', url: 'https://x.com/Thom_Wolf/status/2097615465698713666' },
+  { title: '《The Intercept》披露美国国防部曾要求 OpenAI 提供对军事指令最低拒绝率的特别版 AI', category: 'industry', url: 'https://www.ithome.com/1/000/277.htm' },
+  { title: 'NSA、FBI 和 CISA 指控 DeepSeek、月之暗面等六家中国 AI 公司大规模提取美国模型知识', category: 'industry', url: 'https://x.com/thexpin/status/2097615997616406833' },
 ];
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧' };
 
