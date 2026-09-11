@@ -46,7 +46,7 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 os.chdir(ROOT)
 
 # 每次 pull 都强制覆盖对齐远程的核心文件
-SYNC_FILES = ["index.html", "ai_nav_deploy.py", "fetch_missing_logos.py"]
+SYNC_FILES = ["index.html", "ai_nav_deploy.py", "fetch_missing_logos.py", "dedup_tools.py"]
 LOGO_DIR = "images/logos"
 
 
