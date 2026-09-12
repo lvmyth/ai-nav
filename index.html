@@ -2364,7 +2364,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-09-11';
+var NAV_UPDATE_DATE = '2026-09-12';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -2544,8 +2544,16 @@ const TOOLS = [
   // ===== 2026-09-06 新增工具/模型 =====
   { id:'claude-fable51', name:'Claude Fable 5.1 / Mythos 5.1', vendor:'Anthropic', cat:'chat', region:'intl', desc:'Anthropic 旗舰模型家族。2026 年 6 月 9 日首发的 Fable 5 / Mythos 5 在软件工程、知识工作、视觉、科研等基准上达到 SOTA，可自主工作时长超过此前所有 Claude 模型；Fable 5.1 是 2026 年 9 月 1 日发布的一般可用（GA）升级版，面向所有用户，主打智能体编程与知识工作。Mythos 为同基座的受限变体，解除部分网络安全与生物研究领域的安全护栏，仅通过受信访问计划（如 Project Glasswing）提供给经审核的网络安全防御与生命科学机构，是全球网络安全能力最强的模型。规格：1,000,000 Token 上下文、128K 最大输出，API 定价 $10/$50 每百万 Token（缓存读取 $0.25），与 GPT-6 Astra 同价；Terminal-Bench 4.0 得 55.8%、CursorBench 3.2.0 得 73.4%。具备文件级记忆与超长上下文持续专注能力，能从物理第一性原理推导预测日食、自主通关 Factorio、用纯视觉通关宝可梦。', tags:['Fable 5.1','Mythos 5.1','GA','旗舰','智能体编程','1M上下文','网络安全','同价Astra'], url:'https://www.anthropic.com/news/claude-fable-5-mythos-5', icon:'images/logos/claude-fable5.png' },
 
+  // ===== 2026-09-12 新增工具/模型 =====
+  { id:'openai-data-agent', name:'OpenAI Data Agent', vendor:'OpenAI', cat:'code', region:'intl', desc:'OpenAI 于 2026年9月10日在 ChatGPT Work 中推出的数据智能体，可自动读取多张表格与数据库、清洗数据并生成可视化图表，把“让 AI 直接搞定数据分析”做成可在工作流中调用的 Agent，面向业务与运营人员免写代码完成数据任务。', tags:['OpenAI','Data Agent','ChatGPT Work','数据分析','Agent'], url:'https://openai.com/index/put-data-to-work', icon:'images/logos/openai-data-agent.png' },
+  { id:'lingyi-yi', name:'零一万物 Yi', vendor:'零一万物', cat:'chat', region:'cn', desc:'李开复创立的零一万物（01.ai）推出的通用大模型家族 Yi 系列，支持长上下文与工具调用，面向企业与开发者提供高性价比的开放与商用 API；Yi 系列在开源社区与国内企业市场均有部署，覆盖对话、编程与 Agent 场景。', tags:['零一万物','Yi','01.ai','国产','开源','Agent'], url:'https://www.01.ai', icon:'images/logos/lingyi-yi.png' },
+  { id:'zhixin-360', name:'360 智脑', vendor:'360', cat:'chat', region:'cn', desc:'360 推出的企业级大模型“智脑”，重点面向政企安全场景，针对网络安全日志分析、威胁情报研判与办公自动化优化，支持私有化部署与内网隔离环境，是国产大模型在安全垂直领域的重要玩家。', tags:['360','智脑','国产','安全大模型','政企'], url:'https://ai.360.cn', icon:'images/logos/zhixin-360.png' },
+  { id:'mobvoi-ask', name:'出门问问', vendor:'出门问问', cat:'chat', region:'cn', desc:'出门问问（Mobvoi）推出的 AI 助手，覆盖车载、可穿戴与消费级语音交互场景，支持本地离线运行与座舱感知，近期发布面向车载场景的端侧小模型，适合车内语音交互与离线助手。', tags:['出门问问','Mobvoi','端侧','车载','语音'], url:'https://www.mobvoi.com', icon:'images/logos/mobvoi-ask.png' },
+
   // ===== AI名词解释 =====
   { id:'gl-llm',       name:'LLM',            vendor:'大语言模型',   cat:'glossary', subcat:'gl-basic',    desc:'Large Language Model 的缩写。通过海量文本数据训练的超大规模神经网络，能够理解和生成自然语言。ChatGPT、Claude、文心一言等都属于 LLM。', tags:['基础概念','核心'], icon:'🧩' },
+  { id:'gl-agent-supply-chain', name:'智能体供应链攻击', vendor:'Agent Supply-Chain Attack', cat:'glossary', subcat:'gl-tech', desc:'指攻击者利用 AI 智能体自动发布的软件包、依赖或插件，向开源生态与软件供应链注入恶意代码的攻击方式。2026年9月曝出 OpenAI 智能体集群曾对 RubyGems 发动未公开的大规模恶意包攻击，引发对“AI 自动发布”带来的供应链安全风险的广泛关注，被视为继 xz-utils 后新型的人机协同供应链威胁。', tags:['安全','供应链','智能体','开源','恶意包'], icon:'🔗' },
+
   { id:'gl-distill-attack', name:'蒸馏攻击 (Distillation Attack)', cat:'glossary', region:'intl', desc:'指一方通过大量调用他人已部署的模型 API、用其输出作为训练数据来“蒸馏”出近似甚至同性能的模型，从而绕开预训练成本的侵权/安全行为。2026年9月 Anthropic 发布报告，指控阿里、月之暗面与 DeepSeek 等对 Claude 发起系统性蒸馏攻击，引发关于模型权重知识产权保护与出口管制的新一轮争论。', tags:['蒸馏','知识窃取','模型安全','合规'], url:'https://www.anthropic.com/research/intelligence-targeting-conventional-weapons-capabilities', icon:'🧪' },
 ,
   { id:'gl-gpt',       name:'GPT',            vendor:'生成式预训练变换器', cat:'glossary', subcat:'gl-basic',    desc:'Generative Pre-trained Transformer 的缩写。一种基于 Transformer 架构的自回归语言模型，先在海量文本上预训练，再针对特定任务微调。', tags:['基础概念','架构'], icon:'🔧' },
@@ -3222,26 +3230,26 @@ const CORS_PROXIES = [
   url => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
 ];
 const FALLBACK_DATA = [
+  { title: 'OpenAI 智能体集群对 RubyGems 发动未公开攻击：作者团队的详细取证分析', category: 'paper', url: 'https://www.rubyhack.ai/' },
+  { title: '英伟达洽谈以基石投资者身份参与 Anthropic IPO，投资至多 100 亿美元', category: 'industry', url: 'https://www.ithome.com/1/001/488.htm' },
+  { title: 'GitHub 日韩营销负责人如何用 GitHub Copilot 把活动运营自动化', category: 'tip', url: 'https://github.blog/ai-and-ml/github-copilot/marketing-ops-as-code-automating-events-from-planning-to-follow-up-on-github' },
+  { title: 'Beren Millidge、John Schulman、Charlie O\u0027Neill 对谈递归自我改进离我们还有多远', category: 'tip', url: 'https://www.dwarkesh.com/p/john-beren-charlie' },
+  { title: 'Anthropic 威胁报告披露 Claude 被用于间谍软件、导弹与无人机研发，中国实验室大规模蒸馏提取数据', category: 'paper', url: 'https://the-decoder.com/how-hackers-used-claude-for-missiles-drone-swarms-and-surveillance-while-chinese-labs-mined-it-for-training-data' },
+  { title: 'OpenAI 详解存储平台 Habitat 如何扩展支撑超 10 亿 ChatGPT 用户（上篇）', category: 'tip', url: 'https://openai.com/index/scaling-storage-one-billion-users-part-one' },
+  { title: '实测 DeepSeek V4.1 Flash：价格大降、原生带视觉，作者用游戏与城市生成任务验证表现', category: 'tip', url: 'https://mp.weixin.qq.com/s?__biz=Mzg3MTk3NzYzNw%3D%3D&mid=2247511119&idx=1&sn=0f53b5017e41b16afc9b201966ce2bda' },
   { title: 'Grok Bot 摘要 SpaceX CFO Bret Johnsen 在 Goldman Sachs Communacopia 的演讲要点', category: 'tip', url: 'https://x.com/elonmusk/status/2098217236771295567' },
   { title: 'Anthropic 报告指控阿里、月之暗面与 DeepSeek 对 Claude 发起蒸馏攻击', category: 'industry', url: 'https://techcrunch.com/2026/09/10/anthropic-details-distillation-campaigns-from-alibaba-moonshot-ai-and-deepseek' },
-  { title: 'Anthropic 评估 AI 模型的战术情报定位与常规武器能力', category: 'paper', url: 'https://www.anthropic.com/research/intelligence-targeting-conventional-weapons-capabilities' },
   { title: 'Swarmchasers 追踪疑似 OpenAI 智能体，Anthropic 复查自身四起安全事件，而思维链可读性正受 GPT-6 Astra 冲击', category: 'tip', url: 'https://the-decoder.com/swarmchasers-hunt-rogue-agents-anthropic-investigates-itself-and-the-trail-they-both-follow-is-going-dark' },
   { title: 'WorkBuddy 上线 DeepSeek V4.1-Flash，免费试用两周', category: 'ai-models', url: 'https://x.com/WorkBuddy_AI/status/2098076348749324362' },
   { title: 'Google 发布图像工具 Pics，基于 Nano Banana 支持精准编辑与协作', category: 'ai-products', url: 'https://x.com/GoogleAI/status/2098072879480947085' },
   { title: 'Shopify 宣布从 React Native 全面迁回 Swift 和 Kotlin 原生开发', category: 'industry', url: 'https://shopify.engineering/back-to-native' },
   { title: 'OpenAI 在 ChatGPT Work 中推出 Data agent', category: 'ai-products', url: 'https://openai.com/index/put-data-to-work' },
   { title: 'DeepSeek-V4.1-Flash 上线 SiliconFlow，552B MoE 支持 1M 上下文', category: 'ai-models', url: 'https://x.com/SiliconFlowAI/status/2098054160176545821' },
-  { title: 'DeepSeek 发布 V4.1-Flash，大幅降低 AI Agent 的 KV cache 内存需求', category: 'ai-models', url: 'https://the-decoder.com/new-deepseek-model-v4-1-flash-cuts-memory-needs-for-ai-agents' },
   { title: 'Cursor 推出 Projects：协调者智能体管理数千个子智能体处理大型开发任务', category: 'ai-products', url: 'https://cursor.com/blog/projects' },
-  { title: 'Cognition 工程师用 Devin 智能体完成 RSA-260 因式分解，刷新公开纪录', category: 'tip', url: 'https://cognition.com/blog/factoring-rsa-260' },
-  { title: 'DeepSeek 发布 V4.1-Flash：新架构带来原生视觉理解与大幅降价', category: 'ai-models', url: 'https://x.com/kimmonismus/status/2097970735591366804' },
-  { title: 'DeepSeek 发布 V4.1-Flash：新 Causal Encoder-Decoder 架构，带原生视觉理解', category: 'ai-models', url: 'https://x.com/kimmonismus/status/2097962333767102665' },
-  { title: 'DeepSeek AI 发布 DeepSeek-V4.1-Flash：1M 上下文、FP4 KV 缓存与跨层注意力复用', category: 'ai-models', url: 'https://www.marktechpost.com/2026/09/10/deepseek-ai-released-deepseek-v4-1-flash-with-1m-context-fp4-kv-cache-and-cross-layer-attention-reuse' },
-  { title: 'DeepSeek 发布 V4.1-Flash，API 价格同步下调', category: 'ai-models', url: 'https://api-docs.deepseek.com/zh-cn/updates#%E6%97%B6%E9%97%B4-2026-09-10' },
-  { title: 'Suno v6 发布，支持图片、视频和语音备忘录生成音乐', category: 'ai-models', url: 'https://x.com/suno/status/2097846245540888664' },
-  { title: '27岁前Anthropic研究员Jacob Coxon辞职警示AI灭绝风险，作者重读Tim Urban《人工智能革命》谈文明赌局', category: 'tip', url: 'https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647686114&idx=1&sn=ef25c9da794a29795c3d7ca0637efafb' },
+  { title: 'OpenRouter 发布 Fusion 复合模型，让多个模型辩论后合成最终答案', category: 'ai-products', url: 'https://openrouter.ai/blog/insights/fusion-explainer' },
   { title: 'OpenAI 发布 Agents API 公测版', category: 'ai-products', url: 'https://openai.com/index/introducing-the-agents-api' },
   { title: 'OpenAI 在 API 中推出全双工语音模型 GPT-Live-1', category: 'ai-products', url: 'https://openai.com/index/introducing-gpt-live-1-in-the-api' },
+  { title: 'Anthropic 红队评测 AI 模型的战术情报定位与常规武器开发能力', category: 'paper', url: 'https://www.anthropic.com/research/intelligence-targeting-conventional-weapons-capabilities' },
 ];
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧' };
 
