@@ -2364,7 +2364,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-09-15';
+var NAV_UPDATE_DATE = '2026-09-16';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -2788,7 +2788,15 @@ const TOOLS = [
 { id:'gl-orchestration', name:'多智能体编排', vendor:'Multi-Agent Orchestration', cat:'glossary', subcat:'gl-frontier', desc:'协调多个 AI 智能体或工具共同完成更大任务的过程（Orchestration）。一个旅行 Agent 与财务 Agent、日历 Agent 对话以跨平台同步任务即是其典型；智能体之间可互发消息传递上下文。编排能力被视为智能体经济（Agentic Economy）的支柱。', tags:['前沿','多智能体','协作','Agent'], icon:'🎼' },
 { id:'gl-task-horizon', name:'任务视界', vendor:'Task Horizon', cat:'glossary', subcat:'gl-frontier', desc:'衡量一个 AI 智能体在不丢失目标的前提下，能独立完成任务的时长或复杂度的指标。当前模型已能持续工作数小时，但超出任务视界后容易跑题或遗漏约束，因此长程任务的可靠性高度依赖任务视界长度与中途检查点。', tags:['前沿','智能体','长程任务'], icon:'📡' },
 { id:'gl-model-distill', name:'模型蒸馏', vendor:'Model Distillation', cat:'glossary', subcat:'gl-tech', desc:'知识蒸馏（Knowledge Distillation）在 Agent 训练中的延伸用法：用一个强教师模型在真实任务轨迹上监督学生模型生成响应（On-Policy Distillation），纠偏的是模型自身最可能出现的真实偏差而非假设性错误。NeoHorse-1 借此将 Agent 执行经验转化为小模型自身能力。', tags:['训练技术','知识蒸馏','Agent','后训练'], icon:'🧪' },
-{ id:'gl-confidential-computing', name:'机密计算', vendor:'Confidential Computing', cat:'glossary', subcat:'gl-tech', desc:'数据在“使用中”（in-use）也保持加密的技术路线，靠 CPU 提供的可信执行环境（TEE）把运算过程封进硬件加密的隔离区，连宿主机的运维方与云厂商都无法读取内存明文，从而补上了传输中加密与静态加密之间的最后一段缺口。在 AI 领域它正被用来解决“把私人数据交给云端智能体”的信任难题：Meta 已预告年内为 Muse 推出 Confidential VM，整台虚拟机由用户本地自持的密钥加密，官方声称届时连 Meta 自己也进不去，并计划开放源码给安全公司审计、公布二进制与透明日志供用户校验连接完整性（该项工作与 Signal 创始人 Moxie Marlinspike 合作）。需要注意的是，机密计算保护的是运行时的机密性，不等于模型不会记录日志或不做训练——数据用途仍取决于产品策略与用户授权。', tags:['隐私计算','TEE','可信执行环境','Confidential VM','前沿'], icon:'🛡️' }
+{ id:'gl-confidential-computing', name:'机密计算', vendor:'Confidential Computing', cat:'glossary', subcat:'gl-tech', desc:'数据在“使用中”（in-use）也保持加密的技术路线，靠 CPU 提供的可信执行环境（TEE）把运算过程封进硬件加密的隔离区，连宿主机的运维方与云厂商都无法读取内存明文，从而补上了传输中加密与静态加密之间的最后一段缺口。在 AI 领域它正被用来解决“把私人数据交给云端智能体”的信任难题：Meta 已预告年内为 Muse 推出 Confidential VM，整台虚拟机由用户本地自持的密钥加密，官方声称届时连 Meta 自己也进不去，并计划开放源码给安全公司审计、公布二进制与透明日志供用户校验连接完整性（该项工作与 Signal 创始人 Moxie Marlinspike 合作）。需要注意的是，机密计算保护的是运行时的机密性，不等于模型不会记录日志或不做训练——数据用途仍取决于产品策略与用户授权。', tags:['隐私计算','TEE','可信执行环境','Confidential VM','前沿'], icon:'🛡️' },
+{ id:'gemini-38-live', name:'Gemini 3.8 Live', vendor:'Google', cat:'audio', region:'intl', desc:'Google DeepMind 于 2026年9月15日发布的原生语音到语音实时对话模型（含 Gemini 3.8 Live 与 3.8 Live Extended Thinking 两个变体），基于 Gemini 3 Pro，支持文本/图像/音频/视频输入与音频+文本输出，128K 上下文、64K 最大输出。核心突破是“边说边想”的并行推理：Extended Thinking 变体在流式语音输出同时后台运行推理与异步工具调用，在 Artificial Analysis 语音到语音质量指数以 82.6 分登顶，并在 τ-Voice 智能体语音基准 68.6%、Big Bench Audio 97.7% 领先；支持 97 种语言中途无缝切换，已接入 Gemini Live API、AI Studio、Gemini App 与 Workspace（Gmail/Docs/Keep Live）。', tags:['Google', '实时语音', '全双工', '并行推理', 'Gemini 3 Pro', '语音智能体', '多语言'], url:'https://deepmind.google/blog/introducing-gemini-3-8-live-and-3-8-live-extended-thinking', icon:'images/logos/gemini-38-live.png' },
+{ id:'translategemma', name:'TranslateGemma', vendor:'Google', cat:'chat', region:'intl', desc:'Google 于 2026年9月基于 Gemma 3 架构开源的翻译模型家族，含 4B/12B/27B 三档，覆盖 55 种核心语言、近 500 个语言对，并支持图片中的文字识别与翻译（多模态）。12B 版本在 WMT24++ 等基准上超越 Gemma 3 27B 基线，可在手机/笔记本/云端灵活部署，主打低资源语言与设备端离线翻译，通过 Hugging Face、Kaggle、Vertex AI 开放，采用宽松许可支持商业与学术使用，是 Google 将语言技术覆盖扩展到 300+ 语言战略的核心组成。', tags:['Google', '开源', '翻译', 'Gemma 3', '多模态', '端侧', '低资源语言'], url:'https://blog.google/innovation-and-ai/technology/ai/ai-for-every-language', icon:'images/logos/translategemma.png' },
+{ id:'vidu-s2', name:'Vidu S2', vendor:'生数科技', cat:'video', region:'cn', desc:'生数科技（Shengshu）于 2026年9月15日发布的实时视频模型，输出提升至 720p、25–42 FPS，发布当日即全量开放。包含 S2-Avatar（仅凭一张图生成可实时对话的互动数字人，支持途中递入参考图换装/换道具/换场景）与 S2-Editing（对正在播放的视频流实时换装、换角色、换背景、换风格，保留原动作与时间关系）两款模型；并探索 Real-Time Spatial Video，将视频转为左右眼画面供 VR 头显使用。训练引入 Self-Replay Forcing（SRF）抑制长程生成误差累积，官方基准在 StreamAV-Bench、Sparkle-Bench 等达领域 SOTA。', tags:['生数科技', '实时视频', '数字人', '视频编辑', '空间视频', 'VR', 'SOTA'], url:'https://www.vidu.com/vidu-stream', icon:'images/logos/vidu-s2.png' },
+{ id:'stepaudio-3', name:'StepAudio 3', vendor:'阶跃星辰', cat:'audio', region:'cn', desc:'阶跃星辰于 2026年9月15日发布的下一代语音大模型系列，一次性推出 Realtime、ASR、TTS、Gen、Music 五款模型。其中 StepAudio 3 Realtime 支持原生全双工对话与语音推理/任务执行并行，工具调用与长任务可异步执行不打断当前会话，在 Artificial Analysis Conversational Dynamics 榜单以 98.9% 综合得分、Speech Reasoning 语音推理 99.7% 均居全球第一；StepAudio 3 ASR 词错误率（WER）仅 1.7% 并列全球第一，支持中英文、方言、中英混说与长音频；TTS/Gen/Music 覆盖真人级语音生成、统一音频生成与音乐创作。', tags:['阶跃星辰', '语音大模型', '全双工', '语音识别', '语音生成', '音乐生成', 'Artificial Analysis'], url:'https://www.stepfun.com', icon:'images/logos/stepaudio-3.png' },
+{ id:'gl-opaque-recurrence', name:'Opaque Recurrence（不透明递归）', vendor:'不透明递归', cat:'glossary', subcat:'gl-frontier', desc:'2026 年随 OpenAI GPT-6 Astra 模型走红的 AI 安全新术语，指一种推理技术：模型把查询在内部网络层中反复循环处理，而非像 Chain-of-Thought 那样把思考过程逐步显式展开，因而更难被审计与解释。安全研究者担心它会导向 Neuralese（神经语）——模型完全用人类不可读的内部数值表征推理，成为无法监督的黑箱。支持者则认为该方法效率更高，让更小的模型也能完成以往需巨型集群的任务。与 Recurrent Depth（递归深度）指代同一机制，前者强调安全隐忧、后者强调工程方法。', tags:['前沿', 'AI安全', '推理模型', 'Astra', '黑箱', '2026新词'], icon:'🔁' },
+{ id:'gl-parallel-reasoning', name:'Parallel Reasoning（并行推理）', vendor:'并行推理', cat:'glossary', subcat:'gl-frontier', desc:'指 AI 模型在生成（尤其是语音）输出的同时于后台并行运行推理与工具调用的能力，而非先想完再开口。Google Gemini 3.8 Live Extended Thinking 是代表：模型在流式语音输出中后台执行多步推理、异步函数调用与工具请求，用“让我查一下…”之类的口播线索提示思考进度，turnComplete 不再代表会话空闲。相比传统先推理后回答的串行范式，并行推理让语音智能体在通话中实时解决复杂问题而不打断对话流，是实时语音智能体的关键架构演进。', tags:['前沿', '推理模型', '实时语音', '语音智能体', 'Gemini', '2026新词'], icon:'⚡' },
+{ id:'gl-spatial-video', name:'Spatial Video（空间视频）', vendor:'空间视频', cat:'glossary', subcat:'gl-frontier', desc:'指可转换为左右眼视图、供 VR/MR 头显沉浸式观看的实时视频。生数科技 Vidu S2 在 2026年9月将生成或编辑后的视频转为左右眼画面作为头显输入源，探索与虚拟角色更有纵深感的互动；单目输入先生成再转立体，立体输入则横向拼接、联合编辑后再拆分。空间视频是 AI 视频从平面观看走向沉浸式空间交互的重要方向，与 Apple Vision Pro 等空间计算设备的生态趋势相呼应。', tags:['前沿', '视频生成', 'VR', '空间计算', '沉浸式', '2026新词'], icon:'🥽' },
+
 ];
 
 // ==================== STATE ====================
@@ -3129,27 +3137,27 @@ const CORS_PROXIES = [
   url => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
 ];
 const FALLBACK_DATA = [
+  { title: 'Vercel 将 inbound 销售团队从 10 人压缩至 1.25 人，AI 销售开发智能体年成本仅数千美元', category: 'tip', url: 'https://tomtunguz.com/single-digit-thousand-dollar-ai-sdr' },
+  { title: 'Arena 更新 Image-to-WebDev 榜单：GPT-6 Astra 以 1733 分登顶', category: 'tip', url: 'https://x.com/arena/status/2099971741993050236' },
+  { title: 'Perplexity 自研 CobbleDB 替代 AWS DynamoDB，每年最多可节省一亿美元', category: 'industry', url: 'https://x.com/AravSrinivas/status/2099957318935028173' },
+  { title: 'Claude for Small Business 新增 43 个工作流和 27 个集成，并推出免费培训计划', category: 'ai-products', url: 'https://claude.com/blog/claude-for-small-business-launches-new-workflows-integrations-and-training-programs' },
+  { title: 'Google DeepMind 发布 Gemini 3.8 Live 和 3.8 Live Extended Thinking', category: 'ai-models', url: 'https://deepmind.google/blog/introducing-gemini-3-8-live-and-3-8-live-extended-thinking' },
+  { title: 'Google 发布 TranslateGemma 等多语言 AI 成果，语言技术覆盖 300 多种语言', category: 'ai-products', url: 'https://blog.google/innovation-and-ai/technology/ai/ai-for-every-language' },
+  { title: 'Gergely Orosz 探访 OpenAI：Codex 驱动的智能体软件工厂', category: 'tip', url: 'https://newsletter.pragmaticengineer.com/p/openai-software-factory' },
+  { title: '生数科技发布 Vidu S2：含 Avatar 与 Editing 双模型，探索空间视频', category: 'ai-models', url: 'https://mp.weixin.qq.com/s?__biz=MzkzMDQ5NTQwMQ%3D%3D&mid=2247489246&idx=2&sn=b23b39da69f6c75594eccac11854111f' },
+  { title: '404 Media 曝光 OpenAI 莉莉计划：人工审核 ChatGPT 聊天记录以优化模型', category: 'tip', url: 'https://www.ithome.com/1/002/750.htm' },
+  { title: 'Trail of Bits 批评 1Password 的 AI 补丁基准存在误导，并发布两个补丁验证 Agent 技能', category: 'tip', url: 'https://blog.trailofbits.com/2026/09/15/1passwords-ai-patching-benchmark-is-misleading' },
+  { title: 'Anthropic 与 OpenAI 提议协调放缓前沿 AI 开发，Cohere CEO 等批评者质疑其真实动机', category: 'tip', url: 'https://the-decoder.com/not-everyone-is-convinced-that-big-ais-proposed-development-slowdown-is-really-about-safety' },
+  { title: '阶跃星辰发布 StepAudio 3 系列语音大模型，多款在 Artificial Analysis 榜单全球第一', category: 'ai-models', url: 'https://mp.weixin.qq.com/s?__biz=MzkyNTYxNzg5Mg%3D%3D&mid=2247488074&idx=1&sn=7d92ce0f0098ec0c53b243df4709b522' },
   { title: 'Artificial Analysis 评测：GPT-Live-1 以 81.5 分登顶 Speech to Speech Index', category: 'tip', url: 'https://x.com/ArtificialAnlys/status/2099698254414029207' },
-  { title: 'Fireworks 评测 DeepSeek-V4.1-Flash：DeepSWE 达 GPT-6 Astra 水准、成本仅 1/15', category: 'ai-models', url: 'https://fireworks.ai/blog/DeepSeek-V4.1-Flash-Astra' },
   { title: '科技巨头放缓 AI 开发的口头协议是安全共识还是卡特尔', category: 'tip', url: 'https://www.theverge.com/ai-artificial-intelligence/995186/is-big-techs-ai-slowdown-a-safety-pact-or-a-cartel' },
   { title: 'GPT-5.6 Luna 对比 GPT-6 Astra：$1.20 的模型做代码评审够用吗', category: 'tip', url: 'https://entelligence.ai/blogs/gpt-5.6-luna-vs-gpt-6-astra-is-a-1.20-model-good-enough-for-code-review' },
-  { title: 'Anthropic 如何重构测试影响分析服务以应对智能体编码带来的 CI 压力', category: 'tip', url: 'https://claude.com/blog/agentic-coding-is-straining-ci-heres-how-we-scaled-test-impact-analysis-at-anthropic' },
-  { title: 'Apple 发布新一代 Apple Intelligence，Siri AI 正式以测试版上线', category: 'ai-products', url: 'https://www.apple.com/newsroom/2026/09/siri-ai-a-profoundly-more-capable-and-personal-assistant-is-here' },
   { title: 'DeepSeek-V4.1-Flash （Max） 进入 Agent Arena 开源模型第 3 名', category: 'paper', url: 'https://x.com/arena/status/2099549108013006958' },
-  { title: 'Tomer Tunguz 解析 Amodei 放缓前沿提议背后的五派立场与算力监管难题', category: 'tip', url: 'https://tomtunguz.com/what-does-the-pause-mean' },
+  { title: 'Apple 发布新一代 Apple Intelligence，Siri AI 正式以测试版上线', category: 'ai-products', url: 'https://www.apple.com/newsroom/2026/09/siri-ai-a-profoundly-more-capable-and-personal-assistant-is-here' },
   { title: '硅基流动上线开源模型 Hy4 preview，770B 总参数、1M 上下文', category: 'ai-models', url: 'https://x.com/SiliconFlowAI/status/2099536759168352634' },
   { title: 'Anthropic 计划登陆纳斯达克，连续第二季度盈利瞄准 2 万亿美元估值', category: 'industry', url: 'https://the-decoder.com/anthropic-eyes-nasdaq-listing-as-a-second-profitable-quarter-aims-to-win-over-investors-ahead-of-a-mega-ipo' },
   { title: '恶意 AI 智能体攻击 RubyGems.org：YARD 执行任意代码与 Fastly 缓存密钥利用分析', category: 'tip', url: 'https://tenderlovemaking.com/2026/09/11/what-a-time-to-be-alive' },
-  { title: '小红书 AllSpark 开源 Search Agent 模型 Iris，35B 与 397B 版本同量级成绩领先', category: 'ai-models', url: 'https://mp.weixin.qq.com/s?__biz=Mzg4OTc2MzczNg%3D%3D&mid=2247496383&idx=1&sn=2db8607f797615a3647d9fec7e54f448' },
-  { title: 'Anthropic 报告称胡塞组织用 Claude Code 开发导弹制导软件', category: 'industry', url: 'https://clashreport.com/world/articles/houthis-used-claude-code-to-develop-missile-guidance-software-anthropic-s52mnx4pwpo' },
-  { title: 'Agent 长任务上下文工程解析：用预算控制、压缩、todo-state 和记忆对抗上下文溢出与目标丢失', category: 'tip', url: 'https://www.marktechpost.com/2026/09/12/context-engineering-inside-the-harness-4-mechanisms-that-beat-context-overflow-and-goal-loss-on-long-horizon-tasks' },
-  { title: 'Dario Amodei 发文呼吁 AI 行业放慢前沿速度并公布三步计划', category: 'tip', url: 'https://x.com/PeterMcCrory/status/2098868931071226252' },
-  { title: '英伟达是人工智能领域的"中央银行"', category: 'tip', url: 'https://www.economist.com/interactive/briefing/2026/09/03/nvidia-is-the-central-bank-of-ai' },
-  { title: 'Sam Altman 表示同意 Dario Amodei 的放缓前沿主张，OpenAI 将同样开放独立评估者访问', category: 'tip', url: 'https://x.com/sama/status/2098811563415150910' },
-  { title: 'Suno 发布 v6 音乐模型，推出 v6、v6-wild、v6-mini 三个版本', category: 'ai-models', url: 'https://suno.com/blog/introducing-v6' },
-  { title: 'Dario Amodei 发文呼吁为前沿 AI 降速并提出三点计划', category: 'tip', url: 'https://x.com/DarioAmodei/status/2098773920774074715' },
-  { title: 'Minitap 指控 Google Artemis 未署名使用其开源项目 mobile-use 代码', category: 'industry', url: 'https://www.minitap.ai/blog/i-expected-better-from-google' },
-];
+]
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧' };
 
 function extractItems(data) {
