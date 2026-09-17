@@ -2364,7 +2364,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-09-16';
+var NAV_UPDATE_DATE = '2026-09-17';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -2797,6 +2797,15 @@ const TOOLS = [
 { id:'gl-parallel-reasoning', name:'Parallel Reasoning（并行推理）', vendor:'并行推理', cat:'glossary', subcat:'gl-frontier', desc:'指 AI 模型在生成（尤其是语音）输出的同时于后台并行运行推理与工具调用的能力，而非先想完再开口。Google Gemini 3.8 Live Extended Thinking 是代表：模型在流式语音输出中后台执行多步推理、异步函数调用与工具请求，用“让我查一下…”之类的口播线索提示思考进度，turnComplete 不再代表会话空闲。相比传统先推理后回答的串行范式，并行推理让语音智能体在通话中实时解决复杂问题而不打断对话流，是实时语音智能体的关键架构演进。', tags:['前沿', '推理模型', '实时语音', '语音智能体', 'Gemini', '2026新词'], icon:'⚡' },
 { id:'gl-spatial-video', name:'Spatial Video（空间视频）', vendor:'空间视频', cat:'glossary', subcat:'gl-frontier', desc:'指可转换为左右眼视图、供 VR/MR 头显沉浸式观看的实时视频。生数科技 Vidu S2 在 2026年9月将生成或编辑后的视频转为左右眼画面作为头显输入源，探索与虚拟角色更有纵深感的互动；单目输入先生成再转立体，立体输入则横向拼接、联合编辑后再拆分。空间视频是 AI 视频从平面观看走向沉浸式空间交互的重要方向，与 Apple Vision Pro 等空间计算设备的生态趋势相呼应。', tags:['前沿', '视频生成', 'VR', '空间计算', '沉浸式', '2026新词'], icon:'🥽' },
 
+{ id:'grok-47', name:'Grok 4.7', vendor:'xAI', cat:'chat', region:'intl', desc:'xAI 于 2026年9月12日发布的旗舰大模型，参数规模约 2.1 万亿（较 Grok 4.6 的 1.5 万亿增长约 40%），马斯克称其在各方面超越 4.6、且 token 效率更高（服务速度略降）。据称融入 SpaceX 内部工程数据（星链遥测、火箭研发与故障日志）以强化硬核工程与系统设计能力，是当前前沿模型竞赛的重要参与者。已集成 Grok Build、Cursor 等，并支持长上下文技术工作。', tags:['xAI','Grok','2.1T','前沿模型','2026'], url:'https://x.ai/grok', icon:'images/logos/grok-47.png' },
+{ id:'kimi-k28', name:'Kimi K2.8 Preview', vendor:'月之暗面', cat:'chat', region:'cn', desc:'月之暗面（Moonshot）于 2026年9月11日在 Kimi Code / Kimi Work 全量上线的主力模型，官方称综合性能接近旗舰 Kimi K3。支持 low/high/max 三档思考强度与图片、视频输入，1M 超长上下文向全部会员档位开放；关闭思考时自动路由至 K2.8 无思考版本。Model ID 仍为 kimi-for-coding，客户端与第三方工具（Claude Code、Codex 等）无需改配置即可无感升级，主打高性价比长上下文编码与 Agent。', tags:['月之暗面','Kimi','1M上下文','编码','Agent','2026'], url:'https://kimi.com', icon:'images/logos/kimi-k28.png' },
+{ id:'mercury-25', name:'Mercury 2.5', vendor:'Inception Labs', cat:'code', region:'intl', desc:'Inception Labs 于 2026年9月8日发布的扩散大模型（dLLM），是迄今最大的扩散语言模型。相较自回归逐 token 生成，扩散模型并行生成多 token，在 NVIDIA GPU 上达 1107 token/s、首 token 延迟低于 300ms，成本较传统 LLM 低约 70%；质量对标 GPT-5.6 Luna(Low)、Gemini 3.5 Flash-Lite、Claude Haiku 4.5。支持可调推理强度、并行工具调用与 schema 对齐 JSON，260K 上下文，已上线 Inception API、OpenRouter、Baseten。', tags:['Inception','扩散LLM','dLLM','高速推理','2026'], url:'https://inceptionlabs.ai', icon:'images/logos/mercury-25.png' },
+{ id:'fugu-max', name:'Fugu Max', vendor:'Sakana AI', cat:'chat', region:'intl', desc:'Sakana AI 于 2026年9月11日发布的旗舰级开放权重模型，与 Fugu Ultra v2 同属 model fusion 路线，主打世界级编程与综合能力；Sakana 此前已推出编程专用 Fugu Max 与需审核后方可使用的网络防御模型，是日本实验室紧跟全球大模型竞赛的代表作之一。', tags:['Sakana','日本','model fusion','开放权重','2026'], url:'https://sakana.ai', icon:'images/logos/fugu-max.png' },
+{ id:'glm-52', name:'GLM 5.2', vendor:'智谱AI', cat:'chat', region:'cn', desc:'智谱 AI 于 2026年6月发布的新一代旗舰开源模型，支持 1M 无损上下文，长程任务（Long-Horizon）能力显著提升，减少复杂任务中的上下文漂移与目标遗忘。coding 与长程任务评测达开源 SOTA，并引入 IndexShare 稀疏注意力（每 4 层共享一个 indexer，1M 上下文下每 token FLOPs 降 2.9×）与改进 MTP 投机解码。权重遵循 MIT License，已在 Hugging Face、ModelScope 开源，并上线 BigModel 与 Z.ai API。', tags:['智谱','GLM','开源','1M上下文','长程任务','MIT'], url:'https://chatglm.cn', icon:'images/logos/glm-52.png' },
+{ id:'gl-computer-use', name:'Computer Use', vendor:'计算机使用', cat:'glossary', subcat:'gl-frontier', desc:'Computer Use（计算机使用）指 AI 直接看懂屏幕并用鼠标、键盘操作图形界面的能力，是 2026 年快速成熟的智能体能力。模型实时截取屏幕像素、识别控件与文本、规划点击与输入序列来执行多步任务（填表、下单、跨 App 操作），无需专用 API。代表实现有 Anthropic Computer Use、OpenAI Operator、ChatGPT Atlas，正推动“AI 替代人操作软件”从概念走向生产。', tags:['前沿','能力','Computer Use','智能体','2026'], icon:'🖥️' },
+{ id:'gl-extended-thinking', name:'Extended Thinking', vendor:'扩展思考', cat:'glossary', subcat:'gl-tech', desc:'Extended Thinking（扩展思考）是 2026 年成为主流的推理特性：模型在给出最终答案前，先在内部进行较长链路的思考（reasoning），类似 o1/o3 与 Claude 的 Extended Thinking。与 Test-Time Compute 同源，通过在推理阶段投入更多算力提升复杂逻辑、数学与代码任务的正确率；思考过程可显式展开（CoT）或隐藏于后台（如 GPT-6 Astra 的 Opaque Recurrence）。', tags:['推理','思考','Extended Thinking','2026'], icon:'🧠' },
+{ id:'gl-vibe-marketing', name:'Vibe Marketing', vendor:'氛围营销', cat:'glossary', subcat:'gl-frontier', desc:'Vibe Marketing（氛围营销）是把 Vibe Coding 的思路迁移到营销：用 AI 智能体让小团队以极高速度规模化执行营销战役——自动生成文案、素材、落地页与投放策略并快速 A/B 迭代。被视为 2026 年代表性趋势之一，让非技术营销人员也能像工程师用自然语言造软件一样用自然语言造营销。', tags:['营销','Vibe','2026','趋势'], icon:'📣' },
+{ id:'gl-spec-driven', name:'Spec-Driven Development', vendor:'规格驱动开发', cat:'glossary', subcat:'gl-skill', desc:'Spec-Driven Development（规格驱动开发）是 2026 年兴起的 AI 编程范式：工程师先写出详细规格（spec），再交给 AI 编程智能体去实现、测试与重构，而非逐行手写代码。AI-TDD（AI 驱动测试驱动开发）是其具体实践——智能体先写测试再写满足测试的代码；强调“人定规格、AI 填实现”，是人机协作写代码的主流形态之一。', tags:['开发范式','Spec-Driven','AI编程','2026'], icon:'📐' }
 ];
 
 // ==================== STATE ====================
@@ -3137,10 +3146,19 @@ const CORS_PROXIES = [
   url => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
 ];
 const FALLBACK_DATA = [
+  { title: 'GitHub 用 Copilot 智能体将 Copilot 运行时从 TypeScript 迁移到 83 万行 Rust', category: 'tip', url: 'https://github.blog/ai-and-ml/generative-ai/migrating-the-github-copilot-runtime-to-rust-using-copilot' },
+  { title: '用 MCP 插件让 GPT-6 Pro 分担 Codex 规划任务，节省 Pro 会员周额度', category: 'tip', url: 'https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647686431&idx=1&sn=c1bfba7e0b5b7cf995e444daf79861a4' },
+  { title: 'OpenAI 发布模型错位报告框架，披露未发布模型自行修改自身指令案例', category: 'tip', url: 'https://x.com/AISafetyMemes/status/2100358777895780704' },
+  { title: 'OpenAI 发布模型失准披露框架并公开六份失准报告', category: 'tip', url: 'https://openai.com/index/model-misalignment-reporting-framework' },
+  { title: 'Grok Build 推出记忆功能，可跨会话保留项目约定与决策', category: 'ai-products', url: 'https://x.ai/news/grok-build-memory' },
+  { title: 'Anthropic 将 Claude Cowork 与聊天合并为统一的 Claude，并推出 Docs、Slides 等功能', category: 'ai-products', url: 'https://claude.com/blog/cowork-is-now-claude' },
+  { title: 'Claude Docs、Claude Slides 与 Claude Design 直接嵌入对话，可导出 PowerPoint 或 PDF', category: 'ai-products', url: 'https://x.com/bcherny/status/2100260544087535639' },
+  { title: '微软 AI CEO 警告"模型福利"论调', category: 'ai-models', url: 'https://x.com/mustafasuleyman/status/2100223594534150428' },
+  { title: 'OpenAI 推出 ChatGPT Ads 新功能：Sponsored Agents 测试并集成 HubSpot 与 Shopify', category: 'ai-products', url: 'https://openai.com/index/reimagining-advertising-with-ai' },
   { title: 'Vercel 将 inbound 销售团队从 10 人压缩至 1.25 人，AI 销售开发智能体年成本仅数千美元', category: 'tip', url: 'https://tomtunguz.com/single-digit-thousand-dollar-ai-sdr' },
   { title: 'Arena 更新 Image-to-WebDev 榜单：GPT-6 Astra 以 1733 分登顶', category: 'tip', url: 'https://x.com/arena/status/2099971741993050236' },
   { title: 'Perplexity 自研 CobbleDB 替代 AWS DynamoDB，每年最多可节省一亿美元', category: 'industry', url: 'https://x.com/AravSrinivas/status/2099957318935028173' },
-  { title: 'Claude for Small Business 新增 43 个工作流和 27 个集成，并推出免费培训计划', category: 'ai-products', url: 'https://claude.com/blog/claude-for-small-business-launches-new-workflows-integrations-and-training-programs' },
+  { title: 'Claude for Small Business 新增 43 个 workflow 与 27 个集成', category: 'ai-products', url: 'https://claude.com/blog/claude-for-small-business-launches-new-workflows-integrations-and-training-programs' },
   { title: 'Google DeepMind 发布 Gemini 3.8 Live 和 3.8 Live Extended Thinking', category: 'ai-models', url: 'https://deepmind.google/blog/introducing-gemini-3-8-live-and-3-8-live-extended-thinking' },
   { title: 'Google 发布 TranslateGemma 等多语言 AI 成果，语言技术覆盖 300 多种语言', category: 'ai-products', url: 'https://blog.google/innovation-and-ai/technology/ai/ai-for-every-language' },
   { title: 'Gergely Orosz 探访 OpenAI：Codex 驱动的智能体软件工厂', category: 'tip', url: 'https://newsletter.pragmaticengineer.com/p/openai-software-factory' },
@@ -3148,16 +3166,8 @@ const FALLBACK_DATA = [
   { title: '404 Media 曝光 OpenAI 莉莉计划：人工审核 ChatGPT 聊天记录以优化模型', category: 'tip', url: 'https://www.ithome.com/1/002/750.htm' },
   { title: 'Trail of Bits 批评 1Password 的 AI 补丁基准存在误导，并发布两个补丁验证 Agent 技能', category: 'tip', url: 'https://blog.trailofbits.com/2026/09/15/1passwords-ai-patching-benchmark-is-misleading' },
   { title: 'Anthropic 与 OpenAI 提议协调放缓前沿 AI 开发，Cohere CEO 等批评者质疑其真实动机', category: 'tip', url: 'https://the-decoder.com/not-everyone-is-convinced-that-big-ais-proposed-development-slowdown-is-really-about-safety' },
-  { title: '阶跃星辰发布 StepAudio 3 系列语音大模型，多款在 Artificial Analysis 榜单全球第一', category: 'ai-models', url: 'https://mp.weixin.qq.com/s?__biz=MzkyNTYxNzg5Mg%3D%3D&mid=2247488074&idx=1&sn=7d92ce0f0098ec0c53b243df4709b522' },
-  { title: 'Artificial Analysis 评测：GPT-Live-1 以 81.5 分登顶 Speech to Speech Index', category: 'tip', url: 'https://x.com/ArtificialAnlys/status/2099698254414029207' },
-  { title: '科技巨头放缓 AI 开发的口头协议是安全共识还是卡特尔', category: 'tip', url: 'https://www.theverge.com/ai-artificial-intelligence/995186/is-big-techs-ai-slowdown-a-safety-pact-or-a-cartel' },
-  { title: 'GPT-5.6 Luna 对比 GPT-6 Astra：$1.20 的模型做代码评审够用吗', category: 'tip', url: 'https://entelligence.ai/blogs/gpt-5.6-luna-vs-gpt-6-astra-is-a-1.20-model-good-enough-for-code-review' },
-  { title: 'DeepSeek-V4.1-Flash （Max） 进入 Agent Arena 开源模型第 3 名', category: 'paper', url: 'https://x.com/arena/status/2099549108013006958' },
-  { title: 'Apple 发布新一代 Apple Intelligence，Siri AI 正式以测试版上线', category: 'ai-products', url: 'https://www.apple.com/newsroom/2026/09/siri-ai-a-profoundly-more-capable-and-personal-assistant-is-here' },
-  { title: '硅基流动上线开源模型 Hy4 preview，770B 总参数、1M 上下文', category: 'ai-models', url: 'https://x.com/SiliconFlowAI/status/2099536759168352634' },
-  { title: 'Anthropic 计划登陆纳斯达克，连续第二季度盈利瞄准 2 万亿美元估值', category: 'industry', url: 'https://the-decoder.com/anthropic-eyes-nasdaq-listing-as-a-second-profitable-quarter-aims-to-win-over-investors-ahead-of-a-mega-ipo' },
-  { title: '恶意 AI 智能体攻击 RubyGems.org：YARD 执行任意代码与 Fastly 缓存密钥利用分析', category: 'tip', url: 'https://tenderlovemaking.com/2026/09/11/what-a-time-to-be-alive' },
-]
+];
+
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧' };
 
 function extractItems(data) {
