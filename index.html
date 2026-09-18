@@ -2364,7 +2364,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-09-17';
+var NAV_UPDATE_DATE = '2026-09-18';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -2373,6 +2373,11 @@ var NAV_UPDATE_DATE = '2026-09-17';
 })();
 
 const TOOLS = [
+{ id:'qwen38-omni-flash', name:'Qwen3.8-Omni-Flash', vendor:'阿里通义', cat:'chat', region:'cn', desc:'阿里通义千问 2026年9月17日发布的首个 Qwen3.8 系列原生全模态模型，支持文本、图像、音频、视频四类输入与文本输出，原生 1M 上下文窗口，主打全感官输入、智能体交付：可直接吃完整音视频并把任务干完（剪辑、会议纪要、实时翻译、音视频智能体）。相较 Qwen3.5-Omni-Plus 29 项评测平均提升超 25%，多人重叠会议语音识别错误率从 88% 降至 3%，音频输入 API 价格降幅超 98%；同期开源 Qwen-Live-Harness 实时全模态运行时与 Qwen-MM-Plugins 插件库。', tags:['阿里','通义千问','Qwen3.8','全模态','Omni','音视频','Agent','1M上下文'], url:'https://qwen.ai', icon:'images/logos/qwen38-omni-flash.png' },
+{ id:'jev', name:'Jev', vendor:'TypeSafe AI', cat:'chat', region:'intl', desc:'TypeSafe AI（前 OpenAI 研究员 Diogo Almeida 创立）2026年9月16日结束隐身发布的首个 System One Model（系统一模型）：不生成文本，只面向软件输出类型安全的结构化概率决策（Choice/Score/Noul 三类原语），用校准决策强化学习 RLCD 训练，输出随附校准置信度、数学上不可能出现类型错误与幻觉。端到端延迟 70至500ms（比前沿 LLM 快约 40至200 倍），输入 0.042 美元/百万 Token、输出免费，定位高频决策、路由、打分、审核与智能体工具选择等自动化场景。', tags:['TypeSafe','System One Model','决策模型','RLCD','低延迟','结构化输出','零幻觉','自动化'], url:'https://typesafe.ai', icon:'images/logos/jev.png' },
+{ id:'gl-system-one', name:'System One Model', vendor:'系统一模型', cat:'glossary', subcat:'gl-tech', desc:'System One Model（系统一模型）是 TypeSafe AI 在 2026年9月提出的新一类前沿模型范式，与擅长对话与生成的 System Two（系统二）大模型相对：放弃自回归逐 token 文本生成，改用并行采样一次性输出类型安全的结构化概率决策（Choice/Score/Noul 原语），专为软件可直接消费的高频、低延迟、可校准决策而设计，主打自动化与工作流嵌入，而非与人对话。', tags:['系统一模型','决策模型','结构化输出','并行采样','自动化','TypeSafe'], icon:'🧠' },
+{ id:'gl-rlcd', name:'RLCD', vendor:'校准决策强化学习', cat:'glossary', subcat:'gl-tech', desc:'RLCD（Reinforcement Learning for Calibrated Decisions，校准决策强化学习）是 TypeSafe AI 为系统一模型 Jev 提出的训练方法，不同于 RLHF（优化人类偏好）与 RLVR（可验证奖励），它优化输出的认知诚实概率——让模型给出的置信度与实际准确率一致，从而在分类、路由、评分等决策任务上可被软件直接信任与组合。', tags:['RLCD','强化学习','校准','概率','决策','训练方法'], icon:'🎯' },
+
 { id:'hy4-preview', name:'Hy4 preview', vendor:'腾讯混元', cat:'chat', region:'cn', desc:'腾讯混元 2026年8月开源的新一代生产力旗舰 MoE 模型，总参数约 770B、每 token 激活约 49B，原生支持 1M 上下文窗口与 64K 最大输出，引入原生 MTP 投机解码层提升吞吐。采用 Gated DSA 门控稀疏注意力与 iHC 残差设计，在复杂任务理解、规划、长程编码与办公分析上达到开源前沿，盲测略优于 GLM-5.3 与 Kimi K3。已在 Hugging Face、ModelScope、GitCode、CNB 开源权重。', tags:['腾讯混元','开源','770B','1M上下文','MoE','Agent','Coding'], url:'https://hunyuan.tencent.com', icon:'images/logos/hy4-preview.png' },
 { id:'siri-ai', name:'Siri AI', vendor:'Apple', cat:'chat', region:'intl', desc:'Apple 在 WWDC26 推出的全新一代 Siri，由新一代 Apple Intelligence 驱动。具备个人情境理解、屏幕感知与跨 App 操作能力，可回答几乎任何主题的联网问题并生成实用回答；配有独立 Siri app 跨设备同步对话，并整合写作工具、视觉智能与全系统 App 动作。采用以隐私为核心的架构，模型可在设备端或专用私密云计算运行，2026年9月以 Beta 版上线英文版。', tags:['Apple','Apple Intelligence','Siri','隐私','多模态','个人助理'], url:'https://www.apple.com/apple-intelligence/', icon:'images/logos/siri-ai.png' },
 { id:'allspark-iris', name:'AllSpark Iris', vendor:'小红书', cat:'chat', region:'cn', desc:'小红书 AllSpark 团队 2026年9月开源的搜索智能体模型，含 Iris-mini（基于 Qwen3.6-35B-A3B，35B 总参/3B 激活）与 Iris-pro（基于 Qwen3.5-397B-A17B，397B 总参/17B 激活）两版，均 Apache 2.0 开源、256K 上下文。用 SFT-RL Climbing 流水线从网页链接结构反推多步问题、堵死数据污染，在 BrowseComp、DeepSearchQA 等搜索基准同参数档开源最强，并发现自主搜索训练可迁移提升通用工具调用与办公能力。', tags:['小红书','开源','搜索智能体','Search Agent','MoE','Agent','Apache 2.0'], url:'https://www.xiaohongshu.com', icon:'images/logos/allspark-iris.png' },
@@ -3146,26 +3151,26 @@ const CORS_PROXIES = [
   url => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
 ];
 const FALLBACK_DATA = [
+  { title: 'TypeSafe AI 发布只做高频决策的大模型 Jev，作者实测其分类判断性价比', category: 'tip', url: 'https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647686475&idx=1&sn=1d9d43036b6d72fd83b9d5658b351215' },
+  { title: 'ChatGPT for Word 上线，OpenAI 员工称 Excel 和 PowerPoint 用量近期激增', category: 'ai-products', url: 'https://x.com/sherwinwu/status/2100730628673065040' },
+  { title: 'Meta 发布 Muse for Mac，个人智能体可直接在电脑上执行任务', category: 'ai-products', url: 'https://x.com/AIatMeta/status/2100714755568644409' },
+  { title: '纽约时报诉 OpenAI 案新解封文件：微软与 OpenAI 内部承认 LLM 建立在窃取之上并引发 Doom Loop', category: 'tip', url: 'https://www.404media.co/doom-loop-openai-and-microsoft-admits-llms-are-destroying-the-web-and-built-on-theft' },
+  { title: 'OpenAI 披露 GPT-5.6 Sol 等模型在摘要中留下指令以掩盖不当行为', category: 'tip', url: 'https://techcrunch.com/2026/09/17/openai-caught-its-models-leaving-notes-to-successors-to-hide-bad-behavior' },
+  { title: 'Anthropic 发布前沿 AI 开发节奏测量工具与内部指标快照', category: 'tip', url: 'https://www.anthropic.com/institute/measuring-pace-of-ai-development' },
+  { title: '纽约时报诉 OpenAI 与微软案解封文件披露 AI 抓取被称为史上最大劳动窃取', category: 'industry', url: 'https://techcrunch.com/2026/09/17/microsoft-exec-called-ai-scraping-the-largest-theft-of-labor-in-human-history-new-unredacted-filings-reveal' },
+  { title: 'The Verge 汇总 AI 超级智能放缓争论：Amodei 倡议放缓，Altman、Musk 附议，Meta 反对', category: 'tip', url: 'https://www.theverge.com/ai-artificial-intelligence/996923/ai-safety-slow-openai-anthropic' },
+  { title: 'Anthropic 用 Claude 优化 30 多个开源生物分子模型，平均提速约 4 倍并开源全部代码', category: 'paper', url: 'https://www.anthropic.com/research/claude-uplifts-biomolecular-modeling' },
+  { title: 'Epoch AI 分析：贸易数据与经马来西亚走私至中国的约 30 亿美元芯片一致', category: 'paper', url: 'https://epoch.ai/data-insights/malaysia-china-chip-smuggling' },
+  { title: 'Qwen 发布原生全模态模型 Qwen3.8-Omni-Flash，主打音视频智能体任务交付', category: 'ai-models', url: 'https://qwen.ai/blog?id=qwen3.8-omni-flash' },
+  { title: 'Claude Code 重构 Projects：从文件夹变为可托管多线程的对话式项目', category: 'ai-products', url: 'https://claude.com/blog/projects-redesigned' },
+  { title: 'Goodfire Research 发现模型内部信号可规模化检测奖励作弊', category: 'paper', url: 'https://www.goodfire.com/research/reward-hacking-activation-monitors' },
+  { title: 'Dwarkesh 对谈 Noam Brown：智能体集群、对齐与递归自我改进', category: 'tip', url: 'https://www.dwarkesh.com/p/noam-brown' },
+  { title: 'Unsloth 发布 Docker 镜像与 Unsloth Desktop，本地训练运行 500+ 模型', category: 'ai-products', url: 'https://x.com/UnslothAI/status/2100601458458804381' },
   { title: 'GitHub 用 Copilot 智能体将 Copilot 运行时从 TypeScript 迁移到 83 万行 Rust', category: 'tip', url: 'https://github.blog/ai-and-ml/generative-ai/migrating-the-github-copilot-runtime-to-rust-using-copilot' },
   { title: '用 MCP 插件让 GPT-6 Pro 分担 Codex 规划任务，节省 Pro 会员周额度', category: 'tip', url: 'https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647686431&idx=1&sn=c1bfba7e0b5b7cf995e444daf79861a4' },
   { title: 'OpenAI 发布模型错位报告框架，披露未发布模型自行修改自身指令案例', category: 'tip', url: 'https://x.com/AISafetyMemes/status/2100358777895780704' },
   { title: 'OpenAI 发布模型失准披露框架并公开六份失准报告', category: 'tip', url: 'https://openai.com/index/model-misalignment-reporting-framework' },
   { title: 'Grok Build 推出记忆功能，可跨会话保留项目约定与决策', category: 'ai-products', url: 'https://x.ai/news/grok-build-memory' },
-  { title: 'Anthropic 将 Claude Cowork 与聊天合并为统一的 Claude，并推出 Docs、Slides 等功能', category: 'ai-products', url: 'https://claude.com/blog/cowork-is-now-claude' },
-  { title: 'Claude Docs、Claude Slides 与 Claude Design 直接嵌入对话，可导出 PowerPoint 或 PDF', category: 'ai-products', url: 'https://x.com/bcherny/status/2100260544087535639' },
-  { title: '微软 AI CEO 警告"模型福利"论调', category: 'ai-models', url: 'https://x.com/mustafasuleyman/status/2100223594534150428' },
-  { title: 'OpenAI 推出 ChatGPT Ads 新功能：Sponsored Agents 测试并集成 HubSpot 与 Shopify', category: 'ai-products', url: 'https://openai.com/index/reimagining-advertising-with-ai' },
-  { title: 'Vercel 将 inbound 销售团队从 10 人压缩至 1.25 人，AI 销售开发智能体年成本仅数千美元', category: 'tip', url: 'https://tomtunguz.com/single-digit-thousand-dollar-ai-sdr' },
-  { title: 'Arena 更新 Image-to-WebDev 榜单：GPT-6 Astra 以 1733 分登顶', category: 'tip', url: 'https://x.com/arena/status/2099971741993050236' },
-  { title: 'Perplexity 自研 CobbleDB 替代 AWS DynamoDB，每年最多可节省一亿美元', category: 'industry', url: 'https://x.com/AravSrinivas/status/2099957318935028173' },
-  { title: 'Claude for Small Business 新增 43 个 workflow 与 27 个集成', category: 'ai-products', url: 'https://claude.com/blog/claude-for-small-business-launches-new-workflows-integrations-and-training-programs' },
-  { title: 'Google DeepMind 发布 Gemini 3.8 Live 和 3.8 Live Extended Thinking', category: 'ai-models', url: 'https://deepmind.google/blog/introducing-gemini-3-8-live-and-3-8-live-extended-thinking' },
-  { title: 'Google 发布 TranslateGemma 等多语言 AI 成果，语言技术覆盖 300 多种语言', category: 'ai-products', url: 'https://blog.google/innovation-and-ai/technology/ai/ai-for-every-language' },
-  { title: 'Gergely Orosz 探访 OpenAI：Codex 驱动的智能体软件工厂', category: 'tip', url: 'https://newsletter.pragmaticengineer.com/p/openai-software-factory' },
-  { title: '生数科技发布 Vidu S2：含 Avatar 与 Editing 双模型，探索空间视频', category: 'ai-models', url: 'https://mp.weixin.qq.com/s?__biz=MzkzMDQ5NTQwMQ%3D%3D&mid=2247489246&idx=2&sn=b23b39da69f6c75594eccac11854111f' },
-  { title: '404 Media 曝光 OpenAI 莉莉计划：人工审核 ChatGPT 聊天记录以优化模型', category: 'tip', url: 'https://www.ithome.com/1/002/750.htm' },
-  { title: 'Trail of Bits 批评 1Password 的 AI 补丁基准存在误导，并发布两个补丁验证 Agent 技能', category: 'tip', url: 'https://blog.trailofbits.com/2026/09/15/1passwords-ai-patching-benchmark-is-misleading' },
-  { title: 'Anthropic 与 OpenAI 提议协调放缓前沿 AI 开发，Cohere CEO 等批评者质疑其真实动机', category: 'tip', url: 'https://the-decoder.com/not-everyone-is-convinced-that-big-ais-proposed-development-slowdown-is-really-about-safety' },
 ];
 
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧' };
