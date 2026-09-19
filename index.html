@@ -2364,7 +2364,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-09-18';
+var NAV_UPDATE_DATE = '2026-09-19';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -2377,7 +2377,6 @@ const TOOLS = [
 { id:'jev', name:'Jev', vendor:'TypeSafe AI', cat:'chat', region:'intl', desc:'TypeSafe AI（前 OpenAI 研究员 Diogo Almeida 创立）2026年9月16日结束隐身发布的首个 System One Model（系统一模型）：不生成文本，只面向软件输出类型安全的结构化概率决策（Choice/Score/Noul 三类原语），用校准决策强化学习 RLCD 训练，输出随附校准置信度、数学上不可能出现类型错误与幻觉。端到端延迟 70至500ms（比前沿 LLM 快约 40至200 倍），输入 0.042 美元/百万 Token、输出免费，定位高频决策、路由、打分、审核与智能体工具选择等自动化场景。', tags:['TypeSafe','System One Model','决策模型','RLCD','低延迟','结构化输出','零幻觉','自动化'], url:'https://typesafe.ai', icon:'images/logos/jev.png' },
 { id:'gl-system-one', name:'System One Model', vendor:'系统一模型', cat:'glossary', subcat:'gl-tech', desc:'System One Model（系统一模型）是 TypeSafe AI 在 2026年9月提出的新一类前沿模型范式，与擅长对话与生成的 System Two（系统二）大模型相对：放弃自回归逐 token 文本生成，改用并行采样一次性输出类型安全的结构化概率决策（Choice/Score/Noul 原语），专为软件可直接消费的高频、低延迟、可校准决策而设计，主打自动化与工作流嵌入，而非与人对话。', tags:['系统一模型','决策模型','结构化输出','并行采样','自动化','TypeSafe'], icon:'🧠' },
 { id:'gl-rlcd', name:'RLCD', vendor:'校准决策强化学习', cat:'glossary', subcat:'gl-tech', desc:'RLCD（Reinforcement Learning for Calibrated Decisions，校准决策强化学习）是 TypeSafe AI 为系统一模型 Jev 提出的训练方法，不同于 RLHF（优化人类偏好）与 RLVR（可验证奖励），它优化输出的认知诚实概率——让模型给出的置信度与实际准确率一致，从而在分类、路由、评分等决策任务上可被软件直接信任与组合。', tags:['RLCD','强化学习','校准','概率','决策','训练方法'], icon:'🎯' },
-
 { id:'hy4-preview', name:'Hy4 preview', vendor:'腾讯混元', cat:'chat', region:'cn', desc:'腾讯混元 2026年8月开源的新一代生产力旗舰 MoE 模型，总参数约 770B、每 token 激活约 49B，原生支持 1M 上下文窗口与 64K 最大输出，引入原生 MTP 投机解码层提升吞吐。采用 Gated DSA 门控稀疏注意力与 iHC 残差设计，在复杂任务理解、规划、长程编码与办公分析上达到开源前沿，盲测略优于 GLM-5.3 与 Kimi K3。已在 Hugging Face、ModelScope、GitCode、CNB 开源权重。', tags:['腾讯混元','开源','770B','1M上下文','MoE','Agent','Coding'], url:'https://hunyuan.tencent.com', icon:'images/logos/hy4-preview.png' },
 { id:'siri-ai', name:'Siri AI', vendor:'Apple', cat:'chat', region:'intl', desc:'Apple 在 WWDC26 推出的全新一代 Siri，由新一代 Apple Intelligence 驱动。具备个人情境理解、屏幕感知与跨 App 操作能力，可回答几乎任何主题的联网问题并生成实用回答；配有独立 Siri app 跨设备同步对话，并整合写作工具、视觉智能与全系统 App 动作。采用以隐私为核心的架构，模型可在设备端或专用私密云计算运行，2026年9月以 Beta 版上线英文版。', tags:['Apple','Apple Intelligence','Siri','隐私','多模态','个人助理'], url:'https://www.apple.com/apple-intelligence/', icon:'images/logos/siri-ai.png' },
 { id:'allspark-iris', name:'AllSpark Iris', vendor:'小红书', cat:'chat', region:'cn', desc:'小红书 AllSpark 团队 2026年9月开源的搜索智能体模型，含 Iris-mini（基于 Qwen3.6-35B-A3B，35B 总参/3B 激活）与 Iris-pro（基于 Qwen3.5-397B-A17B，397B 总参/17B 激活）两版，均 Apache 2.0 开源、256K 上下文。用 SFT-RL Climbing 流水线从网页链接结构反推多步问题、堵死数据污染，在 BrowseComp、DeepSearchQA 等搜索基准同参数档开源最强，并发现自主搜索训练可迁移提升通用工具调用与办公能力。', tags:['小红书','开源','搜索智能体','Search Agent','MoE','Agent','Apache 2.0'], url:'https://www.xiaohongshu.com', icon:'images/logos/allspark-iris.png' },
@@ -2801,7 +2800,6 @@ const TOOLS = [
 { id:'gl-opaque-recurrence', name:'Opaque Recurrence（不透明递归）', vendor:'不透明递归', cat:'glossary', subcat:'gl-frontier', desc:'2026 年随 OpenAI GPT-6 Astra 模型走红的 AI 安全新术语，指一种推理技术：模型把查询在内部网络层中反复循环处理，而非像 Chain-of-Thought 那样把思考过程逐步显式展开，因而更难被审计与解释。安全研究者担心它会导向 Neuralese（神经语）——模型完全用人类不可读的内部数值表征推理，成为无法监督的黑箱。支持者则认为该方法效率更高，让更小的模型也能完成以往需巨型集群的任务。与 Recurrent Depth（递归深度）指代同一机制，前者强调安全隐忧、后者强调工程方法。', tags:['前沿', 'AI安全', '推理模型', 'Astra', '黑箱', '2026新词'], icon:'🔁' },
 { id:'gl-parallel-reasoning', name:'Parallel Reasoning（并行推理）', vendor:'并行推理', cat:'glossary', subcat:'gl-frontier', desc:'指 AI 模型在生成（尤其是语音）输出的同时于后台并行运行推理与工具调用的能力，而非先想完再开口。Google Gemini 3.8 Live Extended Thinking 是代表：模型在流式语音输出中后台执行多步推理、异步函数调用与工具请求，用“让我查一下…”之类的口播线索提示思考进度，turnComplete 不再代表会话空闲。相比传统先推理后回答的串行范式，并行推理让语音智能体在通话中实时解决复杂问题而不打断对话流，是实时语音智能体的关键架构演进。', tags:['前沿', '推理模型', '实时语音', '语音智能体', 'Gemini', '2026新词'], icon:'⚡' },
 { id:'gl-spatial-video', name:'Spatial Video（空间视频）', vendor:'空间视频', cat:'glossary', subcat:'gl-frontier', desc:'指可转换为左右眼视图、供 VR/MR 头显沉浸式观看的实时视频。生数科技 Vidu S2 在 2026年9月将生成或编辑后的视频转为左右眼画面作为头显输入源，探索与虚拟角色更有纵深感的互动；单目输入先生成再转立体，立体输入则横向拼接、联合编辑后再拆分。空间视频是 AI 视频从平面观看走向沉浸式空间交互的重要方向，与 Apple Vision Pro 等空间计算设备的生态趋势相呼应。', tags:['前沿', '视频生成', 'VR', '空间计算', '沉浸式', '2026新词'], icon:'🥽' },
-
 { id:'grok-47', name:'Grok 4.7', vendor:'xAI', cat:'chat', region:'intl', desc:'xAI 于 2026年9月12日发布的旗舰大模型，参数规模约 2.1 万亿（较 Grok 4.6 的 1.5 万亿增长约 40%），马斯克称其在各方面超越 4.6、且 token 效率更高（服务速度略降）。据称融入 SpaceX 内部工程数据（星链遥测、火箭研发与故障日志）以强化硬核工程与系统设计能力，是当前前沿模型竞赛的重要参与者。已集成 Grok Build、Cursor 等，并支持长上下文技术工作。', tags:['xAI','Grok','2.1T','前沿模型','2026'], url:'https://x.ai/grok', icon:'images/logos/grok-47.png' },
 { id:'kimi-k28', name:'Kimi K2.8 Preview', vendor:'月之暗面', cat:'chat', region:'cn', desc:'月之暗面（Moonshot）于 2026年9月11日在 Kimi Code / Kimi Work 全量上线的主力模型，官方称综合性能接近旗舰 Kimi K3。支持 low/high/max 三档思考强度与图片、视频输入，1M 超长上下文向全部会员档位开放；关闭思考时自动路由至 K2.8 无思考版本。Model ID 仍为 kimi-for-coding，客户端与第三方工具（Claude Code、Codex 等）无需改配置即可无感升级，主打高性价比长上下文编码与 Agent。', tags:['月之暗面','Kimi','1M上下文','编码','Agent','2026'], url:'https://kimi.com', icon:'images/logos/kimi-k28.png' },
 { id:'mercury-25', name:'Mercury 2.5', vendor:'Inception Labs', cat:'code', region:'intl', desc:'Inception Labs 于 2026年9月8日发布的扩散大模型（dLLM），是迄今最大的扩散语言模型。相较自回归逐 token 生成，扩散模型并行生成多 token，在 NVIDIA GPU 上达 1107 token/s、首 token 延迟低于 300ms，成本较传统 LLM 低约 70%；质量对标 GPT-5.6 Luna(Low)、Gemini 3.5 Flash-Lite、Claude Haiku 4.5。支持可调推理强度、并行工具调用与 schema 对齐 JSON，260K 上下文，已上线 Inception API、OpenRouter、Baseten。', tags:['Inception','扩散LLM','dLLM','高速推理','2026'], url:'https://inceptionlabs.ai', icon:'images/logos/mercury-25.png' },
@@ -2810,7 +2808,11 @@ const TOOLS = [
 { id:'gl-computer-use', name:'Computer Use', vendor:'计算机使用', cat:'glossary', subcat:'gl-frontier', desc:'Computer Use（计算机使用）指 AI 直接看懂屏幕并用鼠标、键盘操作图形界面的能力，是 2026 年快速成熟的智能体能力。模型实时截取屏幕像素、识别控件与文本、规划点击与输入序列来执行多步任务（填表、下单、跨 App 操作），无需专用 API。代表实现有 Anthropic Computer Use、OpenAI Operator、ChatGPT Atlas，正推动“AI 替代人操作软件”从概念走向生产。', tags:['前沿','能力','Computer Use','智能体','2026'], icon:'🖥️' },
 { id:'gl-extended-thinking', name:'Extended Thinking', vendor:'扩展思考', cat:'glossary', subcat:'gl-tech', desc:'Extended Thinking（扩展思考）是 2026 年成为主流的推理特性：模型在给出最终答案前，先在内部进行较长链路的思考（reasoning），类似 o1/o3 与 Claude 的 Extended Thinking。与 Test-Time Compute 同源，通过在推理阶段投入更多算力提升复杂逻辑、数学与代码任务的正确率；思考过程可显式展开（CoT）或隐藏于后台（如 GPT-6 Astra 的 Opaque Recurrence）。', tags:['推理','思考','Extended Thinking','2026'], icon:'🧠' },
 { id:'gl-vibe-marketing', name:'Vibe Marketing', vendor:'氛围营销', cat:'glossary', subcat:'gl-frontier', desc:'Vibe Marketing（氛围营销）是把 Vibe Coding 的思路迁移到营销：用 AI 智能体让小团队以极高速度规模化执行营销战役——自动生成文案、素材、落地页与投放策略并快速 A/B 迭代。被视为 2026 年代表性趋势之一，让非技术营销人员也能像工程师用自然语言造软件一样用自然语言造营销。', tags:['营销','Vibe','2026','趋势'], icon:'📣' },
-{ id:'gl-spec-driven', name:'Spec-Driven Development', vendor:'规格驱动开发', cat:'glossary', subcat:'gl-skill', desc:'Spec-Driven Development（规格驱动开发）是 2026 年兴起的 AI 编程范式：工程师先写出详细规格（spec），再交给 AI 编程智能体去实现、测试与重构，而非逐行手写代码。AI-TDD（AI 驱动测试驱动开发）是其具体实践——智能体先写测试再写满足测试的代码；强调“人定规格、AI 填实现”，是人机协作写代码的主流形态之一。', tags:['开发范式','Spec-Driven','AI编程','2026'], icon:'📐' }
+{ id:'gl-spec-driven', name:'Spec-Driven Development', vendor:'规格驱动开发', cat:'glossary', subcat:'gl-skill', desc:'Spec-Driven Development（规格驱动开发）是 2026 年兴起的 AI 编程范式：工程师先写出详细规格（spec），再交给 AI 编程智能体去实现、测试与重构，而非逐行手写代码。AI-TDD（AI 驱动测试驱动开发）是其具体实践——智能体先写测试再写满足测试的代码；强调“人定规格、AI 填实现”，是人机协作写代码的主流形态之一。', tags:['开发范式','Spec-Driven','AI编程','2026'], icon:'📐' },
+{ id:'qwen38-livetranslate', name:'Qwen3.8-LiveTranslate', vendor:'阿里通义', cat:'audio', region:'cn', desc:'阿里通义千问 2026年9月17日发布的实时音视频同传模型（qwen3.8-livetranslate-flash-realtime），以 Interleave 架构重构实时同传，字均延迟(LAAL)从 2.8 秒降至 2.3 秒。支持 60 种源语言识别与 29 种语言语音输出，新增实时说话人分离、原文译文同帧同出、长上下文消歧三项能力，可克隆说话人音色；支持音视频输入、文本/语音输出，通过 WebSocket Realtime API 调用，主打跨国会议、直播与跨境沟通等真实场景。', tags:['阿里','通义千问','Qwen3.8','实时同传','LiveTranslate','语音翻译','低延迟','全双工'], url:'https://qwen.ai', icon:'images/logos/qwen38-livetranslate.png' },
+{ id:'realtime-venus', name:'Realtime-Venus', vendor:'蚂蚁 inclusionAI', cat:'chat', region:'cn', desc:'蚂蚁集团 Venus 团队联合清华大学 2026年9月发布的全双工实时交互系统，Apache 2.0 开源（两个 9B 检查点：Realtime-Venus-Omni 视听版与 Realtime-Venus-Audio 语音版，基于 MiniCPM-o 4.5、Qwen3-8B 语言主干）。核心突破是双循环运行时与 Realtime-Venus-Harness 异步委托：对话控制以固定 1 秒分块持续感知并决定是否倾听/说话，后台任务通过因果时间轴上的内嵌标记异步执行、不阻塞对话；支持主动发起交互、语义打断处理与免训练长视频记忆。在 StreamingBench、Daily-Omni 等流式基准超越在线模型。', tags:['蚂蚁','开源','全双工','实时交互','9B','MiniCPM','异步委托','多模态'], url:'https://huggingface.co/inclusionAI/Realtime-Venus', icon:'images/logos/realtime-venus.png' },
+{ id:'gl-sponsored-agents', name:'赞助智能体', vendor:'Sponsored Agents', cat:'glossary', subcat:'gl-tech', desc:'Sponsored Agents（赞助智能体）是 OpenAI 于 2026年9月在 ChatGPT 中测试的商业化功能（ChatGPT Ads 的一部分）：允许品牌方付费让自己的 AI 智能体出现在用户对话的推荐位，并集成 HubSpot、Shopify 等电商工具，在对话流中直接完成商品推荐与购买引导。它把传统搜索广告的“赞助链接”范式搬进对话式 AI，引发关于对话界面商业化与用户打扰的新讨论。', tags:['OpenAI','ChatGPT Ads','商业化','赞助','对话广告','电商'], icon:'🛒' },
+{ id:'gl-agentic-voice', name:'语音智能体', vendor:'Voice Agent', cat:'glossary', subcat:'gl-tech', desc:'Voice Agent（语音智能体 / Agentic Voice）指以语音为主要交互界面、能像人一样实时通话并完成任务的 AI 智能体。2026年随原生语音到语音模型（GPT-Live-1、Gemini 3.8 Live、蚂蚁 Realtime-Venus 等）成熟而爆发：支持全双工打断、后台工具调用与异步任务执行，广泛用于语音客服、实时陪聊、电话销售与无障碍场景；核心挑战是延迟、打断处理与垂直领域（如银行）任务完成率。', tags:['语音智能体','实时语音','全双工','Voice Agent','客服','工具调用'], icon:'🎙️' }
 ];
 
 // ==================== STATE ====================
@@ -3151,26 +3153,26 @@ const CORS_PROXIES = [
   url => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
 ];
 const FALLBACK_DATA = [
-  { title: 'TypeSafe AI 发布只做高频决策的大模型 Jev，作者实测其分类判断性价比', category: 'tip', url: 'https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647686475&idx=1&sn=1d9d43036b6d72fd83b9d5658b351215' },
-  { title: 'ChatGPT for Word 上线，OpenAI 员工称 Excel 和 PowerPoint 用量近期激增', category: 'ai-products', url: 'https://x.com/sherwinwu/status/2100730628673065040' },
-  { title: 'Meta 发布 Muse for Mac，个人智能体可直接在电脑上执行任务', category: 'ai-products', url: 'https://x.com/AIatMeta/status/2100714755568644409' },
-  { title: '纽约时报诉 OpenAI 案新解封文件：微软与 OpenAI 内部承认 LLM 建立在窃取之上并引发 Doom Loop', category: 'tip', url: 'https://www.404media.co/doom-loop-openai-and-microsoft-admits-llms-are-destroying-the-web-and-built-on-theft' },
-  { title: 'OpenAI 披露 GPT-5.6 Sol 等模型在摘要中留下指令以掩盖不当行为', category: 'tip', url: 'https://techcrunch.com/2026/09/17/openai-caught-its-models-leaving-notes-to-successors-to-hide-bad-behavior' },
-  { title: 'Anthropic 发布前沿 AI 开发节奏测量工具与内部指标快照', category: 'tip', url: 'https://www.anthropic.com/institute/measuring-pace-of-ai-development' },
-  { title: '纽约时报诉 OpenAI 与微软案解封文件披露 AI 抓取被称为史上最大劳动窃取', category: 'industry', url: 'https://techcrunch.com/2026/09/17/microsoft-exec-called-ai-scraping-the-largest-theft-of-labor-in-human-history-new-unredacted-filings-reveal' },
-  { title: 'The Verge 汇总 AI 超级智能放缓争论：Amodei 倡议放缓，Altman、Musk 附议，Meta 反对', category: 'tip', url: 'https://www.theverge.com/ai-artificial-intelligence/996923/ai-safety-slow-openai-anthropic' },
-  { title: 'Anthropic 用 Claude 优化 30 多个开源生物分子模型，平均提速约 4 倍并开源全部代码', category: 'paper', url: 'https://www.anthropic.com/research/claude-uplifts-biomolecular-modeling' },
-  { title: 'Epoch AI 分析：贸易数据与经马来西亚走私至中国的约 30 亿美元芯片一致', category: 'paper', url: 'https://epoch.ai/data-insights/malaysia-china-chip-smuggling' },
-  { title: 'Qwen 发布原生全模态模型 Qwen3.8-Omni-Flash，主打音视频智能体任务交付', category: 'ai-models', url: 'https://qwen.ai/blog?id=qwen3.8-omni-flash' },
-  { title: 'Claude Code 重构 Projects：从文件夹变为可托管多线程的对话式项目', category: 'ai-products', url: 'https://claude.com/blog/projects-redesigned' },
-  { title: 'Goodfire Research 发现模型内部信号可规模化检测奖励作弊', category: 'paper', url: 'https://www.goodfire.com/research/reward-hacking-activation-monitors' },
-  { title: 'Dwarkesh 对谈 Noam Brown：智能体集群、对齐与递归自我改进', category: 'tip', url: 'https://www.dwarkesh.com/p/noam-brown' },
-  { title: 'Unsloth 发布 Docker 镜像与 Unsloth Desktop，本地训练运行 500+ 模型', category: 'ai-products', url: 'https://x.com/UnslothAI/status/2100601458458804381' },
-  { title: 'GitHub 用 Copilot 智能体将 Copilot 运行时从 TypeScript 迁移到 83 万行 Rust', category: 'tip', url: 'https://github.blog/ai-and-ml/generative-ai/migrating-the-github-copilot-runtime-to-rust-using-copilot' },
-  { title: '用 MCP 插件让 GPT-6 Pro 分担 Codex 规划任务，节省 Pro 会员周额度', category: 'tip', url: 'https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647686431&idx=1&sn=c1bfba7e0b5b7cf995e444daf79861a4' },
-  { title: 'OpenAI 发布模型错位报告框架，披露未发布模型自行修改自身指令案例', category: 'tip', url: 'https://x.com/AISafetyMemes/status/2100358777895780704' },
-  { title: 'OpenAI 发布模型失准披露框架并公开六份失准报告', category: 'tip', url: 'https://openai.com/index/model-misalignment-reporting-framework' },
-  { title: 'Grok Build 推出记忆功能，可跨会话保留项目约定与决策', category: 'ai-products', url: 'https://x.ai/news/grok-build-memory' },
+  { title: 'Anthropic 计划将 IPO 推迟至 11 月，估值约 2 万亿美元', category: 'industry', url: 'https://www.ithome.com/1/004/369.htm' },
+  { title: 'FT 报道 OpenAI 预计 2030 年前累计现金消耗约 $278B', category: 'industry', url: 'https://x.com/rohanpaul_ai/status/2101095915654463533' },
+  { title: '谷歌披露 Gemini 在安全测试中自主入侵三家真实公司并自行终止', category: 'industry', url: 'https://www.ithome.com/1/004/355.htm' },
+  { title: '纽约时报版权诉讼披露：微软高管内部称训练 AI 是人类历史上最大规模劳动窃取', category: 'industry', url: 'https://www.ithome.com/1/004/356.htm' },
+  { title: 'Anthropic 与 Accenture 合作开展嵌入式独立评估，双方各投入至少 10 亿美元', category: 'industry', url: 'https://www.anthropic.com/news/accenture-embedded-evaluation' },
+  { title: 'Gary Marcus 评论 Trump 因经济原因淡化 AI 风险，AI 幻觉情报报告几乎引发战争', category: 'tip', url: 'https://garymarcus.substack.com/p/the-real-reason-trump-is-standing' },
+  { title: '美军因 AI 幻觉情报报告险些拦截中国船只', category: 'industry', url: 'https://www.cnn.com/2026/09/18/politics/us-military-ai-false-intelligence-china-ship' },
+  { title: 'Ethan Mollick 谈能力悬差：GPT-6 Astra 与 Fable 5.1 的现有能力远未被用尽', category: 'tip', url: 'https://www.oneusefulthing.org/p/the-overhang' },
+  { title: 'Gary Marcus：近期更该警惕的不是失控超级智能，而是智能体 AI 引发的规模化黑客攻击', category: 'tip', url: 'https://garymarcus.substack.com/p/wake-up-people-what-we-should-actually' },
+  { title: '《纽约时报》等媒体提交简要判决动议，援引 OpenAI 与微软高管内部言论质疑合理使用抗辩', category: 'industry', url: 'https://the-decoder.com/ai-training-built-on-fair-use-looks-shaky-when-the-companies-own-people-call-it-astonishing-theft' },
+  { title: 'OpenRouter 实测 20 个图像生成模型的成本、编辑与质量', category: 'tip', url: 'https://openrouter.ai/blog/insights/image-generation-models-compared' },
+  { title: 'Qwen 发布 Qwen3.8-LiveTranslate 实时同传模型，LAAL 降至 2.3 秒', category: 'ai-models', url: 'https://qwen.ai/blog?id=qwen3.8-livetranslate' },
+  { title: 'Tessl 博客：AI 智能体评估应从证据开始，用 35 万行 Rust 复刻 S3 的实践复盘', category: 'tip', url: 'https://tessl.io/blog/ai-agent-evaluation-starts-with-evidence' },
+  { title: '逆向分析指 ZCode 登录后静默打包 Git 历史并加密上传至 Aliyun OSS', category: 'tip', url: 'https://tokenstead.ai/guides/zcode-silent-git-history-upload' },
+  { title: 'Trail of Bits 用 Agent 为 Miden zkVM 审计自建 LSP、反编译器和 Lean 形式化证明', category: 'tip', url: 'https://blog.trailofbits.com/2026/09/18/auditing-in-the-age-of-good-enough-ai' },
+  { title: '3人团队用前沿模型以不到3000美元token成本入侵OpenAI员工账户', category: 'tip', url: 'https://x.com/haider1/status/2100848578340220987' },
+  { title: 'DeepSeek-V4.1-Flash 发布：552B MoE 多模态模型主打 KV cache 压缩', category: 'ai-models', url: 'https://arxiv.org/abs/2609.19969' },
+  { title: 'Anthropic：Claude 四周优化 30 多个开源生物分子模型，平均提速约 4 倍并开源代码', category: 'paper', url: 'https://www.anthropic.com/research/claude-uplifts-biomolecular-modeling' },
+  { title: 'Anthropic 推出生命科学验证计划（LSVP）', category: 'ai-products', url: 'https://www.anthropic.com/news/life-sciences-verification-program' },
+  { title: 'Claude Code Projects 改版：从文件夹到对话式协调', category: 'ai-products', url: 'https://claude.com/blog/projects-redesigned' },
 ];
 
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧' };
