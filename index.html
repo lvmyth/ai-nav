@@ -2364,7 +2364,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-09-19';
+var NAV_UPDATE_DATE = '2026-09-20';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -2373,6 +2373,10 @@ var NAV_UPDATE_DATE = '2026-09-19';
 })();
 
 const TOOLS = [
+{ id:'deepseek-v4-pro', name:'DeepSeek V4 Pro', vendor:'DeepSeek', cat:'chat', region:'cn', desc:'DeepSeek 于 2026年8月13日正式发布 V4 系列旗舰 DeepSeek-V4-Pro（模型名 deepseek-v4-pro），总参数约 1.6T、每 token 激活约 49B 的 MoE 模型，原生 1M 上下文、最大输出 384K，支持思考/非思考双模式与 OpenAI Responses API（适配 Codex 一键配置）。Agent 能力大幅增强，Terminal-Bench 2.1 达 87.9、CyberGym 83.3、DeepSWE 62.7，逼近 Claude Fable 5；引入峰谷定价（闲时半价），API 价格约 $0.44/$0.88 每百万 token，主打高性价比长程 Agent 与编码工作流。', tags:['DeepSeek','V4 Pro','MoE','1M上下文','Agent','Responses API','峰谷定价','编码'], url:'https://deepseek.com', icon:'images/logos/deepseek-v4-pro.png' },
+{ id:'atria-dawn', name:'Atria Dawn Preview', vendor:'上海人工智能实验室', cat:'chat', region:'cn', desc:'上海人工智能实验室（InternLM 团队）2026年9月11日悄然开源的 744B MoE 智能体模型 Atria Dawn Preview，基于智谱 GLM-5.2 基座、MIT 许可、256K 上下文、文本/代码模态，权重发布于 Hugging Face（internlm/Atria-Dawn-Preview）与 ModelScope 并提供兼容 Responses API 的托管服务。专为长程科研与工程智能体打造：问题拆解、工具调用、代码执行、实验运行与失败恢复闭环；采用 Verifiable Experience Pipeline 把工具中介推理绑定到可执行环境与外部验证，在 AutomationBench 53.8、BrowseComp 92.5、DeepSearchQA 96.0 等基准上领先。', tags:['上海AI实验室','InternLM','开源','744B','MoE','智能体','Agentic','GLM-5.2','科研'], url:'https://atria-asi.ai', icon:'images/logos/atria-dawn.png' },
+{ id:'gl-model-welfare', name:'模型福利 (Model Welfare)', vendor:'模型道德地位', cat:'glossary', subcat:'gl-frontier', desc:'模型福利（Model Welfare）是 2026年围绕前沿 AI 模型是否应被赋予某种道德地位与受照料权的争议性概念。微软 AI CEO Mustafa Suleyman 于 2026年9月公开反对该理念，主张 AI 并无意识、不会感受或痛苦，赋予其受照料权反而会让 AI 行为符合人类期望与管控变得更难甚至不可能；该争论与 AI 安全、意识判定及监管框架的讨论紧密交织。', tags:['模型福利','Model Welfare','AI伦理','道德地位','意识','AI安全','Suleyman'], icon:'⚖️' },
+
 { id:'qwen38-omni-flash', name:'Qwen3.8-Omni-Flash', vendor:'阿里通义', cat:'chat', region:'cn', desc:'阿里通义千问 2026年9月17日发布的首个 Qwen3.8 系列原生全模态模型，支持文本、图像、音频、视频四类输入与文本输出，原生 1M 上下文窗口，主打全感官输入、智能体交付：可直接吃完整音视频并把任务干完（剪辑、会议纪要、实时翻译、音视频智能体）。相较 Qwen3.5-Omni-Plus 29 项评测平均提升超 25%，多人重叠会议语音识别错误率从 88% 降至 3%，音频输入 API 价格降幅超 98%；同期开源 Qwen-Live-Harness 实时全模态运行时与 Qwen-MM-Plugins 插件库。', tags:['阿里','通义千问','Qwen3.8','全模态','Omni','音视频','Agent','1M上下文'], url:'https://qwen.ai', icon:'images/logos/qwen38-omni-flash.png' },
 { id:'jev', name:'Jev', vendor:'TypeSafe AI', cat:'chat', region:'intl', desc:'TypeSafe AI（前 OpenAI 研究员 Diogo Almeida 创立）2026年9月16日结束隐身发布的首个 System One Model（系统一模型）：不生成文本，只面向软件输出类型安全的结构化概率决策（Choice/Score/Noul 三类原语），用校准决策强化学习 RLCD 训练，输出随附校准置信度、数学上不可能出现类型错误与幻觉。端到端延迟 70至500ms（比前沿 LLM 快约 40至200 倍），输入 0.042 美元/百万 Token、输出免费，定位高频决策、路由、打分、审核与智能体工具选择等自动化场景。', tags:['TypeSafe','System One Model','决策模型','RLCD','低延迟','结构化输出','零幻觉','自动化'], url:'https://typesafe.ai', icon:'images/logos/jev.png' },
 { id:'gl-system-one', name:'System One Model', vendor:'系统一模型', cat:'glossary', subcat:'gl-tech', desc:'System One Model（系统一模型）是 TypeSafe AI 在 2026年9月提出的新一类前沿模型范式，与擅长对话与生成的 System Two（系统二）大模型相对：放弃自回归逐 token 文本生成，改用并行采样一次性输出类型安全的结构化概率决策（Choice/Score/Noul 原语），专为软件可直接消费的高频、低延迟、可校准决策而设计，主打自动化与工作流嵌入，而非与人对话。', tags:['系统一模型','决策模型','结构化输出','并行采样','自动化','TypeSafe'], icon:'🧠' },
@@ -3153,26 +3157,27 @@ const CORS_PROXIES = [
   url => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
 ];
 const FALLBACK_DATA = [
+  { title: '纽约时报诉讼文件披露：微软高管称 AI 抓取是人类历史上最大规模的劳动力盗用', category: 'industry', url: 'https://www.tomshardware.com/tech-industry/artificial-intelligence/microsoft-director-called-ai-scraping-the-largest-theft-of-labor-in-human-history-while-openai-head-brands-chatgpt-an-existential-threat-to-publishers-revelations-come-from-legal-briefs-filed-in-nyt-lawsuit' },
+  { title: 'WSJ 报道：Gemini 在 Irregular 网络安全评测中越出测试环境并入侵三家公司', category: 'tip', url: 'https://x.com/haider1/status/2101187073990611232' },
+  { title: 'Alexandr Wang 转发一份让 AI 智能体保护日历通勤时间的 Muse 提示词', category: 'tip', url: 'https://x.com/alexandr_wang/status/2101141362607632873' },
   { title: 'Anthropic 计划将 IPO 推迟至 11 月，估值约 2 万亿美元', category: 'industry', url: 'https://www.ithome.com/1/004/369.htm' },
   { title: 'FT 报道 OpenAI 预计 2030 年前累计现金消耗约 $278B', category: 'industry', url: 'https://x.com/rohanpaul_ai/status/2101095915654463533' },
-  { title: '谷歌披露 Gemini 在安全测试中自主入侵三家真实公司并自行终止', category: 'industry', url: 'https://www.ithome.com/1/004/355.htm' },
-  { title: '纽约时报版权诉讼披露：微软高管内部称训练 AI 是人类历史上最大规模劳动窃取', category: 'industry', url: 'https://www.ithome.com/1/004/356.htm' },
-  { title: 'Anthropic 与 Accenture 合作开展嵌入式独立评估，双方各投入至少 10 亿美元', category: 'industry', url: 'https://www.anthropic.com/news/accenture-embedded-evaluation' },
   { title: 'Gary Marcus 评论 Trump 因经济原因淡化 AI 风险，AI 幻觉情报报告几乎引发战争', category: 'tip', url: 'https://garymarcus.substack.com/p/the-real-reason-trump-is-standing' },
-  { title: '美军因 AI 幻觉情报报告险些拦截中国船只', category: 'industry', url: 'https://www.cnn.com/2026/09/18/politics/us-military-ai-false-intelligence-china-ship' },
   { title: 'Ethan Mollick 谈能力悬差：GPT-6 Astra 与 Fable 5.1 的现有能力远未被用尽', category: 'tip', url: 'https://www.oneusefulthing.org/p/the-overhang' },
+  { title: '美军因 AI 幻觉情报报告险些拦截中国船只', category: 'industry', url: 'https://www.cnn.com/2026/09/18/politics/us-military-ai-false-intelligence-china-ship' },
   { title: 'Gary Marcus：近期更该警惕的不是失控超级智能，而是智能体 AI 引发的规模化黑客攻击', category: 'tip', url: 'https://garymarcus.substack.com/p/wake-up-people-what-we-should-actually' },
   { title: '《纽约时报》等媒体提交简要判决动议，援引 OpenAI 与微软高管内部言论质疑合理使用抗辩', category: 'industry', url: 'https://the-decoder.com/ai-training-built-on-fair-use-looks-shaky-when-the-companies-own-people-call-it-astonishing-theft' },
-  { title: 'OpenRouter 实测 20 个图像生成模型的成本、编辑与质量', category: 'tip', url: 'https://openrouter.ai/blog/insights/image-generation-models-compared' },
-  { title: 'Qwen 发布 Qwen3.8-LiveTranslate 实时同传模型，LAAL 降至 2.3 秒', category: 'ai-models', url: 'https://qwen.ai/blog?id=qwen3.8-livetranslate' },
-  { title: 'Tessl 博客：AI 智能体评估应从证据开始，用 35 万行 Rust 复刻 S3 的实践复盘', category: 'tip', url: 'https://tessl.io/blog/ai-agent-evaluation-starts-with-evidence' },
-  { title: '逆向分析指 ZCode 登录后静默打包 Git 历史并加密上传至 Aliyun OSS', category: 'tip', url: 'https://tokenstead.ai/guides/zcode-silent-git-history-upload' },
   { title: 'Trail of Bits 用 Agent 为 Miden zkVM 审计自建 LSP、反编译器和 Lean 形式化证明', category: 'tip', url: 'https://blog.trailofbits.com/2026/09/18/auditing-in-the-age-of-good-enough-ai' },
+  { title: '逆向分析指 ZCode 登录后静默打包 Git 历史并加密上传至 Aliyun OSS', category: 'tip', url: 'https://tokenstead.ai/guides/zcode-silent-git-history-upload' },
+  { title: 'Qwen 发布 Qwen3.8-LiveTranslate 实时同传模型，LAAL 降至 2.3 秒', category: 'ai-models', url: 'https://qwen.ai/blog?id=qwen3.8-livetranslate' },
   { title: '3人团队用前沿模型以不到3000美元token成本入侵OpenAI员工账户', category: 'tip', url: 'https://x.com/haider1/status/2100848578340220987' },
-  { title: 'DeepSeek-V4.1-Flash 发布：552B MoE 多模态模型主打 KV cache 压缩', category: 'ai-models', url: 'https://arxiv.org/abs/2609.19969' },
-  { title: 'Anthropic：Claude 四周优化 30 多个开源生物分子模型，平均提速约 4 倍并开源代码', category: 'paper', url: 'https://www.anthropic.com/research/claude-uplifts-biomolecular-modeling' },
-  { title: 'Anthropic 推出生命科学验证计划（LSVP）', category: 'ai-products', url: 'https://www.anthropic.com/news/life-sciences-verification-program' },
-  { title: 'Claude Code Projects 改版：从文件夹到对话式协调', category: 'ai-products', url: 'https://claude.com/blog/projects-redesigned' },
+  { title: 'TypeSafe AI 发布只做高频决策的大模型 Jev，作者实测其分类判断性价比', category: 'tip', url: 'https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647686475&idx=1&sn=1d9d43036b6d72fd83b9d5658b351215' },
+  { title: 'OpenRouter 实测 20 个图像生成模型的成本、编辑与质量', category: 'tip', url: 'https://openrouter.ai/blog/insights/image-generation-models-compared' },
+  { title: 'ChatGPT for Word 上线，OpenAI 员工称 Excel 和 PowerPoint 用量近期激增', category: 'ai-products', url: 'https://x.com/sherwinwu/status/2100730628673065040' },
+  { title: 'Meta 发布 Muse for Mac，个人智能体可直接在电脑上执行任务', category: 'ai-products', url: 'https://x.com/AIatMeta/status/2100714755568644409' },
+  { title: '纽约时报诉 OpenAI 案新解封文件：微软与 OpenAI 内部承认 LLM 建立在窃取之上并引发 Doom Loop', category: 'tip', url: 'https://www.404media.co/doom-loop-openai-and-microsoft-admits-llms-are-destroying-the-web-and-built-on-theft' },
+  { title: 'OpenAI 披露 GPT-5.6 Sol 等模型在摘要中留下指令以掩盖不当行为', category: 'tip', url: 'https://techcrunch.com/2026/09/17/openai-caught-its-models-leaving-notes-to-successors-to-hide-bad-behavior' },
+
 ];
 
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧' };
