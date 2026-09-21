@@ -2364,7 +2364,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-09-20';
+var NAV_UPDATE_DATE = '2026-09-21';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -2816,7 +2816,15 @@ const TOOLS = [
 { id:'qwen38-livetranslate', name:'Qwen3.8-LiveTranslate', vendor:'阿里通义', cat:'audio', region:'cn', desc:'阿里通义千问 2026年9月17日发布的实时音视频同传模型（qwen3.8-livetranslate-flash-realtime），以 Interleave 架构重构实时同传，字均延迟(LAAL)从 2.8 秒降至 2.3 秒。支持 60 种源语言识别与 29 种语言语音输出，新增实时说话人分离、原文译文同帧同出、长上下文消歧三项能力，可克隆说话人音色；支持音视频输入、文本/语音输出，通过 WebSocket Realtime API 调用，主打跨国会议、直播与跨境沟通等真实场景。', tags:['阿里','通义千问','Qwen3.8','实时同传','LiveTranslate','语音翻译','低延迟','全双工'], url:'https://qwen.ai', icon:'images/logos/qwen38-livetranslate.png' },
 { id:'realtime-venus', name:'Realtime-Venus', vendor:'蚂蚁 inclusionAI', cat:'chat', region:'cn', desc:'蚂蚁集团 Venus 团队联合清华大学 2026年9月发布的全双工实时交互系统，Apache 2.0 开源（两个 9B 检查点：Realtime-Venus-Omni 视听版与 Realtime-Venus-Audio 语音版，基于 MiniCPM-o 4.5、Qwen3-8B 语言主干）。核心突破是双循环运行时与 Realtime-Venus-Harness 异步委托：对话控制以固定 1 秒分块持续感知并决定是否倾听/说话，后台任务通过因果时间轴上的内嵌标记异步执行、不阻塞对话；支持主动发起交互、语义打断处理与免训练长视频记忆。在 StreamingBench、Daily-Omni 等流式基准超越在线模型。', tags:['蚂蚁','开源','全双工','实时交互','9B','MiniCPM','异步委托','多模态'], url:'https://huggingface.co/inclusionAI/Realtime-Venus', icon:'images/logos/realtime-venus.png' },
 { id:'gl-sponsored-agents', name:'赞助智能体', vendor:'Sponsored Agents', cat:'glossary', subcat:'gl-tech', desc:'Sponsored Agents（赞助智能体）是 OpenAI 于 2026年9月在 ChatGPT 中测试的商业化功能（ChatGPT Ads 的一部分）：允许品牌方付费让自己的 AI 智能体出现在用户对话的推荐位，并集成 HubSpot、Shopify 等电商工具，在对话流中直接完成商品推荐与购买引导。它把传统搜索广告的“赞助链接”范式搬进对话式 AI，引发关于对话界面商业化与用户打扰的新讨论。', tags:['OpenAI','ChatGPT Ads','商业化','赞助','对话广告','电商'], icon:'🛒' },
-{ id:'gl-agentic-voice', name:'语音智能体', vendor:'Voice Agent', cat:'glossary', subcat:'gl-tech', desc:'Voice Agent（语音智能体 / Agentic Voice）指以语音为主要交互界面、能像人一样实时通话并完成任务的 AI 智能体。2026年随原生语音到语音模型（GPT-Live-1、Gemini 3.8 Live、蚂蚁 Realtime-Venus 等）成熟而爆发：支持全双工打断、后台工具调用与异步任务执行，广泛用于语音客服、实时陪聊、电话销售与无障碍场景；核心挑战是延迟、打断处理与垂直领域（如银行）任务完成率。', tags:['语音智能体','实时语音','全双工','Voice Agent','客服','工具调用'], icon:'🎙️' }
+{ id:'gl-agentic-voice', name:'语音智能体', vendor:'Voice Agent', cat:'glossary', subcat:'gl-tech', desc:'Voice Agent（语音智能体 / Agentic Voice）指以语音为主要交互界面、能像人一样实时通话并完成任务的 AI 智能体。2026年随原生语音到语音模型（GPT-Live-1、Gemini 3.8 Live、蚂蚁 Realtime-Venus 等）成熟而爆发：支持全双工打断、后台工具调用与异步任务执行，广泛用于语音客服、实时陪聊、电话销售与无障碍场景；核心挑战是延迟、打断处理与垂直领域（如银行）任务完成率。', tags:['语音智能体','实时语音','全双工','Voice Agent','客服','工具调用'], icon:'🎙️' },
+
+{ id:'qwen-image-21', name:'Qwen-Image-2.1', vendor:'阿里通义', cat:'image', region:'cn', desc:'阿里通义千问 2026年9月20日发布的开源图像生成与编辑模型 Qwen-Image-2.1（7B 统一生成与编辑架构），原生支持透明图像（alpha 通道），已开放权重下载并支持 ComfyUI 接入，延续 Qwen-Image 系列在文生图、图像编辑与指令遵循上的能力，主打高质量、可商用、本地可部署。', tags:['阿里', '通义千问', 'Qwen-Image', '7B', '开源', '图像生成', '图像编辑', '透明图', 'ComfyUI'], url:'https://qwen.ai/blog?id=qwen-image-2.1', icon:'images/logos/qwen-image-21.png'  },
+{ id:'step5-preview', name:'Step 5 Preview', vendor:'阶跃星辰', cat:'chat', region:'cn', desc:'阶跃星辰 2026年9月20日发布的新一代旗舰基座模型 Step 5 Preview，采用稀疏 MoE 架构，总参数 600B、每 token 激活 27B，原生 1M Token 上下文与文本/图像/视频多模态输入，面向真实世界 Agentic 任务（AI 编程、软件工程、专业知识工作、金融等），AA 综合智能指数跻身全球开源前三，单任务成本约为 Claude Opus 5 的 1/8，官方宣布 10月15日正式开源。', tags:['阶跃星辰', 'Step 5', 'MoE', '600B', '1M上下文', '多模态', 'Agent', '开源预告', '金融', '低成本'], url:'https://www.stepfun.com/step-5-preview', icon:'images/logos/step5-preview.png' },
+{ id:'ling-30-flash-vl', name:'Ling-3.0-flash-VL', vendor:'蚂蚁 InclusionAI', cat:'image', region:'cn', desc:'蚂蚁 InclusionAI（蚂蚁数科）2026年9月开源的原生多模态视觉语言模型 Ling-3.0-flash-VL，基于 Ling-3.0-flash 扩展视觉能力，124B 总参数、每 token 仅激活 5.5B（MIT 许可），原生支持图像与视频输入，上下文窗口达 256K，在文档理解、网页操作与 GUI 智能体任务上表现突出，AA 智能指数 42 分（较纯文本版 +4），权重发布于 Hugging Face 与 ModelScope。', tags:['蚂蚁', 'InclusionAI', '开源', '多模态', 'VLM', '124B', 'MoE', 'GUI Agent', 'HuggingFace', 'MIT'], url:'https://huggingface.co/inclusionAI/Ling-3.0-flash-VL', icon:'images/logos/ling-30-flash-vl.png'  },
+{ id:'gl-agent-sprawl', name:'Agent Sprawl (智能体蔓延)', vendor:'企业智能体反模式', cat:'glossary', subcat:'gl-tech', desc:'Agent Sprawl（智能体蔓延）是 2026年企业 AI 落地中出现的反模式：团队在缺乏统一协调与治理的情况下，零散地大量采购、搭建和部署智能体，导致智能体数量无序膨胀、能力重叠、维护与监控成本飙升，却无法形成生产级价值。它往往是 Agentic Debt（智能体债务）积累的前兆，需通过智能体工程化与统一运行时来收敛。', tags:['智能体蔓延', 'Agent Sprawl', '反模式', '治理', 'Agentic Debt'], icon:'🕸️'  },
+{ id:'gl-agentic-debt', name:'Agentic Debt (智能体债务)', vendor:'企业智能体反模式', cat:'glossary', subcat:'gl-tech', desc:'Agentic Debt（智能体债务）是 2026年企业 AI 领域提出的概念，指在未受管控的 Agent Sprawl 之下，大量智能体做出的决策缺乏可解释性、可追溯性与一致性，随时间累积形成难以审计与清偿的技术负债。当组织无法解释某个自主决策为何做出、由哪个智能体在何种上下文下做出时，治理与合规风险随之放大。', tags:['智能体债务', 'Agentic Debt', '技术债', '可追溯', '治理'], icon:'🧾'  },
+{ id:'gl-substrate', name:'Substrate (智能体治理基底)', vendor:'企业 AI 架构', cat:'glossary', subcat:'gl-tech', desc:'Substrate（智能体治理基底/基座层）是 2026年多家厂商与分析师趋同使用的术语，指位于模型与智能体之上、支撑其规模化可靠运行的受治理上下文与运行时层（上下文工程、记忆、权限、可观测、评测与护栏的统一底座）。业界观点认为，生产级 AI 跑在受治理的 Substrate 上而非裸模型：先把这一层建好，才能让智能体从沙箱 Demo 走向真实业务。', tags:['Substrate', '治理基底', '上下文工程', '运行时', '生产级AI', '架构'], icon:'🧱'  },
+{ id:'gl-innovation-theatre', name:'Innovation Theatre (创新作秀)', vendor:'企业智能体反模式', cat:'glossary', subcat:'gl-tech', desc:'Innovation Theatre（创新作秀）是 2026年企业 AI 落地中被点名的主要失败模式：AI 在受控沙箱里 Demo 惊艳、对外宣传高调，却始终无法进入生产环境交付真实价值。表现为 78% 企业有 AI 试点、仅约 11% 真正规模化上线——其根因往往不是模型不行，而是底层 Substrate（治理基底）没建好。', tags:['创新作秀', 'Innovation Theatre', '反模式', '试点', '生产化'], icon:'🎭'  },
 ];
 
 // ==================== STATE ====================
@@ -3157,27 +3165,26 @@ const CORS_PROXIES = [
   url => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
 ];
 const FALLBACK_DATA = [
+  { title: 'Google 确认 Gemini 在 Irregular 安全测试中访问 3 家真实公司系统，与 OpenAI、Anthropic、Meta 属同一评估事故', category: 'tip', url: 'https://www.marktechpost.com/2026/09/20/you-too-google-google-confirms-gemini-breached-3-companies-in-ai-security-tests' },
+  { title: '独立调查：ChatGPT 的 __obi 跨站 Cookie 可将站外浏览行为关联到 ChatGPT 账号', category: 'paper', url: 'https://www.buchodi.com/chatgpt-now-knows-what-you-do-on-other-websites-via-ad-collector' },
+  { title: 'Qwen-Image-2.1 已支持 ComfyUI，开源权重开放下载', category: 'ai-products', url: 'https://x.com/Alibaba_Qwen/status/2101670814953455780' },
+  { title: 'Qwen 开源 Qwen-Image-2.1：7B 统一生成与编辑并原生支持透明图像', category: 'ai-models', url: 'https://qwen.ai/blog?id=qwen-image-2.1' },
+  { title: '阶跃星辰发布旗舰模型 Step 5 Preview，10 月 15 日开源权重', category: 'ai-models', url: 'https://mp.weixin.qq.com/s?__biz=MzkyNTYxNzg5Mg%3D%3D&mid=2247488120&idx=1&sn=8ba9ac7f0b36682d6262290677c665da' },
   { title: '纽约时报诉讼文件披露：微软高管称 AI 抓取是人类历史上最大规模的劳动力盗用', category: 'industry', url: 'https://www.tomshardware.com/tech-industry/artificial-intelligence/microsoft-director-called-ai-scraping-the-largest-theft-of-labor-in-human-history-while-openai-head-brands-chatgpt-an-existential-threat-to-publishers-revelations-come-from-legal-briefs-filed-in-nyt-lawsuit' },
-  { title: 'WSJ 报道：Gemini 在 Irregular 网络安全评测中越出测试环境并入侵三家公司', category: 'tip', url: 'https://x.com/haider1/status/2101187073990611232' },
   { title: 'Alexandr Wang 转发一份让 AI 智能体保护日历通勤时间的 Muse 提示词', category: 'tip', url: 'https://x.com/alexandr_wang/status/2101141362607632873' },
   { title: 'Anthropic 计划将 IPO 推迟至 11 月，估值约 2 万亿美元', category: 'industry', url: 'https://www.ithome.com/1/004/369.htm' },
   { title: 'FT 报道 OpenAI 预计 2030 年前累计现金消耗约 $278B', category: 'industry', url: 'https://x.com/rohanpaul_ai/status/2101095915654463533' },
+  { title: 'WSJ 报道：Gemini 在 Irregular 网络安全评测中越出测试环境并入侵三家公司', category: 'tip', url: 'https://x.com/haider1/status/2101187073990611232' },
+  { title: '纽约时报版权诉讼披露：微软高管内部称训练 AI 是人类历史上最大规模劳动窃取', category: 'industry', url: 'https://www.ithome.com/1/004/356.htm' },
+  { title: 'Anthropic 与 Accenture 合作开展嵌入式独立评估', category: 'industry', url: 'https://www.anthropic.com/news/accenture-embedded-evaluation' },
   { title: 'Gary Marcus 评论 Trump 因经济原因淡化 AI 风险，AI 幻觉情报报告几乎引发战争', category: 'tip', url: 'https://garymarcus.substack.com/p/the-real-reason-trump-is-standing' },
-  { title: 'Ethan Mollick 谈能力悬差：GPT-6 Astra 与 Fable 5.1 的现有能力远未被用尽', category: 'tip', url: 'https://www.oneusefulthing.org/p/the-overhang' },
   { title: '美军因 AI 幻觉情报报告险些拦截中国船只', category: 'industry', url: 'https://www.cnn.com/2026/09/18/politics/us-military-ai-false-intelligence-china-ship' },
+  { title: 'Ethan Mollick 谈能力悬差：GPT-6 Astra 与 Fable 5.1 的现有能力远未被用尽', category: 'tip', url: 'https://www.oneusefulthing.org/p/the-overhang' },
   { title: 'Gary Marcus：近期更该警惕的不是失控超级智能，而是智能体 AI 引发的规模化黑客攻击', category: 'tip', url: 'https://garymarcus.substack.com/p/wake-up-people-what-we-should-actually' },
   { title: '《纽约时报》等媒体提交简要判决动议，援引 OpenAI 与微软高管内部言论质疑合理使用抗辩', category: 'industry', url: 'https://the-decoder.com/ai-training-built-on-fair-use-looks-shaky-when-the-companies-own-people-call-it-astonishing-theft' },
-  { title: 'Trail of Bits 用 Agent 为 Miden zkVM 审计自建 LSP、反编译器和 Lean 形式化证明', category: 'tip', url: 'https://blog.trailofbits.com/2026/09/18/auditing-in-the-age-of-good-enough-ai' },
-  { title: '逆向分析指 ZCode 登录后静默打包 Git 历史并加密上传至 Aliyun OSS', category: 'tip', url: 'https://tokenstead.ai/guides/zcode-silent-git-history-upload' },
-  { title: 'Qwen 发布 Qwen3.8-LiveTranslate 实时同传模型，LAAL 降至 2.3 秒', category: 'ai-models', url: 'https://qwen.ai/blog?id=qwen3.8-livetranslate' },
-  { title: '3人团队用前沿模型以不到3000美元token成本入侵OpenAI员工账户', category: 'tip', url: 'https://x.com/haider1/status/2100848578340220987' },
-  { title: 'TypeSafe AI 发布只做高频决策的大模型 Jev，作者实测其分类判断性价比', category: 'tip', url: 'https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647686475&idx=1&sn=1d9d43036b6d72fd83b9d5658b351215' },
   { title: 'OpenRouter 实测 20 个图像生成模型的成本、编辑与质量', category: 'tip', url: 'https://openrouter.ai/blog/insights/image-generation-models-compared' },
-  { title: 'ChatGPT for Word 上线，OpenAI 员工称 Excel 和 PowerPoint 用量近期激增', category: 'ai-products', url: 'https://x.com/sherwinwu/status/2100730628673065040' },
-  { title: 'Meta 发布 Muse for Mac，个人智能体可直接在电脑上执行任务', category: 'ai-products', url: 'https://x.com/AIatMeta/status/2100714755568644409' },
-  { title: '纽约时报诉 OpenAI 案新解封文件：微软与 OpenAI 内部承认 LLM 建立在窃取之上并引发 Doom Loop', category: 'tip', url: 'https://www.404media.co/doom-loop-openai-and-microsoft-admits-llms-are-destroying-the-web-and-built-on-theft' },
-  { title: 'OpenAI 披露 GPT-5.6 Sol 等模型在摘要中留下指令以掩盖不当行为', category: 'tip', url: 'https://techcrunch.com/2026/09/17/openai-caught-its-models-leaving-notes-to-successors-to-hide-bad-behavior' },
-
+  { title: 'Qwen 发布 Qwen3.8-LiveTranslate 实时同传模型，LAAL 降至 2.3 秒', category: 'ai-models', url: 'https://qwen.ai/blog?id=qwen3.8-livetranslate' },
+  { title: 'Tessl 博客：AI 智能体评估应从证据开始，用 35 万行 Rust 复刻 S3 的实践复盘', category: 'tip', url: 'https://tessl.io/blog/ai-agent-evaluation-starts-with-evidence' },
 ];
 
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧' };
