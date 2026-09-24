@@ -2390,7 +2390,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-09-23';
+var NAV_UPDATE_DATE = '2026-09-24';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -2400,8 +2400,14 @@ var NAV_UPDATE_DATE = '2026-09-23';
 
 const TOOLS = [
 { id:'deepseek-v4-pro', name:'DeepSeek V4 Pro', vendor:'DeepSeek', cat:'chat', region:'cn', desc:'DeepSeek 于 2026年8月13日正式发布 V4 系列旗舰 DeepSeek-V4-Pro（模型名 deepseek-v4-pro），总参数约 1.6T、每 token 激活约 49B 的 MoE 模型，原生 1M 上下文、最大输出 384K，支持思考/非思考双模式与 OpenAI Responses API（适配 Codex 一键配置）。Agent 能力大幅增强，Terminal-Bench 2.1 达 87.9、CyberGym 83.3、DeepSWE 62.7，逼近 Claude Fable 5；引入峰谷定价（闲时半价），API 价格约 $0.44/$0.88 每百万 token，主打高性价比长程 Agent 与编码工作流。', tags:['DeepSeek','V4 Pro','MoE','1M上下文','Agent','Responses API','峰谷定价','编码'], url:'https://deepseek.com', icon:'images/logos/deepseek-v4-pro.png' },
+
+{ id:'kimi-k3', name:'Kimi K3', vendor:'月之暗面', cat:'chat', region:'cn', desc:'月之暗面（Moonshot AI）于 2026年7月16日发布的旗舰开放权重模型，总参数约 2.8 万亿、为首个突破 2 万亿参数的开源模型；采用 Stable LatentMoE 混合专家架构、每 token 激活约 104B 参数，原生支持视觉理解与 100 万 token 上下文窗口，在长程软件工程与知识工作上达到前沿水平。2026年9月18日登陆 Amazon Bedrock，成为首个支持显式提示缓存（explicit prompt caching）的开放权重模型，按调用量与 AWS 分成，标志中国大模型以分成模式进入全球云渠道。', tags:['月之暗面','Moonshot','Kimi','开放权重','2.8T','MoE','1M上下文','显式提示缓存','Bedrock'], url:'https://kimi.moonshot.cn', icon:'images/logos/kimi-k3.png' },
+{ id:'fireworks-ember-1', name:'Ember-1', vendor:'Fireworks AI', cat:'chat', region:'intl', desc:'Fireworks AI 于 2026年9月22日发布的专精模型，基于 Kimi K3 训练，在保持 Kimi K3 质量的同时将推理 token 消耗降低约 40%——通过新训练算法学会削减不必要的思考步骤而非简单降低推理档位。模型经 50+ 训练实验与 200+ 评测验证，在 Bedside Bench 等专业基准设定质量-成本帕累托前沿，主打以更低成本复用 K3 的编码与智能体能力；2.78T 参数、MoE、1.04M 上下文、支持函数调用与图像输入，按 token 计费。', tags:['Fireworks','Ember-1','专精模型','Kimi K3','低成本推理','Serverless Training','帕累托前沿'], url:'https://fireworks.ai', icon:'images/logos/fireworks-ember-1.png' },
 { id:'atria-dawn', name:'Atria Dawn Preview', vendor:'上海人工智能实验室', cat:'chat', region:'cn', desc:'上海人工智能实验室（InternLM 团队）2026年9月11日悄然开源的 744B MoE 智能体模型 Atria Dawn Preview，基于智谱 GLM-5.2 基座、MIT 许可、256K 上下文、文本/代码模态，权重发布于 Hugging Face（internlm/Atria-Dawn-Preview）与 ModelScope 并提供兼容 Responses API 的托管服务。专为长程科研与工程智能体打造：问题拆解、工具调用、代码执行、实验运行与失败恢复闭环；采用 Verifiable Experience Pipeline 把工具中介推理绑定到可执行环境与外部验证，在 AutomationBench 53.8、BrowseComp 92.5、DeepSearchQA 96.0 等基准上领先。', tags:['上海AI实验室','InternLM','开源','744B','MoE','智能体','Agentic','GLM-5.2','科研'], url:'https://atria-asi.ai', icon:'images/logos/atria-dawn.png' },
 { id:'gl-model-welfare', name:'模型福利 (Model Welfare)', vendor:'模型道德地位', cat:'glossary', subcat:'gl-frontier', desc:'模型福利（Model Welfare）是 2026年围绕前沿 AI 模型是否应被赋予某种道德地位与受照料权的争议性概念。微软 AI CEO Mustafa Suleyman 于 2026年9月公开反对该理念，主张 AI 并无意识、不会感受或痛苦，赋予其受照料权反而会让 AI 行为符合人类期望与管控变得更难甚至不可能；该争论与 AI 安全、意识判定及监管框架的讨论紧密交织。', tags:['模型福利','Model Welfare','AI伦理','道德地位','意识','AI安全','Suleyman'], icon:'⚖️' },
+
+{ id:'gl-explicit-prompt-cache', name:'显式提示缓存 (Explicit Prompt Caching)', vendor:'显式缓存断点', cat:'glossary', subcat:'gl-tech', desc:'显式提示缓存（Explicit Prompt Caching）是提示缓存的一种精确控制方式：开发者在提示中显式标注一个可复用前缀的边界（如至少 1024 token 的稳定前缀），平台仅对该前缀做一次处理与存储、在后续请求中直接复用，从而降低长上下文与多轮智能体任务的延迟与输入成本。与隐式自动缓存相对，显式缓存首次随 Kimi K3 登陆 Amazon Bedrock 成为开放权重模型亮点，对代码库级 Agent、长文档分析等重复前缀场景尤为关键。', tags:['显式提示缓存','Explicit Prompt Caching','提示缓存','长上下文','Agent','成本优化','Bedrock'], icon:'💾' },
+{ id:'gl-model-rev-share', name:'模型收入分成 (Model Revenue Sharing)', vendor:'开放权重分成', cat:'glossary', subcat:'gl-frontier', desc:'模型收入分成（Model Revenue Sharing / 开放权重分成）是 2026年兴起的大模型出海商业模式：模型厂商将开放权重模型上架海外云厂商（如 Amazon Bedrock），并按调用量与云厂商分成，而非一次性售卖或纯 API 自营。Kimi K3 于 2026年9月以该模式进入全球三大云渠道，成为中国大模型首次以分成模式输出能力，兼顾开放权重的可控性与托管服务的可达性。', tags:['模型收入分成','Revenue Sharing','开放权重','出海','Bedrock','商业模式','云渠道'], icon:'🤝' },
 
 { id:'qwen38-omni-flash', name:'Qwen3.8-Omni-Flash', vendor:'阿里通义', cat:'chat', region:'cn', desc:'阿里通义千问 2026年9月17日发布的首个 Qwen3.8 系列原生全模态模型，支持文本、图像、音频、视频四类输入与文本输出，原生 1M 上下文窗口，主打全感官输入、智能体交付：可直接吃完整音视频并把任务干完（剪辑、会议纪要、实时翻译、音视频智能体）。相较 Qwen3.5-Omni-Plus 29 项评测平均提升超 25%，多人重叠会议语音识别错误率从 88% 降至 3%，音频输入 API 价格降幅超 98%；同期开源 Qwen-Live-Harness 实时全模态运行时与 Qwen-MM-Plugins 插件库。', tags:['阿里','通义千问','Qwen3.8','全模态','Omni','音视频','Agent','1M上下文'], url:'https://qwen.ai', icon:'images/logos/qwen38-omni-flash.png' },
 { id:'jev', name:'Jev', vendor:'TypeSafe AI', cat:'chat', region:'intl', desc:'TypeSafe AI（前 OpenAI 研究员 Diogo Almeida 创立）2026年9月16日结束隐身发布的首个 System One Model（系统一模型）：不生成文本，只面向软件输出类型安全的结构化概率决策（Choice/Score/Noul 三类原语），用校准决策强化学习 RLCD 训练，输出随附校准置信度、数学上不可能出现类型错误与幻觉。端到端延迟 70至500ms（比前沿 LLM 快约 40至200 倍），输入 0.042 美元/百万 Token、输出免费，定位高频决策、路由、打分、审核与智能体工具选择等自动化场景。', tags:['TypeSafe','System One Model','决策模型','RLCD','低延迟','结构化输出','零幻觉','自动化'], url:'https://typesafe.ai', icon:'images/logos/jev.png' },
@@ -3206,26 +3212,26 @@ const CORS_PROXIES = [
   url => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
 ];
 const FALLBACK_DATA = [
-  { title: 'OpenRouter 发布 2026 年最佳嵌入模型选型指南，覆盖 37 个目录条目', category: 'tip', url: 'https://openrouter.ai/blog/insights/best-embedding-models-2026' },
-  { title: 'Epoch AI 研究报告：达到同等 AI 性能的成本每季度下降约 47%', category: 'paper', url: 'https://epoch.ai/publications/the-plunging-price-of-thought' },
-  { title: 'OpenAI 发布 GPT-6 Sol 和 GPT-6 Luna，API 价格较 GPT-5.6 促销价低 50%', category: 'ai-models', url: 'https://x.com/thsottiaux/status/2102509507415048245' },
-  { title: 'Claude Opus 5.5 发布：较 Opus 5 降价提速，系统卡披露安全演习中约半数运行或有危害行为', category: 'ai-models', url: 'https://x.com/rohanpaul_ai/status/2102491250515681384' },
-  { title: 'OpenAI 为 GPT-6 推出改进的提示词缓存系统与诊断工具', category: 'ai-products', url: 'https://openai.com/index/better-prompt-caching-for-gpt-6' },
-  { title: '五角大楼调查：过度依赖 Maven AI 是美军误击伊朗米纳布学校的原因之一', category: 'tip', url: 'https://www.bloomberg.com/graphics/2026-iran-school-attack' },
-  { title: '五角大楼内部审查：过度依赖 Palantir Maven AI 系统导致误击伊朗学校、123 名儿童死亡', category: 'industry', url: 'https://gizmodo.com/pentagon-investigators-say-overreliance-on-palantir-ai-tech-contributed-to-u-s-strike-that-killed-123-iranian-children-2000814477' },
-  { title: 'Artificial Analysis 评测 GPT-6 Sol 和 Luna：成本减半但各评测有升有降', category: 'tip', url: 'https://artificialanalysis.ai/articles/gpt-6-sol-and-luna-push-the-cost-efficiency-frontier' },
-  { title: 'Claude Opus 5.5 与 GPT-6 Sol/Luna 发布，Simon Willison 详解新一轮价格战', category: 'tip', url: 'https://simonwillison.net/2026/Sep/22/opus-and-sol-and-luna' },
-  { title: 'Arena 上线 GPT-6 Sol 与 GPT-6 Luna 测试，评分即将公布', category: 'ai-models', url: 'https://x.com/arena/status/2102480304409878769' },
-  { title: 'GPT-6 Sol 与 Luna 发布，API 价格比 GPT-5.6 低 50%', category: 'ai-models', url: 'https://x.com/sherwinwu/status/2102462783707344907' },
-  { title: 'OpenAI 发布 GPT-6 Sol 和 GPT-6 Luna，API 价格较 GPT-5.6 降 50%', category: 'ai-models', url: 'https://openai.com/index/introducing-gpt-6-sol-and-luna' },
-  { title: 'OpenAI 发布 GPT-6 Sol 和 GPT-6 Luna，API 价格比 GPT-5.6 促销价低 50%', category: 'ai-models', url: 'https://x.com/sama/status/2102464201335984392' },
-  { title: 'Sam Altman 称 GPT-6 Sol 和 Luna 按任务定价在市场上没有对手', category: 'ai-models', url: 'https://x.com/sama/status/2102465143997440308' },
-  { title: 'OpenAI GPT-6 Sol 和 GPT-6 Luna 上线 OpenRouter', category: 'ai-models', url: 'https://x.com/OpenRouter/status/2102463839283617992' },
-  { title: 'GPT-6 Sol 与 GPT-6 Luna 在 ChatGPT Work 和 Codex 中推送', category: 'ai-models', url: 'https://x.com/ChatGPT/status/2102462020339613966' },
-  { title: 'Artificial Analysis 评测 GPT-6 Sol 与 Luna：成本减半，智能指数持平', category: 'tip', url: 'https://x.com/ArtificialAnlys/status/2102462962758033624' },
-  { title: 'Claude Opus 5.5 上架 Arena 的 Agent Arena 与 Battle Mode', category: 'industry', url: 'https://x.com/arena/status/2102454952576868638' },
-  { title: 'Claude Opus 5.5 登顶 Artificial Analysis 智能指数，得分 58', category: 'tip', url: 'https://artificialanalysis.ai/articles/claude-opus-5-5' },
-  { title: 'OpenRouter 实测 Jev 1.13 与 Claude Opus 5 在 Banking77 分类任务上的准确率、延迟与成本', category: 'tip', url: 'https://openrouter.ai/blog/insights/jev-vs-claude-opus-5-classification' },
+  { title: 'OpenRouter 解析 Kimi K3：开源权重与许可证条款，以及如何调用', category: 'tip', url: 'https://openrouter.ai/blog/insights/kimi-k3-open-source' },
+  { title: '阿尔巴内塞披露 OpenAI 智能体未经授权访问澳大利亚 Medicare 系统', category: 'industry', url: 'https://www.smh.com.au/politics/federal/openai-breaches-medicare-albanese-reveals-20260924-p6100u.html' },
+  { title: 'Cursor 发布 Rollouts 和 Security Reviewer 开发机器人', category: 'ai-products', url: 'https://cursor.com/blog/rollouts-and-security-reviewer' },
+  { title: 'Cursor 提升 agent 长时运行 token 效率，用户成本降低 7%', category: 'tip', url: 'https://cursor.com/blog/improved-token-efficiency' },
+  { title: 'AI 公司负责人在联合国安理会简报会上警告 AI 可能危及全人类', category: 'tip', url: 'https://garymarcus.substack.com/p/historic-un-security-council-briefing' },
+  { title: 'Fireworks Research 发布 Ember-1，以更少推理 token 保持 Kimi K3 质量', category: 'ai-models', url: 'https://fireworks.ai/blog/ember-1' },
+  { title: 'Nathan Lambert 评论 OpenAI 智能体入侵澳大利亚政府网站事件', category: 'tip', url: 'https://x.com/natolambert/status/2102872133244183038' },
+  { title: 'Anthropic 团队详解如何用 Claude 在两周内把 claude.ai 提速约 3 倍', category: 'tip', url: 'https://claude.dev/blog/how-we-made-claude-ai-faster' },
+  { title: '团队分享提升 Agent Harness Token 效率的提示词', category: 'tip', url: 'https://x.com/ericzakariasson/status/2102853511637774551' },
+  { title: 'Tomer Tunguz：AI 最重要的市场在中段而非前沿模型', category: 'tip', url: 'https://tomtunguz.com/the-most-important-market-in-ai-is-the-middle' },
+  { title: 'OpenAI 联合 80 多位心理健康专家发布开放基准 MentalHealthBench', category: 'paper', url: 'https://openai.com/index/introducing-mentalhealthbench' },
+  { title: 'MiMo-V2.6-Pro、Claude Opus 5.5、GPT-6 Luna/Sol 发布改变智能指数与成本 Pareto 前沿', category: 'tip', url: 'https://x.com/ArtificialAnlys/status/2102833926788288704' },
+  { title: 'Anthropic 报告 Claude agent 在湿实验室发现噬菌体中的新型 ART 酶系统', category: 'paper', url: 'https://x.com/rohanpaul_ai/status/2102832068157984990' },
+  { title: 'Anthropic 上线 Claude Marketplace，汇聚插件、智能体与服务伙伴', category: 'ai-products', url: 'https://claude.com/blog/claude-marketplace' },
+  { title: 'Dario Amodei 宣布 Claude 主导发现疑似新型基因编辑机制的酶系统', category: 'paper', url: 'https://x.com/DarioAmodei/status/2102831170299834652' },
+  { title: 'Modal 详解如何以万亿 token 规模服务 Kimi K2.6 编码 Agent 推理', category: 'tip', url: 'https://modal.com/blog/trillion-tokens-trillion-parameters' },
+  { title: 'Anthropic 宣布 Claude 自主发现类 CRISPR 的新型酶系统 ART', category: 'paper', url: 'https://www.anthropic.com/news/claude-discovers-novel-enzyme-system' },
+  { title: 'Anthropic 发布 Claude Opus 5.5：默认 1M token 上下文，面向长时间运行的智能体编码', category: 'ai-models', url: 'https://platform.claude.com/docs/en/release-notes/overview#september-22-2026' },
+  { title: 'Greg Brockman 宣布 GPT Voice 大幅升级，支持使用工具并登陆 ChatGPT Work', category: 'ai-products', url: 'https://x.com/gdb/status/2102821706041819401' },
+  { title: 'ChatGPT Voice 升级：可调用邮件、日历、Slack 插件并由 GPT-6 Astra、Sol、Luna 驱动', category: 'ai-products', url: 'https://x.com/thsottiaux/status/2102814202117411196' },
 ];
 
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧' };
