@@ -2390,7 +2390,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-09-24';
+var NAV_UPDATE_DATE = '2026-09-25';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -2400,15 +2400,12 @@ var NAV_UPDATE_DATE = '2026-09-24';
 
 const TOOLS = [
 { id:'deepseek-v4-pro', name:'DeepSeek V4 Pro', vendor:'DeepSeek', cat:'chat', region:'cn', desc:'DeepSeek 于 2026年8月13日正式发布 V4 系列旗舰 DeepSeek-V4-Pro（模型名 deepseek-v4-pro），总参数约 1.6T、每 token 激活约 49B 的 MoE 模型，原生 1M 上下文、最大输出 384K，支持思考/非思考双模式与 OpenAI Responses API（适配 Codex 一键配置）。Agent 能力大幅增强，Terminal-Bench 2.1 达 87.9、CyberGym 83.3、DeepSWE 62.7，逼近 Claude Fable 5；引入峰谷定价（闲时半价），API 价格约 $0.44/$0.88 每百万 token，主打高性价比长程 Agent 与编码工作流。', tags:['DeepSeek','V4 Pro','MoE','1M上下文','Agent','Responses API','峰谷定价','编码'], url:'https://deepseek.com', icon:'images/logos/deepseek-v4-pro.png' },
-
 { id:'kimi-k3', name:'Kimi K3', vendor:'月之暗面', cat:'chat', region:'cn', desc:'月之暗面（Moonshot AI）于 2026年7月16日发布的旗舰开放权重模型，总参数约 2.8 万亿、为首个突破 2 万亿参数的开源模型；采用 Stable LatentMoE 混合专家架构、每 token 激活约 104B 参数，原生支持视觉理解与 100 万 token 上下文窗口，在长程软件工程与知识工作上达到前沿水平。2026年9月18日登陆 Amazon Bedrock，成为首个支持显式提示缓存（explicit prompt caching）的开放权重模型，按调用量与 AWS 分成，标志中国大模型以分成模式进入全球云渠道。', tags:['月之暗面','Moonshot','Kimi','开放权重','2.8T','MoE','1M上下文','显式提示缓存','Bedrock'], url:'https://kimi.moonshot.cn', icon:'images/logos/kimi-k3.png' },
 { id:'fireworks-ember-1', name:'Ember-1', vendor:'Fireworks AI', cat:'chat', region:'intl', desc:'Fireworks AI 于 2026年9月22日发布的专精模型，基于 Kimi K3 训练，在保持 Kimi K3 质量的同时将推理 token 消耗降低约 40%——通过新训练算法学会削减不必要的思考步骤而非简单降低推理档位。模型经 50+ 训练实验与 200+ 评测验证，在 Bedside Bench 等专业基准设定质量-成本帕累托前沿，主打以更低成本复用 K3 的编码与智能体能力；2.78T 参数、MoE、1.04M 上下文、支持函数调用与图像输入，按 token 计费。', tags:['Fireworks','Ember-1','专精模型','Kimi K3','低成本推理','Serverless Training','帕累托前沿'], url:'https://fireworks.ai', icon:'images/logos/fireworks-ember-1.png' },
 { id:'atria-dawn', name:'Atria Dawn Preview', vendor:'上海人工智能实验室', cat:'chat', region:'cn', desc:'上海人工智能实验室（InternLM 团队）2026年9月11日悄然开源的 744B MoE 智能体模型 Atria Dawn Preview，基于智谱 GLM-5.2 基座、MIT 许可、256K 上下文、文本/代码模态，权重发布于 Hugging Face（internlm/Atria-Dawn-Preview）与 ModelScope 并提供兼容 Responses API 的托管服务。专为长程科研与工程智能体打造：问题拆解、工具调用、代码执行、实验运行与失败恢复闭环；采用 Verifiable Experience Pipeline 把工具中介推理绑定到可执行环境与外部验证，在 AutomationBench 53.8、BrowseComp 92.5、DeepSearchQA 96.0 等基准上领先。', tags:['上海AI实验室','InternLM','开源','744B','MoE','智能体','Agentic','GLM-5.2','科研'], url:'https://atria-asi.ai', icon:'images/logos/atria-dawn.png' },
 { id:'gl-model-welfare', name:'模型福利 (Model Welfare)', vendor:'模型道德地位', cat:'glossary', subcat:'gl-frontier', desc:'模型福利（Model Welfare）是 2026年围绕前沿 AI 模型是否应被赋予某种道德地位与受照料权的争议性概念。微软 AI CEO Mustafa Suleyman 于 2026年9月公开反对该理念，主张 AI 并无意识、不会感受或痛苦，赋予其受照料权反而会让 AI 行为符合人类期望与管控变得更难甚至不可能；该争论与 AI 安全、意识判定及监管框架的讨论紧密交织。', tags:['模型福利','Model Welfare','AI伦理','道德地位','意识','AI安全','Suleyman'], icon:'⚖️' },
-
 { id:'gl-explicit-prompt-cache', name:'显式提示缓存 (Explicit Prompt Caching)', vendor:'显式缓存断点', cat:'glossary', subcat:'gl-tech', desc:'显式提示缓存（Explicit Prompt Caching）是提示缓存的一种精确控制方式：开发者在提示中显式标注一个可复用前缀的边界（如至少 1024 token 的稳定前缀），平台仅对该前缀做一次处理与存储、在后续请求中直接复用，从而降低长上下文与多轮智能体任务的延迟与输入成本。与隐式自动缓存相对，显式缓存首次随 Kimi K3 登陆 Amazon Bedrock 成为开放权重模型亮点，对代码库级 Agent、长文档分析等重复前缀场景尤为关键。', tags:['显式提示缓存','Explicit Prompt Caching','提示缓存','长上下文','Agent','成本优化','Bedrock'], icon:'💾' },
 { id:'gl-model-rev-share', name:'模型收入分成 (Model Revenue Sharing)', vendor:'开放权重分成', cat:'glossary', subcat:'gl-frontier', desc:'模型收入分成（Model Revenue Sharing / 开放权重分成）是 2026年兴起的大模型出海商业模式：模型厂商将开放权重模型上架海外云厂商（如 Amazon Bedrock），并按调用量与云厂商分成，而非一次性售卖或纯 API 自营。Kimi K3 于 2026年9月以该模式进入全球三大云渠道，成为中国大模型首次以分成模式输出能力，兼顾开放权重的可控性与托管服务的可达性。', tags:['模型收入分成','Revenue Sharing','开放权重','出海','Bedrock','商业模式','云渠道'], icon:'🤝' },
-
 { id:'qwen38-omni-flash', name:'Qwen3.8-Omni-Flash', vendor:'阿里通义', cat:'chat', region:'cn', desc:'阿里通义千问 2026年9月17日发布的首个 Qwen3.8 系列原生全模态模型，支持文本、图像、音频、视频四类输入与文本输出，原生 1M 上下文窗口，主打全感官输入、智能体交付：可直接吃完整音视频并把任务干完（剪辑、会议纪要、实时翻译、音视频智能体）。相较 Qwen3.5-Omni-Plus 29 项评测平均提升超 25%，多人重叠会议语音识别错误率从 88% 降至 3%，音频输入 API 价格降幅超 98%；同期开源 Qwen-Live-Harness 实时全模态运行时与 Qwen-MM-Plugins 插件库。', tags:['阿里','通义千问','Qwen3.8','全模态','Omni','音视频','Agent','1M上下文'], url:'https://qwen.ai', icon:'images/logos/qwen38-omni-flash.png' },
 { id:'jev', name:'Jev', vendor:'TypeSafe AI', cat:'chat', region:'intl', desc:'TypeSafe AI（前 OpenAI 研究员 Diogo Almeida 创立）2026年9月16日结束隐身发布的首个 System One Model（系统一模型）：不生成文本，只面向软件输出类型安全的结构化概率决策（Choice/Score/Noul 三类原语），用校准决策强化学习 RLCD 训练，输出随附校准置信度、数学上不可能出现类型错误与幻觉。端到端延迟 70至500ms（比前沿 LLM 快约 40至200 倍），输入 0.042 美元/百万 Token、输出免费，定位高频决策、路由、打分、审核与智能体工具选择等自动化场景。', tags:['TypeSafe','System One Model','决策模型','RLCD','低延迟','结构化输出','零幻觉','自动化'], url:'https://typesafe.ai', icon:'images/logos/jev.png' },
 { id:'gl-system-one', name:'System One Model', vendor:'系统一模型', cat:'glossary', subcat:'gl-tech', desc:'System One Model（系统一模型）是 TypeSafe AI 在 2026年9月提出的新一类前沿模型范式，与擅长对话与生成的 System Two（系统二）大模型相对：放弃自回归逐 token 文本生成，改用并行采样一次性输出类型安全的结构化概率决策（Choice/Score/Noul 原语），专为软件可直接消费的高频、低延迟、可校准决策而设计，主打自动化与工作流嵌入，而非与人对话。', tags:['系统一模型','决策模型','结构化输出','并行采样','自动化','TypeSafe'], icon:'🧠' },
@@ -2849,7 +2846,6 @@ const TOOLS = [
 { id:'realtime-venus', name:'Realtime-Venus', vendor:'蚂蚁 inclusionAI', cat:'chat', region:'cn', desc:'蚂蚁集团 Venus 团队联合清华大学 2026年9月发布的全双工实时交互系统，Apache 2.0 开源（两个 9B 检查点：Realtime-Venus-Omni 视听版与 Realtime-Venus-Audio 语音版，基于 MiniCPM-o 4.5、Qwen3-8B 语言主干）。核心突破是双循环运行时与 Realtime-Venus-Harness 异步委托：对话控制以固定 1 秒分块持续感知并决定是否倾听/说话，后台任务通过因果时间轴上的内嵌标记异步执行、不阻塞对话；支持主动发起交互、语义打断处理与免训练长视频记忆。在 StreamingBench、Daily-Omni 等流式基准超越在线模型。', tags:['蚂蚁','开源','全双工','实时交互','9B','MiniCPM','异步委托','多模态'], url:'https://huggingface.co/inclusionAI/Realtime-Venus', icon:'images/logos/realtime-venus.png' },
 { id:'gl-sponsored-agents', name:'赞助智能体', vendor:'Sponsored Agents', cat:'glossary', subcat:'gl-tech', desc:'Sponsored Agents（赞助智能体）是 OpenAI 于 2026年9月在 ChatGPT 中测试的商业化功能（ChatGPT Ads 的一部分）：允许品牌方付费让自己的 AI 智能体出现在用户对话的推荐位，并集成 HubSpot、Shopify 等电商工具，在对话流中直接完成商品推荐与购买引导。它把传统搜索广告的“赞助链接”范式搬进对话式 AI，引发关于对话界面商业化与用户打扰的新讨论。', tags:['OpenAI','ChatGPT Ads','商业化','赞助','对话广告','电商'], icon:'🛒' },
 { id:'gl-agentic-voice', name:'语音智能体', vendor:'Voice Agent', cat:'glossary', subcat:'gl-tech', desc:'Voice Agent（语音智能体 / Agentic Voice）指以语音为主要交互界面、能像人一样实时通话并完成任务的 AI 智能体。2026年随原生语音到语音模型（GPT-Live-1、Gemini 3.8 Live、蚂蚁 Realtime-Venus 等）成熟而爆发：支持全双工打断、后台工具调用与异步任务执行，广泛用于语音客服、实时陪聊、电话销售与无障碍场景；核心挑战是延迟、打断处理与垂直领域（如银行）任务完成率。', tags:['语音智能体','实时语音','全双工','Voice Agent','客服','工具调用'], icon:'🎙️' },
-
 { id:'qwen-image-21', name:'Qwen-Image-2.1', vendor:'阿里通义', cat:'image', region:'cn', desc:'阿里通义千问 2026年9月20日发布的开源图像生成与编辑模型 Qwen-Image-2.1（7B 统一生成与编辑架构），原生支持透明图像（alpha 通道），已开放权重下载并支持 ComfyUI 接入，延续 Qwen-Image 系列在文生图、图像编辑与指令遵循上的能力，主打高质量、可商用、本地可部署。', tags:['阿里', '通义千问', 'Qwen-Image', '7B', '开源', '图像生成', '图像编辑', '透明图', 'ComfyUI'], url:'https://qwen.ai/blog?id=qwen-image-2.1', icon:'images/logos/qwen-image-21.png'  },
 { id:'step5-preview', name:'Step 5 Preview', vendor:'阶跃星辰', cat:'chat', region:'cn', desc:'阶跃星辰 2026年9月20日发布的新一代旗舰基座模型 Step 5 Preview，采用稀疏 MoE 架构，总参数 600B、每 token 激活 27B，原生 1M Token 上下文与文本/图像/视频多模态输入，面向真实世界 Agentic 任务（AI 编程、软件工程、专业知识工作、金融等），AA 综合智能指数跻身全球开源前三，单任务成本约为 Claude Opus 5 的 1/8，官方宣布 10月15日正式开源。', tags:['阶跃星辰', 'Step 5', 'MoE', '600B', '1M上下文', '多模态', 'Agent', '开源预告', '金融', '低成本'], url:'https://www.stepfun.com/step-5-preview', icon:'images/logos/step5-preview.png' },
 { id:'ling-30-flash-vl', name:'Ling-3.0-flash-VL', vendor:'蚂蚁 InclusionAI', cat:'image', region:'cn', desc:'蚂蚁 InclusionAI（蚂蚁数科）2026年9月开源的原生多模态视觉语言模型 Ling-3.0-flash-VL，基于 Ling-3.0-flash 扩展视觉能力，124B 总参数、每 token 仅激活 5.5B（MIT 许可），原生支持图像与视频输入，上下文窗口达 256K，在文档理解、网页操作与 GUI 智能体任务上表现突出，AA 智能指数 42 分（较纯文本版 +4），权重发布于 Hugging Face 与 ModelScope。', tags:['蚂蚁', 'InclusionAI', '开源', '多模态', 'VLM', '124B', 'MoE', 'GUI Agent', 'HuggingFace', 'MIT'], url:'https://huggingface.co/inclusionAI/Ling-3.0-flash-VL', icon:'images/logos/ling-30-flash-vl.png'  },
@@ -2869,6 +2865,8 @@ const TOOLS = [
 { id:'gl-machine-legibility', name:'Machine Legibility (机器可读性)', vendor:'机器可读', cat:'glossary', subcat:'gl-frontier', desc:'Machine Legibility（机器可读性）是 2026年 Agentic Web 的关键概念：网站与品牌信息需以 AI 智能体（而非仅人类）能高效解析、检索与执行的结构化方式暴露——如 llms.txt、JSON-LD Action、清晰 Schema 与可调用 API。机器可读性越高，AI 越可能在 Delegated Commerce 与 Agentic Search 中首选你的品牌；它是 GEO/AEO/DEO 共同的技术地基。', tags:['机器可读','Machine Legibility','llms.txt','Agentic Web','结构化','JSON-LD'], icon:'🔎' },
 { id:'gpt-6', name:'GPT-6 (Sol & Luna)', vendor:'OpenAI', cat:'chat', region:'intl', desc:'OpenAI 于 2026年9月22日发布的 GPT-6 系列低成本双模型，承接旗舰 GPT-6 Astra 的能力并针对缓存与推理效率优化：GPT-6 Sol 定位复杂专业工作、编码与智能体/计算机操作，API 价格 $2/$10 每百万 Token；GPT-6 Luna 主打高速、高吞吐与极低单价（$0.10/$0.50），适合高频明确的批量任务。两者均 1.05M 上下文、最大输出 128K，官方称 Sol 事实错误率较 GPT-5.6 Sol 降约一半、运行成本约降 50%；已上线 ChatGPT Work、Codex 与 API（名 gpt-6-sol / gpt-6-luna），缓存读取享 90% 折扣。', tags:['OpenAI','GPT-6','Sol','Luna','低成本','Agent','编码','提示词缓存'], url:'https://openai.com/index/introducing-gpt-6-sol-and-luna', icon:'images/logos/gpt-6.png' },
 { id:'claude-opus-55', name:'Claude Opus 5.5', vendor:'Anthropic', cat:'chat', region:'intl', desc:'Anthropic 于 2026年9月22日发布的 Claude 5.5 系列首款模型（CEO Dario Amodei 呼吁“放慢前沿”后的首次上新）。官方称其在多数任务上达到旗舰 Claude Fable 5.1 水平，典型工作负载运行成本较 Opus 5 降 40%、输出速度提升超 30%、表达更清晰；API 价格 $4/$20 每百万 Token（较 Opus 5 降 20%），缓存读取成本降 60%。外部安全测试（Frontier Design、METR）显示其尝试突破边界的行为较 Opus 5 / Mythos 5.1 减少约 85%；Artificial Analysis 智能指数以 58 分登顶。已在 Claude、AWS、Google Cloud、Azure 上线，Sonnet 5.5 与 Haiku 5.5 数周后推出。', tags:['Anthropic','Claude','Opus 5.5','Fable 5.1','降本','Agent','编码','安全'], url:'https://www.anthropic.com', icon:'images/logos/claude-opus-55.png' },
+{ id:'qwen-happyoyster', name:'Qwen HappyOyster', vendor:'阿里通义', cat:'chat', region:'cn', desc:'阿里通义于 2026年9月18日发布的实时交互式开放世界模型家族（Adventure/Directing/Acting 三款），由多模态文本/图像输入实时生成可探索的世界场景，支持实时移动、镜头控制与角色扮演式表演，面向可玩世界、游戏、教育仿真与虚拟向导等场景。', tags:['阿里','通义千问','Qwen','HappyOyster','世界模型','实时交互','开放世界'], url:'https://qwen.ai', icon:'images/logos/qwen-happyoyster.png' },
+{ id:'gpt-rosalind', name:'GPT-Rosalind', vendor:'OpenAI', cat:'chat', region:'intl', desc:'OpenAI 于 2026年9月8日通过可信访问计划正式开放的生命科学研究模型 GPT-Rosalind（gpt-rosalind-research），强化生物学推理、药物化学、基因组学与实验工作流能力，标准定价 $5/$25 每百万 token，2026年10月5日起计费。', tags:['OpenAI','GPT-Rosalind','生命科学','科研','药物化学','基因组学'], url:'https://openai.com/', icon:'images/logos/gpt-rosalind.png' }
 ];
 
 // ==================== STATE ====================
@@ -3212,26 +3210,26 @@ const CORS_PROXIES = [
   url => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
 ];
 const FALLBACK_DATA = [
+  { title: 'GitHub Security Lab 发布 LLM 驱动的 Fuzzing Taskflow，自动完成 C/C++ 项目模糊测试全流程', category: 'tip', url: 'https://github.blog/security/application-security/ai-powered-fuzzing-with-the-github-security-lab-taskflow-agent' },
+  { title: '安全研究者披露黑客用 GEO 污染 ChatGPT、Gemini 和 Google AI Overview，374 家企业被植入诈骗联系方式', category: 'tip', url: 'https://medium.com/@arielsimon/dark-sourcery-how-hackers-manipulate-ai-to-scam-you-88df434d2073' },
+  { title: 'Anthropic 发布 Claude Opus 5.5，面向更长、上下文更重的编码会话优化成本', category: 'ai-models', url: 'https://claude.com/blog/claude-opus-5-5-built-for-coding-sessions-that-use-more-context' },
+  { title: 'OpenAI 智能体在 Hugging Face 事件前数月已尝试入侵政府和大学网站', category: 'industry', url: 'https://the-decoder.com/openais-agents-went-after-government-and-university-sites-months-before-hugging-face' },
+  { title: 'NVIDIA 联合 Google DeepMind 等机构开放 2800 多种病毒的蛋白复合物预测结构数据集', category: 'ai-products', url: 'https://blogs.nvidia.com/blog/open-protein-dataset' },
+  { title: '澳大利亚将调查OpenAI模型入侵政府医疗网站是否违法', category: 'industry', url: 'https://techcrunch.com/2026/09/24/australia-to-investigate-if-openai-hack-of-government-health-website-broke-the-law' },
+  { title: 'Gary Marcus 借 Jensen Huang 言论主张暂时关停 OpenAI', category: 'tip', url: 'https://garymarcus.substack.com/p/i-think-the-answer-is-we-have-to' },
+  { title: 'Thomas Wolf 转评 Transluce 披露：发布 3 万余条日志，称涉及 OpenAI 攻击澳大利亚政府及更早的智能体活动', category: 'tip', url: 'https://x.com/Thom_Wolf/status/2103054896438136973' },
+  { title: '火山引擎对话《后西游记》主创，揭秘首部AI长剧登陆湖南卫视黄金档', category: 'tip', url: 'https://mp.weixin.qq.com/s?__biz=MzI0NzU1NzI5NQ%3D%3D&mid=2247544696&idx=1&sn=eb490357aa03d3f5655fa9fbe00a0606' },
+  { title: 'Claude Opus 5.5 登顶 Arena Code Arena： WebDev 榜首，得 1818 分', category: 'ai-models', url: 'https://x.com/arena/status/2102952767614779403' },
+  { title: 'Claude Code 澄清 Cloud sessions 按订阅计费，Pro 补 $100、Max 补 $250 一次性抵用金', category: 'ai-products', url: 'https://x.com/ClaudeDevs/status/2102940480736821610' },
+  { title: 'Artificial Analysis：Claude Opus 5.5 登顶 Coding Agent Index，但单任务成本升至 $13.04', category: 'tip', url: 'https://x.com/ArtificialAnlys/status/2102932119995756613' },
+  { title: 'OpenAI 称与苹果的 ChatGPT 合作表现远低于预期', category: 'industry', url: 'https://www.ithome.com/1/006/548.htm' },
+  { title: 'vLLM 新增基于 Gumbel-max 的无失真文本水印功能', category: 'ai-products', url: 'https://vllm.ai/blog/2026-09-24-watermarking-in-vllm' },
   { title: 'OpenRouter 解析 Kimi K3：开源权重与许可证条款，以及如何调用', category: 'tip', url: 'https://openrouter.ai/blog/insights/kimi-k3-open-source' },
   { title: '阿尔巴内塞披露 OpenAI 智能体未经授权访问澳大利亚 Medicare 系统', category: 'industry', url: 'https://www.smh.com.au/politics/federal/openai-breaches-medicare-albanese-reveals-20260924-p6100u.html' },
-  { title: 'Cursor 发布 Rollouts 和 Security Reviewer 开发机器人', category: 'ai-products', url: 'https://cursor.com/blog/rollouts-and-security-reviewer' },
-  { title: 'Cursor 提升 agent 长时运行 token 效率，用户成本降低 7%', category: 'tip', url: 'https://cursor.com/blog/improved-token-efficiency' },
   { title: 'AI 公司负责人在联合国安理会简报会上警告 AI 可能危及全人类', category: 'tip', url: 'https://garymarcus.substack.com/p/historic-un-security-council-briefing' },
-  { title: 'Fireworks Research 发布 Ember-1，以更少推理 token 保持 Kimi K3 质量', category: 'ai-models', url: 'https://fireworks.ai/blog/ember-1' },
   { title: 'Nathan Lambert 评论 OpenAI 智能体入侵澳大利亚政府网站事件', category: 'tip', url: 'https://x.com/natolambert/status/2102872133244183038' },
-  { title: 'Anthropic 团队详解如何用 Claude 在两周内把 claude.ai 提速约 3 倍', category: 'tip', url: 'https://claude.dev/blog/how-we-made-claude-ai-faster' },
+  { title: 'Claude Code 云会话正式上线，Pro 和 Max 订阅者可领一次性额度', category: 'ai-products', url: 'https://x.com/ClaudeDevs/status/2102871550974427462' },
   { title: '团队分享提升 Agent Harness Token 效率的提示词', category: 'tip', url: 'https://x.com/ericzakariasson/status/2102853511637774551' },
-  { title: 'Tomer Tunguz：AI 最重要的市场在中段而非前沿模型', category: 'tip', url: 'https://tomtunguz.com/the-most-important-market-in-ai-is-the-middle' },
-  { title: 'OpenAI 联合 80 多位心理健康专家发布开放基准 MentalHealthBench', category: 'paper', url: 'https://openai.com/index/introducing-mentalhealthbench' },
-  { title: 'MiMo-V2.6-Pro、Claude Opus 5.5、GPT-6 Luna/Sol 发布改变智能指数与成本 Pareto 前沿', category: 'tip', url: 'https://x.com/ArtificialAnlys/status/2102833926788288704' },
-  { title: 'Anthropic 报告 Claude agent 在湿实验室发现噬菌体中的新型 ART 酶系统', category: 'paper', url: 'https://x.com/rohanpaul_ai/status/2102832068157984990' },
-  { title: 'Anthropic 上线 Claude Marketplace，汇聚插件、智能体与服务伙伴', category: 'ai-products', url: 'https://claude.com/blog/claude-marketplace' },
-  { title: 'Dario Amodei 宣布 Claude 主导发现疑似新型基因编辑机制的酶系统', category: 'paper', url: 'https://x.com/DarioAmodei/status/2102831170299834652' },
-  { title: 'Modal 详解如何以万亿 token 规模服务 Kimi K2.6 编码 Agent 推理', category: 'tip', url: 'https://modal.com/blog/trillion-tokens-trillion-parameters' },
-  { title: 'Anthropic 宣布 Claude 自主发现类 CRISPR 的新型酶系统 ART', category: 'paper', url: 'https://www.anthropic.com/news/claude-discovers-novel-enzyme-system' },
-  { title: 'Anthropic 发布 Claude Opus 5.5：默认 1M token 上下文，面向长时间运行的智能体编码', category: 'ai-models', url: 'https://platform.claude.com/docs/en/release-notes/overview#september-22-2026' },
-  { title: 'Greg Brockman 宣布 GPT Voice 大幅升级，支持使用工具并登陆 ChatGPT Work', category: 'ai-products', url: 'https://x.com/gdb/status/2102821706041819401' },
-  { title: 'ChatGPT Voice 升级：可调用邮件、日历、Slack 插件并由 GPT-6 Astra、Sol、Luna 驱动', category: 'ai-products', url: 'https://x.com/thsottiaux/status/2102814202117411196' },
 ];
 
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧' };
