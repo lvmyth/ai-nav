@@ -31,6 +31,7 @@ import base64
 import hashlib
 import subprocess
 import tempfile
+import time
 
 REPO = "lvmyth/ai-nav"
 BRANCH = "main"
@@ -40,6 +41,8 @@ BRANCH = "main"
 API_HOSTS = [
     "140.82.112.6", "20.205.243.165", "140.82.112.3", "140.82.112.4",
     "20.205.243.166", "20.205.243.167", "20.205.243.164", "192.30.255.112",
+    "140.82.121.5", "140.82.121.6", "140.82.113.3", "140.82.113.4",
+    "20.205.243.168", "140.82.114.3", "140.82.114.4", "20.205.243.169",
 ]
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -79,7 +82,7 @@ def load_token():
     return None
 
 
-API_IP = find_api_ip()
+API_IP = None  # 延迟选择：api() 内部优先系统 DNS 直连，失败再轮换 --resolve 候选 IP
 TOKEN = load_token()
 if not TOKEN:
     print("ERROR: 未找到 GitHub token（需设置环境变量 GITHUB_TOKEN 或存在 /root/.github_token）")
@@ -87,10 +90,13 @@ if not TOKEN:
 
 
 def api(method, path, data=None):
-    cmd = ["curl", "-sS", "-X", method,
-           "-H", f"Authorization: Bearer {TOKEN}",
-           "-H", "Accept: application/vnd.github+json",
-           "--resolve", f"api.github.com:443:{API_IP}"]
+    """执行一次 GitHub API 调用。
+
+    连接策略：优先系统 DNS 直连 api.github.com；若失败，自动轮换
+    --resolve 候选 IP（应对沙箱 DNS 不通 / GitHub IP 漂移）。
+    返回 (returncode, stdout)，成功且 stdout 非空时 returncode=0。
+    """
+    global API_IP
     tmp = None
     if data is not None:
         tf = tempfile.NamedTemporaryFile(
@@ -98,11 +104,34 @@ def api(method, path, data=None):
         json.dump(data, tf)
         tf.close()
         tmp = tf.name
-        cmd += ["-H", "Content-Type: application/json", "-d", f"@{tmp}"]
-    cmd.append("https://api.github.com" + path)
     try:
-        r = subprocess.run(cmd, capture_output=True, text=True)
-        return r.returncode, r.stdout
+        def one_try(ip):
+            cmd = ["curl", "-sS", "-X", method,
+                   "-H", f"Authorization: Bearer {TOKEN}",
+                   "-H", "Accept: application/vnd.github+json"]
+            if ip:
+                cmd += ["--resolve", f"api.github.com:443:{ip}"]
+            if tmp:
+                cmd += ["-H", "Content-Type: application/json", "-d", f"@{tmp}"]
+            cmd.append("https://api.github.com" + path)
+            r = subprocess.run(cmd, capture_output=True, text=True)
+            if r.returncode == 0 and r.stdout.strip():
+                return True, r.stdout
+            return False, r.stderr
+        # 连接顺序：直连 → 当前已知 IP → 其余候选
+        order = [None]
+        if API_IP:
+            order.append(API_IP)
+        for ip in API_HOSTS:
+            if ip not in order:
+                order.append(ip)
+        for ip in order:
+            ok, out = one_try(ip)
+            if ok:
+                if ip:
+                    API_IP = ip
+                return 0, out
+        return 1, ""
     finally:
         if tmp and os.path.exists(tmp):
             os.unlink(tmp)
@@ -139,9 +168,6 @@ def blob_sha(data):
 
 def cmd_pull():
     """把远程 main 最新版本同步到本地工作区。"""
-    if not API_IP:
-        print("ERROR: 无法连通 api.github.com，pull 失败")
-        return 2
     tree = get_tree()
     # 1) 强制覆盖核心文件（index.html + 两个脚本）
     for f in SYNC_FILES:
@@ -165,22 +191,25 @@ def cmd_pull():
     return 0
 
 
-def put_file(local_path, message, remote_sha):
+def put_file(local_path, message, remote_sha, retries=3):
     with open(local_path, "rb") as f:
         b64 = base64.b64encode(f.read()).decode()
     data = {"message": message, "content": b64, "branch": BRANCH}
     if remote_sha:
         data["sha"] = remote_sha
-    rc, out = api("PUT", f"/repos/{REPO}/contents/{local_path}", data)
-    ok = (rc == 0 and '"sha"' in out)
-    return ok, out[:200]
+    last = ""
+    for i in range(retries):
+        rc, out = api("PUT", f"/repos/{REPO}/contents/{local_path}", data)
+        if rc == 0 and '"sha"' in out:
+            return True, out[:200]
+        last = out[:200]
+        if i < retries - 1:
+            time.sleep(2)
+    return False, last
 
 
 def cmd_push():
     """对比本地与远程，只推送真正不同的文件。"""
-    if not API_IP:
-        print("ERROR: 无法连通 api.github.com，push 失败")
-        return 2
     tree = get_tree()
     # 收集本地候选文件
     candidates = []
@@ -226,7 +255,11 @@ def main():
     if len(sys.argv) < 2 or sys.argv[1] not in ("pull", "push"):
         print("用法: python3 ai_nav_deploy.py [pull|push]")
         return 1
-    return cmd_pull() if sys.argv[1] == "pull" else cmd_push()
+    try:
+        return cmd_pull() if sys.argv[1] == "pull" else cmd_push()
+    except RuntimeError as e:
+        print(f"ERROR: {e}")
+        return 2
 
 
 if __name__ == "__main__":
