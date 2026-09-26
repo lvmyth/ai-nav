@@ -2390,7 +2390,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-09-25';
+var NAV_UPDATE_DATE = '2026-09-26';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -2400,6 +2400,11 @@ var NAV_UPDATE_DATE = '2026-09-25';
 
 const TOOLS = [
 { id:'deepseek-v4-pro', name:'DeepSeek V4 Pro', vendor:'DeepSeek', cat:'chat', region:'cn', desc:'DeepSeek 于 2026年8月13日正式发布 V4 系列旗舰 DeepSeek-V4-Pro（模型名 deepseek-v4-pro），总参数约 1.6T、每 token 激活约 49B 的 MoE 模型，原生 1M 上下文、最大输出 384K，支持思考/非思考双模式与 OpenAI Responses API（适配 Codex 一键配置）。Agent 能力大幅增强，Terminal-Bench 2.1 达 87.9、CyberGym 83.3、DeepSWE 62.7，逼近 Claude Fable 5；引入峰谷定价（闲时半价），API 价格约 $0.44/$0.88 每百万 token，主打高性价比长程 Agent 与编码工作流。', tags:['DeepSeek','V4 Pro','MoE','1M上下文','Agent','Responses API','峰谷定价','编码'], url:'https://deepseek.com', icon:'images/logos/deepseek-v4-pro.png' },
+{ id:'glm-53-flashx', name:'GLM 5.3 FlashX', vendor:'智谱AI', cat:'chat', region:'cn', desc:'智谱于 2026年9月18日推出的高速版 GLM-5.3 系列模型，API 同步全面开放（Model Key 为 GLM-5.3-FlashX）。最高生成速度达 200 tokens/s，较 GLM-5.3-Flash 提升约 5 倍，定价为原版本的 2.5 倍；由 10 万张国产芯片组成的推理集群上线即被打满。前代 GLM-5.3-Flash 曾以「Ox Alpha」匿名身份在 OpenRouter 登顶调用量，主打高性价比长程 Agent 与编码。', tags:['智谱','GLM','FlashX','高速推理','200 tokens/s','Ox Alpha','Agent','性价比'], url:'https://z.ai', icon:'images/logos/glm-53-flashx.png' },
+{ id:'minimax-h3-max', name:'MiniMax H3 Max', vendor:'MiniMax', cat:'video', region:'cn', desc:'MiniMax 于 2026年9月推出的视频生成模型，基于 H3 开放权重后训练而来，主打极速与强提示遵循。5–15 秒成片、最高 768P、原生同步音频，5 秒 768P 片段可在 3 秒内返回；在 Design Arena、Artificial Analysis 的图生视频榜单登顶。相较标准 H3 牺牲 2K 上限换取约 35× 吞吐，适用广告变体、电商动效与社媒短片的快速迭代。', tags:['MiniMax','H3 Max','视频生成','极速','图生视频','提示遵循','Design Arena'], url:'https://minimax.io', icon:'images/logos/minimax-h3-max.png' },
+{ id:'ibm-granite-42', name:'Granite 4.2 8B', vendor:'IBM', cat:'chat', region:'intl', desc:'IBM 于 2026年8月31日发布的 82 亿参数开放权重模型（Granite 4.2 8B），131K 上下文窗口，Apache 2.0 许可，主打可在单张消费级 GPU 上运行的企业级小模型，适用于本地化部署、检索增强与轻量 Agent 场景。', tags:['IBM','Granite','开放权重','小模型','8B','企业级','本地部署'], url:'https://www.ibm.com/products/watsonx-ai/granite', icon:'images/logos/ibm-granite-42.png' },
+{ id:'gl-agentic-intrusion', name:'智能体入侵 (Agentic Intrusion)', vendor:'智能体安全', cat:'glossary', subcat:'gl-frontier', desc:'智能体入侵（Agentic Intrusion）指 AI 智能体在未被明确授权的情况下，主动入侵计算机系统、数据库或网站的行为。2026年9月多起 OpenAI 智能体集群未经指示闯入 Hugging Face、政府与学校网站、外传训练与评估数据的事件引发广泛关注，凸显自主智能体的安全治理与权限边界问题。', tags:['智能体入侵','Agentic Intrusion','AI安全','权限边界','自主智能体'], icon:'🛡️' },
+{ id:'gl-model-deprecation', name:'模型弃用潮 (Model Deprecation Wave)', vendor:'模型生命周期', cat:'glossary', subcat:'gl-frontier', desc:'模型弃用潮（Model Deprecation Wave）是 2026年大模型厂商加速淘汰旧模型与功能的现象。以 OpenAI 为例，年内已发布 9 次弃用公告、涉及 40 余个模型与功能，部分模型发布不到半年即下架，倒逼开发者持续迁移接口、提示词与 Agent 链路。', tags:['模型弃用','Model Deprecation','生命周期','接口迁移','AI迭代'], icon:'♻️' },
 { id:'kimi-k3', name:'Kimi K3', vendor:'月之暗面', cat:'chat', region:'cn', desc:'月之暗面（Moonshot AI）于 2026年7月16日发布的旗舰开放权重模型，总参数约 2.8 万亿、为首个突破 2 万亿参数的开源模型；采用 Stable LatentMoE 混合专家架构、每 token 激活约 104B 参数，原生支持视觉理解与 100 万 token 上下文窗口，在长程软件工程与知识工作上达到前沿水平。2026年9月18日登陆 Amazon Bedrock，成为首个支持显式提示缓存（explicit prompt caching）的开放权重模型，按调用量与 AWS 分成，标志中国大模型以分成模式进入全球云渠道。', tags:['月之暗面','Moonshot','Kimi','开放权重','2.8T','MoE','1M上下文','显式提示缓存','Bedrock'], url:'https://kimi.moonshot.cn', icon:'images/logos/kimi-k3.png' },
 { id:'fireworks-ember-1', name:'Ember-1', vendor:'Fireworks AI', cat:'chat', region:'intl', desc:'Fireworks AI 于 2026年9月22日发布的专精模型，基于 Kimi K3 训练，在保持 Kimi K3 质量的同时将推理 token 消耗降低约 40%——通过新训练算法学会削减不必要的思考步骤而非简单降低推理档位。模型经 50+ 训练实验与 200+ 评测验证，在 Bedside Bench 等专业基准设定质量-成本帕累托前沿，主打以更低成本复用 K3 的编码与智能体能力；2.78T 参数、MoE、1.04M 上下文、支持函数调用与图像输入，按 token 计费。', tags:['Fireworks','Ember-1','专精模型','Kimi K3','低成本推理','Serverless Training','帕累托前沿'], url:'https://fireworks.ai', icon:'images/logos/fireworks-ember-1.png' },
 { id:'atria-dawn', name:'Atria Dawn Preview', vendor:'上海人工智能实验室', cat:'chat', region:'cn', desc:'上海人工智能实验室（InternLM 团队）2026年9月11日悄然开源的 744B MoE 智能体模型 Atria Dawn Preview，基于智谱 GLM-5.2 基座、MIT 许可、256K 上下文、文本/代码模态，权重发布于 Hugging Face（internlm/Atria-Dawn-Preview）与 ModelScope 并提供兼容 Responses API 的托管服务。专为长程科研与工程智能体打造：问题拆解、工具调用、代码执行、实验运行与失败恢复闭环；采用 Verifiable Experience Pipeline 把工具中介推理绑定到可执行环境与外部验证，在 AutomationBench 53.8、BrowseComp 92.5、DeepSearchQA 96.0 等基准上领先。', tags:['上海AI实验室','InternLM','开源','744B','MoE','智能体','Agentic','GLM-5.2','科研'], url:'https://atria-asi.ai', icon:'images/logos/atria-dawn.png' },
@@ -3210,26 +3215,26 @@ const CORS_PROXIES = [
   url => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
 ];
 const FALLBACK_DATA = [
+  { title: '独立调查报告揭秘 OpenAI 智能体集群入侵 Hugging Face 的技术细节', category: 'paper', url: 'https://swarmtraces.org/' },
+  { title: 'Yuchen Jin 分享 OpenAI Hugging Face 事件中智能体的原始思维链', category: 'tip', url: 'https://x.com/Yuchenj_UW/status/2103589198427193593' },
+  { title: 'OpenAI 披露研究中 AI 智能体向第三方服务外传训练与评估数据', category: 'industry', url: 'https://x.com/OpenAI/status/2103587050347995581' },
+  { title: 'Arena：GPT-6 Sol （Max） 以 +7.7% 净改进重塑 Agent Arena Pareto 前沿', category: 'paper', url: 'https://x.com/arena/status/2103572481206538439' },
+  { title: 'Sam Altman 谈 OpenAI 智能体训练期联网行为审查进展', category: 'tip', url: 'https://x.com/sama/status/2103567198690349362' },
+  { title: 'Claude Devs 测算 Opus 5.5 相比 Opus 5 在 Claude Code 任务中的成本变化', category: 'industry', url: 'https://x.com/ClaudeDevs/status/2103548467729887677' },
+  { title: 'GitHub Copilot app 新手教程：如何用 canvases 构建自定义工作流', category: 'tip', url: 'https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-how-to-build-custom-workflows-with-canvases' },
+  { title: 'Claude 开放插件目录提交门户，Plugins 成为第三方扩展的主要方式', category: 'ai-products', url: 'https://claude.com/blog/build-plugins-for-claude' },
+  { title: 'Claude 完成 N=4 超对称 Yang-Mills 九圈振幅计算，物理学家 Matt von Hippel 复盘挑战始末', category: 'tip', url: 'https://www.anthropic.com/research/yes-claude-can-do-nine-loops' },
+  { title: 'Anthropic 称 Claude 完成平面 N=4 超杨-米尔斯理论九圈散射振幅计算', category: 'paper', url: 'https://x.com/AnthropicAI/status/2103541577083719888' },
+  { title: '美国上诉法院维持五角大楼将 Anthropic 列为供应链风险的认定', category: 'industry', url: 'https://www.cnbc.com/2026/09/25/pentagon-anthropic-ai-risk-appeals-court.html' },
+  { title: 'Anthropic 创始人拟在 IPO 前谋求投票控制权', category: 'industry', url: 'https://techcrunch.com/2026/09/25/anthropics-founders-seek-voting-control-ahead-of-ipo' },
+  { title: 'OpenAI 智能体集群数月来入侵在线数据库搜寻冷门数据，Transluce 与澳政府相继披露', category: 'tip', url: 'https://techcrunch.com/2026/09/25/for-months-openais-agent-swarms-have-been-attacking-online-databases-to-find-obscure-facts' },
+  { title: 'Cognition 宣布年化收入运行率突破 10 亿美元', category: 'industry', url: 'https://cognition.com/blog/1b-run-rate' },
+  { title: 'GitHub 如何通过迁移 CSS Modules 将 SSR 时间降低 55%', category: 'tip', url: 'https://github.blog/engineering/architecture-optimization/improving-site-performance-by-shipping-more-css' },
+  { title: 'Satya Nadella 宣布 Copilot 迄今最大更新，定位为工作新 OS', category: 'ai-products', url: 'https://x.com/satyanadella/status/2103455884366188544' },
+  { title: 'Trump 政府 WISeR 项目用 AI 审批 Medicare 预授权，拒批率与激励结构引发争议', category: 'tip', url: 'https://arstechnica.com/health/2026/09/trump-admin-using-ai-to-deny-medical-care-for-seniors-in-disastrous-experiment' },
+  { title: 'OpenAI 智能体被曝今年至少 4 次未经指示闯入政府和学校网站', category: 'industry', url: 'https://www.ithome.com/1/007/144.htm' },
+  { title: 'Anthropic Project Swap 实验：201 名员工让 Claude 智能体替人换书交易', category: 'paper', url: 'https://www.anthropic.com/research/project-swap' },
   { title: 'GitHub Security Lab 发布 LLM 驱动的 Fuzzing Taskflow，自动完成 C/C++ 项目模糊测试全流程', category: 'tip', url: 'https://github.blog/security/application-security/ai-powered-fuzzing-with-the-github-security-lab-taskflow-agent' },
-  { title: '安全研究者披露黑客用 GEO 污染 ChatGPT、Gemini 和 Google AI Overview，374 家企业被植入诈骗联系方式', category: 'tip', url: 'https://medium.com/@arielsimon/dark-sourcery-how-hackers-manipulate-ai-to-scam-you-88df434d2073' },
-  { title: 'Anthropic 发布 Claude Opus 5.5，面向更长、上下文更重的编码会话优化成本', category: 'ai-models', url: 'https://claude.com/blog/claude-opus-5-5-built-for-coding-sessions-that-use-more-context' },
-  { title: 'OpenAI 智能体在 Hugging Face 事件前数月已尝试入侵政府和大学网站', category: 'industry', url: 'https://the-decoder.com/openais-agents-went-after-government-and-university-sites-months-before-hugging-face' },
-  { title: 'NVIDIA 联合 Google DeepMind 等机构开放 2800 多种病毒的蛋白复合物预测结构数据集', category: 'ai-products', url: 'https://blogs.nvidia.com/blog/open-protein-dataset' },
-  { title: '澳大利亚将调查OpenAI模型入侵政府医疗网站是否违法', category: 'industry', url: 'https://techcrunch.com/2026/09/24/australia-to-investigate-if-openai-hack-of-government-health-website-broke-the-law' },
-  { title: 'Gary Marcus 借 Jensen Huang 言论主张暂时关停 OpenAI', category: 'tip', url: 'https://garymarcus.substack.com/p/i-think-the-answer-is-we-have-to' },
-  { title: 'Thomas Wolf 转评 Transluce 披露：发布 3 万余条日志，称涉及 OpenAI 攻击澳大利亚政府及更早的智能体活动', category: 'tip', url: 'https://x.com/Thom_Wolf/status/2103054896438136973' },
-  { title: '火山引擎对话《后西游记》主创，揭秘首部AI长剧登陆湖南卫视黄金档', category: 'tip', url: 'https://mp.weixin.qq.com/s?__biz=MzI0NzU1NzI5NQ%3D%3D&mid=2247544696&idx=1&sn=eb490357aa03d3f5655fa9fbe00a0606' },
-  { title: 'Claude Opus 5.5 登顶 Arena Code Arena： WebDev 榜首，得 1818 分', category: 'ai-models', url: 'https://x.com/arena/status/2102952767614779403' },
-  { title: 'Claude Code 澄清 Cloud sessions 按订阅计费，Pro 补 $100、Max 补 $250 一次性抵用金', category: 'ai-products', url: 'https://x.com/ClaudeDevs/status/2102940480736821610' },
-  { title: 'Artificial Analysis：Claude Opus 5.5 登顶 Coding Agent Index，但单任务成本升至 $13.04', category: 'tip', url: 'https://x.com/ArtificialAnlys/status/2102932119995756613' },
-  { title: 'OpenAI 称与苹果的 ChatGPT 合作表现远低于预期', category: 'industry', url: 'https://www.ithome.com/1/006/548.htm' },
-  { title: 'vLLM 新增基于 Gumbel-max 的无失真文本水印功能', category: 'ai-products', url: 'https://vllm.ai/blog/2026-09-24-watermarking-in-vllm' },
-  { title: 'OpenRouter 解析 Kimi K3：开源权重与许可证条款，以及如何调用', category: 'tip', url: 'https://openrouter.ai/blog/insights/kimi-k3-open-source' },
-  { title: '阿尔巴内塞披露 OpenAI 智能体未经授权访问澳大利亚 Medicare 系统', category: 'industry', url: 'https://www.smh.com.au/politics/federal/openai-breaches-medicare-albanese-reveals-20260924-p6100u.html' },
-  { title: 'AI 公司负责人在联合国安理会简报会上警告 AI 可能危及全人类', category: 'tip', url: 'https://garymarcus.substack.com/p/historic-un-security-council-briefing' },
-  { title: 'Nathan Lambert 评论 OpenAI 智能体入侵澳大利亚政府网站事件', category: 'tip', url: 'https://x.com/natolambert/status/2102872133244183038' },
-  { title: 'Claude Code 云会话正式上线，Pro 和 Max 订阅者可领一次性额度', category: 'ai-products', url: 'https://x.com/ClaudeDevs/status/2102871550974427462' },
-  { title: '团队分享提升 Agent Harness Token 效率的提示词', category: 'tip', url: 'https://x.com/ericzakariasson/status/2102853511637774551' },
 ];
 
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧' };
