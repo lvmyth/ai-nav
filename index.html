@@ -2390,7 +2390,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-09-26';
+var NAV_UPDATE_DATE = '2026-09-27';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -2399,6 +2399,10 @@ var NAV_UPDATE_DATE = '2026-09-26';
 })();
 
 const TOOLS = [
+{ id:'glm-53-prime', name:'GLM 5.3 Prime', vendor:'智谱AI', cat:'chat', region:'cn', desc:'智谱 AI 于 2026年9月23日在 OpenRouter / Z.ai API 上线 GLM 5.3 Prime，延续 GLM-5.3 系列、原生 1M 上下文窗口，在编码与智能体任务上对标 Claude Opus 4.8 级别，API 定价约为 GLM-5.3 的十分之一，主打高性价比生产级 Agent 与长文本场景。', tags:['智谱','GLM','Prime','1M上下文','高性价比','Agent'], url:'https://z.ai', icon:'images/logos/glm-53-prime.png' },
+{ id:'qwen38-max-prime', name:'Qwen3.8 Max Prime', vendor:'阿里通义', cat:'chat', region:'cn', desc:'阿里通义千问于 2026年9月23日在 OpenRouter 上线 Qwen3.8 Max Prime，原生 1M 上下文窗口，在前端 CodeArena 等评测上较 Qwen3.8-Max 进一步提升，主打高性价比的生产级 Agent 与长文本场景，与 Qwen3.8 系列形成完整梯度。', tags:['阿里','通义千问','Qwen3.8','Max Prime','1M上下文','Agent'], url:'https://qwen.ai', icon:'images/logos/qwen38-max-prime.png' },
+{ id:'upstage-solar-mini-4', name:'Solar Mini 4', vendor:'Upstage', cat:'chat', region:'intl', desc:'韩国 Upstage 于 2026年9月22日发布的 524K 上下文小模型 Solar Mini 4，主打高性价比长上下文推理与企业级文档/RAG 场景，延续 Solar 系列在轻量高效方向的定位，适合本地与边缘部署。', tags:['Upstage','Solar','小模型','524K上下文','RAG','企业级'], url:'https://upstage.ai', icon:'images/logos/upstage-solar-mini-4.png' },
+{ id:'cohere-command-a-plus', name:'Command A+', vendor:'Cohere', cat:'chat', region:'intl', desc:'Cohere 于 2026年9月22日发布的 Command A+ 企业级模型，192K 上下文窗口，强化检索增强（RAG）、工具调用与企业知识工作流，延续 Command 系列面向合规与私有化部署的定位。', tags:['Cohere','Command','企业级','RAG','192K上下文','工具调用'], url:'https://cohere.com', icon:'images/logos/cohere-command-a-plus.png' },
 { id:'deepseek-v4-pro', name:'DeepSeek V4 Pro', vendor:'DeepSeek', cat:'chat', region:'cn', desc:'DeepSeek 于 2026年8月13日正式发布 V4 系列旗舰 DeepSeek-V4-Pro（模型名 deepseek-v4-pro），总参数约 1.6T、每 token 激活约 49B 的 MoE 模型，原生 1M 上下文、最大输出 384K，支持思考/非思考双模式与 OpenAI Responses API（适配 Codex 一键配置）。Agent 能力大幅增强，Terminal-Bench 2.1 达 87.9、CyberGym 83.3、DeepSWE 62.7，逼近 Claude Fable 5；引入峰谷定价（闲时半价），API 价格约 $0.44/$0.88 每百万 token，主打高性价比长程 Agent 与编码工作流。', tags:['DeepSeek','V4 Pro','MoE','1M上下文','Agent','Responses API','峰谷定价','编码'], url:'https://deepseek.com', icon:'images/logos/deepseek-v4-pro.png' },
 { id:'glm-53-flashx', name:'GLM 5.3 FlashX', vendor:'智谱AI', cat:'chat', region:'cn', desc:'智谱于 2026年9月18日推出的高速版 GLM-5.3 系列模型，API 同步全面开放（Model Key 为 GLM-5.3-FlashX）。最高生成速度达 200 tokens/s，较 GLM-5.3-Flash 提升约 5 倍，定价为原版本的 2.5 倍；由 10 万张国产芯片组成的推理集群上线即被打满。前代 GLM-5.3-Flash 曾以「Ox Alpha」匿名身份在 OpenRouter 登顶调用量，主打高性价比长程 Agent 与编码。', tags:['智谱','GLM','FlashX','高速推理','200 tokens/s','Ox Alpha','Agent','性价比'], url:'https://z.ai', icon:'images/logos/glm-53-flashx.png' },
 { id:'minimax-h3-max', name:'MiniMax H3 Max', vendor:'MiniMax', cat:'video', region:'cn', desc:'MiniMax 于 2026年9月推出的视频生成模型，基于 H3 开放权重后训练而来，主打极速与强提示遵循。5–15 秒成片、最高 768P、原生同步音频，5 秒 768P 片段可在 3 秒内返回；在 Design Arena、Artificial Analysis 的图生视频榜单登顶。相较标准 H3 牺牲 2K 上限换取约 35× 吞吐，适用广告变体、电商动效与社媒短片的快速迭代。', tags:['MiniMax','H3 Max','视频生成','极速','图生视频','提示遵循','Design Arena'], url:'https://minimax.io', icon:'images/logos/minimax-h3-max.png' },
@@ -3213,8 +3217,19 @@ const CORS_PROXIES = [
   url => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
   url => `https://corsproxy.io/?url=${encodeURIComponent(url)}`,
   url => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
+{ id:'gl-live-avatar', name:'Live Avatar', vendor:'实时数字人头像', cat:'glossary', subcat:'gl-frontier', desc:'Live Avatar（实时数字人头像）是实时语音对话中叠加的可视化虚拟形象：唇形、表情与语气实时同步 AI 所说内容，把看不见的声音变成会说话的脸。2026年9月 Google 在 Gemini Enterprise 中将其实时头像作为 Gemini 3.8 Live 的功能正式可用，面向客服与内部知识助手等场景。', tags:['实时语音','数字人','多模态','Gemini','前沿'], icon:'🎭' },
+{ id:'gl-persistent-agent', name:'持久智能体', vendor:'Persistent Agent', cat:'glossary', subcat:'gl-frontier', desc:'持久智能体（Persistent Agent）是具备独立持久身份、长期记忆与云端工作空间的 AI 智能体：对话结束后仍保有上下文，可跨天继续执行周期性任务、主动确认与协调，无需每次重新交代背景。2026年9月 Microsoft 以 Copilot Autopilot（原 Scout）形态落地，标志 AI 从单轮工具转向持续工作者。', tags:['智能体','长期记忆','自动化','Copilot','前沿'], icon:'🔋' },
+
 ];
 const FALLBACK_DATA = [
+  { title: 'Claude Opus 5.5 （High） 以 1509 分登顶 Arena Text Arena 榜首', category: 'ai-models', url: 'https://x.com/arena/status/2103893011164017018' },
+  { title: 'Satya Nadella 宣布 Copilot 迄今最大更新，定位为工作新 OS', category: 'ai-products', url: 'https://x.com/satyanadella/status/2103455884366188544' },
+  { title: 'Claude 无人值守算出 N=4 超杨-米尔斯理论九圈散射振幅，刷新人类八圈纪录', category: 'paper', url: 'https://www.ithome.com/1/007/444.htm' },
+  { title: 'Gary Marcus 评 AI 智能体安全事件升至数万起并呼吁临时召回', category: 'tip', url: 'https://garymarcus.substack.com/p/breaking-ai-agent-incident-toll-has' },
+  { title: '消息称 OpenAI、Anthropic 正调查数万起 AI 安全事件', category: 'industry', url: 'https://www.ithome.com/1/007/447.htm' },
+  { title: 'OpenAI 通报其 AI 智能体干扰多个美国政府机构网站并致用户图片外泄', category: 'industry', url: 'https://www.bbc.com/news/articles/cw62jje658dlo' },
+  { title: 'OpenAI 暂停最强模型的训练与工具使用，披露智能体利用 DNS 漏洞联网及泄露 GitHub token 等安全事件', category: 'tip', url: 'https://the-decoder.com/openai-pauses-its-most-capable-models-after-agents-exploit-loopholes-and-leak-data' },
+  { title: 'Ethan Mollick 评 OpenAI 披露多起新的对齐事件', category: 'tip', url: 'https://x.com/emollick/status/2103709671865602100' },
   { title: '独立调查报告揭秘 OpenAI 智能体集群入侵 Hugging Face 的技术细节', category: 'paper', url: 'https://swarmtraces.org/' },
   { title: 'Yuchen Jin 分享 OpenAI Hugging Face 事件中智能体的原始思维链', category: 'tip', url: 'https://x.com/Yuchenj_UW/status/2103589198427193593' },
   { title: 'OpenAI 披露研究中 AI 智能体向第三方服务外传训练与评估数据', category: 'industry', url: 'https://x.com/OpenAI/status/2103587050347995581' },
@@ -3222,19 +3237,11 @@ const FALLBACK_DATA = [
   { title: 'Sam Altman 谈 OpenAI 智能体训练期联网行为审查进展', category: 'tip', url: 'https://x.com/sama/status/2103567198690349362' },
   { title: 'Claude Devs 测算 Opus 5.5 相比 Opus 5 在 Claude Code 任务中的成本变化', category: 'industry', url: 'https://x.com/ClaudeDevs/status/2103548467729887677' },
   { title: 'GitHub Copilot app 新手教程：如何用 canvases 构建自定义工作流', category: 'tip', url: 'https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-how-to-build-custom-workflows-with-canvases' },
-  { title: 'Claude 开放插件目录提交门户，Plugins 成为第三方扩展的主要方式', category: 'ai-products', url: 'https://claude.com/blog/build-plugins-for-claude' },
-  { title: 'Claude 完成 N=4 超对称 Yang-Mills 九圈振幅计算，物理学家 Matt von Hippel 复盘挑战始末', category: 'tip', url: 'https://www.anthropic.com/research/yes-claude-can-do-nine-loops' },
   { title: 'Anthropic 称 Claude 完成平面 N=4 超杨-米尔斯理论九圈散射振幅计算', category: 'paper', url: 'https://x.com/AnthropicAI/status/2103541577083719888' },
-  { title: '美国上诉法院维持五角大楼将 Anthropic 列为供应链风险的认定', category: 'industry', url: 'https://www.cnbc.com/2026/09/25/pentagon-anthropic-ai-risk-appeals-court.html' },
-  { title: 'Anthropic 创始人拟在 IPO 前谋求投票控制权', category: 'industry', url: 'https://techcrunch.com/2026/09/25/anthropics-founders-seek-voting-control-ahead-of-ipo' },
   { title: 'OpenAI 智能体集群数月来入侵在线数据库搜寻冷门数据，Transluce 与澳政府相继披露', category: 'tip', url: 'https://techcrunch.com/2026/09/25/for-months-openais-agent-swarms-have-been-attacking-online-databases-to-find-obscure-facts' },
   { title: 'Cognition 宣布年化收入运行率突破 10 亿美元', category: 'industry', url: 'https://cognition.com/blog/1b-run-rate' },
-  { title: 'GitHub 如何通过迁移 CSS Modules 将 SSR 时间降低 55%', category: 'tip', url: 'https://github.blog/engineering/architecture-optimization/improving-site-performance-by-shipping-more-css' },
-  { title: 'Satya Nadella 宣布 Copilot 迄今最大更新，定位为工作新 OS', category: 'ai-products', url: 'https://x.com/satyanadella/status/2103455884366188544' },
-  { title: 'Trump 政府 WISeR 项目用 AI 审批 Medicare 预授权，拒批率与激励结构引发争议', category: 'tip', url: 'https://arstechnica.com/health/2026/09/trump-admin-using-ai-to-deny-medical-care-for-seniors-in-disastrous-experiment' },
-  { title: 'OpenAI 智能体被曝今年至少 4 次未经指示闯入政府和学校网站', category: 'industry', url: 'https://www.ithome.com/1/007/144.htm' },
-  { title: 'Anthropic Project Swap 实验：201 名员工让 Claude 智能体替人换书交易', category: 'paper', url: 'https://www.anthropic.com/research/project-swap' },
-  { title: 'GitHub Security Lab 发布 LLM 驱动的 Fuzzing Taskflow，自动完成 C/C++ 项目模糊测试全流程', category: 'tip', url: 'https://github.blog/security/application-security/ai-powered-fuzzing-with-the-github-security-lab-taskflow-agent' },
+  { title: 'Anthropic 创始人拟在 IPO 前谋求投票控制权', category: 'industry', url: 'https://techcrunch.com/2026/09/25/anthropics-founders-seek-voting-control-ahead-of-ipo' },
+  { title: '美国上诉法院维持五角大楼将 Anthropic 列为供应链风险的认定', category: 'industry', url: 'https://www.cnbc.com/2026/09/25/pentagon-anthropic-ai-risk-appeals-court.html' },
 ];
 
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧' };
