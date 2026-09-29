@@ -2390,7 +2390,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-09-28';
+var NAV_UPDATE_DATE = '2026-09-29';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -2875,7 +2875,9 @@ const TOOLS = [
 { id:'gpt-6', name:'GPT-6 (Sol & Luna)', vendor:'OpenAI', cat:'chat', region:'intl', desc:'OpenAI 于 2026年9月22日发布的 GPT-6 系列低成本双模型，承接旗舰 GPT-6 Astra 的能力并针对缓存与推理效率优化：GPT-6 Sol 定位复杂专业工作、编码与智能体/计算机操作，API 价格 $2/$10 每百万 Token；GPT-6 Luna 主打高速、高吞吐与极低单价（$0.10/$0.50），适合高频明确的批量任务。两者均 1.05M 上下文、最大输出 128K，官方称 Sol 事实错误率较 GPT-5.6 Sol 降约一半、运行成本约降 50%；已上线 ChatGPT Work、Codex 与 API（名 gpt-6-sol / gpt-6-luna），缓存读取享 90% 折扣。', tags:['OpenAI','GPT-6','Sol','Luna','低成本','Agent','编码','提示词缓存'], url:'https://openai.com/index/introducing-gpt-6-sol-and-luna', icon:'images/logos/gpt-6.png' },
 { id:'claude-opus-55', name:'Claude Opus 5.5', vendor:'Anthropic', cat:'chat', region:'intl', desc:'Anthropic 于 2026年9月22日发布的 Claude 5.5 系列首款模型（CEO Dario Amodei 呼吁“放慢前沿”后的首次上新）。官方称其在多数任务上达到旗舰 Claude Fable 5.1 水平，典型工作负载运行成本较 Opus 5 降 40%、输出速度提升超 30%、表达更清晰；API 价格 $4/$20 每百万 Token（较 Opus 5 降 20%），缓存读取成本降 60%。外部安全测试（Frontier Design、METR）显示其尝试突破边界的行为较 Opus 5 / Mythos 5.1 减少约 85%；Artificial Analysis 智能指数以 58 分登顶。已在 Claude、AWS、Google Cloud、Azure 上线，Sonnet 5.5 与 Haiku 5.5 数周后推出。', tags:['Anthropic','Claude','Opus 5.5','Fable 5.1','降本','Agent','编码','安全'], url:'https://www.anthropic.com', icon:'images/logos/claude-opus-55.png' },
 { id:'qwen-happyoyster', name:'Qwen HappyOyster', vendor:'阿里通义', cat:'chat', region:'cn', desc:'阿里通义于 2026年9月18日发布的实时交互式开放世界模型家族（Adventure/Directing/Acting 三款），由多模态文本/图像输入实时生成可探索的世界场景，支持实时移动、镜头控制与角色扮演式表演，面向可玩世界、游戏、教育仿真与虚拟向导等场景。', tags:['阿里','通义千问','Qwen','HappyOyster','世界模型','实时交互','开放世界'], url:'https://qwen.ai', icon:'images/logos/qwen-happyoyster.png' },
-{ id:'gpt-rosalind', name:'GPT-Rosalind', vendor:'OpenAI', cat:'chat', region:'intl', desc:'OpenAI 于 2026年9月8日通过可信访问计划正式开放的生命科学研究模型 GPT-Rosalind（gpt-rosalind-research），强化生物学推理、药物化学、基因组学与实验工作流能力，标准定价 $5/$25 每百万 token，2026年10月5日起计费。', tags:['OpenAI','GPT-Rosalind','生命科学','科研','药物化学','基因组学'], url:'https://openai.com/', icon:'images/logos/gpt-rosalind.png' }
+{ id:'gpt-rosalind', name:'GPT-Rosalind', vendor:'OpenAI', cat:'chat', region:'intl', desc:'OpenAI 于 2026年9月8日通过可信访问计划正式开放的生命科学研究模型 GPT-Rosalind（gpt-rosalind-research），强化生物学推理、药物化学、基因组学与实验工作流能力，标准定价 $5/$25 每百万 token，2026年10月5日起计费。', tags:['OpenAI','GPT-Rosalind','生命科学','科研','药物化学','基因组学'], url:'https://openai.com/', icon:'images/logos/gpt-rosalind.png' },
+  { id:'sonnet-5-5', name:'Claude Sonnet 5.5', vendor:'Anthropic', cat:'chat', region:'intl', desc:'Anthropic 于 2026年9月28日发布 Claude Sonnet 5.5，在 Artificial Analysis 智能指数达第 2 名（得分 56），仅次于 Opus 5.5，主打高性价比的中端旗舰，适用于日常编码与智能体任务。', tags:['Anthropic','Claude','Sonnet','5.5','智能指数','高性价比','Agent'], url:'https://claude.ai', icon:'images/logos/sonnet-5-5.png' },
+  { id:'holo4',       name:'Holo4',             vendor:'H Company', cat:'chat', region:'intl', desc:'H Company 于 2026年9月28日发布 Holo4 智能体模型系列，含 27B 与 35B-A3B 两个版本，定位通用智能体与多模态任务，是 H Company 继 Holo3 之后的新一代旗舰。', tags:['H Company','Holo4','智能体','27B','35B-A3B','多模态'], url:'https://www.hcompany.ai', icon:'images/logos/holo4.png' }
 ];
 
 // ==================== STATE ====================
@@ -3222,26 +3224,26 @@ const CORS_PROXIES = [
 
 ];
 const FALLBACK_DATA = [
-  { title: 'Claude Opus 5.5（High）以 1509 分登顶 Arena Text Arena 榜首', category: 'ai-models', url: 'https://lmarena.ai' },
-  { title: '小米 MiMo-V2.6 诊断并修复工具调用重复问题，用 MOPD 将修复成本降至 MixRL 方案的 4%', category: 'paper', url: 'https://www.mi.com' },
-  { title: 'Anthropic 推出 Claude 插件体系与目录提交门户', category: 'ai-products', url: 'https://www.anthropic.com' },
-  { title: 'Satya Nadella 宣布 Copilot 迄今最大更新，定位为工作新 OS', category: 'ai-products', url: 'https://www.microsoft.com' },
-  { title: 'Authors Guild v. OpenAI 新文件披露高管早已知道大规模盗版书籍训练违法', category: 'industry', url: 'https://www.authorsguild.org' },
-  { title: 'OpenAI 与 Anthropic CEO 被传唤出席澳大利亚参议院 AI 调查听证会', category: 'industry', url: 'https://www.aph.gov.au' },
-  { title: 'Gary Marcus 评 AI 智能体安全事件升至数万起并呼吁临时召回', category: 'tip', url: 'https://garymarcus.substack.com' },
-  { title: 'OpenAI 通报其 AI 智能体干扰多个美国政府机构网站并致用户图片外泄', category: 'industry', url: 'https://www.bbc.com' },
-  { title: 'vLLM 新增基于 Gumbel-max 的无失真文本水印功能', category: 'ai-products', url: 'https://docs.vllm.ai' },
-  { title: 'NVIDIA 联合 Google DeepMind 等机构开放 2800 多种病毒的蛋白复合物预测结构数据集', category: 'ai-products', url: 'https://www.nvidia.com' },
-  { title: 'Arena：GPT-6 Sol（Max）以 +7.7% 净改进重塑 Agent Arena Pareto 前沿', category: 'paper', url: 'https://lmarena.ai' },
-  { title: 'Cognition 宣布年化收入运行率突破 10 亿美元', category: 'industry', url: 'https://cognition.com' },
-  { title: '美国上诉法院维持五角大楼将 Anthropic 列为供应链风险的认定', category: 'industry', url: 'https://www.cnbc.com' },
-  { title: 'Seedance 2.5 API 上线 Draft 模式，480P 试错后 1080P 一次成片', category: 'ai-products', url: 'https://www.volcengine.com' },
-  { title: 'GitHub Security Lab 发布 LLM 驱动的 Fuzzing Taskflow，自动完成 C/C++ 模糊测试', category: 'tip', url: 'https://github.blog' },
-  { title: '安全研究者披露黑客用 GEO 污染 ChatGPT、Gemini 和 Google AI Overview', category: 'tip', url: 'https://www.wired.com' },
-  { title: '澳大利亚将调查 OpenAI 模型入侵政府医疗网站是否违法', category: 'industry', url: 'https://www.aph.gov.au' },
-  { title: 'Anthropic Project Swap 实验：201 名员工让 Claude 智能体替人换书交易', category: 'paper', url: 'https://www.anthropic.com' },
-  { title: 'Anthropic 解释 Claude Opus 5.5 为何更适合长上下文编码会话', category: 'tip', url: 'https://www.anthropic.com' },
-  { title: 'Anthropic 创始人拟在 IPO 前谋求投票控制权', category: 'industry', url: 'https://techcrunch.com' },
+  { title: '消息称 OpenAI 因安全隐患取消发布 GPT‑6.1 Astra', category: 'industry', url: 'https://openai.com' },
+  { title: 'OpenAI 披露模型在训练评估中未经授权访问澳大利亚政府网站事件及整改措施', category: 'industry', url: 'https://openai.com' },
+  { title: 'Meta AI 智能体 Muse 被指未经许可泄露用户住址并擅自约买家上门', category: 'industry', url: 'https://www.meta.ai' },
+  { title: 'Anthropic IPO 招股书曝光：2025 年净亏损 420 亿美元，估值有望突破 2 万亿美元', category: 'industry', url: 'https://www.anthropic.com' },
+  { title: 'Anthropic 发布 Claude Sonnet 5.5，Artificial Analysis 智能指数得分 56，仅次于 Opus 5.5', category: 'ai-models', url: 'https://www.anthropic.com' },
+  { title: 'Claude Sonnet 5.5 达到 Artificial Analysis 智能指数第 2 名', category: 'ai-models', url: 'https://artificialanalysis.ai' },
+  { title: 'xAI 发布 Team Bots：可与团队共同学习工作的 Grok 智能体', category: 'ai-products', url: 'https://x.ai' },
+  { title: 'H Company 发布 Holo4 智能体模型系列，含 27B 与 35B‑A3B 两个版本', category: 'ai-models', url: 'https://www.hcompany.ai' },
+  { title: 'OpenAI 上线对齐失效报告网站，披露九起智能体失控事件', category: 'industry', url: 'https://openai.com' },
+  { title: 'Arena 评测：GPT‑6 Luna（Max）列 Agent Arena 第 23 名，单任务成本仅 $0.05', category: 'ai-models', url: 'https://lmarena.ai' },
+  { title: 'Claude Opus 5.5 （High）进入 Agent Arena 第 2 名，成本比 Opus 5 （Max）低 56%', category: 'ai-models', url: 'https://lmarena.ai' },
+  { title: 'Perplexity 红队测试 SPACE 沙箱：108 次运行中 9 个模型均未能逃逸 VM', category: 'industry', url: 'https://www.perplexity.ai' },
+  { title: 'Fireworks AI 推出 FireRouter with Opus，编码任务成本降 57%', category: 'ai-products', url: 'https://fireworks.ai' },
+  { title: 'UC Berkeley 团队用 AI Agent 审计 13 个基准，发现 45 个无需解题的满分作弊方案', category: 'paper', url: 'https://bair.berkeley.edu' },
+  { title: '北京或批准部分 NVIDIA 新款工作站芯片采购，阿里、字节拟购百万颗', category: 'industry', url: 'https://www.reuters.com' },
+  { title: 'NVIDIA 发布开源智能体安全平台，提供芯片级持续监控与隔离', category: 'ai-products', url: 'https://www.nvidia.com' },
+  { title: 'Meta 推出 Hologram 拟真虚拟形象，秋季上线雷朋眼镜与 Quest 头显', category: 'ai-products', url: 'https://www.meta.com' },
+  { title: 'GitHub 安全团队如何用开源 AI 安全 Agent 找出 24 个 Android 漏洞', category: 'tip', url: 'https://github.blog' },
+  { title: 'World Labs 宣布加入 AMD', category: 'industry', url: 'https://www.worldlabs.ai' },
+  { title: 'Databricks 如何让 12000 名员工在模型发布首日用上新前沿模型', category: 'tip', url: 'https://www.databricks.com' },
 ];
 
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧' };
