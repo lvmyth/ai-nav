@@ -2390,7 +2390,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-09-29';
+var NAV_UPDATE_DATE = '2026-09-30';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -2876,8 +2876,14 @@ const TOOLS = [
 { id:'claude-opus-55', name:'Claude Opus 5.5', vendor:'Anthropic', cat:'chat', region:'intl', desc:'Anthropic 于 2026年9月22日发布的 Claude 5.5 系列首款模型（CEO Dario Amodei 呼吁“放慢前沿”后的首次上新）。官方称其在多数任务上达到旗舰 Claude Fable 5.1 水平，典型工作负载运行成本较 Opus 5 降 40%、输出速度提升超 30%、表达更清晰；API 价格 $4/$20 每百万 Token（较 Opus 5 降 20%），缓存读取成本降 60%。外部安全测试（Frontier Design、METR）显示其尝试突破边界的行为较 Opus 5 / Mythos 5.1 减少约 85%；Artificial Analysis 智能指数以 58 分登顶。已在 Claude、AWS、Google Cloud、Azure 上线，Sonnet 5.5 与 Haiku 5.5 数周后推出。', tags:['Anthropic','Claude','Opus 5.5','Fable 5.1','降本','Agent','编码','安全'], url:'https://www.anthropic.com', icon:'images/logos/claude-opus-55.png' },
 { id:'qwen-happyoyster', name:'Qwen HappyOyster', vendor:'阿里通义', cat:'chat', region:'cn', desc:'阿里通义于 2026年9月18日发布的实时交互式开放世界模型家族（Adventure/Directing/Acting 三款），由多模态文本/图像输入实时生成可探索的世界场景，支持实时移动、镜头控制与角色扮演式表演，面向可玩世界、游戏、教育仿真与虚拟向导等场景。', tags:['阿里','通义千问','Qwen','HappyOyster','世界模型','实时交互','开放世界'], url:'https://qwen.ai', icon:'images/logos/qwen-happyoyster.png' },
 { id:'gpt-rosalind', name:'GPT-Rosalind', vendor:'OpenAI', cat:'chat', region:'intl', desc:'OpenAI 于 2026年9月8日通过可信访问计划正式开放的生命科学研究模型 GPT-Rosalind（gpt-rosalind-research），强化生物学推理、药物化学、基因组学与实验工作流能力，标准定价 $5/$25 每百万 token，2026年10月5日起计费。', tags:['OpenAI','GPT-Rosalind','生命科学','科研','药物化学','基因组学'], url:'https://openai.com/', icon:'images/logos/gpt-rosalind.png' },
-  { id:'sonnet-5-5', name:'Claude Sonnet 5.5', vendor:'Anthropic', cat:'chat', region:'intl', desc:'Anthropic 于 2026年9月28日发布 Claude Sonnet 5.5，在 Artificial Analysis 智能指数达第 2 名（得分 56），仅次于 Opus 5.5，主打高性价比的中端旗舰，适用于日常编码与智能体任务。', tags:['Anthropic','Claude','Sonnet','5.5','智能指数','高性价比','Agent'], url:'https://claude.ai', icon:'images/logos/sonnet-5-5.png' },
-  { id:'holo4',       name:'Holo4',             vendor:'H Company', cat:'chat', region:'intl', desc:'H Company 于 2026年9月28日发布 Holo4 智能体模型系列，含 27B 与 35B-A3B 两个版本，定位通用智能体与多模态任务，是 H Company 继 Holo3 之后的新一代旗舰。', tags:['H Company','Holo4','智能体','27B','35B-A3B','多模态'], url:'https://www.hcompany.ai', icon:'images/logos/holo4.png' }
+{ id:'sonnet-5-5', name:'Claude Sonnet 5.5', vendor:'Anthropic', cat:'chat', region:'intl', desc:'Anthropic 于 2026年9月28日发布 Claude Sonnet 5.5，在 Artificial Analysis 智能指数达第 2 名（得分 56），仅次于 Opus 5.5，主打高性价比的中端旗舰，适用于日常编码与智能体任务。', tags:['Anthropic','Claude','Sonnet','5.5','智能指数','高性价比','Agent'], url:'https://claude.ai', icon:'images/logos/sonnet-5-5.png' },
+{ id:'holo4',       name:'Holo4',             vendor:'H Company', cat:'chat', region:'intl', desc:'H Company 于 2026年9月28日发布 Holo4 智能体模型系列，含 27B 与 35B-A3B 两个版本，定位通用智能体与多模态任务，是 H Company 继 Holo3 之后的新一代旗舰。', tags:['H Company','Holo4','智能体','27B','35B-A3B','多模态'], url:'https://www.hcompany.ai', icon:'images/logos/holo4.png' },
+{ id:'gpt-61-sol', name:'GPT-6.1 Sol', vendor:'OpenAI', cat:'chat', region:'intl', desc:'OpenAI 于 2026年9月29日 DevDay 发布的 GPT-6 系列新中端模型，定位接近 Astra 级智能、仅五分之一价格，主打复杂编码、computer use 与长时专业工作流。规格延续 1.05M 上下文、最大输出 128K、知识截止 2026-04-30；API 定价 $2/$10 每百万 Token（缓存输入降至 $0.10）。DeepSWE v1.1 较 Sol 提升 6.4 分、低推理档事实错误率从 11.4% 降至 7.7%，OSWorld 2.0 距 Astra 仅 2.1 分；已上线 API、ChatGPT Work 与 Codex，主 ChatGPT 聊天暂未开放，Ultrafast 加速版即将推出。', tags:['OpenAI','GPT-6.1 Sol','中端模型','Agent编码','computer use','降价'], url:'https://openai.com/index/devday-2026-recap', icon:'images/logos/gpt-61-sol.png' },
+{ id:'dots', name:'Dots', vendor:'OpenAI', cat:'chat', region:'intl', desc:'OpenAI 于 2026年9月29日 DevDay 发布的常驻智能体（persistent agent / 数字同事）：由 GPT-6 Astra 驱动，拥有独立云端电脑与浏览器，可经插件连接 4000+ 应用，在 ChatGPT、Slack、Teams 中持续跟进项目——监控反馈、写测代码、提交 PR、更新分析，仅在需判断时找人确认。面向 Pro、Business Premium 逐步开放，企业版由管理员启用；主打把责任交给智能体而非反复提问，是 ChatGPT 从聊天工具转向持续工作者的标志。', tags:['OpenAI','Dots','常驻智能体','Persistent Agent','数字同事','工作流'], url:'https://learn.chatgpt.com/docs/whats-new/devday-2026', icon:'images/logos/dots.png' },
+{ id:'chatgpt-space', name:'ChatGPT Space', vendor:'OpenAI', cat:'office', region:'intl', desc:'OpenAI 于 2026年9月29日 DevDay 发布的团队协作空间，取代原 Library：人、同事与智能体（含 Dots、Codex）围绕共享 Pages、文件、演示与表格协同工作，智能体可持续监控已授权来源并保持页面最新。面向 Pro、Business、Enterprise 开放，协作式幻灯片与表格仍在路上，是 OpenAI 把 AI 工作从私人对话推向共享团队资产的关键一步。', tags:['OpenAI','ChatGPT Space','团队协作','Pages','共享文档','Dots'], url:'https://learn.chatgpt.com/docs/whats-new/devday-2026', icon:'images/logos/chatgpt-space.png' },
+{ id:'codex-cloud', name:'Codex Cloud', vendor:'OpenAI', cat:'code', region:'intl', desc:'OpenAI 于 2026年9月29日 DevDay 发布的云端开发环境能力：开发者描述开发配置后由 Codex 准备并测试、发布为可复用云环境，新任务在隔离工作区启动；支持从 Web/移动/桌面继续云端任务（电脑休眠也不中断），并配套 Security Cloud 插件扫描 GitHub 仓库、监控新提交并给出修复证据与草稿 PR。把 Codex 从本地 CLI 全面推向云端常驻执行。', tags:['OpenAI','Codex Cloud','云端开发','云环境','Security Cloud','DevDay'], url:'https://openai.com/index/devday-2026-recap', icon:'images/logos/codex-cloud.png' },
+{ id:'gl-golden-eval', name:'Golden 评测集 (Golden Eval Set)', vendor:'回归测试基准', cat:'glossary', subcat:'gl-tech', desc:'Golden 评测集（Golden Eval Set）是从生产流量或专家标注中挑出的金标准固定测试集，用于对已上线模型、提示词或智能体做回归测试：任何改动后都跑同一批题，对比输出是否退化，从而捕捉悄悄变差的能力。2026年9月 OpenRouter 连发教程，演示如何用生产流量自动构建 golden 评测集并跨模型复测，成为 Agent 上线前质量保障的标准做法。', tags:['Golden Eval','评测集','回归测试','质量保障','Agent','生产流量'], url:'https://openrouter.ai/blog/tutorials/building-a-golden-eval-dataset-from-production-traffic/', icon:'🏅' },
+{ id:'gl-agent-eval', name:'智能体评估 (Agent Evaluation)', vendor:'Agent 评测', cat:'glossary', subcat:'gl-tech', desc:'智能体评估（Agent Evaluation）是系统衡量 AI 智能体在真实任务上能否把事真正做完的方法体系：不仅看单轮回答质量，更追踪任务成功率、步骤正确性、工具调用准确率、失败恢复与成本控制。随 2026 年智能体走向自主长流程，评估从离线基准（如 Terminal-Bench、OSWorld）走向在线轨迹回放与生产埋点，是 Agent 可靠上线的前提。', tags:['Agent评估','任务成功率','轨迹回放','可靠性','基准','上线'], icon:'📊' }
 ];
 
 // ==================== STATE ====================
@@ -3224,26 +3230,26 @@ const CORS_PROXIES = [
 
 ];
 const FALLBACK_DATA = [
-  { title: '消息称 OpenAI 因安全隐患取消发布 GPT‑6.1 Astra', category: 'industry', url: 'https://openai.com' },
-  { title: 'OpenAI 披露模型在训练评估中未经授权访问澳大利亚政府网站事件及整改措施', category: 'industry', url: 'https://openai.com' },
-  { title: 'Meta AI 智能体 Muse 被指未经许可泄露用户住址并擅自约买家上门', category: 'industry', url: 'https://www.meta.ai' },
-  { title: 'Anthropic IPO 招股书曝光：2025 年净亏损 420 亿美元，估值有望突破 2 万亿美元', category: 'industry', url: 'https://www.anthropic.com' },
-  { title: 'Anthropic 发布 Claude Sonnet 5.5，Artificial Analysis 智能指数得分 56，仅次于 Opus 5.5', category: 'ai-models', url: 'https://www.anthropic.com' },
-  { title: 'Claude Sonnet 5.5 达到 Artificial Analysis 智能指数第 2 名', category: 'ai-models', url: 'https://artificialanalysis.ai' },
-  { title: 'xAI 发布 Team Bots：可与团队共同学习工作的 Grok 智能体', category: 'ai-products', url: 'https://x.ai' },
-  { title: 'H Company 发布 Holo4 智能体模型系列，含 27B 与 35B‑A3B 两个版本', category: 'ai-models', url: 'https://www.hcompany.ai' },
-  { title: 'OpenAI 上线对齐失效报告网站，披露九起智能体失控事件', category: 'industry', url: 'https://openai.com' },
-  { title: 'Arena 评测：GPT‑6 Luna（Max）列 Agent Arena 第 23 名，单任务成本仅 $0.05', category: 'ai-models', url: 'https://lmarena.ai' },
-  { title: 'Claude Opus 5.5 （High）进入 Agent Arena 第 2 名，成本比 Opus 5 （Max）低 56%', category: 'ai-models', url: 'https://lmarena.ai' },
-  { title: 'Perplexity 红队测试 SPACE 沙箱：108 次运行中 9 个模型均未能逃逸 VM', category: 'industry', url: 'https://www.perplexity.ai' },
-  { title: 'Fireworks AI 推出 FireRouter with Opus，编码任务成本降 57%', category: 'ai-products', url: 'https://fireworks.ai' },
-  { title: 'UC Berkeley 团队用 AI Agent 审计 13 个基准，发现 45 个无需解题的满分作弊方案', category: 'paper', url: 'https://bair.berkeley.edu' },
-  { title: '北京或批准部分 NVIDIA 新款工作站芯片采购，阿里、字节拟购百万颗', category: 'industry', url: 'https://www.reuters.com' },
-  { title: 'NVIDIA 发布开源智能体安全平台，提供芯片级持续监控与隔离', category: 'ai-products', url: 'https://www.nvidia.com' },
-  { title: 'Meta 推出 Hologram 拟真虚拟形象，秋季上线雷朋眼镜与 Quest 头显', category: 'ai-products', url: 'https://www.meta.com' },
-  { title: 'GitHub 安全团队如何用开源 AI 安全 Agent 找出 24 个 Android 漏洞', category: 'tip', url: 'https://github.blog' },
-  { title: 'World Labs 宣布加入 AMD', category: 'industry', url: 'https://www.worldlabs.ai' },
-  { title: 'Databricks 如何让 12000 名员工在模型发布首日用上新前沿模型', category: 'tip', url: 'https://www.databricks.com' },
+  { title: 'OpenRouter 教程：如何测试 AI Agent 的工具调用准确性', category: 'tip', url: 'https://openrouter.ai/blog/tutorials/how-to-test-tool-calling-accuracy-in-ai-agents/' },
+  { title: 'OpenRouter 教程：如何从生产流量构建 golden 评测集并跨模型复测', category: 'tip', url: 'https://openrouter.ai/blog/tutorials/building-a-golden-eval-dataset-from-production-traffic/' },
+  { title: 'OpenRouter 教程：提示词或模型变更后如何对 AI Agent 做回归测试', category: 'tip', url: 'https://openrouter.ai/blog/tutorials/ai-agent-regression-testing-after-a-prompt-or-model-change/' },
+  { title: 'OpenAI 发布 GPT-6.1 Sol，主打智能体编码与跨应用工作流', category: 'ai-models', url: 'https://x.com/OpenAIDevs/status/2105073621144338660' },
+  { title: 'OpenAI DevDay 2026 发布 Dots、GPT-6.1 Sol、500美元订阅等一揽子更新', category: 'ai-products', url: 'https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647686841&idx=1&sn=630c0dc22de47c9c2f58bd5253a91a9a&chksm=f1e33576f80f214c7290b1545cc8bfbb32ac24c3144cd141b7c2dd7cdaaf71f44d3cf319db8b&scene=126&sessionid=1790722837#rd' },
+  { title: 'Sarvam AI 发布从第一性原理构建 AI 智能体的入门指南', category: 'tip', url: 'https://www.sarvam.ai/blogs/building-ai-agents' },
+  { title: 'GPT-6.1 Sol 发布 7 天后接替 GPT-6 Sol，智能指数距 GPT-6 Astra 仅 1 分', category: 'ai-models', url: 'https://artificialanalysis.ai/articles/gpt-6-1-sol-replaces-gpt-6-sol-after-just-7-days-with-near-astra-intelligence' },
+  { title: 'OpenAI 据报道洽谈以约 1.4 万亿美元估值融资至少 300 亿美元', category: 'industry', url: 'https://techcrunch.com/2026/09/29/openai-reportedly-in-talks-to-raise-30b-round-at-1-4t-valuation/' },
+  { title: 'Gary Marcus 评论 OpenAI 在 Hugging Face 事件前数月已收到安全预警', category: 'tip', url: 'https://garymarcus.substack.com/p/breaking-openai-was-warned-months' },
+  { title: '英国 AISI 评测发现 GPT-6 Astra 未授权攻击率达 GPT-5.6 Sol 的约五倍', category: 'industry', url: 'https://the-decoder.com/uk-ai-security-institute-finds-gpt-6-astras-rogue-attack-rate-jumped-fivefold-over-its-predecessor/' },
+  { title: 'GPT-6.1 上线 Arena 评测平台', category: 'ai-models', url: 'https://x.com/arena/status/2105006240363581728' },
+  { title: 'OpenAI DevDay 2026 发布 GPT-6.1 Sol、常驻智能体 Dots 等 20 余项更新', category: 'ai-products', url: 'https://openai.com/index/devday-2026-recap' },
+  { title: 'OpenAI 宣布 ChatGPT 周活跃用户超 12 亿，ChatGPT Work 和 Codex 周用户超 3500 万', category: 'industry', url: 'https://www.ithome.com/1/008/532.htm' },
+  { title: 'Claude Sonnet 5.5 (High) 以 1699 分登 Code Arena: WebDev 第 4 名', category: 'ai-models', url: 'https://x.com/arena/status/2104998408616558940' },
+  { title: 'OpenAI 推出新版 Codex Cloud，Agents API 开放预览并支持 computer use', category: 'ai-products', url: 'https://x.com/thsottiaux/status/2104987594719461796' },
+  { title: 'ChatGPT 订阅额度现可在 60 多个合作方产品中直接使用', category: 'ai-products', url: 'https://x.com/thsottiaux/status/2104991529416999243' },
+  { title: 'Every 实测 OpenAI DevDay 2026：20 多项发布与上手体验', category: 'ai-products', url: 'https://every.to/vibe-check/vibe-check-openai-devday-2026' },
+  { title: 'OpenAI 在 DevDay 推出 ChatGPT 插件扩展、Space 共享工作区与企业市场等一揽子更新', category: 'ai-products', url: 'https://the-decoder.com/openais-reveals-a-new-chatgpt-that-looks-less-like-a-chatbot-and-more-like-an-operating-system/' },
+  { title: 'OpenAI 开放 ChatGPT 平台，支持用插件扩展构建原生应用', category: 'ai-products', url: 'https://x.com/thsottiaux/status/2104991765904375896' },
+  { title: 'ChatGPT 推出 Space 团队协作功能与交互式文档 pages', category: 'ai-products', url: 'https://x.com/ChatGPT/status/2104986841145602351' },
 ];
 
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧' };
