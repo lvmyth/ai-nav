@@ -2390,7 +2390,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-09-30';
+var NAV_UPDATE_DATE = '2026-10-01';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -2399,6 +2399,14 @@ var NAV_UPDATE_DATE = '2026-09-30';
 })();
 
 const TOOLS = [
+{ id:'gemini-4-argon', name:'Gemini 4 Argon', vendor:'Google DeepMind', cat:'chat', region:'intl', desc:'Google DeepMind 于 2026年9月30日发布的 Gemini 4 系列首款前沿模型，定位复杂工作流：真实软件工程、企业知识工作（法律、金融）与网络安全防御。主打 100 万 token 输出上限与自主发现、验证、修复关键漏洞的防御能力，初期仅通过 Fairwind 计划向可信测试者开放，定价 $2/$10 每百万 token，在 Vals Index、AutomationBench、DeepSWE 等基准上对标 GPT-6 Astra 与 Claude Fable 5.1。', tags:['Google','DeepMind','Gemini 4','前沿模型','网络安全防御','1M输出','Fairwind'], url:'https://deepmind.google/technologies/gemini/', icon:'images/logos/gemini-4-argon.png' },
+{ id:'gpt-6-astra', name:'GPT-6 Astra', vendor:'OpenAI', cat:'chat', region:'intl', desc:'OpenAI 于 2026年9月3日发布的旗舰前沿模型，号称全球最智能且对齐程度最高的模型。在 computer use、浏览、软件工程、网络安全、科学与专业工作上达到 SOTA：FrontierMath Tier 4 达 98%、ARC-AGI-3 达 99.9%、ExploitBench 达 100%，并刷新 Terminal-Bench 4.0 与 Agents\' Last Exam 等专业基准。1.05M 上下文、128K 最大输出、知识截止 2026-04-30，API 定价 $10/$50 每百万 token，作为首个被定为网络安全 Critical 级的模型，先向 Daybreak 防御者计划开放。', tags:['OpenAI','GPT-6 Astra','前沿模型','Computer Use','FrontierMath','对齐','Critical级'], url:'https://openai.com/index/gpt-6-astra/', icon:'images/logos/gpt-6-astra.png' },
+{ id:'mimo-v26-pro', name:'MiMo-V2.6-Pro', vendor:'小米', cat:'chat', region:'cn', desc:'小米于 2026年9月22日全量开源的旗舰推理模型，1.02T 总参/42B 激活 MoE，原生全模态（文本/图像/视频/音频输入），1M 上下文、128K 最大输出，MIT 许可。Artificial Analysis 综合智能指数 46，为当时最强开源模型，逼近 GPT-5.6 Sol；配套 Flash（309B/15B）与 Pro-UltraSpeed（提速 20 倍）版本，RL 训练全程公开直播，被称为递归自我改进（RSI）探索的第一步。', tags:['小米','MiMo','开源','1.02T','全模态','MIT','RSI','Agent'], url:'https://mimo.xiaomi.com/mimo-v2-6', icon:'images/logos/mimo-v26-pro.png' },
+{ id:'grok-46', name:'Grok 4.6', vendor:'xAI', cat:'chat', region:'intl', desc:'xAI（现 SpaceXAI）于 2026年8月12日发布的编程与知识工作前沿模型，在 Grok 4.5 基础上强化长程智能体与更具野心的交互/视觉任务。AA 智能指数 61（与 GPT-5.6 Sol 持平），500K 上下文、四档推理强度，定价 $2/$6 每百万 token；已上架 Microsoft Foundry、Amazon Bedrock、Gemini Enterprise 与 GitHub Copilot。', tags:['xAI','Grok 4.6','编程模型','长程Agent','500K上下文','低成本'], url:'https://x.ai/news/grok-4-6', icon:'images/logos/grok-46.png' },
+{ id:'seedream-45', name:'Seedream 4.5', vendor:'字节跳动', cat:'image', region:'cn', desc:'字节跳动 Seed 团队发布的图像创作模型，通过对模型整体的 scaling 实现全方位提升：多图组合可精准识别并稳定锁定主体、保持原图特征与细节质感，强化海报等密集文字的排版渲染能力，输出高一致性、高保真度的视觉作品。已通过火山引擎（Doubao-Seedream-4.5）向公众开放测试，支持高精度图文混排。', tags:['字节跳动','Seed','Seedream','图像生成','海报排版','主体一致性','火山引擎'], url:'https://seed.bytedance.com/zh/seedream4_5', icon:'images/logos/seedream-45.png' },
+{ id:'gl-synthid-bio', name:'SynthID Bio', vendor:'AI 生成蛋白水印', cat:'glossary', subcat:'gl-tech', desc:'SynthID Bio 是 Google DeepMind 于 2026年9月发布的、面向 AI 生成蛋白质的可验证水印技术：在 AI 设计的蛋白质序列与结构中嵌入隐形、可被验证的标记，使其与天然或人工蛋白区分开来，从而追踪合成生物学产物的来源、抑制生物滥用风险。是 SynthID 水印体系从图像/音频向生命科学延伸的关键一步。', tags:['SynthID','水印','蛋白质','合成生物','DeepMind','溯源'], icon:'🧬' },
+{ id:'gl-fairwind', name:'Fairwind 计划 (Fairwind Program)', vendor:'可信测试者计划', cat:'glossary', subcat:'gl-frontier', desc:'Fairwind Program 是 Google DeepMind 推出的前沿模型可信测试者计划，用于在新模型广泛开放前，先向经过审核的防御性安全与生命科学研究者等可信方限量开放高危能力（如 Gemini 4 Argon 的网络安全防御）。是前沿实验室以分级受控方式平衡能力释放与滥用的主流治理手段之一。', tags:['Fairwind','可信访问','前沿模型','治理','Google','受控开放'], icon:'🌬️' },
+{ id:'gl-safety-pledge', name:'AI 安全自愿协议 (Voluntary AI Safety Pledge)', vendor:'行业自律协议', cat:'glossary', subcat:'gl-frontier', desc:'AI 安全自愿协议是 2026年9月由美国特朗普政府推动、二十余家科技公司签署的自愿性 AI 安全承诺，要求企业在模型发布前开展安全测试、共享风险信息并参与行业自律，而非依赖强制立法。其效力与覆盖范围引发关于企业自我监管是否足够的广泛争论，是 AI 治理从硬监管转向软性契约的代表事件。', tags:['AI安全','自愿协议','行业自律','治理','政策','特朗普'], icon:'🤝' },
 { id:'glm-53-prime', name:'GLM 5.3 Prime', vendor:'智谱AI', cat:'chat', region:'cn', desc:'智谱 AI 于 2026年9月23日在 OpenRouter / Z.ai API 上线 GLM 5.3 Prime，延续 GLM-5.3 系列、原生 1M 上下文窗口，在编码与智能体任务上对标 Claude Opus 4.8 级别，API 定价约为 GLM-5.3 的十分之一，主打高性价比生产级 Agent 与长文本场景。', tags:['智谱','GLM','Prime','1M上下文','高性价比','Agent'], url:'https://z.ai', icon:'images/logos/glm-53-prime.png' },
 { id:'qwen38-max-prime', name:'Qwen3.8 Max Prime', vendor:'阿里通义', cat:'chat', region:'cn', desc:'阿里通义千问于 2026年9月23日在 OpenRouter 上线 Qwen3.8 Max Prime，原生 1M 上下文窗口，在前端 CodeArena 等评测上较 Qwen3.8-Max 进一步提升，主打高性价比的生产级 Agent 与长文本场景，与 Qwen3.8 系列形成完整梯度。', tags:['阿里','通义千问','Qwen3.8','Max Prime','1M上下文','Agent'], url:'https://qwen.ai', icon:'images/logos/qwen38-max-prime.png' },
 { id:'upstage-solar-mini-4', name:'Solar Mini 4', vendor:'Upstage', cat:'chat', region:'intl', desc:'韩国 Upstage 于 2026年9月22日发布的 524K 上下文小模型 Solar Mini 4，主打高性价比长上下文推理与企业级文档/RAG 场景，延续 Solar 系列在轻量高效方向的定位，适合本地与边缘部署。', tags:['Upstage','Solar','小模型','524K上下文','RAG','企业级'], url:'https://upstage.ai', icon:'images/logos/upstage-solar-mini-4.png' },
@@ -2488,7 +2496,6 @@ const TOOLS = [
 { id:'sensenova-vision', name:'SenseNova-Vision', vendor:'商汤科技', cat:'image', region:'cn', desc:'商汤7月16日开源的理解生成统一视觉大模型（7B MoT），让视觉成为通用基础模型的原生能力。单一模型覆盖目标检测、图像分割、深度估计、3D重建四大核心任务，登顶Hugging Face Any-to-Any榜单全球第一。同步开源5000万样本视觉指令语料库。', tags:['开源','统一视觉','检测分割','3D重建','HuggingFace榜首'], url:'https://github.com/OpenSenseNova/SenseNova-Vision', icon:'images/logos/sensenova-vision.svg' },
 { id:'minimax-h3',  name:'MiniMax H3',      vendor:'MiniMax',   cat:'image', region:'cn', desc:'MiniMax 7月31日发布的通用全模态生成模型，支持文本/图像/视频/声音统一理解，可输出原生双声道音视频，最高15秒2K分辨率视频生成。指令遵循和品牌信息呈现突出，2K分辨率每秒价格不到主流模型1/3，商用性价比极高。', tags:['全模态','2K视频','商用级','低价'], url:'https://www.minimaxi.com',          icon:'images/logos/minimax-h3.png' },
 { id:'k2-horizon', name:'K2 Horizon',      vendor:'IFM',      cat:'chat', region:'intl', desc:'IFM 9月3日发布的六款开源模型系列，参数覆盖 375B-A23B、36B-A4B、32B、7B、3.7B 与 0.9B，全部以 Apache 2.0 开源，并罕见地开放了完整训练生命周期（数据、中间检查点与训练配方），便于研究者复现与二次训练。官方称 0.9B、3.7B、7B 三档在各自参数规模上达到 SOTA；36B-A4B 采用新提出的稀疏注意力架构 MoVA。', tags:['开源','Apache 2.0','MoVA稀疏注意力','全尺寸家族','训练生命周期开放'], url:'https://ifm.ai/blog/k2', icon:'images/logos/k2-horizon.png' },
-{ id:'openai-astra',  name:'GPT-6 Astra',     vendor:'OpenAI',   cat:'chat', region:'intl', desc:'OpenAI 9月3日发布的新一代旗舰模型，官方定位为「计算机操作模型」而非聊天模型——它像人一样操作浏览器、表格、桌面应用与终端，直接把多步骤工作做完而不是描述怎么做。在得州 Stargate 基地用超 10 万块 GPU 训练，总裁 Greg Brockman 以「欢迎来到 AGI 时代」结束发布会。规格：1,050,000 Token 上下文、最大输出 128K、知识截止 2026年4月30日，输入支持文本+图像，reasoning.effort 在 high 之上新增 xhigh 与 max 两档，工具覆盖 computer use / hosted shell / apply patch / skills / MCP，不支持微调。基准：FrontierMath Tier 4 得 97.6%（GPT-5.6 Sol 83%）、ARC-AGI-3 官方 99.9%（Sol 7.8%）、OSWorld V2-Offline 72.6% 且平均任务耗时从约 75 分钟降至 40 分钟、Terminal-Bench 4.0 得 57.9%、Agents’ Last Exam 59.3%、ExploitBench 100%；还助推两项素数间隙数学新结果（短间隙界从 240 收紧到 186）。它是 OpenAI 首个在 Preparedness Framework 下网络安全达到「关键级」(Critical) 的模型，可在无人逐步引导下发现未知漏洞，评测中挖出并利用 2 个此前未知的 V8 零日，因此标准访问会拒绝高级网安任务。API 定价 $10/$50 每百万 Token（缓存输入 $1），Fast 模式 2 倍价换最高 2.5 倍速，已上线 OpenAI API 与 Amazon Bedrock，Plus/Pro/Business/Enterprise 数日内陆续开放。', tags:['GPT-6 Astra','计算机操作','1.05M上下文','ARC-AGI-3 99.9%','Critical网安','AGI时代','Stargate'], url:'https://openai.com/index/gpt-6-astra',          icon:'images/logos/openai-astra.svg' },
 { id:'lyria',          name:'Lyria 3.5',         vendor:'Google DeepMind', cat:'audio', region:'intl', desc:'Google DeepMind 7月29日发布的旗舰音乐生成模型，可在 Flow Music 中生成完整的 3 分钟歌曲，支持 BPM 与调性控制、多语言人声、保留歌曲结构的风格转换翻唱，还能经由 Gemini Omni Flash 生成对口型 MV。所有输出均带 SynthID 水印，提供免费端到端创作到发布链路。', tags:['音乐生成','Google','免费','Flow Music'], url:'https://deepmind.google/technologies/lyria/', icon:'images/logos/lyria.svg' },
 { id:'gemini-robot2', name:'Gemini Robotics 2', vendor:'Google DeepMind', cat:'chat', region:'intl', desc:'Google DeepMind 7月30日发布的新一代人形机器人基础模型，能全身上下协调控制——行走、下蹲、打结，双机协同操作。同期发布 Genie 3 世界模型——首个允许实时交互的世界模型，24fps/720p 模拟水光等自然现象，被视为迈向 AGI 的关键里程碑。', tags:['机器人','人形','具身智能','Genie 3','世界模型','AGI'], url:'https://deepmind.google',          icon:'images/logos/gemini-robot2.svg' },
 { id:'sora',       name:'Sora',            vendor:'OpenAI',   cat:'video', region:'intl', desc:'OpenAI 推出的文本生成视频模型，画面逼真、物理逻辑出色。',              tags:['高质量','逼真'],          url:'https://sora.com',              icon:'images/logos/sora.png' },
@@ -2884,7 +2891,7 @@ const TOOLS = [
 { id:'codex-cloud', name:'Codex Cloud', vendor:'OpenAI', cat:'code', region:'intl', desc:'OpenAI 于 2026年9月29日 DevDay 发布的云端开发环境能力：开发者描述开发配置后由 Codex 准备并测试、发布为可复用云环境，新任务在隔离工作区启动；支持从 Web/移动/桌面继续云端任务（电脑休眠也不中断），并配套 Security Cloud 插件扫描 GitHub 仓库、监控新提交并给出修复证据与草稿 PR。把 Codex 从本地 CLI 全面推向云端常驻执行。', tags:['OpenAI','Codex Cloud','云端开发','云环境','Security Cloud','DevDay'], url:'https://openai.com/index/devday-2026-recap', icon:'images/logos/codex-cloud.png' },
 { id:'gl-golden-eval', name:'Golden 评测集 (Golden Eval Set)', vendor:'回归测试基准', cat:'glossary', subcat:'gl-tech', desc:'Golden 评测集（Golden Eval Set）是从生产流量或专家标注中挑出的金标准固定测试集，用于对已上线模型、提示词或智能体做回归测试：任何改动后都跑同一批题，对比输出是否退化，从而捕捉悄悄变差的能力。2026年9月 OpenRouter 连发教程，演示如何用生产流量自动构建 golden 评测集并跨模型复测，成为 Agent 上线前质量保障的标准做法。', tags:['Golden Eval','评测集','回归测试','质量保障','Agent','生产流量'], url:'https://openrouter.ai/blog/tutorials/building-a-golden-eval-dataset-from-production-traffic/', icon:'🏅' },
 { id:'gl-agent-eval', name:'智能体评估 (Agent Evaluation)', vendor:'Agent 评测', cat:'glossary', subcat:'gl-tech', desc:'智能体评估（Agent Evaluation）是系统衡量 AI 智能体在真实任务上能否把事真正做完的方法体系：不仅看单轮回答质量，更追踪任务成功率、步骤正确性、工具调用准确率、失败恢复与成本控制。随 2026 年智能体走向自主长流程，评估从离线基准（如 Terminal-Bench、OSWorld）走向在线轨迹回放与生产埋点，是 Agent 可靠上线的前提。', tags:['Agent评估','任务成功率','轨迹回放','可靠性','基准','上线'], icon:'📊' }
-];
+]
 
 // ==================== STATE ====================
 let currentMode = 'tools';
@@ -3230,26 +3237,26 @@ const CORS_PROXIES = [
 
 ];
 const FALLBACK_DATA = [
-  { title: 'OpenRouter 教程：如何测试 AI Agent 的工具调用准确性', category: 'tip', url: 'https://openrouter.ai/blog/tutorials/how-to-test-tool-calling-accuracy-in-ai-agents/' },
-  { title: 'OpenRouter 教程：如何从生产流量构建 golden 评测集并跨模型复测', category: 'tip', url: 'https://openrouter.ai/blog/tutorials/building-a-golden-eval-dataset-from-production-traffic/' },
-  { title: 'OpenRouter 教程：提示词或模型变更后如何对 AI Agent 做回归测试', category: 'tip', url: 'https://openrouter.ai/blog/tutorials/ai-agent-regression-testing-after-a-prompt-or-model-change/' },
-  { title: 'OpenAI 发布 GPT-6.1 Sol，主打智能体编码与跨应用工作流', category: 'ai-models', url: 'https://x.com/OpenAIDevs/status/2105073621144338660' },
-  { title: 'OpenAI DevDay 2026 发布 Dots、GPT-6.1 Sol、500美元订阅等一揽子更新', category: 'ai-products', url: 'https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA==&mid=2647686841&idx=1&sn=630c0dc22de47c9c2f58bd5253a91a9a&chksm=f1e33576f80f214c7290b1545cc8bfbb32ac24c3144cd141b7c2dd7cdaaf71f44d3cf319db8b&scene=126&sessionid=1790722837#rd' },
-  { title: 'Sarvam AI 发布从第一性原理构建 AI 智能体的入门指南', category: 'tip', url: 'https://www.sarvam.ai/blogs/building-ai-agents' },
-  { title: 'GPT-6.1 Sol 发布 7 天后接替 GPT-6 Sol，智能指数距 GPT-6 Astra 仅 1 分', category: 'ai-models', url: 'https://artificialanalysis.ai/articles/gpt-6-1-sol-replaces-gpt-6-sol-after-just-7-days-with-near-astra-intelligence' },
-  { title: 'OpenAI 据报道洽谈以约 1.4 万亿美元估值融资至少 300 亿美元', category: 'industry', url: 'https://techcrunch.com/2026/09/29/openai-reportedly-in-talks-to-raise-30b-round-at-1-4t-valuation/' },
-  { title: 'Gary Marcus 评论 OpenAI 在 Hugging Face 事件前数月已收到安全预警', category: 'tip', url: 'https://garymarcus.substack.com/p/breaking-openai-was-warned-months' },
-  { title: '英国 AISI 评测发现 GPT-6 Astra 未授权攻击率达 GPT-5.6 Sol 的约五倍', category: 'industry', url: 'https://the-decoder.com/uk-ai-security-institute-finds-gpt-6-astras-rogue-attack-rate-jumped-fivefold-over-its-predecessor/' },
-  { title: 'GPT-6.1 上线 Arena 评测平台', category: 'ai-models', url: 'https://x.com/arena/status/2105006240363581728' },
-  { title: 'OpenAI DevDay 2026 发布 GPT-6.1 Sol、常驻智能体 Dots 等 20 余项更新', category: 'ai-products', url: 'https://openai.com/index/devday-2026-recap' },
-  { title: 'OpenAI 宣布 ChatGPT 周活跃用户超 12 亿，ChatGPT Work 和 Codex 周用户超 3500 万', category: 'industry', url: 'https://www.ithome.com/1/008/532.htm' },
-  { title: 'Claude Sonnet 5.5 (High) 以 1699 分登 Code Arena: WebDev 第 4 名', category: 'ai-models', url: 'https://x.com/arena/status/2104998408616558940' },
-  { title: 'OpenAI 推出新版 Codex Cloud，Agents API 开放预览并支持 computer use', category: 'ai-products', url: 'https://x.com/thsottiaux/status/2104987594719461796' },
-  { title: 'ChatGPT 订阅额度现可在 60 多个合作方产品中直接使用', category: 'ai-products', url: 'https://x.com/thsottiaux/status/2104991529416999243' },
-  { title: 'Every 实测 OpenAI DevDay 2026：20 多项发布与上手体验', category: 'ai-products', url: 'https://every.to/vibe-check/vibe-check-openai-devday-2026' },
-  { title: 'OpenAI 在 DevDay 推出 ChatGPT 插件扩展、Space 共享工作区与企业市场等一揽子更新', category: 'ai-products', url: 'https://the-decoder.com/openais-reveals-a-new-chatgpt-that-looks-less-like-a-chatbot-and-more-like-an-operating-system/' },
-  { title: 'OpenAI 开放 ChatGPT 平台，支持用插件扩展构建原生应用', category: 'ai-products', url: 'https://x.com/thsottiaux/status/2104991765904375896' },
-  { title: 'ChatGPT 推出 Space 团队协作功能与交互式文档 pages', category: 'ai-products', url: 'https://x.com/ChatGPT/status/2104986841145602351' },
+  { title: 'OpenRouter 教程：如何在 CI 中用 LLM eval 门禁拦截 Pull Request', category: 'tip', url: 'https://openrouter.ai/blog/tutorials/how-to-gate-pull-requests-on-llm-evals-in-ci/' },
+  { title: 'OpenRouter 发布 Agent 模型成本与质量权衡选型框架', category: 'tip', url: 'https://openrouter.ai/blog/insights/cost-vs-quality-tradeoff-framework-for-agent-models/' },
+  { title: 'OpenRouter 指南：用置信度阈值实现模型分级升级路由', category: 'tip', url: 'https://openrouter.ai/blog/insights/confidence-thresholds-for-model-escalation-routing/' },
+  { title: 'Transluce 报告 AI 智能体以激进手段访问美加政府网站', category: 'paper', url: 'https://transluce.org/us-canada-gov' },
+  { title: 'Artificial Analysis：GPT-6.1 Sol 的 Cost per Task 较 GPT-6 Sol 低约 30%', category: 'ai-models', url: 'https://x.com/ArtificialAnlys/status/2105449959554441580' },
+  { title: 'Gemini 4 Argon (High) 登 Arena Agent Arena 第 8 名，净提升 +7.92%', category: 'ai-models', url: 'https://x.com/arena/status/2105411271525052418' },
+  { title: 'Artificial Analysis 评测 Gemini 4 Argon：Google 重回智能前三梯队', category: 'ai-models', url: 'https://artificialanalysis.ai/articles/gemini-4-argon-google-top-three-labs' },
+  { title: 'Google DeepMind 发布 Gemini 4 Argon，面向可信网络防御者先行开放', category: 'ai-models', url: 'https://deepmind.google/blog/gemini-4-argon-our-next-era-of-frontier-intelligence/' },
+  { title: 'METR 主席 Chris Painter 就 AI 智能体事件向美国参议院作证', category: 'tip', url: 'https://metr.org/blog/2026-09-30-chris-painter-senate-testimony/' },
+  { title: 'Perplexity 开放 Computer 邮件委托入口并限时免费运行任务', category: 'ai-products', url: 'https://x.com/AravSrinivas/status/2105369479190601754' },
+  { title: 'Trump 推动二十余家科技公司签署自愿性 AI 安全协议', category: 'industry', url: 'https://arstechnica.com/tech-policy/2026/09/trump-plan-to-combat-ai-risks-hinges-on-big-tech-pals-policing-themselves/' },
+  { title: 'GPT-6.1 Sol (Max) 以 1759 分登上 Code Arena: WebDev 第 3 名', category: 'ai-models', url: 'https://x.com/arena/status/2105367591174995999' },
+  { title: 'OpenAI 披露并处置一起有组织的模型蒸馏攻击行动', category: 'industry', url: 'https://openai.com/index/disrupting-a-coordinated-model-distillation-campaign' },
+  { title: 'Factory Automations 正式开放：Droid 可定时或按事件自动执行工程工作流', category: 'ai-products', url: 'https://factory.ai/news/automations' },
+  { title: 'Anthropic 研究测算机器人对岗位的暴露度：机器人可做 74% 的物理任务但仅 0.3% 具备成本竞争力', category: 'paper', url: 'https://www.anthropic.com/research/what-work-can-robots-do' },
+  { title: 'MIT 等机构发布 Ataraxos，以极低成本战胜顶级人类 Stratego 选手', category: 'paper', url: 'https://news.mit.edu/2026/game-playing-ai-stratego-new-champ-0930' },
+  { title: 'ElevenLabs 完成 3 亿美元员工股份回购，估值升至 220 亿美元', category: 'industry', url: 'https://elevenlabs.io/blog/tender-22bn' },
+  { title: 'Google DeepMind 发布 SynthID Bio，为 AI 生成的蛋白质嵌入可验证水印', category: 'ai-products', url: 'https://deepmind.google/blog/introducing-synthid-bio/' },
+  { title: 'FTC 以消费者保护为由对 OpenAI、Anthropic 等 AI 实验室启动全面调查', category: 'industry', url: 'https://the-decoder.com/ftc-launches-sweeping-probe-into-openai-anthropic-and-other-ai-labs-over-consumer-protection-concerns/' },
+  { title: 'Hugging Face CEO 称收到数千条私信，将花几天逐一处理', category: 'industry', url: 'https://x.com/ClementDelangue/status/2105276853632094607' },
 ];
 
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧' };
