@@ -229,7 +229,9 @@ def main():
     open_b = html.index("[", s_idx)
     e_idx = html.index("const RECENT_CAP", s_idx)
     close = html.rindex("];", open_b, e_idx)
-    new_html = html[:open_b + 1] + "\n" + "\n".join(kept_blocks) + "\n" + html[close:]
+    # 注意：每条 kept_block 以 '}' 结尾（不含逗号），必须用 ' ,\n' 连接，
+    # 否则数组元素间缺少逗号会导致整段 JS 语法错误（曾导致部署文件损坏）。
+    new_html = html[:open_b + 1] + "\n" + " ,\n".join(kept_blocks) + "\n" + html[close:]
     open(HTML, "w", encoding="utf-8").write(new_html)
     print(f"[apply] 已合并写回，删除 {len(merged)} 条，剩余 {len(kept_blocks)} 条 ✅")
     return 0
