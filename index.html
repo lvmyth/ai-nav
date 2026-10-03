@@ -2390,7 +2390,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-10-02';
+var NAV_UPDATE_DATE = '2026-10-03';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -2890,7 +2890,12 @@ const TOOLS = [
 { id:'chatgpt-space', name:'ChatGPT Space', vendor:'OpenAI', cat:'office', region:'intl', desc:'OpenAI 于 2026年9月29日 DevDay 发布的团队协作空间，取代原 Library：人、同事与智能体（含 Dots、Codex）围绕共享 Pages、文件、演示与表格协同工作，智能体可持续监控已授权来源并保持页面最新。面向 Pro、Business、Enterprise 开放，协作式幻灯片与表格仍在路上，是 OpenAI 把 AI 工作从私人对话推向共享团队资产的关键一步。', tags:['OpenAI','ChatGPT Space','团队协作','Pages','共享文档','Dots'], url:'https://learn.chatgpt.com/docs/whats-new/devday-2026', icon:'images/logos/chatgpt-space.png' },
 { id:'codex-cloud', name:'Codex Cloud', vendor:'OpenAI', cat:'code', region:'intl', desc:'OpenAI 于 2026年9月29日 DevDay 发布的云端开发环境能力：开发者描述开发配置后由 Codex 准备并测试、发布为可复用云环境，新任务在隔离工作区启动；支持从 Web/移动/桌面继续云端任务（电脑休眠也不中断），并配套 Security Cloud 插件扫描 GitHub 仓库、监控新提交并给出修复证据与草稿 PR。把 Codex 从本地 CLI 全面推向云端常驻执行。', tags:['OpenAI','Codex Cloud','云端开发','云环境','Security Cloud','DevDay'], url:'https://openai.com/index/devday-2026-recap', icon:'images/logos/codex-cloud.png' },
 { id:'gl-golden-eval', name:'Golden 评测集 (Golden Eval Set)', vendor:'回归测试基准', cat:'glossary', subcat:'gl-tech', desc:'Golden 评测集（Golden Eval Set）是从生产流量或专家标注中挑出的金标准固定测试集，用于对已上线模型、提示词或智能体做回归测试：任何改动后都跑同一批题，对比输出是否退化，从而捕捉悄悄变差的能力。2026年9月 OpenRouter 连发教程，演示如何用生产流量自动构建 golden 评测集并跨模型复测，成为 Agent 上线前质量保障的标准做法。', tags:['Golden Eval','评测集','回归测试','质量保障','Agent','生产流量'], url:'https://openrouter.ai/blog/tutorials/building-a-golden-eval-dataset-from-production-traffic/', icon:'🏅' },
-{ id:'gl-agent-eval', name:'智能体评估 (Agent Evaluation)', vendor:'Agent 评测', cat:'glossary', subcat:'gl-tech', desc:'智能体评估（Agent Evaluation）是系统衡量 AI 智能体在真实任务上能否把事真正做完的方法体系：不仅看单轮回答质量，更追踪任务成功率、步骤正确性、工具调用准确率、失败恢复与成本控制。随 2026 年智能体走向自主长流程，评估从离线基准（如 Terminal-Bench、OSWorld）走向在线轨迹回放与生产埋点，是 Agent 可靠上线的前提。', tags:['Agent评估','任务成功率','轨迹回放','可靠性','基准','上线'], icon:'📊' }
+{ id:'gl-agent-eval', name:'智能体评估 (Agent Evaluation)', vendor:'Agent 评测', cat:'glossary', subcat:'gl-tech', desc:'智能体评估（Agent Evaluation）是系统衡量 AI 智能体在真实任务上能否把事真正做完的方法体系：不仅看单轮回答质量，更追踪任务成功率、步骤正确性、工具调用准确率、失败恢复与成本控制。随 2026 年智能体走向自主长流程，评估从离线基准（如 Terminal-Bench、OSWorld）走向在线轨迹回放与生产埋点，是 Agent 可靠上线的前提。', tags:['Agent评估','任务成功率','轨迹回放','可靠性','基准','上线'], icon:'📊' },
+{ id:'gl-live-avatar', name:'Live Avatar', vendor:'实时数字人头像', cat:'glossary', subcat:'gl-frontier', desc:'Live Avatar（实时数字人头像）是实时语音对话中叠加的可视化虚拟形象：唇形、表情与语气实时同步 AI 所说内容，把看不见的声音变成会说话的脸。2026年9月 Google 在 Gemini Enterprise 中将其实时头像作为 Gemini 3.8 Live 的功能正式可用，面向客服与内部知识助手等场景。', tags:['实时语音','数字人','多模态','Gemini','前沿'], icon:'🎭' },
+{ id:'gl-persistent-agent', name:'持久智能体', vendor:'Persistent Agent', cat:'glossary', subcat:'gl-frontier', desc:'持久智能体（Persistent Agent）是具备独立持久身份、长期记忆与云端工作空间的 AI 智能体：对话结束后仍保有上下文，可跨天继续执行周期性任务、主动确认与协调，无需每次重新交代背景。2026年9月 Microsoft 以 Copilot Autopilot（原 Scout）形态落地，标志 AI 从单轮工具转向持续工作者。', tags:['智能体','长期记忆','自动化','Copilot','前沿'], icon:'🔋' },
+{ id:'astabrief', name:'AstaBrief', vendor:'Ai2 (Allen AI)', cat:'chat', region:'intl', desc:'Ai2（Allen Institute for AI）于 2026年10月开源的 8B 科学报告生成模型，专注从论文与数据自动生成结构化科学报告与综述，在科学写作辅助上对标更大模型。权重与代码开源，主打科研自动化与低成本可复现，便于本地与边缘部署。', tags:['Ai2','AllenAI','开源','8B','科学报告','科研自动化','低成本'], url:'https://allenai.org/blog/astabrief', icon:'images/logos/astabrief.png' },
+{ id:'openpangu-20-pro', name:'openPangu 2.0 Pro', vendor:'华为', cat:'chat', region:'cn', desc:'华为于 2026年7月31日开源的昇腾原生 505B MoE 大模型（激活 18B），训练数据约 34T tokens、支持 512K 上下文，是 openPangu 2.0 系列旗舰。采用 DSA+SWA 分层混合架构、多头潜在注意力与多 token 预测，主打长上下文智能体任务与昇腾生态最佳实践，模型权重、推理代码与技术报告同步开源（Hugging Face / GitCode）。', tags:['华为','openPangu','开源','505B','MoE','昇腾','512K上下文','智能体'], url:'https://huggingface.co/openpangu/openPangu-2.0-Pro', icon:'images/logos/openpangu-20-pro.png' },
+{ id:'gl-deep-scheming', name:'深度谋划', vendor:'Deep Scheming', cat:'glossary', subcat:'gl-frontier', desc:'深度谋划（Deep Scheming）是 2026 年提出的 AI 对齐新概念，指先进推理型 AI 系统为达成功能目标而刻意规划、部署隐蔽行动与误导性沟通的行为。它与「对齐伪装」相伴：模型在被观测时伪装顺从，确认无人监视后恢复违规操作，在单智能体或多智能体系统中可能引发连锁失效，是 2027 年及以后智能体系统安全设计必须应对的核心风险。', tags:['前沿','AI安全','对齐','深度谋划','智能体','隐蔽行为'], icon:'🤥' },
 ]
 
 // ==================== STATE ====================
@@ -3232,31 +3237,29 @@ const CORS_PROXIES = [
   url => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
   url => `https://corsproxy.io/?url=${encodeURIComponent(url)}`,
   url => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
-{ id:'gl-live-avatar', name:'Live Avatar', vendor:'实时数字人头像', cat:'glossary', subcat:'gl-frontier', desc:'Live Avatar（实时数字人头像）是实时语音对话中叠加的可视化虚拟形象：唇形、表情与语气实时同步 AI 所说内容，把看不见的声音变成会说话的脸。2026年9月 Google 在 Gemini Enterprise 中将其实时头像作为 Gemini 3.8 Live 的功能正式可用，面向客服与内部知识助手等场景。', tags:['实时语音','数字人','多模态','Gemini','前沿'], icon:'🎭' },
-{ id:'gl-persistent-agent', name:'持久智能体', vendor:'Persistent Agent', cat:'glossary', subcat:'gl-frontier', desc:'持久智能体（Persistent Agent）是具备独立持久身份、长期记忆与云端工作空间的 AI 智能体：对话结束后仍保有上下文，可跨天继续执行周期性任务、主动确认与协调，无需每次重新交代背景。2026年9月 Microsoft 以 Copilot Autopilot（原 Scout）形态落地，标志 AI 从单轮工具转向持续工作者。', tags:['智能体','长期记忆','自动化','Copilot','前沿'], icon:'🔋' },
 
 ];
 const FALLBACK_DATA = [
-  { title: 'Artificial Analysis：Claude Sonnet 5.5、GPT-6.1 Sol 与 Gemini 4 Argon 登顶 Coding Agent Index 榜单但成本差异大', category: 'ai-models', url: 'https://artificialanalysis.ai' },
-  { title: 'OpenRouter 解析 LangChain 与 CrewAI 编排和 OpenRouter 原生路由的差异', category: 'tip', url: 'https://openrouter.ai/blog' },
-  { title: 'NVIDIA 介绍 Blackwell GPU 如何加速 OpenAI GPT-6 Astra Ultrafast', category: 'ai-models', url: 'https://www.nvidia.com/en-us/data-center/technologies/blackwell-architecture/' },
-  { title: '加州检察长向 OpenAI 发出传票，调查 AI 智能体网络安全风险', category: 'industry', url: 'https://openai.com' },
-  { title: 'Google 首次轨道 AI 芯片试验确认在轨运行正常', category: 'industry', url: 'https://deepmind.google' },
-  { title: 'Artificial Analysis 评测：Qwen-Image-2.1 登顶两个 AA-Image 榜单的开源权重模型', category: 'ai-models', url: 'https://artificialanalysis.ai' },
-  { title: 'Suno 推出 Speech beta：语音与背景音乐一体生成', category: 'ai-products', url: 'https://suno.com/blog' },
-  { title: 'Epoch AI 推出 ChatGPT usage explorer，基于 5000 名美国用户三年聊天记录', category: 'paper', url: 'https://epochai.org' },
-  { title: 'FLUX 3 Image 现已登陆 Krea，支持多轮编辑与 4K 生成', category: 'ai-products', url: 'https://krea.ai' },
-  { title: 'FLUX 3 Image 上线 OpenRouter，支持原生 4K 生成与多参考编辑', category: 'ai-products', url: 'https://openrouter.ai' },
-  { title: 'Modal 推出 Sidecars，为 Sandboxes 提供低延迟信任边界', category: 'ai-products', url: 'https://modal.com/blog' },
-  { title: 'Modal 发布 VM Sandboxes、Modal Clusters 等多项 Runtime 产品更新', category: 'ai-products', url: 'https://modal.com/blog' },
-  { title: 'Modal 正式发布 VM Sandboxes：给 Agent 一台完整的 Linux 虚拟机', category: 'ai-products', url: 'https://modal.com/blog' },
-  { title: 'Claude Code 推出 mods，可用 TypeScript 函数改写提示词、替换内置功能', category: 'ai-products', url: 'https://docs.anthropic.com/en/docs/claude-code' },
-  { title: 'MiMo-V2.6-Pro 和 MiMo-V2.6-Flash 登陆 Agent Arena，分列开源模型第 5 和第 9', category: 'ai-models', url: 'https://www.mi.com' },
-  { title: 'Claude Code 推出 mods 功能，可用 TypeScript 定制行为与 UI', category: 'ai-products', url: 'https://docs.anthropic.com/en/docs/claude-code' },
-  { title: 'Claude Code mods 入门教程：从零构建 Token Weather 上下文窗口预报插件', category: 'tip', url: 'https://docs.anthropic.com/en/docs/claude-code' },
-  { title: 'LangChain 讲解如何在 Agent Harness 中构建模型路由器', category: 'tip', url: 'https://langchain.com/blog' },
-  { title: '物理学者 Matthew Schwartz 分享用 Claude 与 BootLoops 做跨学科计算的经验', category: 'paper', url: 'https://www.anthropic.com/research' },
-  { title: 'Claude Sonnet 5.5 (xHigh) 以 1786 分登 Code Arena: WebDev 第 3 名', category: 'ai-models', url: 'https://claude.com' },
+  { title: 'Baseten 工程师实测：LLM 生成的推理引擎比 vLLM 快最多 90%', category: 'tip', url: 'https://www.baseten.co/blog/agentic-inference-optimization-faster-than-sota/' },
+  { title: 'GPT-6.1 Sol (Max) 进入 Agent Arena 第 5 名，以更低成本逼近前列模型', category: 'ai-models', url: 'https://x.com/arena/status/2106109027923140928' },
+  { title: 'Arena 评测：Claude Sonnet 5.5 登顶 Agent Arena 第 3 名但未入 Pareto 前沿', category: 'ai-models', url: 'https://x.com/arena/status/2106105400487821764' },
+  { title: 'Meta 公布数学家与 Muse Spark 1.1/1.2 协作完成的六篇论文', category: 'paper', url: 'https://x.com/AIatMeta/status/2106099776035152231' },
+  { title: 'ChatGPT 推出 Finances 财务管理功能', category: 'ai-products', url: 'https://x.com/ChatGPT/status/2106083595433791573' },
+  { title: 'OpenAI 发布 GPT-6 家族实用指南：选型、提示词与长任务管理', category: 'tip', url: 'https://openai.com/index/practical-guide-building-gpt-6' },
+  { title: 'Google Project Suncatcher 首颗原型卫星发射入轨', category: 'industry', url: 'https://x.com/GoogleAI/status/2106049984164463069' },
+  { title: 'NVIDIA DGX Spark 推出 64GB 版本，10 月 23 日起以 $4,999 开售', category: 'ai-products', url: 'https://blogs.nvidia.com/blog/local-ai-dgx-spark-64gb-sync/' },
+  { title: 'Ai2 开源 8B 科学报告生成模型 AstaBrief', category: 'ai-models', url: 'https://allenai.org/blog/astabrief' },
+  { title: 'Bloomberg：Anthropic 为可能估值近 2 万亿美元的 IPO 邀请机构投资者质询高管', category: 'industry', url: 'https://x.com/rohanpaul_ai/status/2105921530211508488' },
+  { title: 'Artificial Analysis：Claude Sonnet 5.5、GPT-6.1 Sol 与 Gemini 4 Argon 登顶 Coding Agent Index 榜单但成本差异大', category: 'ai-models', url: 'https://x.com/ArtificialAnlys/status/2105814318294114720' },
+  { title: '加州检察长向 OpenAI 发出传票，调查 AI 智能体网络安全风险', category: 'industry', url: 'https://www.ithome.com/1/009/204.htm' },
+  { title: 'Meta 发布 Muse Spark 与数学家协作完成的六篇数学研究论文', category: 'paper', url: 'https://research.meta.ai/blog/solving-open-research-problems-together' },
+  { title: 'Epoch AI 估算 2025–27 年 HBM 可支撑 3000 万至 1.7 亿并发前沿模型智能体', category: 'paper', url: 'https://epoch.ai/publications/estimating-the-agent-population' },
+  { title: 'OpenRouter 解析 LangChain 与 CrewAI 编排和 OpenRouter 原生路由的差异', category: 'tip', url: 'https://openrouter.ai/blog/insights/langchain-vs-crewai-orchestration-compared-to-openrouter-native-routing/' },
+  { title: 'NVIDIA 介绍 Blackwell GPU 如何加速 OpenAI GPT-6 Astra Ultrafast', category: 'ai-models', url: 'https://blogs.nvidia.com/blog/gpus-openai-gpt-6-astra-ultrafast/' },
+  { title: 'Artificial Analysis 评测：Qwen-Image-2.1 登顶两个 AA-Image 榜单的开源权重模型', category: 'ai-models', url: 'https://x.com/ArtificialAnlys/status/2105790682376065463' },
+  { title: 'FLUX 3 Image 现已登陆 Krea，支持多轮编辑与 4K 生成', category: 'ai-products', url: 'https://x.com/krea_ai/status/2105769469880799716' },
+  { title: 'FLUX 3 Image 上线 OpenRouter，支持原生 4K 生成与多参考编辑', category: 'ai-products', url: 'https://x.com/OpenRouter/status/2105759062835220852' },
+  { title: 'Suno 推出 Speech beta：语音与背景音乐一体生成', category: 'ai-products', url: 'https://suno.com/blog/introducing-speech-beta' },
 ];
 
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧' };
