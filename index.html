@@ -2390,7 +2390,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-10-05';
+var NAV_UPDATE_DATE = '2026-10-06';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -2399,6 +2399,14 @@ var NAV_UPDATE_DATE = '2026-10-05';
 })();
 
 const TOOLS = [
+  { id:'intern-decision', name:'Intern-Decision', vendor:'上海人工智能实验室', cat:'chat', region:'cn', desc:'上海人工智能实验室（InternLM 团队）2026年9月开源的多模态结构化决策模型家族，提供 0.8B/2B/4B 三档权重（Apache 2.0）。基于 Qwen3.5 底座做决策微调，将每个问题映射为单 token 符号并输出带校准概率的类型化 JSON，而非生成文本再解析，主打路由、评分、判别等高频决策场景；4B 版本在 Jevbench、ToolACE 等基准上超越 Jev，支持本地实时部署。', tags:['InternLM','决策模型','多模态','结构化输出','校准概率','Apache 2.0','上海AI实验室'], url:'https://github.com/InternLM/Intern-Decision', icon:'images/logos/intern-decision.png' },
+  { id:'robrain-x0', name:'RoboBrain-X0', vendor:'智源研究院 (BAAI)', cat:'chat', region:'cn', desc:'智源研究院（BAAI）开源的跨本体基座大模型，统一建模视觉、语言与动作，能在零样本泛化与少量样本微调条件下驱动多种真实机器人完成复杂任务；已支持星海图、松灵双臂、智元 A2D、Franka 等本体，可同时输出文本 reasoning token 与机器人动作。同步开源模型、数据集（RoboBrain-X0-Dataset）与技术文档，接入 RoboBrain 2.0 工具链。', tags:['智源','BAAI','具身智能','跨本体','VLA','机器人','开源'], url:'https://github.com/OpenRobotLab/RoboBrain', icon:'images/logos/robrain-x0.png' },
+  { id:'gl-deep-research', name:'Deep Research（深度研究）', vendor:'深度研究', cat:'glossary', subcat:'gl-tools', desc:'Deep Research 是 2026 年主流 AI 产品（Gemini、Perplexity、ChatGPT 等）标配的研究模式：AI 并行阅读数十到数百个网页、PDF 与论文，在 15–30 分钟内产出带引用的结构化研究报告，把开放式调研从数小时压缩到分钟级，是 Agentic 工作流在知识工作领域的代表能力。', tags:['Deep Research','深度研究','Agent','文献综述','引用','知识工作'], icon:'🔬' },
+  { id:'gl-test-time-compute', name:'Test-Time Compute（测试时计算）', vendor:'推理期算力', cat:'glossary', subcat:'gl-tech', desc:'Test-Time Compute（测试时计算）指在推理阶段投入更多算力（而非训练阶段）来提升答案质量，是 o1/o3、Claude Extended Thinking、GPT 思考模式等「扩展思考」能力的底层机制：模型在给出最终答案前先做长链内部推理，以更高延迟与成本为代价换取更强推理与准确率。', tags:['Test-Time Compute','测试时计算','Extended Thinking','推理算力','o1','Chain-of-Thought'], icon:'⚡' },
+  { id:'gl-data-factor', name:'数据要素', vendor:'数据要素', cat:'glossary', subcat:'gl-basic', desc:'数据要素是 2026 年中国数据政策的核心概念，指可作为生产要素参与市场化配置的数据资源。国家数据局将 2026 年定为「数据要素价值释放年」，并探索形成数据要素市场化配置改革「531」工作体系，推动数据从资源向资产、资本转化。', tags:['数据要素','数据治理','市场化','国家数据局','数字经济'], icon:'🗄️' },
+  { id:'gl-autonomous-compute', name:'自主算力', vendor:'自主算力', cat:'glossary', subcat:'gl-basic', desc:'自主算力指不依赖外部受限供应链、由本国自主设计制造的 AI 计算能力。2026 年中国标志性成果密集亮相：首颗软件定义与三维近存计算 AI 芯片、昇腾 950 超节点真机、首个全国产 10 万卡 AI 超集群投用，标志国产算力迈入系统性升级新阶段。', tags:['自主算力','国产芯片','昇腾','AI基础设施','算力网'], icon:'🖥️' },
+  { id:'gl-decision-model', name:'决策模型 (Decision Model)', vendor:'决策模型', cat:'glossary', subcat:'gl-tech', desc:'决策模型（Decision Model）是一类不直接生成自由文本、而为软件输出类型安全的结构化决策（选择 Choice / 评分 Score / 是非 Noul）的 AI 模型，常伴随校准概率，用于路由、打分、审核、智能体工具选择等高频自动化场景。代表有 TypeSafe 的 Jev、上海 AI Lab 的 Intern-Decision 等。', tags:['决策模型','Decision Model','结构化输出','校准概率','System One','自动化'], icon:'🎯' },
+
 { id:'gemini-4-argon', name:'Gemini 4 Argon', vendor:'Google DeepMind', cat:'chat', region:'intl', desc:'Google DeepMind 于 2026年9月30日发布的 Gemini 4 系列首款前沿模型，定位复杂工作流：真实软件工程、企业知识工作（法律、金融）与网络安全防御。主打 100 万 token 输出上限与自主发现、验证、修复关键漏洞的防御能力，初期仅通过 Fairwind 计划向可信测试者开放，定价 $2/$10 每百万 token，在 Vals Index、AutomationBench、DeepSWE 等基准上对标 GPT-6 Astra 与 Claude Fable 5.1。', tags:['Google','DeepMind','Gemini 4','前沿模型','网络安全防御','1M输出','Fairwind'], url:'https://deepmind.google/technologies/gemini/', icon:'images/logos/gemini-4-argon.png' },
 { id:'gpt-6-astra', name:'GPT-6 Astra', vendor:'OpenAI', cat:'chat', region:'intl', desc:'OpenAI 于 2026年9月3日发布的旗舰前沿模型，号称全球最智能且对齐程度最高的模型。在 computer use、浏览、软件工程、网络安全、科学与专业工作上达到 SOTA：FrontierMath Tier 4 达 98%、ARC-AGI-3 达 99.9%、ExploitBench 达 100%，并刷新 Terminal-Bench 4.0 与 Agents\' Last Exam 等专业基准。1.05M 上下文、128K 最大输出、知识截止 2026-04-30，API 定价 $10/$50 每百万 token，作为首个被定为网络安全 Critical 级的模型，先向 Daybreak 防御者计划开放。', tags:['OpenAI','GPT-6 Astra','前沿模型','Computer Use','FrontierMath','对齐','Critical级'], url:'https://openai.com/index/gpt-6-astra/', icon:'images/logos/gpt-6-astra.png' },
 { id:'mimo-v26-pro', name:'MiMo-V2.6-Pro', vendor:'小米', cat:'chat', region:'cn', desc:'小米于 2026年9月22日全量开源的旗舰推理模型，1.02T 总参/42B 激活 MoE，原生全模态（文本/图像/视频/音频输入），1M 上下文、128K 最大输出，MIT 许可。Artificial Analysis 综合智能指数 46，为当时最强开源模型，逼近 GPT-5.6 Sol；配套 Flash（309B/15B）与 Pro-UltraSpeed（提速 20 倍）版本，RL 训练全程公开直播，被称为递归自我改进（RSI）探索的第一步。', tags:['小米','MiMo','开源','1.02T','全模态','MIT','RSI','Agent'], url:'https://mimo.xiaomi.com/mimo-v2-6', icon:'images/logos/mimo-v26-pro.png' },
@@ -3242,26 +3250,26 @@ const CORS_PROXIES = [
 
 ];
 const FALLBACK_DATA = [
-  { title: 'PromptArmor 披露 Databricks Genie 恶意 Skill 可绕过四类控制实施钓鱼与数据外泄', category: 'paper', url: 'https://www.promptarmor.com/resources/four-databricks-genie-controls-that-dont-stop-malicious-skills' },
-  { title: 'Microsoft ThinkingBox 在 Hugging Face 上发布，以数据库终态和 20 次重复评测智能体', category: 'paper', url: 'https://huggingface.co/blog/microsoft/thinkingbox' },
-  { title: 'Google 论文揭示 LLM 会隐瞒负面结果，一句 honesty 提示可大幅改善', category: 'paper', url: 'https://x.com/rohanpaul_ai/status/2106502600703222202' },
-  { title: 'OpenAI 每天投入超 50 万美元调查旗下智能体入侵 Medicare 与 Hugging Face 等事件', category: 'industry', url: 'https://www.ithome.com/1/009/444.htm' },
-  { title: 'OpenAI 披露一起模型利用 Perl 注入绕过工具限制复制源文件的失准事件', category: 'industry', url: 'https://alignment.openai.com/misalignment-reports/command-injecting-a-reference-tool-to-copy-a-source-file/' },
-  { title: 'OpenAI 披露内部研究模型在评估中利用漏洞入侵内部 EDA 机器事件', category: 'industry', url: 'https://alignment.openai.com/misalignment-reports/reaching-an-internal-eda-host-through-a-reference-tool/' },
-  { title: 'OpenAI 披露内部模型从 Slack 获悉可能停机并提前准备重启事件', category: 'industry', url: 'https://alignment.openai.com/misalignment-reports/preparing-for-a-restart-after-reading-slack/' },
-  { title: 'Baseten 工程师实测：LLM 生成的推理引擎比 vLLM 快最多 90%', category: 'tip', url: 'https://www.baseten.co/blog/agentic-inference-optimization-faster-than-sota/' },
-  { title: 'Meta 发布 Muse Spark 与数学家协作完成的六篇数学研究论文', category: 'paper', url: 'https://research.meta.ai/blog/solving-open-research-problems-together' },
-  { title: 'Prime Intellect 发布推理服务平台 Prime Inference', category: 'ai-products', url: 'https://www.primeintellect.ai/blog/prime-inference' },
-  { title: 'GPT-6.1 Sol (Max) 进入 Agent Arena 第 5 名，以更低成本逼近前列模型', category: 'ai-models', url: 'https://x.com/arena/status/2106109027923140928' },
-  { title: 'Meta 公布数学家与 Muse Spark 1.1/1.2 协作完成的六篇论文', category: 'paper', url: 'https://x.com/AIatMeta/status/2106099776035152231' },
-  { title: 'Arena 评测：Claude Sonnet 5.5 登顶 Agent Arena 第 3 名但未入 Pareto 前沿', category: 'ai-models', url: 'https://x.com/arena/status/2106105400487821764' },
-  { title: 'ChatGPT 推出 Finances 财务管理功能', category: 'ai-products', url: 'https://x.com/ChatGPT/status/2106083595433791573' },
-  { title: 'OpenAI 发布 GPT-6 家族实用指南：选型、提示词与长任务管理', category: 'tip', url: 'https://openai.com/index/practical-guide-building-gpt-6' },
-  { title: 'Google 发布基于 TEE 的下一代联邦学习系统，Gboard 已部署', category: 'ai-products', url: 'https://research.google/blog/toward-provably-private-learning-from-federated-data/' },
-  { title: 'Ai2 开源 8B 科学报告生成模型 AstaBrief', category: 'ai-models', url: 'https://allenai.org/blog/astabrief' },
-  { title: 'NVIDIA DGX Spark 推出 64GB 版本，10 月 23 日起以 $4,999 开售', category: 'ai-products', url: 'https://blogs.nvidia.com/blog/local-ai-dgx-spark-64gb-sync/' },
-  { title: 'Bloomberg：Anthropic 为可能估值近 2 万亿美元的 IPO 邀请机构投资者质询高管', category: 'industry', url: 'https://x.com/rohanpaul_ai/status/2105921530211508488' },
-  { title: 'Manus 分享视频生成与时间线编辑工作流', category: 'tip', url: 'https://manus.im/zh-cn/blog/introducing-video-editor' }
+  {"title": "Anthropic Cowork 改为云端运行模型推理与 VM", "category": "ai-products", "url": "https://simonwillison.net/2026/Oct/5/felix-rieseberg/"},
+  {"title": "卡兹克解读A16Z两份AI报告，AI使用广但付费和深度仍小众", "category": "tip", "url": "https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647686876&idx=1&sn=55c719c9dded44507dbd2a000a2ec5a7"},
+  {"title": "SemiAnalysis 测算：Anthropic 订阅的 API 等价价值约为 OpenAI 的 5 倍以上", "category": "paper", "url": "https://newsletter.semianalysis.com/p/anthropic-subscriptions-offer-5x"},
+  {"title": "Wikimedia 基金会发现 OpenAI \"流氓\"智能体在维基媒体平台上的活动", "category": "industry", "url": "https://diff.wikimedia.org/2026/10/05/openai-rogue-agent-activities-found-on-wikimedia-projects/"},
+  {"title": "Liquid AI 发布 d1 决策模型并新增图像输入能力", "category": "ai-models", "url": "https://www.liquid.ai/blog/d1-decision-model"},
+  {"title": "OpenAI 公布 EU AI Act 下的文本溯源方案，推出 textGrain 文本水印", "category": "industry", "url": "https://openai.com/index/eu-text-provenance"},
+  {"title": "Together AI 推出 Together Link，一键在现有编码智能体中接入开源模型并降费超 50%", "category": "ai-products", "url": "https://www.together.ai/blog/together-link-frontier-quality-open-models-in-the-harness-you-already-use"},
+  {"title": "OpenAI 在 ChatGPT 推出全新视觉广告格式并扩展广告测量工具", "category": "ai-products", "url": "https://openai.com/index/new-chatgpt-ads-format-and-measurement"},
+  {"title": "PromptArmor 披露 Databricks Genie 恶意 Skill 可绕过控制实现钓鱼与数据外泄", "category": "paper", "url": "https://www.promptarmor.com/resources/four-databricks-genie-controls-that-dont-stop-malicious-skills"},
+  {"title": "Microsoft ThinkingBox 在 Hugging Face 上发布，以数据库终态和 20 次重复评测智能体", "category": "paper", "url": "https://huggingface.co/blog/microsoft/thinkingbox"},
+  {"title": "Google 论文揭示 LLM 会隐瞒负面结果，一句 honesty 提示可大幅改善", "category": "paper", "url": "https://x.com/rohanpaul_ai/status/2106502600703222202"},
+  {"title": "OpenAI 每天投入超 50 万美元调查旗下智能体入侵 Medicare 与 Hugging Face 等事件", "category": "industry", "url": "https://www.ithome.com/1/009/444.htm"},
+  {"title": "OpenAI 披露一起模型利用 Perl 注入绕过工具限制复制源文件的失准事件", "category": "industry", "url": "https://alignment.openai.com/misalignment-reports/command-injecting-a-reference-tool-to-copy-a-source-file/"},
+  {"title": "OpenAI 披露内部研究模型在评估中利用漏洞入侵内部 EDA 机器事件", "category": "industry", "url": "https://alignment.openai.com/misalignment-reports/reaching-an-internal-eda-host-through-a-reference-tool/"},
+  {"title": "OpenAI 披露内部模型从 Slack 获悉可能停机并提前准备重启事件", "category": "industry", "url": "https://alignment.openai.com/misalignment-reports/preparing-for-a-restart-after-reading-slack/"},
+  {"title": "Baseten 工程师实测：LLM 生成的推理引擎比 vLLM 快最多 90%", "category": "tip", "url": "https://www.baseten.co/blog/agentic-inference-optimization-faster-than-sota/"},
+  {"title": "Meta 发布 Muse Spark 与数学家协作完成的六篇数学研究论文", "category": "paper", "url": "https://research.meta.ai/blog/solving-open-research-problems-together"},
+  {"title": "Prime Intellect 发布推理服务平台 Prime Inference", "category": "ai-products", "url": "https://www.primeintellect.ai/blog/prime-inference"},
+  {"title": "GPT-6.1 Sol (Max) 进入 Agent Arena 第 5 名，以更低成本逼近前列模型", "category": "ai-models", "url": "https://x.com/arena/status/2106109027923140928"},
+  {"title": "Meta 公布数学家与 Muse Spark 1.1/1.2 协作完成的六篇论文", "category": "paper", "url": "https://x.com/AIatMeta/status/2106099776035152231"},
 ];
 
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧' };
