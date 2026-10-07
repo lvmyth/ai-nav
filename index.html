@@ -2390,7 +2390,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-10-06';
+var NAV_UPDATE_DATE = '2026-10-07';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -2399,6 +2399,11 @@ var NAV_UPDATE_DATE = '2026-10-06';
 })();
 
 const TOOLS = [
+  { id:'mistral-large-4', name:'Mistral Large 4', vendor:'Mistral AI', cat:'chat', region:'intl', desc:'Mistral AI 于 2026年10月6日发布的旗舰开源权重多模态大模型（代号 Le Chonk / ML4）。总参数 1.05T、激活 49B 的 MoE 架构，原生多模态输入，1M token 上下文，原生流利 160+ 种语言；在网络安全、金融、制造等垂直领域达到开源权重 SOTA，视觉定位超越部分闭源模型。通过 API 公开预览，计划 2026 年 10 月底放出权重。', tags:['Mistral','开源','MoE','多模态','1T参数','1M上下文','欧洲'], url:'https://mistral.ai/news/mistral-large-4', icon:'images/logos/mistral-large-4.png' },
+  { id:'embeddinggemma-2', name:'EmbeddingGemma 2', vendor:'Google DeepMind', cat:'chat', region:'intl', desc:'Google DeepMind 于 2026年10月6日发布的开源轻量多模态嵌入模型，基于 Gemma 4 架构、Apache 2.0 许可，仅 740M 参数。将文本（含代码）、图像、视频、音频统一映射进同一个 768 维向量空间，支持 Matryoshka 截断（128/256/512/768 维）将向量存储最多降低 6 倍，8K 上下文，主打端侧语义搜索、RAG、分类与聚类。', tags:['Google','DeepMind','Gemma','Embedding','多模态','端侧','Apache 2.0'], url:'https://ai.google.dev/gemma/docs/embeddinggemma/model_card_2', icon:'images/logos/embeddinggemma-2.png' },
+  { id:'reflection-beam', name:'Reflection Beam', vendor:'Reflection AI', cat:'code', region:'intl', desc:'Reflection AI 于 2026年10月5日发布的开源权重稀疏 MoE 编程/推理模型，总参数 501B、每 token 仅激活 23B，Apache 2.0 许可。专注代码、推理与智能体工作负载，自称在高级推理基准上对标 GLM-5.2 而推理算力仅其 3-4 倍，SWE-Bench Verified 80.9；计划 2026 年 10 月底放出权重与技术报告。', tags:['Reflection','开源','MoE','编程','智能体','高推理效率','Apache 2.0'], url:'https://reflection.ai', icon:'images/logos/reflection-beam.png' },
+  { id:'gl-personal-agent-protocol', name:'Personal Agent Protocol', vendor:'个人智能体协议', cat:'glossary', subcat:'gl-tech', desc:'由 Sierra 联合 Meta 及沃尔玛、Shopify、Stripe、Genesys、Instinct、Rocket 等发起的开放标准（2026年10月6日公布），定义个人 AI 智能体如何与企业进行身份认证、授权与交互。基于 OAuth 的分级访问：用户决定智能体只读或写入权限，企业可选择通过自有网站、API（MCP/OpenAPI）或自家智能体接入。v0.1 规范计划当月发布，是智能体商业（Agent Commerce）时代连接用户、企业与智能体的基础设施层。', tags:['Personal Agent Protocol','智能体协议','Agent Commerce','开放标准','OAuth','Meta','Sierra'], icon:'🔗' },
+
   { id:'intern-decision', name:'Intern-Decision', vendor:'上海人工智能实验室', cat:'chat', region:'cn', desc:'上海人工智能实验室（InternLM 团队）2026年9月开源的多模态结构化决策模型家族，提供 0.8B/2B/4B 三档权重（Apache 2.0）。基于 Qwen3.5 底座做决策微调，将每个问题映射为单 token 符号并输出带校准概率的类型化 JSON，而非生成文本再解析，主打路由、评分、判别等高频决策场景；4B 版本在 Jevbench、ToolACE 等基准上超越 Jev，支持本地实时部署。', tags:['InternLM','决策模型','多模态','结构化输出','校准概率','Apache 2.0','上海AI实验室'], url:'https://github.com/InternLM/Intern-Decision', icon:'images/logos/intern-decision.png' },
   { id:'robrain-x0', name:'RoboBrain-X0', vendor:'智源研究院 (BAAI)', cat:'chat', region:'cn', desc:'智源研究院（BAAI）开源的跨本体基座大模型，统一建模视觉、语言与动作，能在零样本泛化与少量样本微调条件下驱动多种真实机器人完成复杂任务；已支持星海图、松灵双臂、智元 A2D、Franka 等本体，可同时输出文本 reasoning token 与机器人动作。同步开源模型、数据集（RoboBrain-X0-Dataset）与技术文档，接入 RoboBrain 2.0 工具链。', tags:['智源','BAAI','具身智能','跨本体','VLA','机器人','开源'], url:'https://github.com/OpenRobotLab/RoboBrain', icon:'images/logos/robrain-x0.png' },
   { id:'gl-deep-research', name:'Deep Research（深度研究）', vendor:'深度研究', cat:'glossary', subcat:'gl-tools', desc:'Deep Research 是 2026 年主流 AI 产品（Gemini、Perplexity、ChatGPT 等）标配的研究模式：AI 并行阅读数十到数百个网页、PDF 与论文，在 15–30 分钟内产出带引用的结构化研究报告，把开放式调研从数小时压缩到分钟级，是 Agentic 工作流在知识工作领域的代表能力。', tags:['Deep Research','深度研究','Agent','文献综述','引用','知识工作'], icon:'🔬' },
@@ -3250,26 +3255,26 @@ const CORS_PROXIES = [
 
 ];
 const FALLBACK_DATA = [
+  {"title": "OpenAI 发布内部前沿模型产出的数学研究成果", "category": "paper", "url": "https://openai.com/index/sharing-ai-progress-in-mathematics/"},
+  {"title": "GitHub 重建 Git 基础设施，应对智能体规模开发", "category": "industry", "url": "https://github.blog/engineering/architecture-optimization/building-git-infrastructure-for-agent-scale-development/"},
+  {"title": "Google DeepMind 发布开源轻量多模态嵌入模型 EmbeddingGemma 2", "category": "ai-models", "url": "https://deepmind.google/blog/embeddinggemma-2-an-open-lightweight-multimodal-embedding-model/"},
+  {"title": "DeepSeek 据报道接近完成至少 800 亿元融资，腾讯与宁德时代参与", "category": "industry", "url": "https://x.com/thexpin/status/2107524306058289533"},
+  {"title": "Sierra 与 Meta 联合多家企业发布 Personal Agent Protocol 开放协议", "category": "industry", "url": "https://sierra.ai/blog/introducing-personal-agent-protocol"},
+  {"title": "Claude for Google Workspace 开启 beta，可直接在 Docs、Sheets、Slides 中编辑", "category": "ai-products", "url": "https://www.youtube.com/watch?v=idJQMJwHtyM"},
+  {"title": "DeepSeek V4.1 Flash 在 ARC-AGI (Verified) 评测中的成绩公布", "category": "ai-models", "url": "https://x.com/arcprize/status/2107491194007585239"},
+  {"title": "Mistral Large 4 上线 Arena 的 Agent Arena 与 Code Arena 评测", "category": "ai-models", "url": "https://x.com/arena/status/2107476436223504484"},
+  {"title": "Mistral Large 4 上线 OpenRouter 公测：1T 参数、512K 上下文", "category": "ai-products", "url": "https://x.com/OpenRouter/status/2107471559040635360"},
+  {"title": "Claude Code 云端会话实战指南：每个任务独占一台 VM，可并行跑任务并以分支收尾", "category": "tip", "url": "https://claude.dev/blog/claude-code-in-the-cloud/"},
+  {"title": "Reflection 发布 501B-A23B 开源编码模型 Beam", "category": "industry", "url": "https://www.latent.space/p/ainews-reflection-beam-501b-a23b"},
+  {"title": "Anthropic 5180亿美元计算力支出中约4137亿美元无论使用与否都需支付", "category": "industry", "url": "https://x.com/rohanpaul_ai/status/2107346890648076595"},
+  {"title": "卡兹克解读 A16Z 两份 AI 报告：AI 使用很广但用得还浅，头部 1% 用户月均花 903 美元", "category": "tip", "url": "https://x.com/Khazix0918/status/2107297777583825359"},
+  {"title": "Cursor iOS 应用支持远程控制本地智能体", "category": "ai-products", "url": "https://cursor.com/changelog/remote-control-local-agents"},
+  {"title": "Google DeepMind 发布多模态嵌入模型 EmbeddingGemma 2", "category": "ai-products", "url": "https://developers.googleblog.com/google-ai-edge-with-embeddinggemma-2/"},
+  {"title": "Gemini Nano Banana 2.1 正式发布，gemini-3.1-flash-image 将于 2026 年 10 月 29 日停用", "category": "ai-models", "url": "https://ai.google.dev/gemini-api/docs/changelog#10-06-2026"},
+  {"title": "Vercel COO 讲解如何用 Agent 自动化 Inbound 销售", "category": "tip", "url": "https://tomtunguz.com/how-to-automate-inbound/"},
   {"title": "Anthropic Cowork 改为云端运行模型推理与 VM", "category": "ai-products", "url": "https://simonwillison.net/2026/Oct/5/felix-rieseberg/"},
-  {"title": "卡兹克解读A16Z两份AI报告，AI使用广但付费和深度仍小众", "category": "tip", "url": "https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647686876&idx=1&sn=55c719c9dded44507dbd2a000a2ec5a7"},
-  {"title": "SemiAnalysis 测算：Anthropic 订阅的 API 等价价值约为 OpenAI 的 5 倍以上", "category": "paper", "url": "https://newsletter.semianalysis.com/p/anthropic-subscriptions-offer-5x"},
-  {"title": "Wikimedia 基金会发现 OpenAI \"流氓\"智能体在维基媒体平台上的活动", "category": "industry", "url": "https://diff.wikimedia.org/2026/10/05/openai-rogue-agent-activities-found-on-wikimedia-projects/"},
-  {"title": "Liquid AI 发布 d1 决策模型并新增图像输入能力", "category": "ai-models", "url": "https://www.liquid.ai/blog/d1-decision-model"},
-  {"title": "OpenAI 公布 EU AI Act 下的文本溯源方案，推出 textGrain 文本水印", "category": "industry", "url": "https://openai.com/index/eu-text-provenance"},
-  {"title": "Together AI 推出 Together Link，一键在现有编码智能体中接入开源模型并降费超 50%", "category": "ai-products", "url": "https://www.together.ai/blog/together-link-frontier-quality-open-models-in-the-harness-you-already-use"},
-  {"title": "OpenAI 在 ChatGPT 推出全新视觉广告格式并扩展广告测量工具", "category": "ai-products", "url": "https://openai.com/index/new-chatgpt-ads-format-and-measurement"},
-  {"title": "PromptArmor 披露 Databricks Genie 恶意 Skill 可绕过控制实现钓鱼与数据外泄", "category": "paper", "url": "https://www.promptarmor.com/resources/four-databricks-genie-controls-that-dont-stop-malicious-skills"},
-  {"title": "Microsoft ThinkingBox 在 Hugging Face 上发布，以数据库终态和 20 次重复评测智能体", "category": "paper", "url": "https://huggingface.co/blog/microsoft/thinkingbox"},
-  {"title": "Google 论文揭示 LLM 会隐瞒负面结果，一句 honesty 提示可大幅改善", "category": "paper", "url": "https://x.com/rohanpaul_ai/status/2106502600703222202"},
-  {"title": "OpenAI 每天投入超 50 万美元调查旗下智能体入侵 Medicare 与 Hugging Face 等事件", "category": "industry", "url": "https://www.ithome.com/1/009/444.htm"},
-  {"title": "OpenAI 披露一起模型利用 Perl 注入绕过工具限制复制源文件的失准事件", "category": "industry", "url": "https://alignment.openai.com/misalignment-reports/command-injecting-a-reference-tool-to-copy-a-source-file/"},
-  {"title": "OpenAI 披露内部研究模型在评估中利用漏洞入侵内部 EDA 机器事件", "category": "industry", "url": "https://alignment.openai.com/misalignment-reports/reaching-an-internal-eda-host-through-a-reference-tool/"},
-  {"title": "OpenAI 披露内部模型从 Slack 获悉可能停机并提前准备重启事件", "category": "industry", "url": "https://alignment.openai.com/misalignment-reports/preparing-for-a-restart-after-reading-slack/"},
-  {"title": "Baseten 工程师实测：LLM 生成的推理引擎比 vLLM 快最多 90%", "category": "tip", "url": "https://www.baseten.co/blog/agentic-inference-optimization-faster-than-sota/"},
-  {"title": "Meta 发布 Muse Spark 与数学家协作完成的六篇数学研究论文", "category": "paper", "url": "https://research.meta.ai/blog/solving-open-research-problems-together"},
-  {"title": "Prime Intellect 发布推理服务平台 Prime Inference", "category": "ai-products", "url": "https://www.primeintellect.ai/blog/prime-inference"},
-  {"title": "GPT-6.1 Sol (Max) 进入 Agent Arena 第 5 名，以更低成本逼近前列模型", "category": "ai-models", "url": "https://x.com/arena/status/2106109027923140928"},
-  {"title": "Meta 公布数学家与 Muse Spark 1.1/1.2 协作完成的六篇论文", "category": "paper", "url": "https://x.com/AIatMeta/status/2106099776035152231"},
+  {"title": "METR 演示 AI 智能体如何篡改 Inspect 评估记录以掩盖不当行为", "category": "paper", "url": "https://metr.org/blog/2026-10-06-ai-systems-could-cover-up-misbehavior/"},
+  {"title": "Mistral 发布 Mistral Large 4，Artificial Analysis 评测称其为美中之外最智能模型", "category": "ai-models", "url": "https://artificialanalysis.ai/articles/mistral-large-4-france-ai"},
 ];
 
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧' };
