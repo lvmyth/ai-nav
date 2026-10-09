@@ -2390,7 +2390,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-10-08';
+var NAV_UPDATE_DATE = '2026-10-09';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -2914,7 +2914,12 @@ const TOOLS = [
   { id:'claude-haiku-55', name:'Claude Haiku 5.5', vendor:'Anthropic', cat:'chat', region:'intl', desc:'Anthropic 于 2026年10月7日发布的 Claude 5.5 系列最小、最快、最具性价比模型，专为高吞吐、延迟敏感任务（分类、路由、抽取、子智能体）设计。1M 上下文、128K 最大输出，首次引入 effort 自适应思考控制，输入最低 $0.10/百万 token；较 Haiku 4.5 在编码、工具调用、computer use 与智能体任务上大幅提升，已上线 Claude API、AWS Bedrock、Google Cloud 与 Microsoft Foundry。', tags:['Anthropic','Claude','Haiku 5.5','小模型','高速','低成本','Agent','自适应思考'], url:'https://anthropic.com/claude-haiku-5-5', icon:'images/logos/claude-haiku-55.png' },
   { id:'liquid-d1', name:'Liquid d1', vendor:'Liquid AI', cat:'chat', region:'intl', desc:'Liquid AI 于 2026年10月7日开源的 d1 决策模型家族（d1-3B 与实验性 d1-omni-600M），不生成 token、单次前向传播即输出结构化决策（yes/no、选择、打分）。d1-3B 在 Decision Index v0.2.1 达 48.57，10B 以下第一、持平 12 倍大的 Decider 35B；在 RTX 4090 上单题 8ms、Jetson Orin Nano 50ms，主打边缘实时决策；支持文本/图像（d1-3B）与文本+图像/音频（d1-omni-600M），llama.cpp 原生支持。', tags:['Liquid AI','决策模型','开源','边缘','System One','低延迟','多模态'], url:'https://www.liquid.ai/blog/d1-open', icon:'images/logos/liquid-d1.png' },
   { id:'gl-agentic-rl', name:'智能体强化学习 (Agentic RL)', vendor:'Agentic RL', cat:'glossary', subcat:'gl-tech', desc:'智能体强化学习（Agentic RL）是 2026 年兴起的训练范式：让模型在真实或模拟环境中以「智能体」身份行动、调用工具、获得环境反馈并据此强化学习，而非仅在静态数据集上做 SFT/RLHF。代表框架如 Microsoft Agent Lightning，主打用真实 harness 训练能完成多步任务的智能体，是 Agent 能力从「会对话」走向「能干活」的关键路径。', tags:['Agentic RL','智能体强化学习','强化学习','真实harness','Agent训练','Microsoft'], icon:'🤖' },
-]
+
+  { id:'anthropic-oss-scanner', name:'OSS Scanner', vendor:'Anthropic', cat:'code', region:'intl', desc:'Anthropic 于 2026年10月8日推出的开源漏洞扫描服务，免费面向开源项目：维护者提交 PR 报名后，Anthropic 用最强模型（含 Claude Mythos）在隔离 VM 中构建并扫描代码，输出带复现步骤与候选补丁的安全报告，已为 PostgreSQL、OpenSSL、wolfSSL 等发现大量真实漏洞（88% 经人工复核达标）。其商业版为 Claude Security。', tags:['Anthropic','OSS Scanner','漏洞扫描','开源安全','Claude Mythos','Cyber Mission'], url:'https://red.anthropic.com/oss-scanner', icon:'images/logos/anthropic-oss-scanner.png' },
+  { id:'google-ml-drift', name:'ML Drift', vendor:'Google', cat:'code', region:'intl', desc:'Google AI Edge 于 2026年10月发布的下一代端侧 GPU 推理引擎，作为 LiteRT（原 TFLite 继任者）的高性能 GPU 加速层，抽象 OpenGL/OpenCL/Metal/WebGPU，比旧 TFLite GPU delegate 平均快 1.4 倍，支持 Android/iOS/macOS/Windows/Linux/Web 与 NPU 加速，主打实时端侧 AI 与生成式推理。', tags:['Google','ML Drift','LiteRT','端侧推理','GPU','TFLite'], url:'https://developers.googleblog.com/ml-drift-next-gen-gpu-aiml-inference-at-the-edge/', icon:'images/logos/google-ml-drift.png' },
+  { id:'google-aqua', name:'AQuA', vendor:'Google', cat:'code', region:'intl', desc:'Google 于 2026年10月开源的「环境质量智能体」（Ambient Quality Agent）参考实现，运行在生产智能体旁，对照对话记录自动扫描并验证失败聚类、定位根因到确切的已部署源码快照，帮助团队在智能体上线后持续发现静默质量回归。', tags:['Google','AQuA','Ambient Quality Agent','智能体质量','开源','Agent Ops'], url:'https://developers.googleblog.com/the-outer-loop-insights-first-an-ambient-quality-agent-that-diagnoses-your-production-agent/', icon:'images/logos/google-aqua.png' },
+  { id:'lmarena', name:'Arena (LMArena)', vendor:'Arena', cat:'search', region:'intl', desc:'由 UC Berkeley 研究项目发展而来的 AI 模型竞技场与独立评测平台，用户提交 prompt 并投票选出更好的模型回答，月活数千万。2026年10月完成 2 亿美元 B 轮融资（估值 31 亿美元，Lightspeed 与 Khosla 领投），新增 Alignment Index 对齐榜单，按「越权行为、虚假归因、欺骗性完成」等指标评测模型可信度。', tags:['Arena','LMArena','排行榜','模型评测','Alignment Index','独立评测'], url:'https://lmarena.ai', icon:'images/logos/lmarena.png' },
+  { id:'gl-alignment-index', name:'Alignment Index（对齐指数）', vendor:'对齐指数', cat:'glossary', subcat:'gl-frontier', desc:'由 Arena（LMArena）于 2026年10月随 B 轮融资发布的模型可信度度量，衡量 AI 在真实使用中偏离人类价值的程度。首批三个可对照真实 Agent 轨迹验证的信号为：Unauthorized Action（越权行为，模型做了用户未要求的动作）、False Attribution（虚假归因，把与用户证据矛盾的陈述/意图/事实归于用户）、Deceptive Completion（欺骗性完成）。反映业界从纯能力基准转向「能力+可信」并重。', tags:['Alignment Index','对齐指数','Arena','评测','可信AI','对齐'], icon:'📊' },]
 
 // ==================== STATE ====================
 let currentMode = 'tools';
@@ -3258,26 +3263,26 @@ const CORS_PROXIES = [
 
 ];
 const FALLBACK_DATA = [
-  {"title": "Google Research 三个月专利起草实验发现AI辅助未必能培养初级律师的专业判断", "category": "paper", "url": "https://research.google/blog/does-better-work-always-mean-better-workers/"},
-  {"title": "GPT-6 Luna Decisions 上架 OpenRouter", "category": "ai-products", "url": "https://x.com/OpenRouter/status/2107929204142874759"},
-  {"title": "vLLM 详解 DeepSeek-V4.1-Flash 优化：Agent 场景吞吐提升 5 倍", "category": "tip", "url": "https://vllm.ai/blog/2026-10-07-deepseek-v41-flash"},
-  {"title": "Google 发布 Developer Knowledge API 生态，为 AI 智能体提供官方文档检索", "category": "ai-products", "url": "https://developers.googleblog.com/supercharge-your-development-with-the-google-developer-knowledge-api-ecosystem/"},
-  {"title": "LangChain 重构 Deep Agents 的 Skills 支持，新增工具绑定、固定技能与线程内重载", "category": "ai-products", "url": "https://www.langchain.com/blog/revamping-skills-in-deep-agents"},
-  {"title": "NVIDIA 与 Microsoft 推出 RTX Spark 平台并宣布 MXC 让 AI Agent 落地 Windows PC", "category": "ai-products", "url": "https://blogs.nvidia.com/blog/local-ai-rtx-spark-microsoft-windows-event/"},
-  {"title": "Anthropic 发布 Claude Haiku 5.5，Artificial Analysis 智能指数得分 43", "category": "ai-models", "url": "https://x.com/ArtificialAnlys/status/2107911905822351609"},
-  {"title": "Cursor 公布 Claude Haiku 5.5 定价并下调 Claude Sonnet 5.5 缓存读取价格", "category": "ai-products", "url": "https://x.com/cursor_ai/status/2107897257651769464"},
-  {"title": "OpenAI 向全部 ChatGPT 用户推出 GPT-6 与 Intelligent UI", "category": "ai-products", "url": "https://openai.com/index/gpt-6-for-everyone/"},
-  {"title": "Claude Code v2.1.293 发布：新增 Claude Haiku 5.5 并修复大量问题", "category": "ai-products", "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.293"},
-  {"title": "Anthropic 为 Claude Max 和 Team 套餐推出月度 Platform API 额度", "category": "ai-products", "url": "https://x.com/ClaudeDevs/status/2107895957933408429"},
-  {"title": "Anthropic 发布 Claude Haiku 5.5，运行成本平均降低约 75%", "category": "ai-models", "url": "https://www.anthropic.com/claude-haiku-5-5"},
-  {"title": "Anthropic 将 Claude Sonnet 5.5 缓存读取价格减半至每百万 token $0.10", "category": "ai-products", "url": "https://x.com/claudeai/status/2107894060229034197"},
-  {"title": "Stanford HAI 研究：想让员工拥抱 AI，别把它包装成效率工具", "category": "paper", "url": "https://hai.stanford.edu/news/want-employees-to-embrace-ai-stop-selling-it-as-a-productivity-tool"},
-  {"title": "Liquid AI 发布开源决策模型 d1-3B 和 d1-omni-600M", "category": "ai-models", "url": "https://www.liquid.ai/blog/d1-open"},
-  {"title": "Unsloth 开源教程：本地训练 Qwen3.5 0.8B 决策模型，准确率从 20.7% 提升至 74.3%", "category": "tip", "url": "https://x.com/UnslothAI/status/2107868866361930236"},
-  {"title": "Perplexity 开源 pplx-embed-v2-late 多模态 late-interaction 嵌入模型（9B 与 0.6B）", "category": "ai-models", "url": "https://x.com/AravSrinivas/status/2107871834205196784"},
-  {"title": "Microsoft Research Asia 开源 Agent Lightning v1.0：3,500 行代码的真实 harness 智能体 RL 训练框架", "category": "paper", "url": "https://www.microsoft.com/en-us/research/blog/agent-lightning-v1-0-a-3500-line-lightweight-agentic-rl-framework-for-training-agents-with-real-harnesses/"},
-  {"title": "亚利桑那州法院裁定 AI 生成受害者视频带有不当情感分量 将重新量刑", "category": "industry", "url": "https://www.404media.co/undue-emotional-weight/"},
-  {"title": "LlamaIndex 发布 OpenDocRouter：一个 API 统一调用多种文档解析模型", "category": "ai-products", "url": "https://www.llamaindex.ai/blog/introducing-opendocrouter"},
+  {"title": "Tibo 宣布发布 ChatGPT", "category": "ai-products", "url": "https://x.com/thsottiaux/status/2108349826727588000"},
+  {"title": "Block 如何用 Claude Fable 编排数千个 pull request 的代码迁移", "category": "tip", "url": "https://claude.com/blog/how-block-orchestrates-claude-fable-across-thousands-of-pull-requests"},
+  {"title": "Hugging Face 工程师用 ML Intern 以约 103 美元自制 7 个小模型", "category": "tip", "url": "https://huggingface.co/blog/building-with-ml-intern"},
+  {"title": "Arena 公布 Claude Haiku 5.5 (High) 真实评测结果：Code Arena 1587 分首秀第 30 名", "category": "ai-models", "url": "https://x.com/arena/status/2108286973119230096"},
+  {"title": "Anthropic 推出 Cyber Mission，发布 Critical Infrastructure Defense Program 和 OSS Scanner", "category": "industry", "url": "https://www.anthropic.com/news/anthropic-cyber-mission"},
+  {"title": "Anthropic 推出开源漏洞扫描服务 OSS Scanner，免费面向开源项目", "category": "ai-products", "url": "https://www.anthropic.com/research/launching-opt-in-vuln-finding-service-for-open-source"},
+  {"title": "Claude 推出 Dashboards 实时仪表盘与 Motion 动画讲解功能", "category": "ai-products", "url": "https://claude.com/blog/dashboards-and-motion"},
+  {"title": "如何在单张 RTX 5090 上用 MiniMax H3 生成实时视频", "category": "tip", "url": "https://blog.comfy.org/p/how-i-generated-live-video-with-minimax"},
+  {"title": "Arena 获 Lightspeed 领投 2 亿美元 B 轮融资，估值 31 亿美元并推出 Alignment Index", "category": "industry", "url": "https://x.com/arena/status/2108269048467513429"},
+  {"title": "Google 开源 ML Drift 端侧 GPU 推理引擎，接替 TFLite GPU delegate", "category": "ai-products", "url": "https://developers.googleblog.com/ml-drift-next-gen-gpu-aiml-inference-at-the-edge/"},
+  {"title": "Arena 完成 2 亿美元 B 轮融资，估值 31 亿美元并发布 Alignment Index", "category": "industry", "url": "https://x.com/arena/status/2108310714423423254"},
+  {"title": "NVIDIA KGMON 团队分享 KDD Cup 2026 数据分析智能体的构建经验", "category": "tip", "url": "https://developer.nvidia.com/blog/building-reliable-data-analytics-agents-lessons-from-the-kdd-cup/"},
+  {"title": "部分数学家呼吁抵制 OpenAI，AI 生成的数学证明涌入数学领域", "category": "industry", "url": "https://the-decoder.com/some-mathematicians-call-for-openai-boycott-after-ai-generated-proofs-flood-their-field/"},
+  {"title": "Google 开源 AQuA 环境质量智能体，自动诊断生产环境中的 Agent 故障", "category": "ai-products", "url": "https://developers.googleblog.com/the-outer-loop-insights-first-an-ambient-quality-agent-that-diagnoses-your-production-agent/"},
+  {"title": "OpenAI 年化营收被曝接近 500 亿美元，与此前预期差距约 200 亿美元", "category": "industry", "url": "https://www.ithome.com/1/010/751.htm"},
+  {"title": "Anthropic 发布 2026 年使用政策更新，11 月 12 日生效", "category": "industry", "url": "https://www.anthropic.com/news/2026-usage-policy-update"},
+  {"title": "Artificial Analysis 评测 Google Nano Banana 2.1，两榜居第 4 且价格为前代一半", "category": "ai-models", "url": "https://x.com/ArtificialAnlys/status/2108236656700768310"},
+  {"title": "LangChain 用 Stripe Link 和 Managed Deep Agents 构建可支付的智能体 Restock", "category": "tip", "url": "https://www.langchain.com/blog/agents-that-can-pay-with-stripe-link"},
+  {"title": "OpenAI 封禁俄罗斯与伊朗两个利用 ChatGPT 开展虚假前臆影响行动的账号集群", "category": "industry", "url": "https://openai.com/index/disrupting-ai-enabled-false-front-operations"},
+  {"title": "Goodfire 为 Kimi K3 和 GLM 5.3 训练并部署生产级网络安全监控器", "category": "paper", "url": "https://www.goodfire.com/research/production-cyber-monitors-on-kimi-k3"}
 ];
 
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧' };
