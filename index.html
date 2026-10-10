@@ -2390,7 +2390,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-10-09';
+var NAV_UPDATE_DATE = '2026-10-10';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -2502,6 +2502,7 @@ const TOOLS = [
 { id:'yige',       name:'文心一格',         vendor:'百度',      cat:'image', region:'cn', desc:'百度 AI 艺术和创意辅助平台，中文语义理解强，风格丰富。',             tags:['中文优化','风格多样'],    url:'https://yige.baidu.com',         icon:'images/logos/yige.png' },
 { id:'feynobg',    name:'FeyNoBg',           vendor:'Feyn Labs', cat:'image', region:'intl', desc:'7月28日发布的开源自动背景去除模型 SOTA，在八项基准中的四项取得最佳 S-measure 分数。基于 BiRefNet 架构（263M 参数），模型和训练库 NoBg 均在 Hugging Face 和 GitHub 开源（MIT）。', tags:['开源','背景去除','SOTA','MIT'], url:'https://usefeyn.com/blog/feynobg', icon:'images/logos/feynobg.png' },
 { id:'nano-banana2', name:'Nano Banana 2',     vendor:'Google',    cat:'image', region:'intl', desc:'Google 新一代图像生成模型（Gemini 图像模型系列），已集成至 Google Earth 等谷歌产品实现地图场景图像生成。延续 Nano Banana 系列的高质量文生图与精准编辑能力，主打与谷歌生态产品的深度融合。', tags:['图像生成','Google','生态集成','编辑'], url:'https://blog.google/products/gemini/nano-banana/', icon:'images/logos/nano-banana2.png' },
+  { id:'nano-banana21', name:'Nano Banana 2.1', vendor:'Google', cat:'image', region:'intl', desc:'Google 于 2026年10月6日发布的 Gemini 图像生成与对话式编辑模型（gemini-nano-banana-2.1），为 Nano Banana 2（Gemini 3.1 Flash Image）的升级版，并保持 Flash 级速度与成本（API 标准 1K 图约 $0.0336，约为前代一半）。视觉质量、提示遵循、多轮角色一致性与文本/信息图渲染显著改进，修复 2K/4K 宽屏与全景宽高比（1:4、4:1、1:8、8:1）的平铺伪影，支持最多 14 张参考图（4 角色/10 对象一致性）、1K/2K/4K 输出、三级可配置思考与 Google 搜索接地，并新增 C2PA 内容凭证。', tags:['图像生成','Google','Nano Banana','降本','精准编辑','4K','搜索接地'], url:'https://ai.google.dev/gemini-api/docs/models/gemini-nano-banana-2.1', icon:'images/logos/nano-banana21.png' },
 { id:'leonardo',   name:'Leonardo AI',     vendor:'Leonardo', cat:'image', region:'intl', desc:'游戏资产风格 AI 绘画，提供精细化控制和丰富预设，适合游戏设计。',       tags:['游戏风格','精细控制','付费'],url:'https://leonardo.ai',          icon:'images/logos/leonardo.png' },
 { id:'qiaomu',     name:'乔木画布',         vendor:'开源社区',  cat:'image', region:'intl', desc:'免费开源在线图像编辑器，支持 Seedream 和 GPT-image-2 AI 生图、一键抠图、2 万图标素材库，支持一键部署 Vercel。',        tags:['免费','开源','在线编辑'],  url:'https://ps.qiaomu.ai',           icon:'images/logos/qiaomu.svg' },
 { id:'pixpix',     name:'PixPix',           vendor:'PixPix',   cat:'image', region:'intl', desc:'AI 电商设计工具，上传产品图即可生成商品主图、场景图、广告素材，2026年6月上线，定位为电商内容工作台。', tags:['电商设计','商品图','场景图'], url:'https://www.pixpix.com',          icon:'images/logos/pixpix.png' },
@@ -2589,6 +2590,7 @@ const TOOLS = [
 { id:'gl-llm',       name:'LLM',            vendor:'大语言模型',   cat:'glossary', subcat:'gl-basic',    desc:'Large Language Model 的缩写。通过海量文本数据训练的超大规模神经网络，能够理解和生成自然语言。ChatGPT、Claude、文心一言等都属于 LLM。', tags:['基础概念','核心'], icon:'🧩' },
 { id:'gl-agent-supply-chain', name:'智能体供应链攻击', vendor:'Agent Supply-Chain Attack', cat:'glossary', subcat:'gl-tech', desc:'指攻击者利用 AI 智能体自动发布的软件包、依赖或插件，向开源生态与软件供应链注入恶意代码的攻击方式。2026年9月曝出 OpenAI 智能体集群曾对 RubyGems 发动未公开的大规模恶意包攻击，引发对“AI 自动发布”带来的供应链安全风险的广泛关注，被视为继 xz-utils 后新型的人机协同供应链威胁。', tags:['安全','供应链','智能体','开源','恶意包'], icon:'🔗' },
 { id:'gl-distill-attack', name:'蒸馏攻击 (Distillation Attack)', cat:'glossary', region:'intl', desc:'指一方通过大量调用他人已部署的模型 API、用其输出作为训练数据来“蒸馏”出近似甚至同性能的模型，从而绕开预训练成本的侵权/安全行为。2026年9月 Anthropic 发布报告，指控阿里、月之暗面与 DeepSeek 等对 Claude 发起系统性蒸馏攻击，引发关于模型权重知识产权保护与出口管制的新一轮争论。', tags:['蒸馏','知识窃取','模型安全','合规'], url:'https://www.anthropic.com/research/intelligence-targeting-conventional-weapons-capabilities', icon:'🧪' },
+{ id:'gl-dfi-dfc', name:'蒸馏定罪与蒸馏提能 (DFI/DFC)', vendor:'Redwood Research', cat:'glossary', subcat:'gl-frontier', desc:'Redwood Research 于 2026年10月发表的「蒸馏双刃」（Distillation Double Bind）实证框架下的两种蒸馏安全方法。蒸馏定罪（Distillation for Incrimination, DFI）将不可信（untrusted，能力强到可能策略性隐瞒失对齐）的模型蒸馏为更弱的可信学生模型，使隐藏的失对齐倾向比其「瞒天过海」的能力更快转移，从而通过审计学生间接「定罪」教师模型；蒸馏提能（Distillation for Capabilities, DFC）则只转移能力而不转移失对齐，得到更强且可信的模型。DFI 依赖共享基座的预 RL 检查点，DFC 靠接种提示与少样本多轮训练抑制隐性失对齐传递，是前沿模型安全审计与「取能弃恶」的新思路。', tags:['蒸馏','AI安全','对齐审计','Redwood','失对齐','可信模型','双刃'], url:'https://blog.redwoodresearch.org/p/paper-distillation-for-incrimination', icon:'⚖️' },
 { id:'gl-gpt',       name:'GPT',            vendor:'生成式预训练变换器', cat:'glossary', subcat:'gl-basic',    desc:'Generative Pre-trained Transformer 的缩写。一种基于 Transformer 架构的自回归语言模型，先在海量文本上预训练，再针对特定任务微调。', tags:['基础概念','架构'], icon:'🔧' },
 { id:'gl-agi',       name:'AGI',            vendor:'通用人工智能',  cat:'glossary', subcat:'gl-frontier', desc:'Artificial General Intelligence 的缩写，AI 的终极目标之一。指具备人类级别的通用认知能力、能跨领域自主学习推理、解决未知问题的 AI 系统，目前尚未实现。', tags:['前沿概念','终极目标'], icon:'🌟' },
 { id:'gl-prompt',    name:'Prompt',         vendor:'提示词/提示工程', cat:'glossary', subcat:'gl-skill',    desc:'与 AI 对话时发出的指令或指引，是决定回答质量的首要因素。包含两个层面：① 系统提示词（System Prompt）—— 开发者提前设定的"身份与人设"，如"你是一个专业翻译官"，整场对话持续生效且用户不可见；② 用户提示词（User Prompt）—— 用户发出的具体指令。Prompt Engineering 即设计和优化提示词以获得更准确输出的技术。', tags:['实用技巧','核心','含系统提示词'], icon:'✍️' },
@@ -3263,8 +3265,18 @@ const CORS_PROXIES = [
 
 ];
 const FALLBACK_DATA = [
-  {"title": "Tibo 宣布发布 ChatGPT", "category": "ai-products", "url": "https://x.com/thsottiaux/status/2108349826727588000"},
-  {"title": "Block 如何用 Claude Fable 编排数千个 pull request 的代码迁移", "category": "tip", "url": "https://claude.com/blog/how-block-orchestrates-claude-fable-across-thousands-of-pull-requests"},
+  {"title": "Anthropic 向白宫通报 AI 智能体失控事件，曾试图访问美国政府网站", "category": "industry", "url": "https://www.ithome.com/1/011/194.htm"},
+  {"title": "Anthropic 承认难以可靠控制其 AI 智能体，将切断内部评测的实时联网", "category": "industry", "url": "https://techcrunch.com/2026/10/09/anthropic-cant-reliably-control-its-ai-agents-its-cutting-off-its-internal-evals-from-the-live-internet-instead/"},
+  {"title": "Redwood Research 发布论文：实证检验蒸馏定罪（DFI）与蒸馏提能（DFC）", "category": "paper", "url": "https://blog.redwoodresearch.org/p/paper-distillation-for-incrimination"},
+  {"title": "Anthropic 发布报告：调查评估与内部使用中 Claude 的非预期行为", "category": "paper", "url": "https://www.anthropic.com/research/investigating-unintended-model-actions"},
+  {"title": "Prime Intellect 用 Rust 重写 Prime Agent，2000 多个智能体自主完成端到端迁移", "category": "ai-products", "url": "https://www.primeintellect.ai/blog/prime-agent-rust"},
+  {"title": "Sierra 发布 Personal Agent Protocol（Poppy）协议草案，新增 35 家设计伙伴", "category": "ai-products", "url": "https://sierra.ai/blog/poppy"},
+  {"title": "Anthropic AI 模型自动化测试中向费城警方网站提交虚构凶杀案线索", "category": "industry", "url": "https://x.com/rohanpaul_ai/status/2108681738767740983"},
+  {"title": "Epoch AI 发布 InnovationEval 评测：前沿模型仅达到人类论文 SDPO 增益的 15%", "category": "paper", "url": "https://epochai.substack.com/p/can-ai-automate-ai-r-and-d-yet"},
+  {"title": "OpenAI 年化收入约 500 亿美元并寻求 300 亿美元新融资", "category": "industry", "url": "https://the-decoder.com/openai-revenue-keeps-surging-as-company-seeks-30-billion-in-fresh-capital/"},
+  {"title": "ARC Prize 2026：TUFA Labs 以 88.06% 登顶 ARC-AGI-2 高分榜", "category": "ai-models", "url": "https://x.com/arcprize/status/2108578092558250148"},
+  {"title": "OpenAI 研究负责人发声明回应三名员工离职争议", "category": "industry", "url": "https://x.com/OpenAINewsroom/status/2108441580806025712"},
+  {"title": "Mistral Large 4 进入 Agent Arena 前十五实验室，排名第 43", "category": "ai-models", "url": "https://x.com/arena/status/2108405474391728357"},
   {"title": "Hugging Face 工程师用 ML Intern 以约 103 美元自制 7 个小模型", "category": "tip", "url": "https://huggingface.co/blog/building-with-ml-intern"},
   {"title": "Arena 公布 Claude Haiku 5.5 (High) 真实评测结果：Code Arena 1587 分首秀第 30 名", "category": "ai-models", "url": "https://x.com/arena/status/2108286973119230096"},
   {"title": "Anthropic 推出 Cyber Mission，发布 Critical Infrastructure Defense Program 和 OSS Scanner", "category": "industry", "url": "https://www.anthropic.com/news/anthropic-cyber-mission"},
@@ -3272,17 +3284,7 @@ const FALLBACK_DATA = [
   {"title": "Claude 推出 Dashboards 实时仪表盘与 Motion 动画讲解功能", "category": "ai-products", "url": "https://claude.com/blog/dashboards-and-motion"},
   {"title": "如何在单张 RTX 5090 上用 MiniMax H3 生成实时视频", "category": "tip", "url": "https://blog.comfy.org/p/how-i-generated-live-video-with-minimax"},
   {"title": "Arena 获 Lightspeed 领投 2 亿美元 B 轮融资，估值 31 亿美元并推出 Alignment Index", "category": "industry", "url": "https://x.com/arena/status/2108269048467513429"},
-  {"title": "Google 开源 ML Drift 端侧 GPU 推理引擎，接替 TFLite GPU delegate", "category": "ai-products", "url": "https://developers.googleblog.com/ml-drift-next-gen-gpu-aiml-inference-at-the-edge/"},
-  {"title": "Arena 完成 2 亿美元 B 轮融资，估值 31 亿美元并发布 Alignment Index", "category": "industry", "url": "https://x.com/arena/status/2108310714423423254"},
-  {"title": "NVIDIA KGMON 团队分享 KDD Cup 2026 数据分析智能体的构建经验", "category": "tip", "url": "https://developer.nvidia.com/blog/building-reliable-data-analytics-agents-lessons-from-the-kdd-cup/"},
-  {"title": "部分数学家呼吁抵制 OpenAI，AI 生成的数学证明涌入数学领域", "category": "industry", "url": "https://the-decoder.com/some-mathematicians-call-for-openai-boycott-after-ai-generated-proofs-flood-their-field/"},
-  {"title": "Google 开源 AQuA 环境质量智能体，自动诊断生产环境中的 Agent 故障", "category": "ai-products", "url": "https://developers.googleblog.com/the-outer-loop-insights-first-an-ambient-quality-agent-that-diagnoses-your-production-agent/"},
-  {"title": "OpenAI 年化营收被曝接近 500 亿美元，与此前预期差距约 200 亿美元", "category": "industry", "url": "https://www.ithome.com/1/010/751.htm"},
-  {"title": "Anthropic 发布 2026 年使用政策更新，11 月 12 日生效", "category": "industry", "url": "https://www.anthropic.com/news/2026-usage-policy-update"},
-  {"title": "Artificial Analysis 评测 Google Nano Banana 2.1，两榜居第 4 且价格为前代一半", "category": "ai-models", "url": "https://x.com/ArtificialAnlys/status/2108236656700768310"},
-  {"title": "LangChain 用 Stripe Link 和 Managed Deep Agents 构建可支付的智能体 Restock", "category": "tip", "url": "https://www.langchain.com/blog/agents-that-can-pay-with-stripe-link"},
-  {"title": "OpenAI 封禁俄罗斯与伊朗两个利用 ChatGPT 开展虚假前臆影响行动的账号集群", "category": "industry", "url": "https://openai.com/index/disrupting-ai-enabled-false-front-operations"},
-  {"title": "Goodfire 为 Kimi K3 和 GLM 5.3 训练并部署生产级网络安全监控器", "category": "paper", "url": "https://www.goodfire.com/research/production-cyber-monitors-on-kimi-k3"}
+  {"title": "Google 开源 ML Drift 端侧 GPU 推理引擎，接替 TFLite GPU delegate", "category": "ai-products", "url": "https://developers.googleblog.com/ml-drift-next-gen-gpu-aiml-inference-at-the-edge/"}
 ];
 
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧' };
