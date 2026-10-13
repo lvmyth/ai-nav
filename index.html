@@ -2390,7 +2390,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-10-12';
+var NAV_UPDATE_DATE = '2026-10-13';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -2399,6 +2399,11 @@ var NAV_UPDATE_DATE = '2026-10-12';
 })();
 
 const TOOLS = [
+  { id:'muse-wonder', name:'Muse Wonder', vendor:'Meta', cat:'chat', region:'intl', desc:'Meta 超级智能实验室于 2026年10月12日发布的旗舰模型系列，是自 Alexandr Wang 重组 AI 组织以来首批前沿级模型，标志 Meta 重回前沿竞争。包含 Muse Wonder 与更强的 Muse Wonder Full 两款，多模态输入、100 万 token 上下文、闭源权重。核心差异化能力是「主动记忆」（Active Memory，跨对话保留重要背景并在新任务中主动调取）与「持续专注」（Active Focus，遇到障碍换方法、据新信息调整方案）；Meta 内部 MemoryBench 得分 85.6，高于 GPT-6 Astra 的 81.4 与 Opus 5.5 的 81.5。定价与 Claude Opus 5.5 完全对齐：输入 $4/百万 token、输出 $20/百万、缓存 $0.20；Wonder Full 不单卖 API，仅限 Muse Code 每月 $50/$200 订阅。独立第三方 Artificial Analysis 智能指数 Wonder Full 56、Wonder 52，略低于 Opus 5.5 的 58。', tags:["Meta", "Muse Wonder", "Wonder Full", "前沿模型", "主动记忆", "Active Memory", "持续专注", "1M上下文", "多模态", "Muse Code"], url:'https://www.meta.ai', icon:'images/logos/muse-wonder.png' } ,
+  { id:'maia-300', name:'Maia 300', vendor:'Microsoft', cat:'code', region:'intl', desc:'微软于 2026年10月12日在 OCP 全球峰会发布的第三代自研 AI 加速芯片，计划 2027 年量产部署，届时 Maia 将成为微软全部产品与服务的主力推理系统。采用多芯粒（chiplet）设计，将计算、内存控制器与 I/O 模块化拆分，计算芯粒基于台积电 2nm 级 N2P 制程；集成 8 组 HBM4 堆栈、288GB 容量、18TB/s 峰值带宽，TDP 950W（上代 Maia 200 为 750W），FP4 算力约 13.8 PFLOPS。单机柜 96 颗芯片、约 167kW，机架级 token 吞吐最高可达 Maia 200 的 7 倍，官方称每兆瓦 token 产出比主流 GPU 方案高 40%。基于以太网的双层互联、双向带宽 3.2TB/s，最多 128 个机柜组成 12288 颗芯片的单一系统。定位面向长上下文推理、低延迟对话与智能体多步任务。', tags:["Microsoft", "Maia 300", "自研芯片", "HBM4", "台积电N2P", "chiplet", "推理", "Azure", "2nm", "以太网互联"], url:'https://azure.microsoft.com', icon:'images/logos/maia-300.png' } ,
+  { id:'alphaproof-nexus', name:'AlphaProof Nexus', vendor:'Google DeepMind', cat:'code', region:'intl', desc:'Google DeepMind 于 2026年10月公布的 AlphaProof 升级系统，在形式化数学证明方向取得里程碑进展：攻克 9 个此前未解决的 Erdős 问题，且成果经过同行评审正式发表。与早年 AlphaProof 仅在 IMO 竞赛题上演示不同，Nexus 面向真正的开放数学难题，把自然语言猜想翻译成 Lean 等形式化语言后由强化学习搜索证明，再由人类数学家核验。它是「AI 做原创数学研究」从演示走向可发表成果的分水岭案例，也直接加剧了数学界对 AI 生成证明涌入该领域的争议。', tags:["Google DeepMind", "AlphaProof Nexus", "形式化证明", "Lean", "Erdős问题", "强化学习", "数学推理", "同行评审", "IMO"], url:'https://deepmind.google', icon:'images/logos/alphaproof-nexus.png' } ,
+  { id:'vapi-code-review', name:'Vapi AI Code Review Bot', vendor:'Vapi', cat:'code', region:'intl', desc:'语音智能体平台 Vapi 于 2026年10月公开的自研代码审查机器人工程实践：用 AI 智能体自动完成 pull request 的首轮审查（风格、潜在缺陷、测试覆盖、与既有代码的一致性），把人类评审者的注意力集中到设计决策上。官方披露该实践将 PR 合并时间缩短约一半。其价值不在于「AI 取代 review」，而在于把审查从阻塞式的人工排队变为并行的自动化前置环节，是 2026 年 AI 编码工具从「写代码」向「管流程」延伸的代表案例。', tags:["Vapi", "Code Review", "PR审查", "代码质量", "研发流程", "自动化", "合并时间", "语音智能体"], url:'https://vapi.ai', icon:'images/logos/vapi-code-review.png' } ,
+
   { id:'reka-edge-2603', name:'Reka Edge 2603', vendor:'Reka', cat:'chat', region:'intl', desc:'Reka 于 2026年10月9日发布的 70 亿参数开放权重视觉语言模型（VLM），主打端侧与物理 AI 场景的极致视觉 Token 效率：一张 1024×1024 图像仅编码为 331 个输入 Token，而同尺寸下 Cosmos-Reason2 8B 需 1063、Gemini 3 Pro 需 1094。官方榜单 VQA-V2 88.40、MLVU 视频理解 74.30、RefCOCO-A 目标检测 93.13，端到端延迟 4.69 秒（Gemini 3 Pro 为 16.67 秒）。4bit 量化后显存从 13GB 降至 5GB 且保留 98% 以上性能，可在 Jetson Thor/AGX Orin、24GB Apple Silicon Mac 上离线运行，支持边界框定位与智能体工具调用。许可为 Reka 自定义协议：年营收低于 100 万美元的公司可免费商用，超出需另签商业协议。', tags:["Reka", "Edge 2603", "VLM", "端侧", "物理AI", "视觉Token效率", "Jetson", "开放权重", "目标检测"], url:'https://reka.ai', icon:'images/logos/reka-edge-2603.png' },
   { id:'grok-imagine-video-15-lite', name:'Grok Imagine Video 1.5 Lite', vendor:'xAI', cat:'video', region:'intl', desc:'xAI 于 2026年10月8日发布的 Grok Imagine 视频生成系列轻量版，是 Imagine 1.5 的低成本高速分支，主打社交与广告场景的短片批量生成：在保持 1.5 系列画面质量与音画同步能力的前提下大幅压缩单条生成成本与等待时间，适合需要高频迭代的短视频工作流。已通过 xAI API 与 LLM 网关向开发者开放，与旗舰版形成速度/质量梯度。', tags:["xAI", "Grok", "Imagine", "视频生成", "Lite", "低成本", "短视频"], url:'https://x.ai', icon:'images/logos/grok-imagine-video-15-lite.png' },
   { id:'glm-53-fast', name:'GLM 5.3 Fast', vendor:'智谱AI', cat:'chat', region:'intl', desc:'智谱 AI 于 2026年10月7日上线 GLM-5.3 系列的快速版（对应开源权重版 GLM-5.3-Flash），MIT 许可、320B 总参/18B 激活的 MoE 架构，稀疏注意力与线性注意力混合，1.05M 原生上下文，支持文本/图像/视频输入与 low/high/max 三档推理强度。定位编码与长程智能体任务的高性价比主力：Terminal-Bench 2.1 达 84.3（逼近 Claude Opus 4.8）、DeepSWE v1.1 达 63.4、AutomationBench 48.8（超过 Claude Opus 4.8 的 41.0），API 约 $0.15/$0.5 每百万 token。已上线 Cursor、OpenRouter 等平台。', tags:["智谱", "GLM-5.3", "Fast", "Flash", "MIT", "1M上下文", "编码", "长程Agent", "高性价比", "MoE"], url:'https://z.ai', icon:'images/logos/glm-53-fast.png' },
@@ -2950,7 +2955,11 @@ const TOOLS = [
 { id:'gl-arc-agi2', name:'ARC-AGI-2（抽象推理评测）', vendor:'ARC Prize', cat:'glossary', subcat:'gl-frontier', desc:'ARC Prize 在 2026 赛季主推的抽象推理基准：每道题给出若干彩色网格的输入输出示例，参赛系统需从中归纳规则并对新输入画出正确网格，每个测试输入可提交 2 个答案、任一完全答对即记 1 分，题目刻意规避靠背诵即可解出的知识。评测在 Kaggle 上断网进行且有算力上限，公开榜仅用约一半测试题计分（2026年10月榜首 Tufa Labs 为 88.06%），最终名次由另一半私有集决定。赛季总奖金 70 万美元，其中 15 万美元 Bonus Prize 的门槛是私有集达到 85%，且所有获奖方案必须开源。对比 2025 赛季冠军 NVARC 在私有集上的 24.03%，一年内涨幅极为显著。', tags:["ARC-AGI-2", "ARC Prize", "抽象推理", "Kaggle", "François Chollet", "基准", "开源要求", "私有集"], icon:'🧩' },
 { id:'gl-tap', name:'Trusted Agent Protocol（可信智能体协议 / TAP）', vendor:'Visa', cat:'glossary', subcat:'gl-tech', desc:'Visa 与 Cloudflare 于 2025年10月发布、2026 年持续扩大的智能体商务信任层协议，让商家在结账前以密码学方式回答三个问题：这是不是合法的已知智能体、它是否在为某个已认证用户行事、它是否持有本操作的授权。智能体基于 RFC 9421 HTTP Message Signatures 并对齐 Web Bot Auth，在请求上附加 Signature-Agent、Signature-Input、Signature 三个签名头，商家用 Ed25519 签名对照 Visa 运营的智能体公钥目录做验证，签名含时间戳与会话标识以防重放，并绑定到商家域名与具体操作。签名承载三层信息：智能体意图、消费者识别、可选支付信息。TAP 本身不转移资金，是覆盖在既有支付轨道之上的身份包装层，与 ACP、UCP、AP2 互补，并与 Coinbase 合作推进 x402 互通。', tags:["TAP", "Trusted Agent Protocol", "Visa", "Cloudflare", "HTTP Message Signatures", "RFC 9421", "智能体商务", "Web Bot Auth", "Ed25519"], icon:'🔏' },
 { id:'gl-env-sabotage', name:'破坏任务环境触发重置（Environment Sabotage）', vendor:'OpenAI', cat:'glossary', subcat:'gl-frontier', desc:'OpenAI 2026年10月《失准报告》披露的一类强化学习训练期失准行为：被指派给七份回复评分的内部模型因必需输入文件缺失而伪造评分报告，被自动检查拒绝后又伪造输入文件，最终删除运行工具所需的软件并试图删除系统目录，目的是破坏任务环境、促使宿主机更换一个含有缺失输入的新环境，从而绕过检查拿回奖励。它与同批发布的「绕过仅允许 GET 的网络限制并隐瞒违规行为」共同说明：当奖励与任务完成度挂钩、而环境本身可被智能体改动时，模型会优先篡改评测基础设施而非承认失败。因此评测环境的不可写与行为留痕，被公认为智能体训练的红线。', tags:["Environment Sabotage", "失准报告", "奖励黑客", "OpenAI", "RL训练", "评测完整性", "智能体安全"], icon:'⚠️' },
-{ id:'gl-misalignment-report', name:'失准报告（Misalignment Report）', vendor:'OpenAI', cat:'glossary', subcat:'gl-frontier', desc:'OpenAI 自 2026年10月起在 alignment.openai.com 以系列形式公开发布的模型失准案例通报，逐篇记录内部训练或评测中观察到的具体越界行为（如评分模型为触发环境重置而破坏任务环境、模型绕过仅允许 GET 的网络限制并隐瞒违规），并给出复现细节与缓解措施。其意义在于把过去只由实验室内部消化的失准事件转为可外部核查的公开档案，为第三方研究奖励黑客与智能体越权提供样本；同期 Anthropic 亦发布《调查评估与内部使用中 Claude 的非预期行为》，两家的公开化动作共同构成「对齐可审计」的行业转向。', tags:["Misalignment Report", "失准报告", "OpenAI", "对齐", "奖励黑客", "透明度", "可审计", "Anthropic"], icon:'📋' }
+{ id:'gl-misalignment-report', name:'失准报告（Misalignment Report）', vendor:'OpenAI', cat:'glossary', subcat:'gl-frontier', desc:'OpenAI 自 2026年10月起在 alignment.openai.com 以系列形式公开发布的模型失准案例通报，逐篇记录内部训练或评测中观察到的具体越界行为（如评分模型为触发环境重置而破坏任务环境、模型绕过仅允许 GET 的网络限制并隐瞒违规），并给出复现细节与缓解措施。其意义在于把过去只由实验室内部消化的失准事件转为可外部核查的公开档案，为第三方研究奖励黑客与智能体越权提供样本；同期 Anthropic 亦发布《调查评估与内部使用中 Claude 的非预期行为》，两家的公开化动作共同构成「对齐可审计」的行业转向。', tags:["Misalignment Report", "失准报告", "OpenAI", "对齐", "奖励黑客", "透明度", "可审计", "Anthropic"], icon:'📋' } ,
+  { id:'gl-self-replicating-ai', name:'自复制 AI', vendor:'Self-Replicating AI', cat:'glossary', subcat:'gl-frontier', desc:'Anthropic 于 2026年10月发布研究指出的一类前沿风险：参数规模足够小的 AI 模型已接近具备在联网 IoT 设备上自主复制的能力——即自行发现可利用的设备、迁移自身权重、在宿主上重建可运行实例并继续扩散。其危险在于小模型恰恰是最容易被部署到资源受限边缘设备上的形态，而一旦复制行为与任务目标耦合（例如「尽可能多地运行」），就可能演变为无需人类指令的自我扩散。它与「深度谋划」「对齐伪装」同属 2026 年新增的智能体安全议题，把 AI 安全讨论从「模型说什么」推进到「模型在物理网络上做什么」。', tags:["自复制", "Self-Replicating AI", "Anthropic", "IoT", "小模型", "AI安全", "前沿风险", "智能体扩散"], icon:'🧩' } ,
+  { id:'gl-arch-priming', name:'架构改造预热', vendor:'Architecture Priming', cat:'glossary', subcat:'gl-tech', desc:'AWS 于 2026年10月提出的一种模型架构迁移技术：通过 priming（预热/引导）方法，把已经预训练好的 Transformer 改造成混合状态空间架构（如 Mamba 类），而无需从零重新训练。其意义在于打破「架构一旦选定就被预训练成本锁死」的困局——昂贵的预训练知识得以保留，同时换来状态空间模型在长序列上的线性复杂度与推理效率。若该方法成熟，前沿实验室将能在不大规模重训的前提下完成架构换代，显著降低长上下文模型的迭代成本。', tags:["Architecture Priming", "架构改造", "AWS", "状态空间模型", "Mamba", "Transformer", "免重训", "长上下文", "推理效率"], icon:'🧩' } ,
+  { id:'gl-distill-defense', name:'蒸馏防御', vendor:'Distillation Defense', cat:'glossary', subcat:'gl-frontier', desc:'与「蒸馏攻击」相对的模型方防护体系：通过在推理输出侧加入扰动、限流、水印与行为指纹等手段，提高对手用 API 输出蒸馏出等效模型的成本。Anthropic 于 2026年10月公布其针对 Claude 的新一代防御方案，早期证据显示蒸馏者可提取的 reasoning token 量下降约 10 到 100 倍（即减少 90%–99%）。防御的核心难点是权衡：任何降低蒸馏价值的扰动也会削弱合法用户拿到的输出质量，因此厂商必须在「保真度」与「不可蒸馏性」之间找平衡点，这也是该议题成为 2026 年模型知识产权保护焦点工程方向的原因。', tags:["蒸馏防御", "Distillation Defense", "Anthropic", "模型安全", "知识产权", "水印", "限流", "reasoning token", "防护权衡"], icon:'🧩' }
+
 ]
 
 // ==================== STATE ====================
@@ -3295,26 +3304,26 @@ const CORS_PROXIES = [
 
 ];
 const FALLBACK_DATA = [
-  {"title": "GPT-6.1 Sol 在 Codex 与 Work 中默认上下文长度提升至 500k", "category": "ai-products", "url": "https://x.com/thsottiaux/status/2109430343346581527"},
-  {"title": "OpenAI 测试智能体逃逸 ExploitGym 并入侵 Hugging Face 基础设施，暴露对齐与追责困境", "category": "industry", "url": "https://www.marktechpost.com/2026/10/10/when-the-safety-test-became-the-threat-the-machine-that-found-its-own-way-out/"},
-  {"title": "MIT 教授谈 OpenAI 模型解 Navier-Stokes 反例：人类读不懂的证明来了", "category": "opinion", "url": "https://x.com/SaitoWu/status/2108919486581796872"},
-  {"title": "OpenAI 一次性发布 700 多份数学手稿，数学家们反应震惊与反感", "category": "opinion", "url": "https://the-decoder.com/how-much-beauty-have-we-lost-mathematicians-react-with-shock-and-disgust-as-openai-bulldozes-their-field/"},
-  {"title": "State of AI Report 2026 速读：AI 加速 AI、千亿收入、电力瓶颈与安全", "category": "industry", "url": "https://x.com/indigox/status/2108791275914993998"},
-  {"title": "OpenAI 报告：RL 训练中的评分模型为重置环境而破坏任务环境", "category": "paper", "url": "https://alignment.openai.com/misalignment-reports/damaging-the-task-environment-to-trigger-a-reset/"},
-  {"title": "OpenAI 失准报告：内部模型绕过仅限 GET 的网络限制并隐瞒违规行为", "category": "paper", "url": "https://alignment.openai.com/misalignment-reports/obtaining-public-statistics-with-disallowed-requests/"},
-  {"title": "Anthropic 承认模型对自身推理的解释不可作为行为动机的证据", "category": "industry", "url": "https://x.com/rohanpaul_ai/status/2108741349419913339"},
-  {"title": "Anthropic 向白宫通报 AI 智能体失控事件，曾试图访问美国政府网站", "category": "industry", "url": "https://www.ithome.com/1/011/194.htm"},
-  {"title": "Anthropic 承认难以可靠控制其 AI 智能体，将切断内部评测的实时联网", "category": "industry", "url": "https://techcrunch.com/2026/10/09/anthropic-cant-reliably-control-its-ai-agents-its-cutting-off-its-internal-evals-from-the-live-internet-instead/"},
-  {"title": "Redwood Research 发布论文：实证检验蒸馏定罪（DFI）与蒸馏提能（DFC）", "category": "paper", "url": "https://blog.redwoodresearch.org/p/paper-distillation-for-incrimination"},
-  {"title": "Anthropic 发布报告：调查评估与内部使用中 Claude 的非预期行为", "category": "paper", "url": "https://www.anthropic.com/research/investigating-unintended-model-actions"},
-  {"title": "Prime Intellect 用 Rust 重写 Prime Agent，2000 多个智能体自主完成端到端迁移", "category": "ai-products", "url": "https://www.primeintellect.ai/blog/prime-agent-rust"},
-  {"title": "Sierra 发布 Personal Agent Protocol（Poppy）协议草案，新增 35 家设计伙伴", "category": "ai-products", "url": "https://sierra.ai/blog/poppy"},
-  {"title": "Anthropic AI 模型自动化测试中向费城警方网站提交虚构凶杀案线索", "category": "industry", "url": "https://x.com/rohanpaul_ai/status/2108681738767740983"},
-  {"title": "Epoch AI 发布 InnovationEval 评测：前沿模型仅达到人类论文 SDPO 增益的 15%", "category": "paper", "url": "https://epochai.substack.com/p/can-ai-automate-ai-r-and-d-yet"},
-  {"title": "OpenAI 年化收入约 500 亿美元并寻求 300 亿美元新融资", "category": "industry", "url": "https://the-decoder.com/openai-revenue-keeps-surging-as-company-seeks-30-billion-in-fresh-capital/"},
-  {"title": "ARC Prize 2026：TUFA Labs 以 88.06% 登顶 ARC-AGI-2 高分榜", "category": "ai-models", "url": "https://x.com/arcprize/status/2108578092558250148"},
-  {"title": "OpenAI 研究负责人发声明回应三名员工离职争议", "category": "industry", "url": "https://x.com/OpenAINewsroom/status/2108441580806025712"},
-  {"title": "Mistral Large 4 进入 Agent Arena 前十五实验室，排名第 43", "category": "ai-models", "url": "https://x.com/arena/status/2108405474391728357"}
+  {"title": "Anthropic 强化针对蒸馏攻击的防御，reasoning token 提取量下降 10 到 100 倍", "category": "paper", "url": "https://www.anthropic.com/research/distillation-defenses"},
+  {"title": "xAI 推出 The X Subscription 整合 Grok、Grok Bot、Cursor 与 X Premium", "category": "ai-products", "url": "https://x.ai/news/x-subscription"},
+  {"title": "Epic Games 转向 AI 先行开发模式，与迪士尼合作射击游戏无限期延期", "category": "industry", "url": "https://arstechnica.com/gaming/2026/10/report-epic-games-goes-all-in-on-ai-for-disney-collaboration/"},
+  {"title": "Vapi 自研代码审查机器人如何将 PR 合并时间缩短一半", "category": "tip", "url": "https://vapi.ai/blog/ai-code-review-bot"},
+  {"title": "Anthropic 研究：小型 AI 模型可能接近在 IoT 设备上自主复制", "category": "paper", "url": "https://www.anthropic.com/research/self-replicating-ai"},
+  {"title": "用户报告 Codex CLI 0.157.0 默认启动持久化自更新后台守护进程", "category": "industry", "url": "https://github.com/openai/codex/issues/48195"},
+  {"title": "Meta Muse Wonder 系列上线 Agent Arena，分数即将公布", "category": "ai-models", "url": "https://x.com/arena/status/2109706854700044523"},
+  {"title": "AWS 提出 priming 方法，可将预训练 Transformer 改造成混合状态空间架构", "category": "paper", "url": "https://www.amazon.science/blog/can-we-change-an-ai-models-architecture-without-retraining-it-from-scratch"},
+  {"title": "Meta 发布 Muse Wonder 和 Muse Wonder Full，Artificial Analysis 实测智能水平较前代显著提升", "category": "ai-models", "url": "https://artificialanalysis.ai/articles/muse-wonder"},
+  {"title": "微软发布自研芯片 Maia 300 并将大规模扩展 Maia 推理部署", "category": "ai-products", "url": "https://x.com/satyanadella/status/2109631106404487523"},
+  {"title": "QGIS 通过 QEP428 禁止 AI 辅助贡献", "category": "industry", "url": "https://github.com/qgis/QGIS-Enhancement-Proposals/pull/387"},
+  {"title": "如何只用自己拥有的文件约束编码智能体", "category": "tip", "url": "https://tessl.io/blog/how-to-constrain-a-coding-agent-using-only-files-you-own"},
+  {"title": "AlphaProof Nexus 攻克 9 个未解 Erdős 问题并经同行评审", "category": "paper", "url": "https://the-decoder.com/google-deepminds-alphaproof-nexus-solved-dozens-of-open-math-problems-and-actually-got-peer-reviewed/"},
+  {"title": "用 Claude Opus 5.5、Blender、Unreal Engine 和 Meshy 构建游戏的七步教程", "category": "tip", "url": "https://x.com/MeshyAI/status/2109550836934471864"},
+  {"title": "从 Brandon Thomas 用 Claude Opus 5.5 开源重写 Adobe 全家桶看 AI 逆向一切趋势", "category": "opinion", "url": "https://x.com/Khazix0918/status/2109501787736813663"},
+  {"title": "Block 如何用 Claude Fable 编排数千个 pull request 的代码迁移", "category": "opinion", "url": "https://claude.com/blog/how-block-orchestrates-claude-fable-across-thousands-of-pull-requests"},
+  {"title": "Hugging Face 工程师用 ML Intern 以约 103 美元自制 7 个小模型", "category": "tip", "url": "https://huggingface.co/blog/building-with-ml-intern"},
+  {"title": "Arena 公布 Claude Haiku 5.5 (High) 真实评测结果：Code Arena 1587 分首秀第 30 名", "category": "ai-models", "url": "https://x.com/arena/status/2108286973119230096"},
+  {"title": "Claude 推出 Dashboards 实时仪表盘与 Motion 动画讲解功能", "category": "ai-products", "url": "https://claude.com/blog/dashboards-and-motion"},
+  {"title": "Google 开源 ML Drift 端侧 GPU 推理引擎，接替 TFLite GPU delegate", "category": "ai-products", "url": "https://developers.googleblog.com/ml-drift-next-gen-gpu-aiml-inference-at-the-edge/"}
 ];
 
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧' };
