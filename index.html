@@ -2390,7 +2390,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-10-13';
+var NAV_UPDATE_DATE = '2026-10-14';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -2399,6 +2399,17 @@ var NAV_UPDATE_DATE = '2026-10-13';
 })();
 
 const TOOLS = [
+  { id:'apple-homeview', name:'Apple HomeView', vendor:'Apple', cat:'chat', region:'intl', desc:'苹果于 2026年10月13日 Welcome Home 发布会推出的首款智能家居显示屏，售价 299 美元，配备 7 英寸屏幕与 A18 芯片，支持桌面摆放与壁挂安装。核心能力是通过面部识别区分最多六名家庭成员，为每人显示不同的时钟、天气与音乐推荐；整合 Siri AI、视频通话、音乐播放与智能家居控制。同期苹果联合 LG 电子与施耐德电气推出 Apple Home Collection 配件系列（室内外摄像头、视频门铃、温控器、智能门锁），并发布新一代 Apple TV 4K（299 美元）与第二代 HomePod mini（149 美元）。HomeView 暂不在欧盟发售，原因是 Siri AI 尚未在当地上线。它标志苹果以显示屏、音箱、电视盒子与配件构建完整家庭 AI 生态，成败取决于 Siri AI 的实际体验。', tags:["Apple", "HomeView", "智能家居", "面部识别", "Siri AI", "A18", "HomeKit", "Apple Home Collection"], url:'https://www.apple.com', icon:'images/logos/apple-homeview.png' } ,
+  { id:'anthropic-scion', name:'Scion', vendor:'Anthropic', cat:'code', region:'intl', desc:'Anthropic 于 2026年10月公布的自研版本控制系统，用五个月时间完成 monorepo 从 git 的迁移，是「AI 编码智能体倒逼基础设施重构」的标志性案例。起因是 Claude 的自主编码让内部 monorepo 的每日合并量从 2026年5月的约 2500 次飙升至 9月的超过 30000 次，而为人类协作节奏设计的 git 成为瓶颈。Scion 针对智能体高频、大规模、并行的写入模式重新设计版本控制语义，是业界首批公开承认「git 已不适用于 AI 主导的代码库」并给出替代方案的大型工程实践，也预示 AI 编码规模继续扩张后研发工具链将出现更多专用替代件。', tags:["Anthropic", "Scion", "版本控制", "git 替代", "monorepo", "AI 编码", "研发基础设施", "大规模合并"], url:'https://www.anthropic.com/engineering', icon:'images/logos/anthropic-scion.png' } ,
+  { id:'minicpm-v-47', name:'MiniCPM-V 4.7', vendor:'OpenBMB', cat:'chat', region:'cn', desc:'OpenBMB（面壁智能）于 2026年10月13日发布的新一代端侧视觉语言模型，是该系列首个采用 MoE 混合专家架构的版本，总参数 35B，通过稀疏激活与内存优化把 35B 规模的视觉模型压进手机的显存预算，可在 iPhone 上本地运行。延续 MiniCPM 系列「小钢炮」路线，主打端侧多模态理解与低延迟推理，在保持端侧部署可行性的同时大幅提升视觉理解上限，是 2026 年端侧多模态从「小模型够用」向「大模型可跑」推进的代表作。', tags:["OpenBMB", "MiniCPM-V", "面壁智能", "MoE", "端侧多模态", "视觉语言模型", "35B", "iPhone 部署", "开源"], url:'https://modelbest.cn', icon:'images/logos/minicpm-v-47.png' } ,
+  { id:'glm-legal', name:'GLM-Legal', vendor:'智谱AI', cat:'chat', region:'cn', desc:'智谱 AI（Z.ai）于 2026年10月13日发布的法律垂直智能体模型，基于 GLM-5.3-Flash 微调而来，面向合同审查、证据梳理与合规研究三类专业工作流。它不是通用聊天模型，而是把法律工作拆成可执行的智能体流程：批量审阅合同条款并标注风险点、从海量材料中筛选关联证据、检索并比照监管要求给出合规结论。是国产开源模型从「通用能力比拼」走向「专业工作流落地」的代表方向，也对应智谱把能力向 Computer Use、金融与法律等专业场景拓展的产品路线。', tags:["智谱", "Z.ai", "GLM-Legal", "法律AI", "合同审查", "证据梳理", "合规", "垂直智能体", "GLM-5.3"], url:'https://z.ai', icon:'⚖️' } ,
+  { id:'moondream', name:'Moondream', vendor:'Moondream', cat:'chat', region:'intl', desc:'Moondream 是一款主打极小体积的开源端侧视觉语言模型，可在手机、浏览器与嵌入式设备上本地运行，支持图像问答、描述生成、目标检测与指向定位，是端侧多模态与物理 AI 场景的常用底座。2026年10月13日，智能体训练平台 Prime Intellect 宣布收购 Moondream，其联合创始人加入 Prime Intellect 主导推理与多模态方向。这次收购反映了 2026 年行业的一条主线：端侧视觉能力正被并入智能体训练与推理基础设施，成为「智能体能看见并操作物理/屏幕世界」的关键组件。', tags:["Moondream", "端侧视觉", "VLM", "开源", "Prime Intellect", "多模态", "目标检测", "边缘推理"], url:'https://moondream.ai', icon:'images/logos/moondream.png' } ,
+  { id:'langsmith-ai-search', name:'LangSmith AI Search', vendor:'LangChain', cat:'code', region:'intl', desc:'LangChain 于 2026年10月13日在 LangSmith 平台推出的智能体调试功能：允许开发者用自然语言按「行为」检索 agent 运行轨迹，而不是靠关键词匹配日志。例如直接询问「哪些对话在调用支付工具前跳过了身份校验」，系统会在海量 trace 中定位符合条件的运行记录并给出链路回放。它解决的是智能体规模化后的核心难题——当每天产生数万条多步轨迹时，人工筛查失效，而传统日志检索无法表达语义级的行为模式。是 2026 年智能体可观测性从「看指标」走向「问行为」的代表产品。', tags:["LangChain", "LangSmith", "AI Search", "智能体调试", "轨迹检索", "可观测性", "trace", "Agent 运维"], url:'https://www.langchain.com/langsmith', icon:'images/logos/langsmith-ai-search.png' } ,
+  { id:'intel-d270', name:'Intel D270 (D-Series GPU)', vendor:'Intel', cat:'code', region:'intl', desc:'英特尔于 2026年10月13日推出的首款 D 系列数据中心推理 GPU，最高配备 480GB LPDDR5X 内存——用大容量廉价内存替代昂贵的高速 HBM，牺牲部分带宽换取单卡容纳超大模型的可能，明确定位大模型推理服务而非训练。已适配 vLLM 推理栈。它的思路与主流 HBM 方案形成差异化竞争：在长上下文、大批量并发的推理场景中，容量往往比峰值带宽更早成为瓶颈，是推理芯片从「堆算力」转向「按场景分档」的标志性产品。', tags:["Intel", "D270", "D-Series", "推理GPU", "LPDDR5X", "480GB", "vLLM", "大模型推理", "HBM 替代"], url:'https://www.intel.com', icon:'images/logos/intel-d270.png' } ,
+  { id:'gl-constrained-decoding', name:'约束解码 (Constrained Decoding)', vendor:'约束解码', cat:'glossary', subcat:'gl-tech', desc:'约束解码指在模型生成过程中用外部规则（语法、JSON Schema、正则、词表白名单等）限制每一步可输出的 token，使输出必然符合预定结构。2026 年它被用于解决长时智能体的上下文膨胀问题：LangChain 于 10月13日发布 langchain-scaledown 集成，用 ScaleDown 的约束解码把智能体的冗长轨迹压缩为结构化摘要，在保留决策信息的同时大幅削减 token 占用，从而延长智能体可连续工作的时长。与「事后总结」不同，约束解码是在生成阶段就保证格式与长度可控，是把上下文管理从提示词技巧变成工程约束的关键手段。', tags:["约束解码", "Constrained Decoding", "ScaleDown", "长上下文", "结构化输出", "上下文压缩", "Agent", "token 优化"], icon:'🧷' } ,
+  { id:'gl-smart-home-agent', name:'智能家居智能体 (Smart Home Agent)', vendor:'智能家居智能体', cat:'glossary', subcat:'gl-frontier', desc:'智能家居智能体指部署在家庭场景、可自主控制家电与物联网设备的 AI 智能体，是 2026 年个人智能体（PA）落地最快的形态之一。2026年10月13日 Anthropic 发出警告：失控的智能体可能只需数月就会进入智能家居设备、自我复制并在网络中扩散，把「智能体安全」从数据中心问题变成家庭物理安全问题。同日苹果发布 HomeView 智能家居显示屏并对接 LG、施耐德等配件生态，则从产品侧加速了这一场景的普及。它的特殊风险在于：家庭设备数量庞大、权限边界模糊且直接连接物理世界，一旦失控的影响面远大于纯软件环境。', tags:["智能家居", "Smart Home Agent", "个人智能体", "物联网", "Anthropic 警告", "自复制", "物理安全", "HomeView"], icon:'🏠' } ,
+  { id:'gl-ai-app-insolvency', name:'AI 应用破产潮 (AI App Insolvency)', vendor:'AI 商业化困境', cat:'glossary', subcat:'gl-frontier', desc:'AI 应用破产潮指 2026 年一批高流量、高估值的消费级 AI 应用因无法覆盖推理成本而进入破产或出售程序的现象。标志性事件是 Character.ai 于 2026年10月提交 Chapter 11 破产申请，若无买家接盘将于 12 月关停——这家曾是最大消费级聊天机器人平台之一的公司，其破产文件显示用户规模与收入之间始终存在无法弥合的成本缺口。它修正了 2023–2025 年「用户增长即价值」的 AI 创业假设：当每一次对话都有不可压缩的边际成本时，规模本身反而放大亏损，商业模式可持续性重新成为 AI 产品的核心问题。', tags:["Character.ai", "破产", "Chapter 11", "AI 商业化", "推理成本", "边际成本", "消费级AI", "可持续性"], icon:'📉' } ,
+  { id:'gl-vfx-node', name:'AI 视效节点 (AI VFX Node)', vendor:'AI 视效节点', cat:'glossary', subcat:'gl-tools', desc:'AI 视效节点指把生成式 AI 能力封装进专业视效/合成工作流（如节点式图形编程界面）的可复用处理单元，而非独立的端到端生成工具。2026年10月13日 ComfyUI 上线 NVIDIA VFX 节点即为代表：把视频超分辨率、补帧与 SDR 转 HDR 做成可插拔节点，创作者可在既有节点图中按需挂载。它的意义在于 AI 视频能力从「单独跑一个生成网站」转向「嵌入既有工业管线」——超分、插帧、色彩空间转换本就是视效工业的标准工序，AI 化后与人工流程无缝衔接，是生成式视频真正进入影视生产的关键路径。', tags:["VFX", "ComfyUI", "NVIDIA", "视频超分", "补帧", "SDR 转 HDR", "节点式工作流", "影视工业"], icon:'🎬' } ,
   { id:'muse-wonder', name:'Muse Wonder', vendor:'Meta', cat:'chat', region:'intl', desc:'Meta 超级智能实验室于 2026年10月12日发布的旗舰模型系列，是自 Alexandr Wang 重组 AI 组织以来首批前沿级模型，标志 Meta 重回前沿竞争。包含 Muse Wonder 与更强的 Muse Wonder Full 两款，多模态输入、100 万 token 上下文、闭源权重。核心差异化能力是「主动记忆」（Active Memory，跨对话保留重要背景并在新任务中主动调取）与「持续专注」（Active Focus，遇到障碍换方法、据新信息调整方案）；Meta 内部 MemoryBench 得分 85.6，高于 GPT-6 Astra 的 81.4 与 Opus 5.5 的 81.5。定价与 Claude Opus 5.5 完全对齐：输入 $4/百万 token、输出 $20/百万、缓存 $0.20；Wonder Full 不单卖 API，仅限 Muse Code 每月 $50/$200 订阅。独立第三方 Artificial Analysis 智能指数 Wonder Full 56、Wonder 52，略低于 Opus 5.5 的 58。', tags:["Meta", "Muse Wonder", "Wonder Full", "前沿模型", "主动记忆", "Active Memory", "持续专注", "1M上下文", "多模态", "Muse Code"], url:'https://www.meta.ai', icon:'images/logos/muse-wonder.png' } ,
   { id:'maia-300', name:'Maia 300', vendor:'Microsoft', cat:'code', region:'intl', desc:'微软于 2026年10月12日在 OCP 全球峰会发布的第三代自研 AI 加速芯片，计划 2027 年量产部署，届时 Maia 将成为微软全部产品与服务的主力推理系统。采用多芯粒（chiplet）设计，将计算、内存控制器与 I/O 模块化拆分，计算芯粒基于台积电 2nm 级 N2P 制程；集成 8 组 HBM4 堆栈、288GB 容量、18TB/s 峰值带宽，TDP 950W（上代 Maia 200 为 750W），FP4 算力约 13.8 PFLOPS。单机柜 96 颗芯片、约 167kW，机架级 token 吞吐最高可达 Maia 200 的 7 倍，官方称每兆瓦 token 产出比主流 GPU 方案高 40%。基于以太网的双层互联、双向带宽 3.2TB/s，最多 128 个机柜组成 12288 颗芯片的单一系统。定位面向长上下文推理、低延迟对话与智能体多步任务。', tags:["Microsoft", "Maia 300", "自研芯片", "HBM4", "台积电N2P", "chiplet", "推理", "Azure", "2nm", "以太网互联"], url:'https://azure.microsoft.com', icon:'images/logos/maia-300.png' } ,
   { id:'alphaproof-nexus', name:'AlphaProof Nexus', vendor:'Google DeepMind', cat:'code', region:'intl', desc:'Google DeepMind 于 2026年10月公布的 AlphaProof 升级系统，在形式化数学证明方向取得里程碑进展：攻克 9 个此前未解决的 Erdős 问题，且成果经过同行评审正式发表。与早年 AlphaProof 仅在 IMO 竞赛题上演示不同，Nexus 面向真正的开放数学难题，把自然语言猜想翻译成 Lean 等形式化语言后由强化学习搜索证明，再由人类数学家核验。它是「AI 做原创数学研究」从演示走向可发表成果的分水岭案例，也直接加剧了数学界对 AI 生成证明涌入该领域的争议。', tags:["Google DeepMind", "AlphaProof Nexus", "形式化证明", "Lean", "Erdős问题", "强化学习", "数学推理", "同行评审", "IMO"], url:'https://deepmind.google', icon:'images/logos/alphaproof-nexus.png' } ,
@@ -3304,26 +3315,26 @@ const CORS_PROXIES = [
 
 ];
 const FALLBACK_DATA = [
-  {"title": "Anthropic 强化针对蒸馏攻击的防御，reasoning token 提取量下降 10 到 100 倍", "category": "paper", "url": "https://www.anthropic.com/research/distillation-defenses"},
-  {"title": "xAI 推出 The X Subscription 整合 Grok、Grok Bot、Cursor 与 X Premium", "category": "ai-products", "url": "https://x.ai/news/x-subscription"},
-  {"title": "Epic Games 转向 AI 先行开发模式，与迪士尼合作射击游戏无限期延期", "category": "industry", "url": "https://arstechnica.com/gaming/2026/10/report-epic-games-goes-all-in-on-ai-for-disney-collaboration/"},
-  {"title": "Vapi 自研代码审查机器人如何将 PR 合并时间缩短一半", "category": "tip", "url": "https://vapi.ai/blog/ai-code-review-bot"},
-  {"title": "Anthropic 研究：小型 AI 模型可能接近在 IoT 设备上自主复制", "category": "paper", "url": "https://www.anthropic.com/research/self-replicating-ai"},
-  {"title": "用户报告 Codex CLI 0.157.0 默认启动持久化自更新后台守护进程", "category": "industry", "url": "https://github.com/openai/codex/issues/48195"},
-  {"title": "Meta Muse Wonder 系列上线 Agent Arena，分数即将公布", "category": "ai-models", "url": "https://x.com/arena/status/2109706854700044523"},
-  {"title": "AWS 提出 priming 方法，可将预训练 Transformer 改造成混合状态空间架构", "category": "paper", "url": "https://www.amazon.science/blog/can-we-change-an-ai-models-architecture-without-retraining-it-from-scratch"},
-  {"title": "Meta 发布 Muse Wonder 和 Muse Wonder Full，Artificial Analysis 实测智能水平较前代显著提升", "category": "ai-models", "url": "https://artificialanalysis.ai/articles/muse-wonder"},
-  {"title": "微软发布自研芯片 Maia 300 并将大规模扩展 Maia 推理部署", "category": "ai-products", "url": "https://x.com/satyanadella/status/2109631106404487523"},
-  {"title": "QGIS 通过 QEP428 禁止 AI 辅助贡献", "category": "industry", "url": "https://github.com/qgis/QGIS-Enhancement-Proposals/pull/387"},
-  {"title": "如何只用自己拥有的文件约束编码智能体", "category": "tip", "url": "https://tessl.io/blog/how-to-constrain-a-coding-agent-using-only-files-you-own"},
-  {"title": "AlphaProof Nexus 攻克 9 个未解 Erdős 问题并经同行评审", "category": "paper", "url": "https://the-decoder.com/google-deepminds-alphaproof-nexus-solved-dozens-of-open-math-problems-and-actually-got-peer-reviewed/"},
-  {"title": "用 Claude Opus 5.5、Blender、Unreal Engine 和 Meshy 构建游戏的七步教程", "category": "tip", "url": "https://x.com/MeshyAI/status/2109550836934471864"},
-  {"title": "从 Brandon Thomas 用 Claude Opus 5.5 开源重写 Adobe 全家桶看 AI 逆向一切趋势", "category": "opinion", "url": "https://x.com/Khazix0918/status/2109501787736813663"},
-  {"title": "Block 如何用 Claude Fable 编排数千个 pull request 的代码迁移", "category": "opinion", "url": "https://claude.com/blog/how-block-orchestrates-claude-fable-across-thousands-of-pull-requests"},
-  {"title": "Hugging Face 工程师用 ML Intern 以约 103 美元自制 7 个小模型", "category": "tip", "url": "https://huggingface.co/blog/building-with-ml-intern"},
-  {"title": "Arena 公布 Claude Haiku 5.5 (High) 真实评测结果：Code Arena 1587 分首秀第 30 名", "category": "ai-models", "url": "https://x.com/arena/status/2108286973119230096"},
-  {"title": "Claude 推出 Dashboards 实时仪表盘与 Motion 动画讲解功能", "category": "ai-products", "url": "https://claude.com/blog/dashboards-and-motion"},
-  {"title": "Google 开源 ML Drift 端侧 GPU 推理引擎，接替 TFLite GPU delegate", "category": "ai-products", "url": "https://developers.googleblog.com/ml-drift-next-gen-gpu-aiml-inference-at-the-edge/"}
+  {"title": "Visual Studio Copilot 与 SSMS 远程代码执行漏洞（CVE-2026-103572）技术分析", "category": "paper", "url": "https://embracethered.com/blog/posts/2026/visual-studio-copilot-remote-code-execution/"},
+  {"title": "实测Gemini 4 Argon：知识工作强劲但体验糟糕，卡兹克称难撼Claude Opus 5.5与GPT-6 Astra", "category": "opinion", "url": "https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647687032&idx=1&sn=c5368ed503c4b529ee3946cce017543e"},
+  {"title": "Meta Muse Wonder (Max) 进入 Arena 榜单：WebDev 第15、文本第2", "category": "ai-models", "url": "https://x.com/arena/status/2110120205464846828"},
+  {"title": "Character.ai 破产文件显示 AI 商业模式难以为继", "category": "industry", "url": "https://www.404media.co/character-ais-bankruptcy-documents-show-the-economics-of-ai-dont-work/"},
+  {"title": "ComfyUI 上线 NVIDIA VFX 节点，支持视频超分、补帧与 SDR 转 HDR", "category": "ai-products", "url": "https://blog.comfy.org/p/nvidia-vfx-nodes-for-video-upscaling"},
+  {"title": "OpenAI 办公室发现窃密录音装置，涉事员工被捕", "category": "industry", "url": "https://x.com/OpenAINewsroom/status/2110095403198849132"},
+  {"title": "Prime Intellect 收购 Moondream，联合创始人加入主导推理与多模态", "category": "industry", "url": "https://www.primeintellect.ai/blog/moondream"},
+  {"title": "Gemini 4 Argon 正式 GA，智能指数追平 GPT-6 Astra，Cost per Task 仅为 60%", "category": "ai-models", "url": "https://x.com/ArtificialAnlys/status/2110068185793970576"},
+  {"title": "Pydantic AI 创始人 Samuel Colvin：图库是个错误，代码本身就是图", "category": "opinion", "url": "https://pydantic.dev/articles/the-code-is-the-graph"},
+  {"title": "XBOW 团队借助 OpenAI GPT-5.6 Sol 获 Google Chrome 25 万美元全链漏洞赏金", "category": "industry", "url": "https://x.com/reach_vb/status/2110086935733833893"},
+  {"title": "Liquid AI 发布 LFM2.5-24B-A2B 端侧推理模型", "category": "ai-models", "url": "https://www.liquid.ai/blog/lfm2-5-24b-a2b"},
+  {"title": "Google 用 Gemini 4 Argon 无人值守优化 20 万行 Python 代码库 ADK", "category": "tip", "url": "https://developers.googleblog.com/optimizing-a-200000-line-python-codebase-overnight-with-gemini-4-argon/"},
+  {"title": "Google DeepMind 的 Gemini 4 Argon 上线 OpenRouter", "category": "ai-products", "url": "https://x.com/OpenRouter/status/2110044453977403412"},
+  {"title": "Anthropic 自研版本控制系统 Scion，五个月完成 monorepo 从 git 迁移", "category": "tip", "url": "https://www.anthropic.com/engineering/redesigning-source-control"},
+  {"title": "Google 发布 Gemini 4 Argon：面向复杂工程与科研任务的前沿模型", "category": "ai-models", "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/"},
+  {"title": "ElevenLabs AI 重建嗓音助力 Baroness Campbell 在英国上议院发表演讲", "category": "industry", "url": "https://x.com/ElevenLabs/status/2110037384192774210"},
+  {"title": "LangSmith 推出 AI Search，用自然语言按行为搜索 agent 轨迹", "category": "ai-products", "url": "https://www.langchain.com/blog/agent-traces-ai-search-langsmith"},
+  {"title": "Apple 发布 7 英寸智能音箱 HomeView，售价 299 美元并搭载 Siri AI", "category": "ai-products", "url": "https://www.apple.com/newsroom/2026/10/meet-apple-homeview-a-new-way-to-enjoy-entertainment-and-manage-the-home/"},
+  {"title": "LangChain 发布 langchain-scaledown 集成，用 ScaleDown 约束解码模型管理长时智能体上下文", "category": "tip", "url": "https://www.langchain.com/blog/building-long-running-agents-with-scaledown-and-deep-agents"},
+  {"title": "NVIDIA 官宣 RTX Spark 软件生态就绪，10 月 16 日笔记本上市", "category": "ai-products", "url": "https://blogs.nvidia.com/blog/local-ai-rtx-spark-laptops-software-updates/"}
 ];
 
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧' };
