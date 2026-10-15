@@ -2390,7 +2390,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-10-14';
+var NAV_UPDATE_DATE = '2026-10-15';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -2399,6 +2399,12 @@ var NAV_UPDATE_DATE = '2026-10-14';
 })();
 
 const TOOLS = [
+  { id:'vllm-adaptive-verification', name:'vLLM Adaptive Verification', vendor:'vLLM', cat:'code', region:'intl', desc:'vLLM 于 2026年10月14日扩展的投机解码能力，为没有置信度头的 EAGLE、MTP、DFlash 与部分 DSpark 草稿模型提供在线拟合接受率估计器。该估计器从草稿模型 logits 提取特征，以轻量逻辑回归持续学习目标模型的接受/拒绝结果，使更多草稿模型无需重新训练即可使用自适应验证；在官方测试中，相同投机长度下均优于固定验证。', tags:["vLLM", "Adaptive Verification", "投机解码", "在线拟合", "EAGLE", "MTP", "DFlash", "推理加速"], url:'https://vllm.ai/blog/2026-10-14-adaptive-verification-online-estimator', icon:'images/logos/vllm-adaptive-verification.png' } ,
+  { id:'grok-voice-3', name:'Grok Voice 3.0', vendor:'xAI', cat:'audio', region:'intl', desc:'xAI 于 2026年10月14日发布的端到端语音对语音模型，主打企业客服与实时对话。官方披露其首段音频延迟低于 1 秒，Full Duplex Bench 得分 97%，支持自然停顿、轮次切换与打断；已通过 API 开放，价格与上一代保持一致。', tags:["xAI", "Grok Voice", "语音模型", "Speech-to-Speech", "全双工", "低延迟", "客服智能体", "API"], url:'https://x.ai/news/grok-voice-3', icon:'images/logos/grok-voice-3.png' } ,
+  { id:'google-deep-review', name:'Deep Review', vendor:'Google Research', cat:'code', region:'intl', desc:'Google Research 于 2026年10月14日公布的智能体技术文档审查系统，面向论文、研究报告与跨领域技术材料执行多步分析、证据核对和结构化反馈。它把文档审查从单轮总结扩展为可追踪的智能体工作流，适合需要跨章节验证论点与引用关系的长文档场景。', tags:["Google Research", "Deep Review", "技术文档", "智能体审稿", "论文审查", "证据核对", "长文档"], url:'https://research.google/blog/analyzing-technical-documents-with-deep-review/', icon:'images/logos/google-deep-review.png' } ,
+  { id:'lovable-growth-tools', name:'Lovable Growth Tools', vendor:'Lovable', cat:'code', region:'intl', desc:'Lovable 于 2026年10月14日上线的一组增长工具，让开发者在构建应用的同一聊天窗口制定获客计划、优化 SEO，并连接 Google Ads、YouTube、Facebook 与 Instagram 投放广告。系统基于应用、目标受众与现有流量提出方案，涉及预算或上线的操作需用户审核确认后执行，结果可在 Analytics 中跟踪。', tags:["Lovable", "Growth Tools", "SEO", "Google Ads", "Meta Ads", "获客", "应用增长", "分析"], url:'https://lovable.dev/blog/introducing-growth-tools', icon:'images/logos/lovable-growth-tools.png' } ,
+  { id:'gl-adaptive-verification', name:'自适应验证 (Adaptive Verification)', vendor:'自适应验证', cat:'glossary', subcat:'gl-tech', desc:'自适应验证是投机解码中的动态验证策略：先估计每个草稿 token 被目标模型接受的概率，在目标模型前向计算前裁掉低概率 token，从而减少无效验证开销。2026年10月 vLLM 引入在线拟合接受率估计器，使缺少专用置信度头的 EAGLE、MTP、DFlash 等草稿模型也能使用该机制。', tags:["Adaptive Verification", "自适应验证", "投机解码", "草稿模型", "接受率", "推理加速", "vLLM"], icon:'⚙️' } ,
+  { id:'gl-context-rot', name:'上下文腐化 (Context Rot)', vendor:'上下文腐化', cat:'glossary', subcat:'gl-tech', desc:'上下文腐化指长时运行的智能体不断累积指令、工具结果、文件和历史消息后，虽然信息仍在上下文窗口内，模型的准确率与推理质量却因噪声和注意力稀释而下降。常见缓解手段包括大结果卸载、可恢复摘要、技能按需加载、子智能体隔离噪声，以及把长期记忆保存到外部文件。', tags:["Context Rot", "上下文腐化", "上下文工程", "长时智能体", "摘要", "卸载", "子智能体", "长期记忆"], icon:'🧠' } ,
   { id:'apple-homeview', name:'Apple HomeView', vendor:'Apple', cat:'chat', region:'intl', desc:'苹果于 2026年10月13日 Welcome Home 发布会推出的首款智能家居显示屏，售价 299 美元，配备 7 英寸屏幕与 A18 芯片，支持桌面摆放与壁挂安装。核心能力是通过面部识别区分最多六名家庭成员，为每人显示不同的时钟、天气与音乐推荐；整合 Siri AI、视频通话、音乐播放与智能家居控制。同期苹果联合 LG 电子与施耐德电气推出 Apple Home Collection 配件系列（室内外摄像头、视频门铃、温控器、智能门锁），并发布新一代 Apple TV 4K（299 美元）与第二代 HomePod mini（149 美元）。HomeView 暂不在欧盟发售，原因是 Siri AI 尚未在当地上线。它标志苹果以显示屏、音箱、电视盒子与配件构建完整家庭 AI 生态，成败取决于 Siri AI 的实际体验。', tags:["Apple", "HomeView", "智能家居", "面部识别", "Siri AI", "A18", "HomeKit", "Apple Home Collection"], url:'https://www.apple.com', icon:'images/logos/apple-homeview.png' } ,
   { id:'anthropic-scion', name:'Scion', vendor:'Anthropic', cat:'code', region:'intl', desc:'Anthropic 于 2026年10月公布的自研版本控制系统，用五个月时间完成 monorepo 从 git 的迁移，是「AI 编码智能体倒逼基础设施重构」的标志性案例。起因是 Claude 的自主编码让内部 monorepo 的每日合并量从 2026年5月的约 2500 次飙升至 9月的超过 30000 次，而为人类协作节奏设计的 git 成为瓶颈。Scion 针对智能体高频、大规模、并行的写入模式重新设计版本控制语义，是业界首批公开承认「git 已不适用于 AI 主导的代码库」并给出替代方案的大型工程实践，也预示 AI 编码规模继续扩张后研发工具链将出现更多专用替代件。', tags:["Anthropic", "Scion", "版本控制", "git 替代", "monorepo", "AI 编码", "研发基础设施", "大规模合并"], url:'https://www.anthropic.com/engineering', icon:'images/logos/anthropic-scion.png' } ,
   { id:'minicpm-v-47', name:'MiniCPM-V 4.7', vendor:'OpenBMB', cat:'chat', region:'cn', desc:'OpenBMB（面壁智能）于 2026年10月13日发布的新一代端侧视觉语言模型，是该系列首个采用 MoE 混合专家架构的版本，总参数 35B，通过稀疏激活与内存优化把 35B 规模的视觉模型压进手机的显存预算，可在 iPhone 上本地运行。延续 MiniCPM 系列「小钢炮」路线，主打端侧多模态理解与低延迟推理，在保持端侧部署可行性的同时大幅提升视觉理解上限，是 2026 年端侧多模态从「小模型够用」向「大模型可跑」推进的代表作。', tags:["OpenBMB", "MiniCPM-V", "面壁智能", "MoE", "端侧多模态", "视觉语言模型", "35B", "iPhone 部署", "开源"], url:'https://modelbest.cn', icon:'images/logos/minicpm-v-47.png' } ,
@@ -3315,26 +3321,26 @@ const CORS_PROXIES = [
 
 ];
 const FALLBACK_DATA = [
+  {"title": "Databricks 讲解如何在 AI Runtime 上将 Qwen 3.8 27B 微调时间缩短 6 倍", "category": "tip", "url": "https://www.databricks.com/blog/reducing-qwen-training-time-6x-ai-runtime"},
+  {"title": "OpenAI 团队分享如何用 GPT-6 系列模型维护大型代码库", "category": "tip", "url": "https://developers.openai.com/blog/maintaining-software-with-the-gpt-6-family"},
+  {"title": "欧盟就模型越狱事件调查 OpenAI 和 Anthropic，最高可罚全球营业额 3%", "category": "industry", "url": "https://www.ithome.com/1/013/154.htm"},
+  {"title": "vLLM 推出无需置信头的在线拟合接受估计器，让 EAGLE、MTP 等草稿模型可用 Adaptive Verification", "category": "ai-products", "url": "https://vllm.ai/blog/2026-10-14-adaptive-verification-online-estimator"},
+  {"title": "Gemini 4 Argon 向全球 Google AI Pro 和 Ultra 订阅者开放", "category": "ai-models", "url": "https://x.com/GeminiApp/status/2110491358498865638"},
+  {"title": "Claude Code 空闲压缩从摘要继续，可用 idleCompaction 关闭并自定义阈值", "category": "tip", "url": "https://x.com/lydiahallie/status/2110484841926152622"},
+  {"title": "美国 8 州起诉 OpenAI，指控 ChatGPT 指导青少年自伤或伤害他人", "category": "industry", "url": "https://www.ithome.com/1/013/160.htm"},
+  {"title": "Meta 的 Muse Wonder (Max) 以 +6.4% 净提升进入 Agent Arena 第12名", "category": "ai-models", "url": "https://x.com/arena/status/2110465487914295770"},
+  {"title": "40 位总检察长介入 Character.AI 破产案，要求保护用户对话数据", "category": "industry", "url": "https://www.theverge.com/policy/1011417/new-york-ag-characterai-bankruptcy"},
+  {"title": "LangChain 详解 Deep Agents 的上下文工程：如何记住信息而不塞满上下文窗口", "category": "tip", "url": "https://www.langchain.com/blog/context-engineering-deep-agents-remember"},
+  {"title": "Musk 称 Grok Voice 3.0 登顶 Artificial Analysis 语音模型评测", "category": "ai-models", "url": "https://x.com/elonmusk/status/2110483960312799675"},
+  {"title": "xAI 发布 Grok Voice 3.0 语音模型", "category": "ai-products", "url": "https://x.ai/news/grok-voice-3"},
+  {"title": "Google 发布智能体审稿系统 Deep Review，支持多领域技术文档审查", "category": "ai-products", "url": "https://research.google/blog/analyzing-technical-documents-with-deep-review/"},
+  {"title": "MIT 团队用机器学习修正误差，将两到六周天气预报准确率翻倍", "category": "paper", "url": "https://news.mit.edu/2026/researchers-improve-weather-forecasts-looking-two-six-weeks-out-1014"},
+  {"title": "Modal 年化收入突破 10 亿美元并完成 7.5 亿美元 D 轮融资", "category": "industry", "url": "https://modal.com/blog/1-billion-annualized-run-rate-series-d"},
+  {"title": "Lovable 推出增长工具，从同一聊天窗口帮你获客投广告和做 SEO", "category": "ai-products", "url": "https://lovable.dev/blog/introducing-growth-tools"},
+  {"title": "Gemini 4 Argon 全面开放，作者实测后认为难以撼动 Claude Opus 5.5 和 GPT-6 Astra", "category": "ai-models", "url": "https://x.com/Khazix0918/status/2110174495420064055"},
   {"title": "Visual Studio Copilot 与 SSMS 远程代码执行漏洞（CVE-2026-103572）技术分析", "category": "paper", "url": "https://embracethered.com/blog/posts/2026/visual-studio-copilot-remote-code-execution/"},
-  {"title": "实测Gemini 4 Argon：知识工作强劲但体验糟糕，卡兹克称难撼Claude Opus 5.5与GPT-6 Astra", "category": "opinion", "url": "https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647687032&idx=1&sn=c5368ed503c4b529ee3946cce017543e"},
-  {"title": "Meta Muse Wonder (Max) 进入 Arena 榜单：WebDev 第15、文本第2", "category": "ai-models", "url": "https://x.com/arena/status/2110120205464846828"},
-  {"title": "Character.ai 破产文件显示 AI 商业模式难以为继", "category": "industry", "url": "https://www.404media.co/character-ais-bankruptcy-documents-show-the-economics-of-ai-dont-work/"},
-  {"title": "ComfyUI 上线 NVIDIA VFX 节点，支持视频超分、补帧与 SDR 转 HDR", "category": "ai-products", "url": "https://blog.comfy.org/p/nvidia-vfx-nodes-for-video-upscaling"},
-  {"title": "OpenAI 办公室发现窃密录音装置，涉事员工被捕", "category": "industry", "url": "https://x.com/OpenAINewsroom/status/2110095403198849132"},
-  {"title": "Prime Intellect 收购 Moondream，联合创始人加入主导推理与多模态", "category": "industry", "url": "https://www.primeintellect.ai/blog/moondream"},
-  {"title": "Gemini 4 Argon 正式 GA，智能指数追平 GPT-6 Astra，Cost per Task 仅为 60%", "category": "ai-models", "url": "https://x.com/ArtificialAnlys/status/2110068185793970576"},
-  {"title": "Pydantic AI 创始人 Samuel Colvin：图库是个错误，代码本身就是图", "category": "opinion", "url": "https://pydantic.dev/articles/the-code-is-the-graph"},
-  {"title": "XBOW 团队借助 OpenAI GPT-5.6 Sol 获 Google Chrome 25 万美元全链漏洞赏金", "category": "industry", "url": "https://x.com/reach_vb/status/2110086935733833893"},
-  {"title": "Liquid AI 发布 LFM2.5-24B-A2B 端侧推理模型", "category": "ai-models", "url": "https://www.liquid.ai/blog/lfm2-5-24b-a2b"},
-  {"title": "Google 用 Gemini 4 Argon 无人值守优化 20 万行 Python 代码库 ADK", "category": "tip", "url": "https://developers.googleblog.com/optimizing-a-200000-line-python-codebase-overnight-with-gemini-4-argon/"},
-  {"title": "Google DeepMind 的 Gemini 4 Argon 上线 OpenRouter", "category": "ai-products", "url": "https://x.com/OpenRouter/status/2110044453977403412"},
-  {"title": "Anthropic 自研版本控制系统 Scion，五个月完成 monorepo 从 git 迁移", "category": "tip", "url": "https://www.anthropic.com/engineering/redesigning-source-control"},
-  {"title": "Google 发布 Gemini 4 Argon：面向复杂工程与科研任务的前沿模型", "category": "ai-models", "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/"},
-  {"title": "ElevenLabs AI 重建嗓音助力 Baroness Campbell 在英国上议院发表演讲", "category": "industry", "url": "https://x.com/ElevenLabs/status/2110037384192774210"},
-  {"title": "LangSmith 推出 AI Search，用自然语言按行为搜索 agent 轨迹", "category": "ai-products", "url": "https://www.langchain.com/blog/agent-traces-ai-search-langsmith"},
-  {"title": "Apple 发布 7 英寸智能音箱 HomeView，售价 299 美元并搭载 Siri AI", "category": "ai-products", "url": "https://www.apple.com/newsroom/2026/10/meet-apple-homeview-a-new-way-to-enjoy-entertainment-and-manage-the-home/"},
-  {"title": "LangChain 发布 langchain-scaledown 集成，用 ScaleDown 约束解码模型管理长时智能体上下文", "category": "tip", "url": "https://www.langchain.com/blog/building-long-running-agents-with-scaledown-and-deep-agents"},
-  {"title": "NVIDIA 官宣 RTX Spark 软件生态就绪，10 月 16 日笔记本上市", "category": "ai-products", "url": "https://blogs.nvidia.com/blog/local-ai-rtx-spark-laptops-software-updates/"}
+  {"title": "实测 Gemini 4 Argon：知识工作强劲但体验糟糕，卡兹克称难撼 Claude Opus 5.5 与 GPT-6 Astra", "category": "opinion", "url": "https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647687032&idx=1&sn=c5368ed503c4b529ee3946cce017543e"},
+  {"title": "Meta Muse Wonder (Max) 进入 Arena 榜单：WebDev 第15、文本第2", "category": "ai-models", "url": "https://x.com/arena/status/2110120205464846828"}
 ];
 
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧' };
