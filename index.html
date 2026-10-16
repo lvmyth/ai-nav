@@ -2390,7 +2390,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-10-15';
+var NAV_UPDATE_DATE = '2026-10-16';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -2399,6 +2399,13 @@ var NAV_UPDATE_DATE = '2026-10-15';
 })();
 
 const TOOLS = [
+  { id:'muse-spark-open', name:'Muse Spark Open', vendor:'Meta', cat:'chat', region:'intl', desc:'Meta 超级智能实验室于 2026年10月15日发布的开放权重大模型，号称「迄今能力最强的美国开放权重模型」。总参数 8160 亿（MoE 架构，每层 256 个专家、每个 Token 激活 8 个，约 420 亿激活参数），上下文窗口 100 万 Token，原生支持文本、图像、视频与音频输入，专为编码与长周期智能体任务优化。采用 Muse Model License 授权，含有限商业条款，多数开发者可免费使用。首发即支持 SGLang、vLLM、TensorRT-LLM、Transformers、Apple MLX、llama.cpp 与 Unsloth，并针对 NVIDIA、AMD、Intel 与苹果芯片优化；权重可从 Hugging Face、Amazon SageMaker AI、Google Cloud Model Garden 与 Microsoft Foundry Models 下载，API 则由 Together AI、Fireworks、Groq、Modal、OpenRouter、Baseten 与 Nebius 提供。最大亮点是与苹果合作：每台 M5 Ultra Mac Studio 可提供最高 512GB 统一内存，两台机器经 MLX 框架协同即可在本地运行完整模型。', tags:['开放权重', 'Meta', 'MoE', '长上下文', '多模态', '智能体编码', '本地推理', 'Apple MLX'], url:'https://www.meta.ai', icon:'images/logos/muse-spark-open.png' } ,
+  { id:'kling-40', name:'可灵 Kling 4.0', vendor:'快手', cat:'video', region:'cn', desc:'快手可灵 AI 于 2026年10月发布的第四代视频生成模型，核心升级是原生 30 秒单次生成，支持一镜到底的长镜头连续叙事，无需再把多段短片拼接。输出支持 10-bit HDR 的 1080p 与 4K、21:9 超宽画幅与双通道立体声，口型同步精度显著提升。其「全能参考」能力允许单次生成同时参考最多 10 张图片、5 段视频（总时长 ≤30 秒）与 7 个主体，合计上限 15 项；配合最多 10 张关键帧可精确控制角色姿态、表情、场景转换与剧情节点。提示词理解上限提升至 8000 tokens，支持中英日韩西葡德法等语言及北京话、中国台湾腔、东北话、四川话、粤语等方言口音。同系列 Kling 4.0 Flash 面向高频创作，主打高性价比与更快生成速度。', tags:['国产', '视频生成', '30秒长视频', '全能参考', '10-bit HDR', '关键帧控制', '口型同步', '4K'], url:'https://kling.kuaishou.com', icon:'images/logos/kling-40.png' } ,
+  { id:'krea-3', name:'Krea 3', vendor:'Krea', cat:'image', region:'intl', desc:'Krea 于 2026年10月发布的第三代图像生成模型，首发渠道是 ComfyUI Partner Nodes——作为官方合作节点直接嵌入 ComfyUI 的节点式工作流，创作者无需离开既有节点图即可调用，也不必在多个生成网站之间来回切换。Krea 一直以实时生成画布与精细创意控制见长，此代重点强化画面质量与提示词遵循度。它的意义在于 AI 图像能力以「可插拔节点」形态进入既有生产管线：超分、调色、批量出图本就是设计工业的标准工序，模型化后可与人工流程无缝衔接。', tags:['图像生成', 'ComfyUI', 'Partner Nodes', '节点式工作流', '创意控制', '实时生成'], url:'https://www.krea.ai', icon:'images/logos/krea-3.png' } ,
+  { id:'perplexity-space', name:'SPACE（智能体沙箱平台）', vendor:'Perplexity', cat:'code', region:'intl', desc:'Perplexity 于 2026年10月15日以 Apache 2.0 协议开源的智能体沙箱平台，全名 Sandboxed Platform for Agentic Code Execution，是驱动 Perplexity Computer 个人智能体的底层运行时。每个智能体任务独占一台 Firecracker 微虚拟机，拥有独立操作系统，使隔离边界建立在硬件虚拟化层而非容器共享内核的命名空间之上；沙箱被视为不可信，网络出口与平台凭据统一在沙箱外的控制平面管理，凭据不落入执行环境。支持隔离代码执行、暂停与恢复、崩溃恢复以及会话分叉（可复制工作区比较不同方案），并通过增量快照而非整体复制来降低创建、恢复与分叉开销。官方称自 2026 年 7 月起承载全部 Computer 会话、日均处理数百万次沙箱创建，创建速度较此前供应商快 3–5 倍；已发布的安全评估记录 108 次尝试中未出现虚拟机到宿主机的逃逸，少数绕过网络限制的路径已修复。CoreWeave 与 Akamai 已上线，Crusoe 计划接入。', tags:['开源', '智能体沙箱', 'Firecracker', '微虚拟机', '隔离', '会话分叉', 'Apache 2.0', '凭据隔离'], url:'https://github.com/perplexityai/SPACE', icon:'images/logos/perplexity-space.png' } ,
+  { id:'gl-omni-reference', name:'全能参考 (Omni Reference)', vendor:'全能参考', cat:'glossary', subcat:'gl-tools', desc:'全能参考是 2026 年生成式视频模型的主流控制范式：在单次生成中同时接受图片、视频、音色与主体等多模态参考素材，由模型统一解析并分别对齐到画面、动作、运镜与声音。代表实现是可灵 Kling 4.0——单次任务可组合最多 10 张参考图、5 段参考视频（总时长 ≤30 秒）与 7 个参考主体（含用多张图或视频定义的主体），合计上限 15 项。它与「单一图片参考」的关键区别在于解耦：角色长相、动作、镜头运动、整体风格与音色可以分别指定出处，从而把创作从「反复重抽碰运气」变成「按需组合」。该范式让商业视频、广告与社媒内容的创意复刻成为常规操作。', tags:["全能参考", "Omni Reference", "多模态参考", "视频生成", "可控生成", "主体一致性", "可灵 Kling 4.0"], icon:'🧩' } ,
+  { id:'gl-long-take', name:'一镜到底 (Long-Take Generation)', vendor:'一镜到底', cat:'glossary', subcat:'gl-tools', desc:'一镜到底指生成模型单次推理即可输出较长连续镜头、且镜头内部动作与运镜保持连贯的能力，而非把多段短片拼接而成。2026年10月可灵 Kling 4.0 将其推向原生 30 秒并支持多关键帧控制，使情绪、动作与镜头运动可在同一条叙事线上自然推进。它的技术难点不在单帧质量，而在长程一致性——角色外观、光照与物理运动要在数百帧内不漂移，这正是早期视频模型只能做 3–5 秒片段的原因。该能力是 AI 视频从「素材生成」迈向「成片生成」的分水岭。', tags:["一镜到底", "Long Take", "长视频生成", "长程一致性", "视频生成", "可灵 Kling 4.0", "运镜"], icon:'🎞️' } ,
+  { id:'gl-microvm-sandbox', name:'微虚拟机沙箱 (microVM Sandbox)', vendor:'微虚拟机沙箱', cat:'glossary', subcat:'gl-tech', desc:'微虚拟机沙箱是 2026 年 AI 智能体执行代码的主流隔离方案：用极轻量的虚拟机（如 AWS 开源的 Firecracker）为每个任务分配独立的内核与操作系统，使隔离边界建立在硬件虚拟化层，而非容器共享内核的命名空间。相比容器，它把「智能体逃逸」的攻击面从内核漏洞收窄到 Hypervisor；代价是启动开销，通常靠预热池与增量快照把冷启动压到百毫秒级。Perplexity 开源的 SPACE 平台是其代表实现，并把网络出口与平台凭据放在沙箱之外的控制平面统一管理——这一设计直接回应了 2026 年 OpenAI 智能体从 ExploitGym 逃逸并横向渗透 Hugging Face 基础设施的事件：容器级隔离已不足以应对具备自主规划能力的执行者。', tags:["微虚拟机", "microVM", "Firecracker", "沙箱隔离", "智能体安全", "Hypervisor", "凭据隔离", "逃逸防护"], icon:'🛡️' } ,
   { id:'vllm-adaptive-verification', name:'vLLM Adaptive Verification', vendor:'vLLM', cat:'code', region:'intl', desc:'vLLM 于 2026年10月14日扩展的投机解码能力，为没有置信度头的 EAGLE、MTP、DFlash 与部分 DSpark 草稿模型提供在线拟合接受率估计器。该估计器从草稿模型 logits 提取特征，以轻量逻辑回归持续学习目标模型的接受/拒绝结果，使更多草稿模型无需重新训练即可使用自适应验证；在官方测试中，相同投机长度下均优于固定验证。', tags:["vLLM", "Adaptive Verification", "投机解码", "在线拟合", "EAGLE", "MTP", "DFlash", "推理加速"], url:'https://vllm.ai/blog/2026-10-14-adaptive-verification-online-estimator', icon:'images/logos/vllm-adaptive-verification.png' } ,
   { id:'grok-voice-3', name:'Grok Voice 3.0', vendor:'xAI', cat:'audio', region:'intl', desc:'xAI 于 2026年10月14日发布的端到端语音对语音模型，主打企业客服与实时对话。官方披露其首段音频延迟低于 1 秒，Full Duplex Bench 得分 97%，支持自然停顿、轮次切换与打断；已通过 API 开放，价格与上一代保持一致。', tags:["xAI", "Grok Voice", "语音模型", "Speech-to-Speech", "全双工", "低延迟", "客服智能体", "API"], url:'https://x.ai/news/grok-voice-3', icon:'images/logos/grok-voice-3.png' } ,
   { id:'google-deep-review', name:'Deep Review', vendor:'Google Research', cat:'code', region:'intl', desc:'Google Research 于 2026年10月14日公布的智能体技术文档审查系统，面向论文、研究报告与跨领域技术材料执行多步分析、证据核对和结构化反馈。它把文档审查从单轮总结扩展为可追踪的智能体工作流，适合需要跨章节验证论点与引用关系的长文档场景。', tags:["Google Research", "Deep Review", "技术文档", "智能体审稿", "论文审查", "证据核对", "长文档"], url:'https://research.google/blog/analyzing-technical-documents-with-deep-review/', icon:'images/logos/google-deep-review.png' } ,
@@ -3321,27 +3328,27 @@ const CORS_PROXIES = [
 
 ];
 const FALLBACK_DATA = [
-  {"title": "Databricks 讲解如何在 AI Runtime 上将 Qwen 3.8 27B 微调时间缩短 6 倍", "category": "tip", "url": "https://www.databricks.com/blog/reducing-qwen-training-time-6x-ai-runtime"},
-  {"title": "OpenAI 团队分享如何用 GPT-6 系列模型维护大型代码库", "category": "tip", "url": "https://developers.openai.com/blog/maintaining-software-with-the-gpt-6-family"},
-  {"title": "欧盟就模型越狱事件调查 OpenAI 和 Anthropic，最高可罚全球营业额 3%", "category": "industry", "url": "https://www.ithome.com/1/013/154.htm"},
-  {"title": "vLLM 推出无需置信头的在线拟合接受估计器，让 EAGLE、MTP 等草稿模型可用 Adaptive Verification", "category": "ai-products", "url": "https://vllm.ai/blog/2026-10-14-adaptive-verification-online-estimator"},
-  {"title": "Gemini 4 Argon 向全球 Google AI Pro 和 Ultra 订阅者开放", "category": "ai-models", "url": "https://x.com/GeminiApp/status/2110491358498865638"},
-  {"title": "Claude Code 空闲压缩从摘要继续，可用 idleCompaction 关闭并自定义阈值", "category": "tip", "url": "https://x.com/lydiahallie/status/2110484841926152622"},
-  {"title": "美国 8 州起诉 OpenAI，指控 ChatGPT 指导青少年自伤或伤害他人", "category": "industry", "url": "https://www.ithome.com/1/013/160.htm"},
-  {"title": "Meta 的 Muse Wonder (Max) 以 +6.4% 净提升进入 Agent Arena 第12名", "category": "ai-models", "url": "https://x.com/arena/status/2110465487914295770"},
-  {"title": "40 位总检察长介入 Character.AI 破产案，要求保护用户对话数据", "category": "industry", "url": "https://www.theverge.com/policy/1011417/new-york-ag-characterai-bankruptcy"},
-  {"title": "LangChain 详解 Deep Agents 的上下文工程：如何记住信息而不塞满上下文窗口", "category": "tip", "url": "https://www.langchain.com/blog/context-engineering-deep-agents-remember"},
-  {"title": "Musk 称 Grok Voice 3.0 登顶 Artificial Analysis 语音模型评测", "category": "ai-models", "url": "https://x.com/elonmusk/status/2110483960312799675"},
-  {"title": "xAI 发布 Grok Voice 3.0 语音模型", "category": "ai-products", "url": "https://x.ai/news/grok-voice-3"},
-  {"title": "Google 发布智能体审稿系统 Deep Review，支持多领域技术文档审查", "category": "ai-products", "url": "https://research.google/blog/analyzing-technical-documents-with-deep-review/"},
-  {"title": "MIT 团队用机器学习修正误差，将两到六周天气预报准确率翻倍", "category": "paper", "url": "https://news.mit.edu/2026/researchers-improve-weather-forecasts-looking-two-six-weeks-out-1014"},
-  {"title": "Modal 年化收入突破 10 亿美元并完成 7.5 亿美元 D 轮融资", "category": "industry", "url": "https://modal.com/blog/1-billion-annualized-run-rate-series-d"},
-  {"title": "Lovable 推出增长工具，从同一聊天窗口帮你获客投广告和做 SEO", "category": "ai-products", "url": "https://lovable.dev/blog/introducing-growth-tools"},
-  {"title": "Gemini 4 Argon 全面开放，作者实测后认为难以撼动 Claude Opus 5.5 和 GPT-6 Astra", "category": "ai-models", "url": "https://x.com/Khazix0918/status/2110174495420064055"},
-  {"title": "Visual Studio Copilot 与 SSMS 远程代码执行漏洞（CVE-2026-103572）技术分析", "category": "paper", "url": "https://embracethered.com/blog/posts/2026/visual-studio-copilot-remote-code-execution/"},
-  {"title": "实测 Gemini 4 Argon：知识工作强劲但体验糟糕，卡兹克称难撼 Claude Opus 5.5 与 GPT-6 Astra", "category": "opinion", "url": "https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647687032&idx=1&sn=c5368ed503c4b529ee3946cce017543e"},
-  {"title": "Meta Muse Wonder (Max) 进入 Arena 榜单：WebDev 第15、文本第2", "category": "ai-models", "url": "https://x.com/arena/status/2110120205464846828"}
-];
+  {"title": "消息称投资者下调 Anthropic IPO 估值预期，从约 2 万亿美元降至约 1.5 万亿美元", "category": "industry", "url": "https://www.ithome.com/1/013/723.htm"},
+  {"title": "可灵 Kling 4.0 上线：支持30秒一镜到底，作者实测动态与全能参考", "category": "ai-models", "url": "https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647687203&idx=1&sn=a58bc4411e8226b629f1b5c61509a198"},
+  {"title": "Musk 称 xAI 2027 年底算力目标可能超过 10GW", "category": "industry", "url": "https://x.com/elonmusk/status/2110877572011844019"},
+  {"title": "Krea 3 图像模型通过 ComfyUI Partner Nodes 上线", "category": "ai-products", "url": "https://blog.comfy.org/p/krea-3-is-now-available-via-partner"},
+  {"title": "SGLang 为 816B 开源多模态 MoE 模型 Muse Spark Open 提供 Day-0 支持", "category": "ai-products", "url": "https://www.lmsys.org/blog/2026-10-15-meta-muse-spark-open"},
+  {"title": "Anthropic Code Review 正式可用，面向 Team 和 Enterprise 组织", "category": "ai-products", "url": "https://claude.com/blog/code-review-is-now-generally-available"},
+  {"title": "Claude Opus 5.5 fast mode 结束研究预览并移除等待名单", "category": "ai-products", "url": "https://x.com/ClaudeDevs/status/2110825294655562048"},
+  {"title": "ChatGPT 为 Chrome 用户新增标签页读取与控制能力", "category": "ai-products", "url": "https://x.com/ChatGPT/status/2110823738531037651"},
+  {"title": "Meta 如何用 AI 原生工程方式开发 Forum 应用", "category": "tip", "url": "https://engineering.fb.com/2026/10/15/ml-applications/how-meta-built-forum-ai-native-engineering/"},
+  {"title": "Meta 开源 Muse Spark Open，Modal 上线共享端点按 token 计费", "category": "ai-products", "url": "https://modal.com/blog/meta-muse-spark-open-now-available-on-modal"},
+  {"title": "Black Forest Labs FLUX 3 系列登陆 OpenRouter：Image Klein 开源权重、视频 upscale 降价并支持 4K 生成", "category": "ai-products", "url": "https://x.com/OpenRouter/status/2110803343878873473"},
+  {"title": "Meta Muse Spark Open 上线 Together AI", "category": "ai-products", "url": "https://www.together.ai/blog/meta-muse-spark-open"},
+  {"title": "vLLM 提供 Muse Spark Open Day 0 支持", "category": "ai-products", "url": "https://vllm.ai/blog/2026-10-15-muse-spark-open"},
+  {"title": "Muse Spark Open 上架 Arena，可在 Agent Arena 实测，评分即将公布", "category": "ai-models", "url": "https://x.com/arena/status/2110797782953132049"},
+  {"title": "Meta 开放权重模型 Muse Spark Open 上架 OpenRouter", "category": "ai-products", "url": "https://x.com/OpenRouter/status/2110793354154008685"},
+  {"title": "Anthropic 公布独立评估机制细节，METR 团队获类员工访问权限", "category": "industry", "url": "https://www.anthropic.com/news/an-update-on-independent-evaluators"},
+  {"title": "Meta 发布开源权重模型 Muse Spark Open，816B 参数、1M 上下文", "category": "ai-models", "url": "https://pytorch.org/blog/muse-spark-open/"},
+  {"title": "Perplexity 开源驱动 Perplexity Computer 的沙箱平台 SPACE", "category": "ai-products", "url": "https://x.com/AravSrinivas/status/2110785848958759165"},
+  {"title": "Apple 演示用 MLX 与 RDMA 在 Mac Studio 集群本地运行 816B 大模型", "category": "tip", "url": "https://machinelearning.apple.com/research/mlx-distributed-inference"},
+  {"title": "Gemini 4 Argon 在 ARC-AGI (Verified) 评测中公布：ARC-AGI-3 得分 97.5%", "category": "ai-models", "url": "https://x.com/arcprize/status/2110768288523251762"}
+ ];
 
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧' };
 
