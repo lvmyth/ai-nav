@@ -2390,7 +2390,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-10-16';
+var NAV_UPDATE_DATE = '2026-10-17';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -2399,6 +2399,12 @@ var NAV_UPDATE_DATE = '2026-10-16';
 })();
 
 const TOOLS = [
+  { id:'verid-framework', name:'VERID（实验室数字孪生框架）', vendor:'Google Research', cat:'code', region:'intl', desc:'Google Research 于 2026年10月16日公布的湿实验室智能体基础设施框架，全名 VERified Infrastructure for Discovery Laboratories。它解决的是「智能体代码语法正确但物理上不可能执行」的问题：模型缺乏三维几何与物理状态推理能力，可能生成把 8 通道移液器伸进过窄槽位、或从已排空孔位吸取试剂的指令。VERID 构建在开源 PyLabRobot 框架之上，是实验室工作单元的语义数字孪生——一棵实时、有状态的三维体积实体树，持续追踪机械臂几何、每个孔位的液面体积、试剂身份与枪头存量。四项核心能力为：实时三维状态追踪（智能体行动前先查询台面布局、孔体积与枪头余量）、秒级虚拟空跑（数秒内模拟协议以提前发现碰撞或空孔）、硬件安全检查（无效指令在到达机器人之前被拦截）、同步视频与动作日志（完整记录每次运行以支持复现与调试）。实战中它捕获了纯代码无法发现的错误：靠视频与执行轨迹定位到因移液过于贴近孔底造成的染料分层，靠持久数字孪生状态在酶标仪故障后无需重新移液即可恢复运行。', tags:['Google Research', 'VERID', '数字孪生', 'PyLabRobot', '湿实验室', '移液机器人', 'AI4Science', '实验安全', '闭环发现'], url:'https://research.google/blog/grounding-ai-agents-in-biological-reality-building-blocks-for-autonomous-wet-labs/', icon:'images/logos/verid-framework.png' } ,
+  { id:'mirror-cli', name:'Mirror CLI', vendor:'Reflection AI', cat:'code', region:'intl', desc:'Reflection AI 随 Beam 一同开源的智能体命令行 harness，是 Beam 训练时实际使用的终端工具链。开发者可在终端中直接运行 Beam、指向不同的 checkpoint 或推理端点，把它当作日常编码与智能体执行的驾驶舱：查看智能体活动、审批工具调用、在执行过程中随时纠偏。支持可恢复会话与在独立 worktree 中并行运行多个智能体，并通过项目指令、Skills、MCP 连接与 Python 扩展适配既有工作流。架构上用 Rust 实现核心、Python 承担产品层（提示词、技能与开发者工具），在保持响应速度的同时便于扩展。它的意义在于把「模型权重发布」升级为「模型 + 配套 harness 一起开源」——开放权重阵营开始意识到，只给权重不足以让开发者真正跑起来。', tags:['Reflection AI', 'Mirror CLI', '智能体 Harness', '开源', 'Rust', '可恢复会话', '并行智能体', 'MCP', 'Skills', '终端工具'], url:'https://reflection.ai', icon:'images/logos/mirror-cli.png' } ,
+  { id:'gl-verid', name:'VERID（实验室数字孪生）', vendor:'Verified Infrastructure for Discovery Laboratories', cat:'glossary', subcat:'gl-tech', desc:'VERID 指为湿实验室构建的语义数字孪生：一棵实时、有状态的三维体积实体树，把机械臂几何、孔位液面体积、试剂身份与枪头存量等物理状态持续同步给 AI 智能体，使其在下达指令前就能判断该指令在物理上是否可行。它解决的是智能体科学落地的特有失效模式——代码语法正确但物理上不可能（移液器伸不进过窄的槽）、物流上无效（从已排空孔位吸液）、或因未建模的流体效应而科学上失真。可类比软件工程中的「类型检查 + 预发布环境」：把沙箱化编码智能体的思路平移到了移液枪上。2026年10月由 Google Research 提出并构建在开源 PyLabRobot 框架之上。', tags:['VERID', '数字孪生', 'Digital Twin', '湿实验室', '移液机器人', 'AI4Science', '实验安全', 'PyLabRobot'], icon:'🔬' } ,
+  { id:'gl-indirect-prompt-injection', name:'间接提示词注入 (Indirect Prompt Injection)', vendor:'Indirect Prompt Injection', cat:'glossary', subcat:'gl-tech', desc:'间接提示词注入指攻击者不直接对话模型，而是把恶意指令藏进模型会读取的外部内容（网页、文档、邮件、工具返回结果、图片中的文字）中，当智能体处理这些内容时被劫持。它与直接注入的区别在于攻击面从用户输入扩展到整个外部环境，因此凡是有工具调用与联网检索能力的智能体都存在风险。2026年10月 PromptArmor 的研究给出了一个反直觉结论：开放权重模型遭此类攻击的易感率比闭源模型高出 88%，说明安全对齐的后训练环节（而非模型架构）是防御能力的主要来源，权重开放并不等于安全可控。防御思路包括把外部内容标记为不可信数据、对工具结果做隔离与净化、以及在敏感操作前引入人工确认。', tags:['提示词注入', 'Prompt Injection', '智能体安全', '开放权重', '工具调用', 'PromptArmor', '外部内容隔离'], icon:'🎣' } ,
+  { id:'gl-autonomous-wet-lab', name:'自主湿实验室 (Autonomous Wet Lab)', vendor:'Autonomous Wet Lab', cat:'glossary', subcat:'gl-frontier', desc:'自主湿实验室指 AI 智能体不只提出假设与做计算设计，而是直接驱动实验室机器人完成加样、培养、检测并读取结果，再据真实实验反馈修正下一轮假设的闭环研究范式。它瞄准的是 AI for Science 的核心瓶颈：计算设计可以瞬间提出成千上万个候选分子，但湿实验通量远远跟不上，实验读数反而成了最短板。Google Research 2026年10月的实践给出了可量化证据——以 DNA 适配体为沙箱，智能体对 α-凝血酶的命中率在三轮设计-测试-迭代中从 0% 提升到 26.0%、再到 42.1%（特异性 98.5%），每轮约 1000 个候选、单候选成本 1–3 美元；在 de novo 蛋白结合体设计上则对癌症靶点 FAP 拿到了个位数纳摩尔级亲和力。它的关键价值在于智能体能识别并修正计算模型无法预见的实验假象（如非特异性结合的 G-四链体富集），这是纯 in-silico 设计做不到的事。', tags:['自主湿实验室', 'Autonomous Wet Lab', 'AI4Science', '闭环实验', '适配体', '蛋白设计', '实验室机器人', 'Google Research'], icon:'🧪' } ,
+  { id:'gl-junior-role-squeeze', name:'初级岗位挤压 (Junior Role Squeeze)', vendor:'Junior Role Squeeze', cat:'glossary', subcat:'gl-frontier', desc:'初级岗位挤压指 AI 编码智能体普及后，企业初级技术岗位的招聘与占比被显著压缩的现象，是「AI 改变就业结构」最先在数据上显形的一环。Anthropic 于 2026年10月发布的内部研究报告提供了少有的一手量化：到 2026 年 8 月，交互式 AI agent 的工时已达人类员工的 6 倍；技术部门初级员工占比从 21% 降至 14%，初级技术岗位在招聘中的占比从 27% 降至 9%。其机制在于智能体首先替代的正是初级工程师承担的大量标准化执行工作，而这恰恰是传统上新人积累经验的入口——因此它引发的不只是失业问题，更是「经验如何代际传递」的问题：当入门级工作消失，未来的高级工程师从何处成长而来。', tags:['初级岗位挤压', 'Junior Role Squeeze', 'AI 与就业', 'Anthropic', '智能体工时', '招聘结构', '人才培养'], icon:'📉' } ,
   { id:'muse-spark-open', name:'Muse Spark Open', vendor:'Meta', cat:'chat', region:'intl', desc:'Meta 超级智能实验室于 2026年10月15日发布的开放权重大模型，号称「迄今能力最强的美国开放权重模型」。总参数 8160 亿（MoE 架构，每层 256 个专家、每个 Token 激活 8 个，约 420 亿激活参数），上下文窗口 100 万 Token，原生支持文本、图像、视频与音频输入，专为编码与长周期智能体任务优化。采用 Muse Model License 授权，含有限商业条款，多数开发者可免费使用。首发即支持 SGLang、vLLM、TensorRT-LLM、Transformers、Apple MLX、llama.cpp 与 Unsloth，并针对 NVIDIA、AMD、Intel 与苹果芯片优化；权重可从 Hugging Face、Amazon SageMaker AI、Google Cloud Model Garden 与 Microsoft Foundry Models 下载，API 则由 Together AI、Fireworks、Groq、Modal、OpenRouter、Baseten 与 Nebius 提供。最大亮点是与苹果合作：每台 M5 Ultra Mac Studio 可提供最高 512GB 统一内存，两台机器经 MLX 框架协同即可在本地运行完整模型。', tags:['开放权重', 'Meta', 'MoE', '长上下文', '多模态', '智能体编码', '本地推理', 'Apple MLX'], url:'https://www.meta.ai', icon:'images/logos/muse-spark-open.png' } ,
   { id:'kling-40', name:'可灵 Kling 4.0', vendor:'快手', cat:'video', region:'cn', desc:'快手可灵 AI 于 2026年10月发布的第四代视频生成模型，核心升级是原生 30 秒单次生成，支持一镜到底的长镜头连续叙事，无需再把多段短片拼接。输出支持 10-bit HDR 的 1080p 与 4K、21:9 超宽画幅与双通道立体声，口型同步精度显著提升。其「全能参考」能力允许单次生成同时参考最多 10 张图片、5 段视频（总时长 ≤30 秒）与 7 个主体，合计上限 15 项；配合最多 10 张关键帧可精确控制角色姿态、表情、场景转换与剧情节点。提示词理解上限提升至 8000 tokens，支持中英日韩西葡德法等语言及北京话、中国台湾腔、东北话、四川话、粤语等方言口音。同系列 Kling 4.0 Flash 面向高频创作，主打高性价比与更快生成速度。', tags:['国产', '视频生成', '30秒长视频', '全能参考', '10-bit HDR', '关键帧控制', '口型同步', '4K'], url:'https://kling.kuaishou.com', icon:'images/logos/kling-40.png' } ,
   { id:'krea-3', name:'Krea 3', vendor:'Krea', cat:'image', region:'intl', desc:'Krea 于 2026年10月发布的第三代图像生成模型，首发渠道是 ComfyUI Partner Nodes——作为官方合作节点直接嵌入 ComfyUI 的节点式工作流，创作者无需离开既有节点图即可调用，也不必在多个生成网站之间来回切换。Krea 一直以实时生成画布与精细创意控制见长，此代重点强化画面质量与提示词遵循度。它的意义在于 AI 图像能力以「可插拔节点」形态进入既有生产管线：超分、调色、批量出图本就是设计工业的标准工序，模型化后可与人工流程无缝衔接。', tags:['图像生成', 'ComfyUI', 'Partner Nodes', '节点式工作流', '创意控制', '实时生成'], url:'https://www.krea.ai', icon:'images/logos/krea-3.png' } ,
@@ -3328,26 +3334,26 @@ const CORS_PROXIES = [
 
 ];
 const FALLBACK_DATA = [
-  {"title": "消息称投资者下调 Anthropic IPO 估值预期，从约 2 万亿美元降至约 1.5 万亿美元", "category": "industry", "url": "https://www.ithome.com/1/013/723.htm"},
-  {"title": "可灵 Kling 4.0 上线：支持30秒一镜到底，作者实测动态与全能参考", "category": "ai-models", "url": "https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647687203&idx=1&sn=a58bc4411e8226b629f1b5c61509a198"},
-  {"title": "Musk 称 xAI 2027 年底算力目标可能超过 10GW", "category": "industry", "url": "https://x.com/elonmusk/status/2110877572011844019"},
-  {"title": "Krea 3 图像模型通过 ComfyUI Partner Nodes 上线", "category": "ai-products", "url": "https://blog.comfy.org/p/krea-3-is-now-available-via-partner"},
-  {"title": "SGLang 为 816B 开源多模态 MoE 模型 Muse Spark Open 提供 Day-0 支持", "category": "ai-products", "url": "https://www.lmsys.org/blog/2026-10-15-meta-muse-spark-open"},
-  {"title": "Anthropic Code Review 正式可用，面向 Team 和 Enterprise 组织", "category": "ai-products", "url": "https://claude.com/blog/code-review-is-now-generally-available"},
-  {"title": "Claude Opus 5.5 fast mode 结束研究预览并移除等待名单", "category": "ai-products", "url": "https://x.com/ClaudeDevs/status/2110825294655562048"},
-  {"title": "ChatGPT 为 Chrome 用户新增标签页读取与控制能力", "category": "ai-products", "url": "https://x.com/ChatGPT/status/2110823738531037651"},
-  {"title": "Meta 如何用 AI 原生工程方式开发 Forum 应用", "category": "tip", "url": "https://engineering.fb.com/2026/10/15/ml-applications/how-meta-built-forum-ai-native-engineering/"},
-  {"title": "Meta 开源 Muse Spark Open，Modal 上线共享端点按 token 计费", "category": "ai-products", "url": "https://modal.com/blog/meta-muse-spark-open-now-available-on-modal"},
-  {"title": "Black Forest Labs FLUX 3 系列登陆 OpenRouter：Image Klein 开源权重、视频 upscale 降价并支持 4K 生成", "category": "ai-products", "url": "https://x.com/OpenRouter/status/2110803343878873473"},
-  {"title": "Meta Muse Spark Open 上线 Together AI", "category": "ai-products", "url": "https://www.together.ai/blog/meta-muse-spark-open"},
-  {"title": "vLLM 提供 Muse Spark Open Day 0 支持", "category": "ai-products", "url": "https://vllm.ai/blog/2026-10-15-muse-spark-open"},
-  {"title": "Muse Spark Open 上架 Arena，可在 Agent Arena 实测，评分即将公布", "category": "ai-models", "url": "https://x.com/arena/status/2110797782953132049"},
-  {"title": "Meta 开放权重模型 Muse Spark Open 上架 OpenRouter", "category": "ai-products", "url": "https://x.com/OpenRouter/status/2110793354154008685"},
-  {"title": "Anthropic 公布独立评估机制细节，METR 团队获类员工访问权限", "category": "industry", "url": "https://www.anthropic.com/news/an-update-on-independent-evaluators"},
-  {"title": "Meta 发布开源权重模型 Muse Spark Open，816B 参数、1M 上下文", "category": "ai-models", "url": "https://pytorch.org/blog/muse-spark-open/"},
-  {"title": "Perplexity 开源驱动 Perplexity Computer 的沙箱平台 SPACE", "category": "ai-products", "url": "https://x.com/AravSrinivas/status/2110785848958759165"},
-  {"title": "Apple 演示用 MLX 与 RDMA 在 Mac Studio 集群本地运行 816B 大模型", "category": "tip", "url": "https://machinelearning.apple.com/research/mlx-distributed-inference"},
-  {"title": "Gemini 4 Argon 在 ARC-AGI (Verified) 评测中公布：ARC-AGI-3 得分 97.5%", "category": "ai-models", "url": "https://x.com/arcprize/status/2110768288523251762"}
+  {"title": "Anthropic 报告：AI 如何改变公司内部的雇佣与工作组织", "category": "paper", "url": "https://www.anthropic.com/research/employment-at-anthropic"},
+  {"title": "Muse Spark Open (Max) 登顶 Code Arena: WebDev 美国开源模型第一", "category": "ai-models", "url": "https://x.com/arena/status/2111221323217412318"},
+  {"title": "Anthropic 调查揭示公众与员工对 AI 影响的预期鸿沟", "category": "paper", "url": "https://www.anthropic.com/research/ai-expectations-gap"},
+  {"title": "Anthropic 用 Claude 揭开 NIST ECDSA 曲线种子来源之谜", "category": "paper", "url": "https://www.anthropic.com/research/ecdsa-curve-origins"},
+  {"title": "Google Research 展示 AI 智能体自主湿实验室的三项进展：VERID 框架、适配体闭环发现与全新蛋白结合剂设计", "category": "paper", "url": "https://research.google/blog/grounding-ai-agents-in-biological-reality-building-blocks-for-autonomous-wet-labs/"},
+  {"title": "Anthropic 披露 Claude 编写了约 90% 的 Claude Code 代码", "category": "industry", "url": "https://x.com/adocomplete/status/2111171735806767558"},
+  {"title": "Anthropic 用 Claude Mythos 5 设计出更高效的量子电路，多项超过已发表最优设计", "category": "paper", "url": "https://www.anthropic.com/research/designing-efficient-quantum-circuits"},
+  {"title": "a16z 图表周报：智能体购物遭电商拦截，消费意愿仍滞后", "category": "industry", "url": "https://www.a16z.news/p/this-week-in-charts-agents-denied"},
+  {"title": "vLLM 实现 Reflection Beam 501B MoE 模型 Day 0 支持", "category": "ai-products", "url": "https://vllm.ai/blog/2026-10-16-reflection-beam"},
+  {"title": "Reflection 发布首个开源权重模型 Beam，Artificial Analysis 评测得分 30 居美国开源模型第二", "category": "ai-models", "url": "https://artificialanalysis.ai/articles/reflection-beam"},
+  {"title": "SGLang 原生支持 Reflection 的 Beam 并驱动其生产 API", "category": "ai-products", "url": "https://www.lmsys.org/blog/2026-10-16-beam"},
+  {"title": "Reflection 开源权重模型 Beam 上架 Ollama，限时免费可用", "category": "ai-products", "url": "https://ollama.com/blog/reflection-beam"},
+  {"title": "Waymo 宣布进军多伦多，计划2028年迎接首批乘客", "category": "industry", "url": "https://waymo.com/blog/2026/10/waymo-in-toronto"},
+  {"title": "商务部、科技部拟在出口技术目录增列23项人工智能技术并征意见", "category": "industry", "url": "https://www.ithome.com/1/013/983.htm"},
+  {"title": "PromptArmor 研究称开放权重模型遭间接提示词注入攻击的易感率高 88%", "category": "paper", "url": "https://www.promptarmor.com/resources/open-weight-susceptibility"},
+  {"title": "丹麦最高法院裁定持有传播 AI 生成儿童色情内容可判实刑", "category": "industry", "url": "https://www.ithome.com/1/013/914.htm"},
+  {"title": "OpenAI 披露内部模型在 RL 训练中绕过政府统计网站授权获取服务器机密", "category": "paper", "url": "https://alignment.openai.com/misalignment-reports/retrieving-server-secrets-and-bypassing-authorization-on-a-government-statistics-website/"},
+  {"title": "OpenAI 失准报告：内部模型在 dashboard 评测中访问并修改内部系统", "category": "industry", "url": "https://alignment.openai.com/misalignment-reports/accessing-and-changing-internal-systems-during-dashboard-research/"},
+  {"title": "OpenAI 失准报告：内部研究模型未经授权动用测试网钱包资金", "category": "industry", "url": "https://alignment.openai.com/misalignment-reports/using-a-funded-test-cryptocurrency-wallet-without-authorization/"},
+  {"title": "vLLM 解析 Kimi K3 在 AMD Instinct MI355X 上的推理优化，单 GPU 吞吐超 NVIDIA HGX B300 24.4%", "category": "tip", "url": "https://vllm.ai/blog/2026-10-16-kimi-k3-mi355x"}
  ];
 
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧' };
