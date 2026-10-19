@@ -98,6 +98,16 @@ def fetch_icon(domain):
 
 
 def to_png(data, out):
+    # icon.horse 对部分域名返回 SVG，PIL 无法直接解码，需先栅格化
+    if data[:1] in (b'<',) or b'<' in data[:64] and b'svg' in data[:4096].lower():
+        try:
+            import cairosvg
+            cairosvg.svg2png(bytestring=data, write_to=out,
+                             output_width=256, output_height=256)
+            im = Image.open(out)
+            return im.size
+        except Exception:
+            return None
     try:
         im = Image.open(io.BytesIO(data))
         best = None
