@@ -228,12 +228,7 @@ def main():
     s_idx = html.index("const TOOLS")
     open_b = html.index("[", s_idx)
     e_idx = html.index("const RECENT_CAP", s_idx)
-    # TOOLS 数组以 "\n]" 收尾（无分号），按此定位闭合点；
-    # 原实现用 rindex("];") 在数组无分号时会抛 ValueError，导致合并被静默跳过。
-    try:
-        close = html.rindex("];", open_b, e_idx)
-    except ValueError:
-        close = open_b + html[open_b:e_idx].rindex("\n]")
+    close = html.rindex("];", open_b, e_idx)
     # 注意：每条 kept_block 以 '}' 结尾（不含逗号），必须用 ' ,\n' 连接，
     # 否则数组元素间缺少逗号会导致整段 JS 语法错误（曾导致部署文件损坏）。
     new_html = html[:open_b + 1] + "\n" + " ,\n".join(kept_blocks) + "\n" + html[close:]
