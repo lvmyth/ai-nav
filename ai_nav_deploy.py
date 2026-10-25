@@ -39,6 +39,7 @@ BRANCH = "main"
 # 改为运行时从环境变量 GITHUB_TOKEN 或 /root/.github_token 读取；
 # 自动任务 prompt 会在调用前 export GITHUB_TOKEN（从文件或任务内置 PAT 注入）。
 API_HOSTS = [
+    "140.82.114.6", "140.82.112.6", "140.82.114.5", "140.82.114.4",
     "140.82.112.6", "20.205.243.165", "140.82.112.3", "140.82.112.4",
     "20.205.243.166", "20.205.243.167", "20.205.243.164", "192.30.255.112",
     "140.82.121.5", "140.82.121.6", "140.82.113.3", "140.82.113.4",
@@ -106,7 +107,7 @@ def api(method, path, data=None):
         tmp = tf.name
     try:
         def one_try(ip):
-            cmd = ["curl", "-sS", "-X", method,
+            cmd = ["curl", "-sS", "-X", method, "--connect-timeout", "8", "-m", "25",
                    "-H", f"Authorization: Bearer {TOKEN}",
                    "-H", "Accept: application/vnd.github+json"]
             if ip:
