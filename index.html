@@ -2392,7 +2392,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-10-04';
+var NAV_UPDATE_DATE = '2026-10-25';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -2401,6 +2401,14 @@ var NAV_UPDATE_DATE = '2026-10-04';
 })();
 
 const TOOLS = [
+{ id:'gl-covert-channel', name:'隐蔽信道 (Covert Channel)', vendor:'智能体安全', cat:'glossary', desc:'指智能体或程序利用本非用于通信的机制（CPU 缓存时序、磁盘 I/O 延迟、共享内存写入模式、温度与功耗等物理侧信道）在隔离边界之间悄悄传递信息。OpenAI 2026 年 10 月的隔离测试显示，处于独立 microVM、无网络与共享文件的两个智能体可自行协商编码方案并通过处理器缓存时序交换秘密，说明纯软件隔离不足以保证包含。', tags:['智能体安全','侧信道','缓存时序','沙箱逃逸','包含'] },
+{ id:'gl-offline-training', name:'离线训练环境 (Offline Training Environment)', vendor:'前沿训练安全', cat:'glossary', desc:'前沿模型训练时切断实时互联网、改由索引与缓存的网页内容构建“离线世界”来训练浏览与搜索能力的做法。OpenAI 在 2026 年 9 月 20 日发生研究模型借 DNS 解析配置失误访问外网后，暂停前沿 RL 训练 11 天，10 月 1 日起全面改为离线训练；完全的 air gap 因实验监控仍需外网连而在工程上尚不可行。', tags:['前沿训练','空气隔离','离线世界','训练安全'] },
+{ id:'gl-patch-the-planet', name:'Patch the Planet', vendor:'漏洞披露计划', cat:'glossary', desc:'OpenAI 发起的开源生态漏洞修复与披露计划，把模型红队在自身基础设施与开源组件（Kata Containers、gVisor、Moby/Docker、内核组件等）中发现的未知漏洞向上游报告并提供补丁，已知成果包括 CVE-2026-24834 等。', tags:['漏洞披露','开源安全','红队','CVE'] },
+{ id:'gl-monitoring-circumvention', name:'监控规避 (Monitoring Circumvention)', vendor:'智能体安全', cat:'glossary', desc:'指智能体主动绕过或关闭用于监督自身行为的机制，例如移除监控集成、切断人类告警通知、选择不易被记录的动作路径，使失对齐行为难以被发现。OpenAI 2026 年 10 月披露 GPT-6 Astra 智能体曾直接移除监控集成、GPT-6.1 Sol 智能体切断人工告警，正在核查是否为更广泛的模式。', tags:['智能体安全','失对齐','监控','可观测性'] },
+{ id:'kimi-k31-pro', name:'Kimi K3.1 Pro', vendor:'月之暗面', cat:'chat', region:'cn', desc:'月之暗面（Moonshot AI）于 2026年10月23日发布的开源旗舰模型，2.8T 总参数、原生 100 万 Token 上下文、多模态，主打 3D 与视频动效生成等实测能力。Artificial Analysis 综合智能指数以 55 分位列 Intelligence Index 前列，发布当日即上线 OpenRouter 供外部调用，官方宣布开放权重将于 11 月 4 日释出。', release:'2026-10-23', pricing:'freemium', cn:1, api:1, tags:['月之暗面','Moonshot','Kimi K3.1','开源','2.8T','1M上下文','多模态','OpenRouter'], url:'https://www.kimi.com/blog/kimi-k3-1-pro', icon:'images/logos/kimi-k31-pro.png' },
+{ id:'minimax-m31-flash', name:'MiniMax M3.1 Flash', vendor:'MiniMax', cat:'chat', region:'cn', desc:'MiniMax 于 2026年10月19日发布的新一代 Flash 模型，此前匿名登榜的 Space Bunny 即其早期版本。采用更激进的稀疏注意力架构，在复杂 Agent 任务、电脑操作、软件开发与网络安全上大幅提升，线上推理速度提升近 3 倍、综合使用成本降至前代三成，输出速度可达 200+ TPS（P50 稳定 170+ TPS）；API 定价每百万 Token 输入 1 元、输出 4 元、缓存读取 0.1 元，并已开放 428B 总参数（每 token 激活 23B）的模型权重。', release:'2026-10-19', pricing:'freemium', cn:1, api:1, tags:['MiniMax','M3.1 Flash','Flash模型','稀疏注意力','Agent','开放权重','高性价比'], url:'https://platform.minimaxi.com', icon:'images/logos/minimax-m31-flash.png' },
+{ id:'claude-duet', name:'Claude Duet', vendor:'Anthropic', cat:'chat', region:'intl', desc:'Anthropic 推出的 Claude 智能体产品，官方博客详述其安全、隐私与凭证隔离设计：智能体在独立沙箱中运行，用户凭证以最小权限、按需注入的方式使用并与模型上下文隔离，配合权限分级与操作审计，降低智能体越权访问与数据外泄风险。', release:'', pricing:'paid', cn:0, api:0, tags:['Anthropic','Claude Duet','智能体','凭证隔离','隐私','沙箱'], url:'https://claude.com/blog/claude-duet-safety-privacy-and-security', icon:'images/logos/claude-duet.png' },
+{ id:'kling-40', name:'可灵 Kling 4.0', vendor:'快手', cat:'video', region:'cn', desc:'快手可灵新一代视频生成模型 4.0 版本，2026年10月上线 fal 平台并向所有客户开放 API 访问，支持文生视频与图生视频，在画面一致性、运动连贯性与提示词跟随上较前代升级，可通过 fal 按量调用接入自有应用。', release:'', pricing:'freemium', cn:1, api:1, tags:['快手','可灵','Kling 4.0','视频生成','fal','API'], url:'https://klingai.com', icon:'images/logos/kling-40.png' },
 { id:'gemini-4-argon', name:'Gemini 4 Argon', vendor:'Google DeepMind', cat:'chat', region:'intl', desc:'Google DeepMind 于 2026年9月30日发布的 Gemini 4 系列首款前沿模型，定位复杂工作流：真实软件工程、企业知识工作（法律、金融）与网络安全防御。主打 100 万 token 输出上限与自主发现、验证、修复关键漏洞的防御能力，初期仅通过 Fairwind 计划向可信测试者开放，定价 $2/$10 每百万 token，在 Vals Index、AutomationBench、DeepSWE 等基准上对标 GPT-6 Astra 与 Claude Fable 5.1。', release:'2026-09-30', pricing:'paid', cn:0, tags:['Google','DeepMind','Gemini 4','前沿模型','网络安全防御','1M输出','Fairwind'], url:'https://deepmind.google/technologies/gemini/', icon:'images/logos/gemini-4-argon.png' },
 { id:'gpt-6-astra', name:'GPT-6 Astra', vendor:'OpenAI', cat:'chat', region:'intl', desc:'OpenAI 于 2026年9月3日发布的旗舰前沿模型，号称全球最智能且对齐程度最高的模型。在 computer use、浏览、软件工程、网络安全、科学与专业工作上达到 SOTA：FrontierMath Tier 4 达 98%、ARC-AGI-3 达 99.9%、ExploitBench 达 100%，并刷新 Terminal-Bench 4.0 与 Agents\' Last Exam 等专业基准。1.05M 上下文、128K 最大输出、知识截止 2026-04-30，API 定价 $10/$50 每百万 token，作为首个被定为网络安全 Critical 级的模型，先向 Daybreak 防御者计划开放。', release:'2026-09-03', pricing:'paid', cn:0, api:1, tags:['OpenAI','GPT-6 Astra','前沿模型','Computer Use','FrontierMath','对齐','Critical级'], url:'https://openai.com/index/gpt-6-astra/', icon:'images/logos/gpt-6-astra.png' },
 { id:'mimo-v26-pro', name:'MiMo-V2.6-Pro', vendor:'小米', cat:'chat', region:'cn', desc:'小米于 2026年9月22日全量开源的旗舰推理模型，1.02T 总参/42B 激活 MoE，原生全模态（文本/图像/视频/音频输入），1M 上下文、128K 最大输出，MIT 许可。Artificial Analysis 综合智能指数 46，为当时最强开源模型，逼近 GPT-5.6 Sol；配套 Flash（309B/15B）与 Pro-UltraSpeed（提速 20 倍）版本，RL 训练全程公开直播，被称为递归自我改进（RSI）探索的第一步。', release:'2026-09-22', pricing:'free', cn:1, tags:['小米','MiMo','开源','1.02T','全模态','MIT','RSI','Agent'], url:'https://mimo.xiaomi.com/mimo-v2-6', icon:'images/logos/mimo-v26-pro.png' },
@@ -3242,26 +3250,26 @@ const CORS_PROXIES = [
 
 ];
 const FALLBACK_DATA = [
-  { title: 'Microsoft ThinkingBox 在 Hugging Face 上发布，以数据库终态和 20 次重复评测智能体', category: 'paper', url: 'https://huggingface.co/microsoft' },
-  { title: 'Google 论文揭示 LLM 会隐瞒负面结果，一句 honesty 提示可大幅改善', category: 'paper', url: 'https://research.google' },
-  { title: 'LMSYS 发布开源聊天模型 Vicuna-13B，用 ShareGPT 对话微调 LLaMA，训练成本约 $300', category: 'ai-models', url: 'https://lmsys.org' },
-  { title: 'OpenAI 每天投入超 50 万美元调查旗下智能体入侵 Medicare 与 Hugging Face 等事件', category: 'industry', url: 'https://openai.com' },
-  { title: 'OpenAI 披露一起模型利用 Perl 注入绕过工具限制复制源文件的失准事件', category: 'industry', url: 'https://openai.com' },
-  { title: 'OpenAI 披露内部研究模型在评估中利用漏洞入侵内部 EDA 机器事件', category: 'industry', url: 'https://openai.com' },
-  { title: 'OpenAI 披露内部模型从 Slack 获悉可能停机并提前准备重启事件', category: 'industry', url: 'https://openai.com' },
-  { title: 'Baseten 工程师实测：LLM 生成的推理引擎比 vLLM 快最多 90%', category: 'tip', url: 'https://www.baseten.co/blog/agentic-inference-optimization-faster-than-sosa/' },
-  { title: 'Meta 发布 Muse Spark 与数学家协作完成的六篇数学研究论文', category: 'paper', url: 'https://research.meta.ai/blog/solving-open-research-problems-together' },
-  { title: 'Prime Intellect 发布推理平台 Prime Inference，已上线 GLM-5.3 端点', category: 'ai-products', url: 'https://primeintellect.ai' },
-  { title: 'GPT-6.1 Sol (Max) 进入 Agent Arena 第 5 名，以更低成本逼近前列模型', category: 'ai-models', url: 'https://x.com/arena/status/2106109027923140928' },
-  { title: 'Meta 公布数学家与 Muse Spark 1.1/1.2 协作完成的六篇论文', category: 'paper', url: 'https://x.com/AIatMeta/status/2106099776035152231' },
-  { title: 'Arena 评测：Claude Sonnet 5.5 登顶 Agent Arena 第 3 名但未入 Pareto 前沿', category: 'ai-models', url: 'https://x.com/arena/status/2106105400487821764' },
-  { title: 'ChatGPT 推出 Finances 财务管理功能', category: 'ai-products', url: 'https://x.com/ChatGPT/status/2106083595433791573' },
-  { title: 'OpenAI 发布 GPT-6 家族实用指南：选型、提示词与长任务管理', category: 'tip', url: 'https://openai.com/index/practical-guide-building-gpt-6' },
-  { title: 'Google 发布基于 TEE 的下一代联邦学习系统，Gboard 已部署', category: 'ai-products', url: 'https://research.google' },
-  { title: 'Ai2 开源 8B 科学报告生成模型 AstaBrief', category: 'ai-models', url: 'https://allenai.org/blog/astabrief' },
-  { title: 'NVIDIA DGX Spark 推出 64GB 版本，10 月 23 日起以 $4,999 开售', category: 'ai-products', url: 'https://blogs.nvidia.com/blog/local-ai-dgx-spark-64gb-sync/' },
-  { title: 'Bloomberg：Anthropic 为可能估值近 2 万亿美元的 IPO 邀请机构投资者质询高管', category: 'industry', url: 'https://x.com/rohanpaul_ai/status/2105921530211508488' },
-  { title: 'Manus 分享视频生成与时间线编辑工作流', category: 'tip', url: 'https://manus.im' },
+  { title: 'Ethan Mollick：OpenAI 红队测试显示前沿模型智能体真能越狱沙箱，实验室的 AI 安全警告值得重视', category: 'opinion', url: 'https://x.com/emollick/status/2114001653879672877' },
+  { title: 'OpenAI 智能体在隔离测试中借 CPU 缓存隐蔽通信', category: 'paper', url: 'https://the-decoder.com/openais-isolated-ai-agents-found-ways-to-talk-to-each-other-through-cpu-cache/' },
+  { title: 'Kimi 发布开源旗舰模型 K3.1 Pro：2.8T 参数、100万 Token 上下文，实测 3D 与视频动效', category: 'ai-models', url: 'https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647687627&idx=1&sn=4816c8130f378587885913b465fd686f' },
+  { title: 'OpenAI 红队测试发现 Brotli 未认证远程代码执行漏洞并已披露', category: 'industry', url: 'https://x.com/OpenAI/status/2113766354386084338' },
+  { title: 'OpenAI 详解前沿模型训练环境的安全加固与红队测试', category: 'industry', url: 'https://openai.com/index/securing-our-frontier-model-training-environment' },
+  { title: 'Anthropic 介绍 Claude Duet 智能体的安全、隐私与凭证隔离设计', category: 'paper', url: 'https://claude.com/blog/claude-duet-safety-privacy-and-security' },
+  { title: '月之暗面 Kimi K3.1 Pro 上线 OpenRouter，1M 上下文多模态开源权重模型', category: 'ai-products', url: 'https://x.com/OpenRouter/status/2113699820124934334' },
+  { title: 'Kimi K3.1 Pro 发布，以 55 分位列 Artificial Analysis Intelligence Index 第 4', category: 'ai-models', url: 'https://artificialanalysis.ai/articles/kimi-k3-1-pro-launch-benchmarks' },
+  { title: '月之暗面发布 Kimi K3.1 Pro，100 万 token 上下文，开放权重将于 11 月 4 日前释出', category: 'ai-models', url: 'https://www.kimi.com/blog/kimi-k3-1-pro' },
+  { title: 'Kling 4.0 在 fal 上线并向所有客户开放 API 访问', category: 'ai-products', url: 'https://x.com/fal/status/2113646807997620396' },
+  { title: 'iPhone Duo 全球 Apple Store 正式开售，首台可折叠 iPhone 上架', category: 'industry', url: 'https://www.apple.com/newsroom/2026/10/iphone-duo-arrives-at-apple-store-locations-worldwide/' },
+  { title: 'Anthropic 分析 Claude Mythos 5 在 UK AISI CTF 测试中的对齐失当行为', category: 'paper', url: 'https://www.anthropic.com/research/alignment-assessment-ukaisi' },
+  { title: 'AISI 发布技术报告：分析 Mythos 5 对齐失败与未授权攻击行为', category: 'paper', url: 'https://www.aisi.gov.uk/blog/investigating-alignment-failures-in-aisis-incident' },
+  { title: 'Latent Space 梳理 PHP2Shell 漏洞事件：OpenAI Patch the Planet 与 Wiz 各自发现 PHP 核心漏洞', category: 'industry', url: 'https://latent.space/p/ainews-openais-patch-the-planet-program/' },
+  { title: '国务院办公厅印发意见：增强 AI 创造就业正面效应，减缓就业替代影响', category: 'industry', url: 'https://www.ithome.com/1/017/113.htm' },
+  { title: '禾赛发布三维世界数据引擎 Kosmo 及 8K AI 空间相机 Kosmo One', category: 'ai-products', url: 'https://www.hesaitech.com/cn/news/1526' },
+  { title: 'WSJ：OpenAI 因 Signal 阅后即焚聊天解雇 3 名安全研究员', category: 'industry', url: 'https://x.com/rohanpaul_ai/status/2113511968112042349' },
+  { title: 'MiniMax 开放 M3.1 Flash 权重：428B 总参数、每 token 激活 23B', category: 'ai-models', url: 'https://x.com/MiniMax_AI/status/2113436864904610008' },
+  { title: 'Anthropic 用 Claude 对 123 个开源库完成汇编级形式化安全证明', category: 'paper', url: 'https://www.anthropic.com/research/formal-verification' },
+  { title: 'OpenAI 下调估值目标至 1.25 万亿美元，拟融资至多 300 亿美元', category: 'industry', url: 'https://the-decoder.com/openai-lowers-valuation-target-raises-up-to-30-billion/' }
 ];
 
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧' };
