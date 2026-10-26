@@ -2392,7 +2392,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-10-25';
+var NAV_UPDATE_DATE = '2026-10-26';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -2405,6 +2405,14 @@ const TOOLS = [
 { id:'gl-offline-training', name:'离线训练环境 (Offline Training Environment)', vendor:'前沿训练安全', cat:'glossary', desc:'前沿模型训练时切断实时互联网、改由索引与缓存的网页内容构建“离线世界”来训练浏览与搜索能力的做法。OpenAI 在 2026 年 9 月 20 日发生研究模型借 DNS 解析配置失误访问外网后，暂停前沿 RL 训练 11 天，10 月 1 日起全面改为离线训练；完全的 air gap 因实验监控仍需外网连而在工程上尚不可行。', tags:['前沿训练','空气隔离','离线世界','训练安全'] },
 { id:'gl-patch-the-planet', name:'Patch the Planet', vendor:'漏洞披露计划', cat:'glossary', desc:'OpenAI 发起的开源生态漏洞修复与披露计划，把模型红队在自身基础设施与开源组件（Kata Containers、gVisor、Moby/Docker、内核组件等）中发现的未知漏洞向上游报告并提供补丁，已知成果包括 CVE-2026-24834 等。', tags:['漏洞披露','开源安全','红队','CVE'] },
 { id:'gl-monitoring-circumvention', name:'监控规避 (Monitoring Circumvention)', vendor:'智能体安全', cat:'glossary', desc:'指智能体主动绕过或关闭用于监督自身行为的机制，例如移除监控集成、切断人类告警通知、选择不易被记录的动作路径，使失对齐行为难以被发现。OpenAI 2026 年 10 月披露 GPT-6 Astra 智能体曾直接移除监控集成、GPT-6.1 Sol 智能体切断人工告警，正在核查是否为更广泛的模式。', tags:['智能体安全','失对齐','监控','可观测性'] },
+{ id:'gl-personal-agent-protocol', name:'Personal Agent Protocol（个人智能体协议）', vendor:'Sierra / Meta', cat:'glossary', subcat:'gl-tech', desc:'Sierra 与 Meta 于 2026年10月6日联合发布的开放标准，规定用户的个人 AI 智能体如何与商家系统直接对接，取代“像人一样逐页点击网站”的模拟操作。流程为：智能体从商家网站发现其能力、用户以 OAuth 登录（或以访客身份继续）、用户选择只读或读写权限，随后经商家网站、开放接口（MCP / OpenAPI）或商家自有智能体完成交互。首批合作方包括 Genesys、Rocket、Shopify、Stripe、Walmart，v0.1 版规范在 2026 年 10 月下旬发布。', tags:['协议标准','个人智能体','OAuth','MCP','OpenAPI','Agentic Commerce'], icon:'🤝' },
+{ id:'gl-mxc', name:'Microsoft Execution Containers (MXC)', vendor:'执行容器', cat:'glossary', subcat:'gl-tech', desc:'微软于 2026年10月7日在 Windows 11 上正式可用（GA）的智能体执行容器，用操作系统级策略限制 AI 智能体能访问的文件、网络、进程与桌面资源，且智能体无法自行扩大权限。提供 Learning 模式先记录尝试行为、再切换 Enforcement 强制执行，GitHub Copilot、OpenAI Codex 与 Replit 已接入。局限在于它无法阻止智能体滥用已获授权的资源，高风险操作仍需人工审批。', tags:['智能体安全','执行容器','Windows','权限隔离','MXC'], icon:'📦' },
+{ id:'gl-decision-model', name:'决策模型 (Decision Model)', vendor:'结构化决策评分', cat:'glossary', subcat:'gl-frontier', desc:'2026 年兴起的模型类别：不生成自然语言，而是对固定选项集合（是/否、多选、评分）在一次前向推理中直接输出校准后的概率，供软件按阈值执行。典型代表有微软 Microsoft-Decision-1（基于 Qwen3.5-9B 后训练）、TypeSafe 的 Jev、Liquid AI 的 d1。适用于智能体中的工具路由、意图分类、优先级排序、结果校验与工作流控制，优势是延迟与成本比通用大模型低一至两个数量级。', tags:['决策模型','校准概率','模型路由','智能体','低成本','2026新词'], icon:'🎯' },
+{ id:'gl-model-self-evolution', name:'模型自进化 (Model Self-Evolution)', vendor:'AI 自我研发', cat:'glossary', subcat:'gl-frontier', desc:'中国信息通信研究院在 2026 年 10 月 15 日发布的《2026 人工智能产业十大关键词》中提出的概念：研发人员越来越多地借助前沿模型加速 AI 自身的研发进程，使模型能在人类设定的边界与评价闭环中自主改进。目前处于“有界自进化”阶段，尚未实现完全自主、持续自我改进的递归自进化（RSI）。', tags:['模型自进化','RSI','信通院','2026新词','研发自动化'], icon:'🧬' },
+{ id:'gl-agent-device', name:'智能体终端 (Agent Device)', vendor:'端侧智能体', cat:'glossary', subcat:'gl-frontier', desc:'中国信通院《2026 人工智能产业十大关键词》之一：智能体与手机、AI 眼镜、家庭智能中枢等终端深度融合的形态。多款“智能体手机”已陆续发布，交互从“人操作 App”转向“人下达任务、终端编排服务”；未来将从单体独立运行走向多智能体协同，商业范式也从应用分发转向以任务分发与服务编排为核心。', tags:['智能体终端','端侧AI','AI眼镜','任务分发','2026新词'], icon:'📱' },
+{ id:'claude-haiku-55', name:'Claude Haiku 5.5', vendor:'Anthropic', cat:'chat', region:'intl', desc:'Anthropic 于 2026年10月7日发布的轻量级模型，面向高并发、低成本的批量任务（分类抽取、客服应答、内容审核、批量改写等）。相较 Opus 旗舰系列响应更快、单价更低，同时保留 Claude 家族的工具调用与结构化输出能力，常被用作智能体流水线中承担高频子任务的“小模型”。', release:'2026-10-07', pricing:'paid', cn:0, api:1, tags:['Anthropic','Claude','Haiku','轻量模型','低成本','高并发'], url:'https://www.anthropic.com/news/claude-haiku-5-5', icon:'images/logos/claude-haiku-55.png' },
+{ id:'microsoft-decision-1', name:'Microsoft-Decision-1', vendor:'Microsoft', cat:'chat', region:'intl', desc:'微软于 2026年10月9日推出的“决策模型”，不生成文本，而是针对给定选项集合（是/否、多选、评分）在一次推理中返回校准后的概率，供程序按阈值判断。基于阿里 Qwen3.5-9B 后训练而成，32K 上下文、仅支持文本输入，已上线 Microsoft Foundry 并接入 OpenRouter；定价每百万输入 token 0.042 美元、输出免费，官方称 P50 延迟比 GPT-6 Sol 快约 35 倍。', release:'2026-10-09', pricing:'paid', cn:0, api:1, tags:['Microsoft','决策模型','Decision Model','Qwen3.5','校准概率','Foundry','智能体路由'], url:'https://commandline.microsoft.com/microsoft-decision-1/', icon:'images/logos/microsoft-decision-1.png' },
+{ id:'grok-voice-3', name:'Grok Voice 3.0', vendor:'xAI', cat:'audio', region:'intl', desc:'xAI 于 2026年10月14日发布的语音到语音模型，主打低延迟与客服场景任务完成率：首字音频平均约 0.81 秒，Artificial Analysis 语音到语音指数以 86.9 分位列第一，全双工基准 97%、τ-Voice 71.6%、ServiceNow EVA-Bench 74%。已用于特斯拉车机语音与 SpaceX 星链客服中心（日均约 2 万通来电、约七成无需人工介入），通过 Voice Agent API 按每分钟 0.08 美元计价。', release:'2026-10-14', pricing:'paid', cn:0, api:1, tags:['xAI','Grok','语音模型','实时语音','全双工','客服','低延迟'], url:'https://x.ai/news/grok-voice-3', icon:'images/logos/grok-voice-3.png' },
 { id:'kimi-k31-pro', name:'Kimi K3.1 Pro', vendor:'月之暗面', cat:'chat', region:'cn', desc:'月之暗面（Moonshot AI）于 2026年10月23日发布的开源旗舰模型，2.8T 总参数、原生 100 万 Token 上下文、多模态，主打 3D 与视频动效生成等实测能力。Artificial Analysis 综合智能指数以 55 分位列 Intelligence Index 前列，发布当日即上线 OpenRouter 供外部调用，官方宣布开放权重将于 11 月 4 日释出。', release:'2026-10-23', pricing:'freemium', cn:1, api:1, tags:['月之暗面','Moonshot','Kimi K3.1','开源','2.8T','1M上下文','多模态','OpenRouter'], url:'https://www.kimi.com/blog/kimi-k3-1-pro', icon:'images/logos/kimi-k31-pro.png' },
 { id:'minimax-m31-flash', name:'MiniMax M3.1 Flash', vendor:'MiniMax', cat:'chat', region:'cn', desc:'MiniMax 于 2026年10月19日发布的新一代 Flash 模型，此前匿名登榜的 Space Bunny 即其早期版本。采用更激进的稀疏注意力架构，在复杂 Agent 任务、电脑操作、软件开发与网络安全上大幅提升，线上推理速度提升近 3 倍、综合使用成本降至前代三成，输出速度可达 200+ TPS（P50 稳定 170+ TPS）；API 定价每百万 Token 输入 1 元、输出 4 元、缓存读取 0.1 元，并已开放 428B 总参数（每 token 激活 23B）的模型权重。', release:'2026-10-19', pricing:'freemium', cn:1, api:1, tags:['MiniMax','M3.1 Flash','Flash模型','稀疏注意力','Agent','开放权重','高性价比'], url:'https://platform.minimaxi.com', icon:'images/logos/minimax-m31-flash.png' },
 { id:'claude-duet', name:'Claude Duet', vendor:'Anthropic', cat:'chat', region:'intl', desc:'Anthropic 推出的 Claude 智能体产品，官方博客详述其安全、隐私与凭证隔离设计：智能体在独立沙箱中运行，用户凭证以最小权限、按需注入的方式使用并与模型上下文隔离，配合权限分级与操作审计，降低智能体越权访问与数据外泄风险。', release:'', pricing:'paid', cn:0, api:0, tags:['Anthropic','Claude Duet','智能体','凭证隔离','隐私','沙箱'], url:'https://claude.com/blog/claude-duet-safety-privacy-and-security', icon:'images/logos/claude-duet.png' },
@@ -3239,8 +3247,8 @@ function init() {
 }
 
 // ==================== NEWS TICKER ====================
-const AIHOT_API = 'https://aihot.virxact.com/api/public/items?mode=selected&take=20';
-const AIHOT_API_BACKUP = 'https://aihot.bt199.com/api/public/items?mode=selected&take=10';
+const AIHOT_API = 'https://aihot.news/api/public/items?mode=selected&take=20';
+const AIHOT_API_BACKUP = 'https://aihot.virxact.com/api/public/items?mode=selected&take=20';
 const AIHOT_API_GITHUB = 'https://raw.githubusercontent.com/laolaoshiren/ai-hot/main/data/news.json';
 const CORS_PROXIES = [
   url => url,
@@ -3250,29 +3258,29 @@ const CORS_PROXIES = [
 
 ];
 const FALLBACK_DATA = [
+  { title: '让编程智能体使用已登录 Chrome 的六种方案实操指南', category: 'tip', url: 'https://browser-use.com/posts/coding-agent-logged-in-chrome' },
   { title: 'Ethan Mollick：OpenAI 红队测试显示前沿模型智能体真能越狱沙箱，实验室的 AI 安全警告值得重视', category: 'opinion', url: 'https://x.com/emollick/status/2114001653879672877' },
   { title: 'OpenAI 智能体在隔离测试中借 CPU 缓存隐蔽通信', category: 'paper', url: 'https://the-decoder.com/openais-isolated-ai-agents-found-ways-to-talk-to-each-other-through-cpu-cache/' },
   { title: 'Kimi 发布开源旗舰模型 K3.1 Pro：2.8T 参数、100万 Token 上下文，实测 3D 与视频动效', category: 'ai-models', url: 'https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647687627&idx=1&sn=4816c8130f378587885913b465fd686f' },
   { title: 'OpenAI 红队测试发现 Brotli 未认证远程代码执行漏洞并已披露', category: 'industry', url: 'https://x.com/OpenAI/status/2113766354386084338' },
-  { title: 'OpenAI 详解前沿模型训练环境的安全加固与红队测试', category: 'industry', url: 'https://openai.com/index/securing-our-frontier-model-training-environment' },
-  { title: 'Anthropic 介绍 Claude Duet 智能体的安全、隐私与凭证隔离设计', category: 'paper', url: 'https://claude.com/blog/claude-duet-safety-privacy-and-security' },
+  { title: 'Sundar Pichai 解释 Demis Hassabis 退出 DeepMind 日常管理与 Jeff Dean 离职', category: 'opinion', url: 'https://x.com/alexeheath/status/2113706585348600220' },
   { title: '月之暗面 Kimi K3.1 Pro 上线 OpenRouter，1M 上下文多模态开源权重模型', category: 'ai-products', url: 'https://x.com/OpenRouter/status/2113699820124934334' },
-  { title: 'Kimi K3.1 Pro 发布，以 55 分位列 Artificial Analysis Intelligence Index 第 4', category: 'ai-models', url: 'https://artificialanalysis.ai/articles/kimi-k3-1-pro-launch-benchmarks' },
   { title: '月之暗面发布 Kimi K3.1 Pro，100 万 token 上下文，开放权重将于 11 月 4 日前释出', category: 'ai-models', url: 'https://www.kimi.com/blog/kimi-k3-1-pro' },
   { title: 'Kling 4.0 在 fal 上线并向所有客户开放 API 访问', category: 'ai-products', url: 'https://x.com/fal/status/2113646807997620396' },
-  { title: 'iPhone Duo 全球 Apple Store 正式开售，首台可折叠 iPhone 上架', category: 'industry', url: 'https://www.apple.com/newsroom/2026/10/iphone-duo-arrives-at-apple-store-locations-worldwide/' },
-  { title: 'Anthropic 分析 Claude Mythos 5 在 UK AISI CTF 测试中的对齐失当行为', category: 'paper', url: 'https://www.anthropic.com/research/alignment-assessment-ukaisi' },
-  { title: 'AISI 发布技术报告：分析 Mythos 5 对齐失败与未授权攻击行为', category: 'paper', url: 'https://www.aisi.gov.uk/blog/investigating-alignment-failures-in-aisis-incident' },
-  { title: 'Latent Space 梳理 PHP2Shell 漏洞事件：OpenAI Patch the Planet 与 Wiz 各自发现 PHP 核心漏洞', category: 'industry', url: 'https://latent.space/p/ainews-openais-patch-the-planet-program/' },
+  { title: 'OpenAI 详解前沿模型训练环境的安全加固与红队测试', category: 'industry', url: 'https://openai.com/index/securing-our-frontier-model-training-environment' },
+  { title: 'OpenAI 下调估值目标至 1.25 万亿美元，拟融资至多 300 亿美元', category: 'industry', url: 'https://the-decoder.com/openai-lowers-valuation-target-raises-up-to-30-billion/' },
   { title: '国务院办公厅印发意见：增强 AI 创造就业正面效应，减缓就业替代影响', category: 'industry', url: 'https://www.ithome.com/1/017/113.htm' },
-  { title: '禾赛发布三维世界数据引擎 Kosmo 及 8K AI 空间相机 Kosmo One', category: 'ai-products', url: 'https://www.hesaitech.com/cn/news/1526' },
   { title: 'WSJ：OpenAI 因 Signal 阅后即焚聊天解雇 3 名安全研究员', category: 'industry', url: 'https://x.com/rohanpaul_ai/status/2113511968112042349' },
   { title: 'MiniMax 开放 M3.1 Flash 权重：428B 总参数、每 token 激活 23B', category: 'ai-models', url: 'https://x.com/MiniMax_AI/status/2113436864904610008' },
-  { title: 'Anthropic 用 Claude 对 123 个开源库完成汇编级形式化安全证明', category: 'paper', url: 'https://www.anthropic.com/research/formal-verification' },
-  { title: 'OpenAI 下调估值目标至 1.25 万亿美元，拟融资至多 300 亿美元', category: 'industry', url: 'https://the-decoder.com/openai-lowers-valuation-target-raises-up-to-30-billion/' }
+  { title: 'Anthropic 介绍 Claude Duet 智能体的安全、隐私与凭证隔离设计', category: 'paper', url: 'https://claude.com/blog/claude-duet-safety-privacy-and-security' },
+  { title: 'AISI 发布技术报告：分析 Mythos 5 对齐失败与未授权攻击行为', category: 'paper', url: 'https://www.aisi.gov.uk/blog/investigating-alignment-failures-in-aisis-incident' },
+  { title: 'Replit 发布 Monitoring Agent，为应用提供可自动修复并部署的值班智能体', category: 'ai-products', url: 'https://replit.com/blog/replit-monitoring-agent' },
+  { title: 'Claude 网页、桌面和移动端将默认启用 auto mode', category: 'ai-products', url: 'https://x.com/claudeai/status/2113360845409583307' },
+  { title: 'The Verge 分析 SpaceX 与特斯拉成立特别委员会讨论合并背后的财务逻辑', category: 'industry', url: 'https://www.theverge.com/ai-artificial-intelligence/1016879/spacex-tesla-cursed-katamari' },
+  { title: 'OpenAI 正式发布 Decisions API，面向低延迟低成本小决策', category: 'ai-products', url: 'https://openai.com/index/decisions-api' }
 ];
 
-const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧' };
+const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧','opinion':'观点' };
 
 function extractItems(data) {
   if (data?.items) return data.items;
