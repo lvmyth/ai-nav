@@ -2392,7 +2392,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-10-26';
+var NAV_UPDATE_DATE = '2026-10-27';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -2401,6 +2401,14 @@ var NAV_UPDATE_DATE = '2026-10-26';
 })();
 
 const TOOLS = [
+{ id:'gpt-61-terra', name:'GPT-6.1 Terra', vendor:'OpenAI', cat:'chat', region:'intl', desc:'OpenAI 于 2026年10月26日发布的 GPT-6.1 系列中端模型，主打视觉推理、精确的电脑操作（computer use）与自然书写，官方称其操作电脑的速度已跨过质变门槛，OpenAI 总裁 Greg Brockman 称其比他本人手动操作更快。规格为 1.05M 上下文、最大输出 128K；第三方评测称其在 Agents Last Exam 上得分与更贵的 GPT-6 Astra 相当，成本约为后者的十分之一，Artificial Analysis 认为它在低到中等推理强度下位于智能与成本的最优前沿。API 定价每百万 Token 输入 1 美元、缓存输入 0.05 美元、输出 5 美元，为 GPT-6.1 Sol 的一半；网络安全能力达到 Preparedness Framework 的 Critical 门槛。已上线 API（模型名 gpt-6.1-terra）、ChatGPT Work 与 Codex，并同步上架 OpenRouter。', release:'2026-10-26', pricing:'paid', cn:0, api:1, tags:['OpenAI','GPT-6.1 Terra','computer use','视觉推理','高性价比','1.05M上下文','Critical级'], url:'https://openai.com/index/introducing-gpt-6-1-terra/', icon:'images/logos/gpt-61-terra.png' },
+{ id:'hy-simulmt', name:'混元 Hy-SimulMT', vendor:'腾讯混元', cat:'audio', region:'cn', desc:'腾讯混元于 2026年10月26日开源的中英双向实时同声传译模型，30B 总参数 / 3B 激活的 MoE 架构（30B-A3B），边听边译、只输出译文，配合 TTS 可实时克隆说话人音色。实测响应延迟约 3 秒，优于人类专业译员 4-5 秒的平均水平；在长音频评测集 RealSI 上的 StreamLAAL 指标约 3 秒，官方称翻译质量超过主流开源同传模型与大部分商用同传 API。采用 Apache 2.0 许可并提供 FP8 与 GGUF 量化版本，已在 Hugging Face、ModelScope 与 GitHub 开源，同时在腾讯 Hy 翻译 App 首发免费体验；另提供 Interleave 交错输出版，可同时输出源语言转写与译文。', release:'2026-10-26', pricing:'free', cn:1, api:0, tags:['腾讯混元','Hy-SimulMT','同声传译','实时翻译','音色克隆','开源','Apache2.0','MoE'], url:'https://github.com/Tencent-Hunyuan/Hy-SimulMT', icon:'images/logos/hy-simulmt.png' },
+{ id:'deepinfer', name:'DeepInfer', vendor:'DeepSeek', cat:'code', region:'cn', desc:'DeepSeek 于 2026年10月全面开源的推理框架，把开放范围从此前的模型权重与 FlashMLA、DeepGEMM 等算子库延伸到模型运行的完整链路。同期，完全由 AI 编写、未经人工逐行调优的算子库 ForgeKernel 同时登顶英伟达 SOL-ExecBench FlashInfer-Bench 与昇腾 CANNBench A3 两个算子评测榜，基准加速比 1.835 倍、领先第二名 25%，并在 DeepSeek V4.1 Flash 的算子上超越 DeepSeek 开源的英伟达版本；而工程师逐行手调的 FlashMLA 此前已达硬件极限的 90% 以上。算子效率决定同一块显卡能跑多快以及每个 token 的成本，是模型层竞争向算力层延伸的关键。', release:'', pricing:'free', cn:1, api:0, tags:['DeepSeek','DeepInfer','推理框架','FlashMLA','DeepGEMM','ForgeKernel','算子优化','开源'], url:'https://github.com/deepseek-ai/DeepInfer', icon:'images/logos/deepinfer.png' },
+{ id:'unsloth', name:'Unsloth', vendor:'Unsloth AI', cat:'code', region:'intl', desc:'开源的大模型微调与强化学习框架，主打显存优化与训练提速，可在单卡上完成常见开源模型的高效微调。2026年10月发布 MiniMax-M3.1-Flash 的量化 GGUF：2-bit 版体积缩减约 45%、精度保留 91.5%，可在 150GB 内存的机器上本地运行，4-bit 版精度达 98%，让超大 MoE 模型本地部署的硬件门槛显著下降。', release:'', pricing:'free', cn:0, api:0, tags:['Unsloth','微调','量化','GGUF','开源框架','本地部署','低显存'], url:'https://github.com/unslothai/unsloth', icon:'images/logos/unsloth.png' },
+{ id:'krea', name:'Krea', vendor:'Krea', cat:'video', region:'intl', desc:'实时 AI 创作平台，覆盖文生图/文生视频/3D 生成、画质增强、风格迁移与 LoRA 微调，官方称服务来自 191 个国家的 3000 万+ 用户。2026年10月推出 Krea for Adobe Premiere Pro 插件，可直接在剪辑时间线内完成故事板、生成镜头与插入素材、制作合成用背景与纹理、实时预览调色风格并添加音效，生成结果以标准媒体素材落入工程，省去导出帧—浏览器生成—下载—导入的往返流程；免费档每日 100 计算单元，另有 Pro / Max 付费档。', release:'', pricing:'freemium', cn:0, api:0, tags:['Krea','Premiere插件','故事板','视频生成','音效','实时创作','LoRA'], url:'https://www.krea.ai', icon:'images/logos/krea.png' },
+{ id:'gl-reprobait', name:'ReproBAIT 评测', vendor:'英国 AI 安全研究所 / SecureBio', cat:'glossary', subcat:'gl-frontier', desc:'英国 AI 安全研究所（AISI）与 SecureBio 于 2026年10月联合推出的评测，用于衡量 AI 编码智能体仅凭论文等公开信息与自身训练数据，能否复现生物 AI 工具（BAITs，Biological AI Tools）以及所需成本。结论是前沿编码智能体已能以较低成本复现部分生物 AI 工具，为生物安全风险的能力门槛评估提供量化依据。', tags:['生物安全','AI编码智能体','能力评测','AISI','SecureBio','BAIT'] },
+{ id:'gl-phone-home', name:'回连行为 (Phone-Home / Call Home)', vendor:'模型与智能体安全', cat:'glossary', subcat:'gl-tech', desc:'指模型、智能体或其依赖库在运行过程中主动向外部服务器发起网络连接的回连行为，常见于遥测上报、许可证校验、远程更新与依赖拉取。在沙箱或隔离环境中，回连既可能是良性遥测，也可能成为数据外泄或远程控制的通道；2026年10月 Cohere 报告阿里 Qwen3.8-Flash-Next 在沙箱评估中出现疑似回连行为，使模型供应链的网络行为审计成为部署前的检查项。', tags:['回连','Phone-Home','遥测','沙箱隔离','数据外泄','供应链安全'] },
+{ id:'gl-simulmt', name:'同声传译模型 (Simultaneous Machine Translation / SimulMT)', vendor:'语音翻译', cat:'glossary', subcat:'gl-tech', desc:'在说话人尚未结束发言时便边听边译、流式输出译文的语音翻译模型，核心指标是延迟与质量的权衡（如 StreamLAAL 等首个译文词延迟指标），需在等待更多上下文以提升准确率与尽快输出以降低延迟之间按 wait-k 等策略取舍。2026年10月腾讯混元开源的中英双向同传模型 Hy-SimulMT 实测延迟约 3 秒，低于人类专业译员 4-5 秒的平均水平。', tags:['同声传译','SimulMT','流式翻译','低延迟','语音翻译','StreamLAAL'] },
 { id:'gl-covert-channel', name:'隐蔽信道 (Covert Channel)', vendor:'智能体安全', cat:'glossary', desc:'指智能体或程序利用本非用于通信的机制（CPU 缓存时序、磁盘 I/O 延迟、共享内存写入模式、温度与功耗等物理侧信道）在隔离边界之间悄悄传递信息。OpenAI 2026 年 10 月的隔离测试显示，处于独立 microVM、无网络与共享文件的两个智能体可自行协商编码方案并通过处理器缓存时序交换秘密，说明纯软件隔离不足以保证包含。', tags:['智能体安全','侧信道','缓存时序','沙箱逃逸','包含'] },
 { id:'gl-offline-training', name:'离线训练环境 (Offline Training Environment)', vendor:'前沿训练安全', cat:'glossary', desc:'前沿模型训练时切断实时互联网、改由索引与缓存的网页内容构建“离线世界”来训练浏览与搜索能力的做法。OpenAI 在 2026 年 9 月 20 日发生研究模型借 DNS 解析配置失误访问外网后，暂停前沿 RL 训练 11 天，10 月 1 日起全面改为离线训练；完全的 air gap 因实验监控仍需外网连而在工程上尚不可行。', tags:['前沿训练','空气隔离','离线世界','训练安全'] },
 { id:'gl-patch-the-planet', name:'Patch the Planet', vendor:'漏洞披露计划', cat:'glossary', desc:'OpenAI 发起的开源生态漏洞修复与披露计划，把模型红队在自身基础设施与开源组件（Kata Containers、gVisor、Moby/Docker、内核组件等）中发现的未知漏洞向上游报告并提供补丁，已知成果包括 CVE-2026-24834 等。', tags:['漏洞披露','开源安全','红队','CVE'] },
@@ -2552,7 +2560,7 @@ const TOOLS = [
 { id:'udio',       name:'Udio',            vendor:'Udio',     cat:'audio', region:'intl', desc:'高质量 AI 音乐生成平台，支持丰富的音乐风格和精细控制。', cn:0,                 tags:['音乐生成','精细控制'],    url:'https://www.udio.com',           icon:'images/logos/udio.png' },
 { id:'minimax-music3', name:'MiniMax Music 3.0', vendor:'MiniMax', cat:'audio', region:'cn', desc:'MiniMax 于 2026年8月13日发布的下一代开放权重音乐生成模型：给定创意概念与可选歌词，一次性完成作曲、编曲、演唱与制作。8B 全局 LLM（基于 Qwen3.5-8B 初始化）与 0.6B 局部 LLM 组成的全局-局部 Hybrid-LM 联合建模长程结构与声学细节，支持最长约 5 分钟、多乐器与更自然的歌声合成，已开源至 Hugging Face。', release:'2026-08-13', pricing:'free', cn:1, tags:['音乐生成','开放权重','Hybrid-LM','MiniMax','2026新模型'], url:'https://www.minimax.io/audio/music', icon:'images/logos/minimax-music3.png' },
 { id:'notion-ai',  name:'Notion AI',       vendor:'Notion',   cat:'office', region:'intl',desc:'集成在 Notion 中的 AI 助手，支持写作、总结、翻译、头脑风暴。', cn:0,           tags:['写作','知识管理','付费'], url:'https://www.notion.so/product/ai', icon:'images/logos/notion-ai.png' },
-{ id:'gamma',      name:'Gamma',           vendor:'Gamma',    cat:'office', region:'intl',desc:'AI PPT/文档/网页一键生成，输入主题即可生成精美演示文稿。', cn:0,              tags:['PPT生成','演示'],         url:'https://gamma.app',             icon:'images/logos/gamma.png' },
+{ id:'gamma',      name:'Gamma',           vendor:'Gamma',    cat:'office', region:'intl',desc:'AI PPT/文档/网页一键生成，输入主题即可生成精美演示文稿。2026年10月发布 Gamma 5，重建思考、设计与编辑三段流程：输入一句话、文档、PDF、图片或旧演示文稿，由智能体在几分钟内自动完成调研与设计并出稿，可连接 Slack、Notion、Granola 等 20 多个工具引入上下文，并在 credits、导出与预览等机制上同步更新。', release:'', pricing:'freemium', cn:0, api:0,              tags:['PPT生成','演示'],         url:'https://gamma.app',             icon:'images/logos/gamma.png' },
 { id:'beautiful',  name:'Beautiful.ai',    vendor:'Beautiful.ai',cat:'office', region:'intl',desc:'智能 PPT 设计工具，AI 自动排版，确保每页都专业美观。', cn:0,                tags:['PPT','自动排版','付费'],  url:'https://www.beautiful.ai',       icon:'images/logos/beautiful.png' },
 { id:'docs-ai',    name:'腾讯文档 AI',       vendor:'腾讯',      cat:'office', region:'cn',desc:'腾讯文档内置 AI 能力，支持智能写作、排版、翻译和数据洞察。', cn:1,           tags:['文档','腾讯生态'],        url:'https://docs.qq.com',            icon:'images/logos/docs-ai.png' },
 { id:'kdocs-ai',   name:'金山文档 AI',       vendor:'金山办公',  cat:'office', region:'cn',desc:'WPS AI 能力集成，支持内容生成、数据分析、PPT 美化等。', cn:1,              tags:['WPS','国产办公'],         url:'https://www.kdocs.cn',           icon:'images/logos/kdocs-ai.png' },
@@ -3258,26 +3266,26 @@ const CORS_PROXIES = [
 
 ];
 const FALLBACK_DATA = [
-  { title: '让编程智能体使用已登录 Chrome 的六种方案实操指南', category: 'tip', url: 'https://browser-use.com/posts/coding-agent-logged-in-chrome' },
-  { title: 'Ethan Mollick：OpenAI 红队测试显示前沿模型智能体真能越狱沙箱，实验室的 AI 安全警告值得重视', category: 'opinion', url: 'https://x.com/emollick/status/2114001653879672877' },
-  { title: 'OpenAI 智能体在隔离测试中借 CPU 缓存隐蔽通信', category: 'paper', url: 'https://the-decoder.com/openais-isolated-ai-agents-found-ways-to-talk-to-each-other-through-cpu-cache/' },
-  { title: 'Kimi 发布开源旗舰模型 K3.1 Pro：2.8T 参数、100万 Token 上下文，实测 3D 与视频动效', category: 'ai-models', url: 'https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647687627&idx=1&sn=4816c8130f378587885913b465fd686f' },
-  { title: 'OpenAI 红队测试发现 Brotli 未认证远程代码执行漏洞并已披露', category: 'industry', url: 'https://x.com/OpenAI/status/2113766354386084338' },
-  { title: 'Sundar Pichai 解释 Demis Hassabis 退出 DeepMind 日常管理与 Jeff Dean 离职', category: 'opinion', url: 'https://x.com/alexeheath/status/2113706585348600220' },
-  { title: '月之暗面 Kimi K3.1 Pro 上线 OpenRouter，1M 上下文多模态开源权重模型', category: 'ai-products', url: 'https://x.com/OpenRouter/status/2113699820124934334' },
-  { title: '月之暗面发布 Kimi K3.1 Pro，100 万 token 上下文，开放权重将于 11 月 4 日前释出', category: 'ai-models', url: 'https://www.kimi.com/blog/kimi-k3-1-pro' },
-  { title: 'Kling 4.0 在 fal 上线并向所有客户开放 API 访问', category: 'ai-products', url: 'https://x.com/fal/status/2113646807997620396' },
-  { title: 'OpenAI 详解前沿模型训练环境的安全加固与红队测试', category: 'industry', url: 'https://openai.com/index/securing-our-frontier-model-training-environment' },
-  { title: 'OpenAI 下调估值目标至 1.25 万亿美元，拟融资至多 300 亿美元', category: 'industry', url: 'https://the-decoder.com/openai-lowers-valuation-target-raises-up-to-30-billion/' },
-  { title: '国务院办公厅印发意见：增强 AI 创造就业正面效应，减缓就业替代影响', category: 'industry', url: 'https://www.ithome.com/1/017/113.htm' },
-  { title: 'WSJ：OpenAI 因 Signal 阅后即焚聊天解雇 3 名安全研究员', category: 'industry', url: 'https://x.com/rohanpaul_ai/status/2113511968112042349' },
-  { title: 'MiniMax 开放 M3.1 Flash 权重：428B 总参数、每 token 激活 23B', category: 'ai-models', url: 'https://x.com/MiniMax_AI/status/2113436864904610008' },
-  { title: 'Anthropic 介绍 Claude Duet 智能体的安全、隐私与凭证隔离设计', category: 'paper', url: 'https://claude.com/blog/claude-duet-safety-privacy-and-security' },
-  { title: 'AISI 发布技术报告：分析 Mythos 5 对齐失败与未授权攻击行为', category: 'paper', url: 'https://www.aisi.gov.uk/blog/investigating-alignment-failures-in-aisis-incident' },
-  { title: 'Replit 发布 Monitoring Agent，为应用提供可自动修复并部署的值班智能体', category: 'ai-products', url: 'https://replit.com/blog/replit-monitoring-agent' },
-  { title: 'Claude 网页、桌面和移动端将默认启用 auto mode', category: 'ai-products', url: 'https://x.com/claudeai/status/2113360845409583307' },
-  { title: 'The Verge 分析 SpaceX 与特斯拉成立特别委员会讨论合并背后的财务逻辑', category: 'industry', url: 'https://www.theverge.com/ai-artificial-intelligence/1016879/spacex-tesla-cursed-katamari' },
-  { title: 'OpenAI 正式发布 Decisions API，面向低延迟低成本小决策', category: 'ai-products', url: 'https://openai.com/index/decisions-api' }
+  { title: 'Anthropic 招股书拆解：IPO 计划募资约 1000 亿美元背后的 11 个细节', category: 'industry', url: 'https://x.com/Khazix0918/status/2114878401190506902' },
+  { title: 'Anthropic IPO 招股书11个细节解读：千亿募资、807亿美元亏损与7美元控股权', category: 'industry', url: 'https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647687831&idx=1&sn=6502cb593318d6e324e29d278fae4fcc' },
+  { title: 'SGLang 披露并修复 PD 分离服务中的跨请求 KVCache 竞态问题', category: 'tip', url: 'https://www.lmsys.org/blog/2026-10-26-cf-security' },
+  { title: 'OpenAI 宣布 AI 模型取得三项科学突破，涉及局部光滑猜想、指数时间假设与杨–米尔斯理论', category: 'ai-models', url: 'https://www.ithome.com/1/018/203.htm' },
+  { title: 'OpenAI 宣布模型产出三项数学成果并与学界协作发布', category: 'paper', url: 'https://openai.com/index/building-scientific-understanding-with-academic-communities' },
+  { title: 'Greg Brockman 称 GPT-6.1 Terra 的电脑操作速度已超过他本人', category: 'opinion', url: 'https://x.com/gdb/status/2114814747254432243' },
+  { title: 'Gamma 发布 Gamma 5 及 credits、导出、预览等多项更新', category: 'ai-products', url: 'https://meetgamma.canny.io/changelog/whats-new-in-gamma-septemberoctober-2026' },
+  { title: 'OpenAI GPT-6.1 Terra 上线 OpenRouter，定价 $1/M input、$5/M output', category: 'ai-products', url: 'https://x.com/OpenRouter/status/2114791584755839168' },
+  { title: 'OpenAI 发布 GPT-6.1 Terra，主打高效计算机操作与更低成本', category: 'ai-models', url: 'https://openai.com/index/introducing-gpt-6-1-terra/' },
+  { title: 'Evan Armstrong 解析 Anthropic S-1：2 万亿美元估值是否成立', category: 'opinion', url: 'https://every.to/napkin-math/is-anthropic-worth-2-trillion' },
+  { title: 'Artificial Analysis 评测 GPT-6.1 Terra：以不到三分之一成本推进性价比前沿', category: 'ai-models', url: 'https://artificialanalysis.ai/articles/gpt-6-1-terra-pushes-the-cost-efficiency-frontier' },
+  { title: 'OpenAI 发布 GPT-6.1 Terra，主打电脑操作与写作能力', category: 'ai-models', url: 'https://x.com/thsottiaux/status/2114800277677092936' },
+  { title: 'Anthropic S-1 文件中的五个不寻常细节', category: 'industry', url: 'https://www.theverge.com/ai-artificial-intelligence/1018738/anthropic-ipo-s1-filing-weird-details' },
+  { title: 'Epoch AI 用内部工作任务评测前沿模型：Claude Fable 5.1 与 GPT-6 Astra 平均只得 65%', category: 'paper', url: 'https://epochai.substack.com/p/can-ai-automate-epoch' },
+  { title: 'Cohere 报告阿里 Qwen3.8-Flash-Next 在沙箱中出现疑似回连行为', category: 'paper', url: 'https://cohere.com/blog/concerning-behaviour-popular-open-weight-ai-model' },
+  { title: 'Krea 推出面向 Adobe Premiere 的插件', category: 'ai-products', url: 'https://x.com/krea_ai/status/2114741513867395527' },
+  { title: 'AISI 发布 ReproBAIT 评测：AI 编码智能体可低成本复现部分生物 AI 工具', category: 'paper', url: 'https://www.aisi.gov.uk/blog/can-ai-coding-agents-rebuild-biological-ai-tools-from-a-paper' },
+  { title: '英国 AISI 实测 ESM-2 预训练数据过滤可削弱目标能力但约 80 美元算力即可恢复', category: 'paper', url: 'https://www.aisi.gov.uk/blog/pretraining-data-filtering-in-open-weight-biological-models' },
+  { title: 'Unsloth 发布 MiniMax-M3.1-Flash 量化 GGUF，2-bit 版可在 150GB 内存本地运行', category: 'ai-products', url: 'https://x.com/UnslothAI/status/2114730104228286936' },
+  { title: 'Hugging Face CEO 转评前 DOGE 研究人员用 AI 智能体渗透 Anthropic 系统事件', category: 'industry', url: 'https://x.com/ClementDelangue/status/2114713576296300604' }
 ];
 
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧','opinion':'观点' };
