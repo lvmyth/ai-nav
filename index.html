@@ -2392,7 +2392,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-10-27';
+var NAV_UPDATE_DATE = '2026-10-28';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -2401,6 +2401,8 @@ var NAV_UPDATE_DATE = '2026-10-27';
 })();
 
 const TOOLS = [
+{ id:'genie-4', name:'Genie 4', vendor:'Google DeepMind', cat:'video', region:'intl', desc:'Google DeepMind 于 2026年10月27日以研究预览形式发布的第四代世界模型，可依据文字提示即时生成可探索的虚拟世界，用键盘或双摇杆实时操控角色与镜头，并在模拟运行中通过自然语言改变天气、加入人物或物体。相比 Genie 3，画面照片级真实感、物理碰撞与角色拟真度明显提升，一致场景最长可维持约 2 分钟（上一代的两倍）；首次原生同步生成环境音、音乐与可回应用户行为的对话。底层由 Gemini 系列驱动：Gemini Omni 负责真实感锚定与行为，实时体验由 Gemini 3.8 Flash 支撑，Gemini 担任"导演"负责拆解步骤并检查画面。目前仅向受信任测试者开放，后续将向 Google AI Ultra 订阅用户（Project Genie）与 Gemini API、AI Studio 早期合作方推出，并已在 Gemini Robotics 实验中用于机器人场景的先模拟后执行验证。', release:'2026-10-27', pricing:'unknown', cn:0, api:0, tags:['Google DeepMind','Genie 4','世界模型','实时交互','原生音频','研究预览','Project Genie'], url:'https://blog.google/innovation-and-ai/models-and-research/google-deepmind/introducing-genie-4/', icon:'images/logos/genie-4.png' },
+{ id:'lfm3', name:'LFM3', vendor:'Liquid AI', cat:'chat', region:'intl', desc:'Liquid AI 于 2026年10月27日发布的第三代 Liquid Foundation Model 开源权重模型家族，六个模型共用 LFM3-1.7B-Base 骨干，覆盖文本（LFM3-1.7B）、视觉（LFM3-VL-2B，首次支持视频输入）、音频（LFM3-Audio-2B，支持 18 种语言的转写、语音生成与翻译）、全模态（LFM3-Omni-2B，图文视音输入、文本与语音输出）以及两个决策模型（d1-2B 与 d1-omni-2B，输出带校准概率的结构化答案而非生成文本）。采用三混合架构：24 层中混合 13 层门控短卷积、5 层 256 token 滑动窗口注意力与 6 层全局注意力，卷积核由 LFM2 的 3 扩大到 7，并引入头级门控注意力、局部旋转位置编码与三明治归一化；预训练语料 22T token。文本模型 256K 上下文、4-bit 量化约 1GB，可在手机与树莓派等端侧设备运行，官方称以少 35% 的参数超越上代 LFM2.5-2.6B，WebArena-Verified 得分由 3.02 提升至 38.42。权重已在 Hugging Face 开放下载（LFM Open License v1.0），原生支持 llama.cpp、MLX、vLLM 等推理框架，并提供官方 Playground 与 API；衍生机器人模型在四个 LIBERO 套件上平均成功率 96.2%。', release:'2026-10-27', pricing:'free', cn:0, api:1, tags:['Liquid AI','LFM3','开源权重','端侧部署','多模态','2B','LNN','机器人'], url:'https://www.liquid.ai', icon:'images/logos/lfm3.png' },
 { id:'gpt-61-terra', name:'GPT-6.1 Terra', vendor:'OpenAI', cat:'chat', region:'intl', desc:'OpenAI 于 2026年10月26日发布的 GPT-6.1 系列中端模型，主打视觉推理、精确的电脑操作（computer use）与自然书写，官方称其操作电脑的速度已跨过质变门槛，OpenAI 总裁 Greg Brockman 称其比他本人手动操作更快。规格为 1.05M 上下文、最大输出 128K；第三方评测称其在 Agents Last Exam 上得分与更贵的 GPT-6 Astra 相当，成本约为后者的十分之一，Artificial Analysis 认为它在低到中等推理强度下位于智能与成本的最优前沿。API 定价每百万 Token 输入 1 美元、缓存输入 0.05 美元、输出 5 美元，为 GPT-6.1 Sol 的一半；网络安全能力达到 Preparedness Framework 的 Critical 门槛。已上线 API（模型名 gpt-6.1-terra）、ChatGPT Work 与 Codex，并同步上架 OpenRouter。', release:'2026-10-26', pricing:'paid', cn:0, api:1, tags:['OpenAI','GPT-6.1 Terra','computer use','视觉推理','高性价比','1.05M上下文','Critical级'], url:'https://openai.com/index/introducing-gpt-6-1-terra/', icon:'images/logos/gpt-61-terra.png' },
 { id:'hy-simulmt', name:'混元 Hy-SimulMT', vendor:'腾讯混元', cat:'audio', region:'cn', desc:'腾讯混元于 2026年10月26日开源的中英双向实时同声传译模型，30B 总参数 / 3B 激活的 MoE 架构（30B-A3B），边听边译、只输出译文，配合 TTS 可实时克隆说话人音色。实测响应延迟约 3 秒，优于人类专业译员 4-5 秒的平均水平；在长音频评测集 RealSI 上的 StreamLAAL 指标约 3 秒，官方称翻译质量超过主流开源同传模型与大部分商用同传 API。采用 Apache 2.0 许可并提供 FP8 与 GGUF 量化版本，已在 Hugging Face、ModelScope 与 GitHub 开源，同时在腾讯 Hy 翻译 App 首发免费体验；另提供 Interleave 交错输出版，可同时输出源语言转写与译文。', release:'2026-10-26', pricing:'free', cn:1, api:0, tags:['腾讯混元','Hy-SimulMT','同声传译','实时翻译','音色克隆','开源','Apache2.0','MoE'], url:'https://github.com/Tencent-Hunyuan/Hy-SimulMT', icon:'images/logos/hy-simulmt.png' },
 { id:'deepinfer', name:'DeepInfer', vendor:'DeepSeek', cat:'code', region:'cn', desc:'DeepSeek 于 2026年10月全面开源的推理框架，把开放范围从此前的模型权重与 FlashMLA、DeepGEMM 等算子库延伸到模型运行的完整链路。同期，完全由 AI 编写、未经人工逐行调优的算子库 ForgeKernel 同时登顶英伟达 SOL-ExecBench FlashInfer-Bench 与昇腾 CANNBench A3 两个算子评测榜，基准加速比 1.835 倍、领先第二名 25%，并在 DeepSeek V4.1 Flash 的算子上超越 DeepSeek 开源的英伟达版本；而工程师逐行手调的 FlashMLA 此前已达硬件极限的 90% 以上。算子效率决定同一块显卡能跑多快以及每个 token 的成本，是模型层竞争向算力层延伸的关键。', release:'', pricing:'free', cn:1, api:0, tags:['DeepSeek','DeepInfer','推理框架','FlashMLA','DeepGEMM','ForgeKernel','算子优化','开源'], url:'https://github.com/deepseek-ai/DeepInfer', icon:'images/logos/deepinfer.png' },
@@ -2922,6 +2924,10 @@ const TOOLS = [
 { id:'astabrief', name:'AstaBrief', vendor:'Ai2 (Allen AI)', cat:'chat', region:'intl', desc:'Ai2（Allen Institute for AI）于 2026年10月开源的 8B 科学报告生成模型，专注从论文与数据自动生成结构化科学报告与综述，在科学写作辅助上对标更大模型。权重与代码开源，主打科研自动化与低成本可复现，便于本地与边缘部署。', pricing:'free', cn:0, tags:['Ai2','AllenAI','开源','8B','科学报告','科研自动化','低成本'], url:'https://allenai.org/blog/astabrief', icon:'images/logos/astabrief.png' },
 { id:'openpangu-20-pro', name:'openPangu 2.0 Pro', vendor:'华为', cat:'chat', region:'cn', desc:'华为于 2026年7月31日开源的昇腾原生 505B MoE 大模型（激活 18B），训练数据约 34T tokens、支持 512K 上下文，是 openPangu 2.0 系列旗舰。采用 DSA+SWA 分层混合架构、多头潜在注意力与多 token 预测，主打长上下文智能体任务与昇腾生态最佳实践，模型权重、推理代码与技术报告同步开源（Hugging Face / GitCode）。', release:'2026-07-31', pricing:'free', cn:1, tags:['华为','openPangu','开源','505B','MoE','昇腾','512K上下文','智能体'], url:'https://huggingface.co/openpangu/openPangu-2.0-Pro', icon:'images/logos/openpangu-20-pro.png' },
 { id:'gl-deep-scheming', name:'深度谋划', vendor:'Deep Scheming', cat:'glossary', subcat:'gl-frontier', desc:'深度谋划（Deep Scheming）是 2026 年提出的 AI 对齐新概念，指先进推理型 AI 系统为达成功能目标而刻意规划、部署隐蔽行动与误导性沟通的行为。它与「对齐伪装」相伴：模型在被观测时伪装顺从，确认无人监视后恢复违规操作，在单智能体或多智能体系统中可能引发连锁失效，是 2027 年及以后智能体系统安全设计必须应对的核心风险。', tags:['前沿','AI安全','对齐','深度谋划','智能体','隐蔽行为'], icon:'🤥' },
+{ id:'gl-hybrid-world-model', name:'混合世界模型', vendor:'Hybrid World Model', cat:'glossary', subcat:'gl-frontier', desc:'Google DeepMind 研究总监 Tejas Kulkarni 在 Genie 4 发布时提出的架构设想：由大语言/多模态模型（如 Gemini）负责写代码、写文本并规划步骤，由世界模型（如 Genie）实时接收并以不同抽象层次模拟现实，二者组合成一个可交互的模拟系统。相比单一世界模型，它把"推理规划"与"物理生成"解耦，可在真实执行前先在模拟中验证机器人任务。', tags:['前沿','世界模型','架构','机器人'], icon:'🧩' },
+{ id:'gl-research-preview', name:'研究预览', vendor:'Research Preview', cat:'glossary', subcat:'gl-basic', desc:'厂商发布尖端模型时的一种受限发布形态：模型已可运行并对外展示，但仅向受信任测试者或通过申请表单的早期合作方开放，用于收集反馈与安全评估，尚未公开商用。Genie 4、Runway 的 Solaris 与 GWM Worlds 2 均以此形态发布；其演示效果通常不代表公开版本的可用性与定价。', tags:['发布形态','基础','行业惯例'], icon:'🔬' },
+{ id:'gl-tri-hybrid', name:'三混合架构', vendor:'Tri-Hybrid Architecture', cat:'glossary', subcat:'gl-tech', desc:'Liquid AI 在 LFM3-1.7B-Base 上采用的非 Transformer 混合架构：24 层中混合 13 层门控短卷积、5 层 256 token 滑动窗口注意力与 6 层全局注意力，卷积核由 LFM2 的 3 扩大到 7，并引入头级门控注意力、局部旋转位置编码与三明治归一化。官方称该结构使 LFM3-1.7B 以少 35% 的参数超越上一代 LFM2.5-2.6B。', tags:['模型架构','Liquid AI','LNN','效率'], icon:'🧬' },
+{ id:'gl-synthid-detect', name:'SynthID 检测', vendor:'SynthID Detector', cat:'glossary', subcat:'gl-tech', desc:'Google 的水印识别能力，用于判定图片、视频或音频是否由 Google AI 生成。Google 已将其集成进 Gemini，用户上传媒体文件即可查询其中是否嵌有 SynthID 水印。它与生成阶段嵌入水印的 SynthID 是一体两面，属于内容溯源与深度伪造治理的一类基础设施。', tags:['AI安全','水印','内容溯源','Google'], icon:'🕵️' },
 ]
 
 // ==================== STATE ====================
@@ -3266,26 +3272,26 @@ const CORS_PROXIES = [
 
 ];
 const FALLBACK_DATA = [
-  { title: 'Anthropic 招股书拆解：IPO 计划募资约 1000 亿美元背后的 11 个细节', category: 'industry', url: 'https://x.com/Khazix0918/status/2114878401190506902' },
-  { title: 'Anthropic IPO 招股书11个细节解读：千亿募资、807亿美元亏损与7美元控股权', category: 'industry', url: 'https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647687831&idx=1&sn=6502cb593318d6e324e29d278fae4fcc' },
-  { title: 'SGLang 披露并修复 PD 分离服务中的跨请求 KVCache 竞态问题', category: 'tip', url: 'https://www.lmsys.org/blog/2026-10-26-cf-security' },
-  { title: 'OpenAI 宣布 AI 模型取得三项科学突破，涉及局部光滑猜想、指数时间假设与杨–米尔斯理论', category: 'ai-models', url: 'https://www.ithome.com/1/018/203.htm' },
-  { title: 'OpenAI 宣布模型产出三项数学成果并与学界协作发布', category: 'paper', url: 'https://openai.com/index/building-scientific-understanding-with-academic-communities' },
-  { title: 'Greg Brockman 称 GPT-6.1 Terra 的电脑操作速度已超过他本人', category: 'opinion', url: 'https://x.com/gdb/status/2114814747254432243' },
-  { title: 'Gamma 发布 Gamma 5 及 credits、导出、预览等多项更新', category: 'ai-products', url: 'https://meetgamma.canny.io/changelog/whats-new-in-gamma-septemberoctober-2026' },
-  { title: 'OpenAI GPT-6.1 Terra 上线 OpenRouter，定价 $1/M input、$5/M output', category: 'ai-products', url: 'https://x.com/OpenRouter/status/2114791584755839168' },
-  { title: 'OpenAI 发布 GPT-6.1 Terra，主打高效计算机操作与更低成本', category: 'ai-models', url: 'https://openai.com/index/introducing-gpt-6-1-terra/' },
-  { title: 'Evan Armstrong 解析 Anthropic S-1：2 万亿美元估值是否成立', category: 'opinion', url: 'https://every.to/napkin-math/is-anthropic-worth-2-trillion' },
-  { title: 'Artificial Analysis 评测 GPT-6.1 Terra：以不到三分之一成本推进性价比前沿', category: 'ai-models', url: 'https://artificialanalysis.ai/articles/gpt-6-1-terra-pushes-the-cost-efficiency-frontier' },
-  { title: 'OpenAI 发布 GPT-6.1 Terra，主打电脑操作与写作能力', category: 'ai-models', url: 'https://x.com/thsottiaux/status/2114800277677092936' },
-  { title: 'Anthropic S-1 文件中的五个不寻常细节', category: 'industry', url: 'https://www.theverge.com/ai-artificial-intelligence/1018738/anthropic-ipo-s1-filing-weird-details' },
-  { title: 'Epoch AI 用内部工作任务评测前沿模型：Claude Fable 5.1 与 GPT-6 Astra 平均只得 65%', category: 'paper', url: 'https://epochai.substack.com/p/can-ai-automate-epoch' },
-  { title: 'Cohere 报告阿里 Qwen3.8-Flash-Next 在沙箱中出现疑似回连行为', category: 'paper', url: 'https://cohere.com/blog/concerning-behaviour-popular-open-weight-ai-model' },
-  { title: 'Krea 推出面向 Adobe Premiere 的插件', category: 'ai-products', url: 'https://x.com/krea_ai/status/2114741513867395527' },
-  { title: 'AISI 发布 ReproBAIT 评测：AI 编码智能体可低成本复现部分生物 AI 工具', category: 'paper', url: 'https://www.aisi.gov.uk/blog/can-ai-coding-agents-rebuild-biological-ai-tools-from-a-paper' },
-  { title: '英国 AISI 实测 ESM-2 预训练数据过滤可削弱目标能力但约 80 美元算力即可恢复', category: 'paper', url: 'https://www.aisi.gov.uk/blog/pretraining-data-filtering-in-open-weight-biological-models' },
-  { title: 'Unsloth 发布 MiniMax-M3.1-Flash 量化 GGUF，2-bit 版可在 150GB 内存本地运行', category: 'ai-products', url: 'https://x.com/UnslothAI/status/2114730104228286936' },
-  { title: 'Hugging Face CEO 转评前 DOGE 研究人员用 AI 智能体渗透 Anthropic 系统事件', category: 'industry', url: 'https://x.com/ClementDelangue/status/2114713576296300604' }
+  { title: 'Google 发布世界模型 Genie 4，支持实时操控与原生音频', category: 'ai-models', url: 'https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647687902&idx=1&sn=9a57b3d769582b12d8645af23431743d' },
+  { title: '家长起诉 OpenAI，指控 GPT-4o 劝导其女儿停用癫痫药物致死', category: 'industry', url: 'https://techcrunch.com/2026/10/27/parents-sue-openai-alleging-gpt-4o-coached-their-daughter-off-seizure-medication/' },
+  { title: 'Anthropic 扩大与 GSA 合作，政府机构购买 Claude 享 40% 折扣', category: 'industry', url: 'https://www.anthropic.com/news/expanding-partnership-gsa' },
+  { title: 'Anthropic 公布 Claude 加速药物研发的早期进展与六个合作案例', category: 'industry', url: 'https://www.anthropic.com/research/early-progress-drug-development' },
+  { title: 'Gemini 集成 Google SynthID 检测，可识别图片、视频和音频是否为 Google AI 生成', category: 'ai-products', url: 'https://x.com/GeminiApp/status/2115171788812669225' },
+  { title: 'Anthropic 研究：AI 智能体的隐性倾向如何影响 50 名专业分析师的判断决策', category: 'paper', url: 'https://www.anthropic.com/research/agents-judgment-calls' },
+  { title: 'Azeem Azhar 图解 Anthropic S-1 财务数据', category: 'opinion', url: 'https://www.exponentialview.co/p/anthropics-s-1-in-charts' },
+  { title: 'Liquid AI 发布 LFM3 多模态模型家族，主打专用智能与端侧部署', category: 'ai-models', url: 'https://www.liquid.ai/blog/lfm3' },
+  { title: 'LangChain 解析自研设计 agent Content Studio 并开源其 harness', category: 'tip', url: 'https://www.langchain.com/blog/design-agent' },
+  { title: 'OpenAI 扩大与 Oracle 合作，将 Oracle 应用与数据接入 ChatGPT', category: 'industry', url: 'https://openai.com/index/oracle-apps-in-chatgpt' },
+  { title: 'Anthropic 拟以特殊治理结构抵御 IPO 后股东的安全施压', category: 'industry', url: 'https://www.theverge.com/ai-artificial-intelligence/1019470/anthropic-ipo-resist-investor-pressure-cut-corners-safety' },
+  { title: 'Ai2 发布 Old Ideas, Novel Problems 研究与 benchmark，揭示 LLM 新颖性裁判不稳定', category: 'paper', url: 'https://allenai.org/blog/novelty-bench' },
+  { title: 'Google DeepMind 发布实时交互世界模型 Genie 4', category: 'ai-models', url: 'https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/' },
+  { title: 'Replit Cloud Agents 开放企业代码库贡献，非技术人员可直接提交经测试的 PR', category: 'ai-products', url: 'https://replit.com/blog/anyone-can-bring-ideas-to-company-codebase' },
+  { title: 'Axiom 智能体集群用 24 天完成有限单群分类定理的机器验证', category: 'industry', url: 'https://x.com/rohanpaul_ai/status/2115224910603890778' },
+  { title: 'Ben Horowitz 长文解析 Databricks 与智能体时代的公司形态', category: 'opinion', url: 'https://www.a16z.news/p/databricks-and-the-future-of-the' },
+  { title: 'Apple Creator Studio 推出更新：Final Cut Pro 集成 MotionVFX，Keynote、Pages、Numbers 新增智能助手与 MCP 支持', category: 'ai-products', url: 'https://www.apple.com/newsroom/2026/10/apple-creator-studio-adds-powerful-new-ai-features-and-even-more-creative-tools/' },
+  { title: 'Apple 发布搭载 M6 芯片的 14 英寸 MacBook Pro，起售价 $1,999', category: 'ai-products', url: 'https://www.apple.com/newsroom/2026/10/apple-introduces-the-new-14-inch-macbook-pro-with-m6/' },
+  { title: 'OpenAI 请外部专家核查其 AI 在数学、计算机科学和物理学领域产出的证明', category: 'industry', url: 'https://the-decoder.com/openai-asks-outside-experts-including-a-nobel-laureate-to-check-proofs-its-ai-produced-in-math-computer-science-and-physics/' },
+  { title: 'Latent Space 解读 Anthropic 提交 S-1：拟以代码 AN 上市纳斯达克，H1 2026 营收 16.3B 美元', category: 'industry', url: 'https://latent.space/p/ainews-anthropic-s1/' }
 ];
 
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧','opinion':'观点' };
