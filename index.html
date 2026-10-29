@@ -2392,7 +2392,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-10-28';
+var NAV_UPDATE_DATE = '2026-10-29';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -2401,6 +2401,9 @@ var NAV_UPDATE_DATE = '2026-10-28';
 })();
 
 const TOOLS = [
+{ id:'gemini-4-carbon', name:'Gemini 4 Carbon', vendor:'Google DeepMind', cat:'chat', region:'intl', desc:'Google DeepMind 于 2026年10月28日发布的 Gemini 4 系列前沿模型，重点强化网络安全与长程智能体能力。官方公布其在 SEC-bench Pro、ExploitGym 与 CWE-bench 等网络安全基准上取得领先，并以 59 分登顶 Artificial Analysis Intelligence Index v5.0。', release:'2026-10-28', pricing:'unknown', cn:0, api:0, tags:['Google DeepMind','Gemini 4','Carbon','前沿模型','网络安全','长程智能体'], url:'https://deepmind.google/blog/gemini-4-carbon-our-next-frontier-model/', icon:'images/logos/gemini-4-carbon.png' },
+{ id:'gl-hnet', name:'H-Net（层级网络）', vendor:'Hierarchical Network', cat:'glossary', subcat:'gl-tech', desc:'Cartesia 提出的端到端层级网络架构，通过递归、依赖数据的动态分块直接从字节等原始数据学习多层抽象，可在语言模型内部动态替代固定 BPE 分词。Cartesia 2026年10月28日公布的扩缩律研究显示，H-Net 借助学习式分词可获得最高 3–5 倍计算效率提升，并可递归嵌套、扩展到文本之外的生物与视觉模态。', tags:['H-Net','层级网络','字节级模型','动态分块','学习式分词','模型架构'], icon:'🧱' },
+{ id:'gl-routing-cost', name:'Routing Cost（路由成本）', vendor:'OpenRouter', cat:'glossary', subcat:'gl-tech', desc:'OpenRouter 于 2026年10月28日引入的实时推理路由指标，用“得到一次可用回答的预期成本”统一衡量实际价格、首 Token 延迟、端到端吞吐、限流与错误重试、工具调用可用性等因素，并据此在同一模型的不同服务商之间动态分配流量。官方实验显示新算法使 TTFT 降低 16.9%、吞吐提升 16.3%、容量错误减少 67%，成本小幅增加 6%。', tags:['Routing Cost','模型路由','推理服务','TTFT','可靠性','OpenRouter'], icon:'🧭' },
 { id:'genie-4', name:'Genie 4', vendor:'Google DeepMind', cat:'video', region:'intl', desc:'Google DeepMind 于 2026年10月27日以研究预览形式发布的第四代世界模型，可依据文字提示即时生成可探索的虚拟世界，用键盘或双摇杆实时操控角色与镜头，并在模拟运行中通过自然语言改变天气、加入人物或物体。相比 Genie 3，画面照片级真实感、物理碰撞与角色拟真度明显提升，一致场景最长可维持约 2 分钟（上一代的两倍）；首次原生同步生成环境音、音乐与可回应用户行为的对话。底层由 Gemini 系列驱动：Gemini Omni 负责真实感锚定与行为，实时体验由 Gemini 3.8 Flash 支撑，Gemini 担任"导演"负责拆解步骤并检查画面。目前仅向受信任测试者开放，后续将向 Google AI Ultra 订阅用户（Project Genie）与 Gemini API、AI Studio 早期合作方推出，并已在 Gemini Robotics 实验中用于机器人场景的先模拟后执行验证。', release:'2026-10-27', pricing:'unknown', cn:0, api:0, tags:['Google DeepMind','Genie 4','世界模型','实时交互','原生音频','研究预览','Project Genie'], url:'https://blog.google/innovation-and-ai/models-and-research/google-deepmind/introducing-genie-4/', icon:'images/logos/genie-4.png' },
 { id:'lfm3', name:'LFM3', vendor:'Liquid AI', cat:'chat', region:'intl', desc:'Liquid AI 于 2026年10月27日发布的第三代 Liquid Foundation Model 开源权重模型家族，六个模型共用 LFM3-1.7B-Base 骨干，覆盖文本（LFM3-1.7B）、视觉（LFM3-VL-2B，首次支持视频输入）、音频（LFM3-Audio-2B，支持 18 种语言的转写、语音生成与翻译）、全模态（LFM3-Omni-2B，图文视音输入、文本与语音输出）以及两个决策模型（d1-2B 与 d1-omni-2B，输出带校准概率的结构化答案而非生成文本）。采用三混合架构：24 层中混合 13 层门控短卷积、5 层 256 token 滑动窗口注意力与 6 层全局注意力，卷积核由 LFM2 的 3 扩大到 7，并引入头级门控注意力、局部旋转位置编码与三明治归一化；预训练语料 22T token。文本模型 256K 上下文、4-bit 量化约 1GB，可在手机与树莓派等端侧设备运行，官方称以少 35% 的参数超越上代 LFM2.5-2.6B，WebArena-Verified 得分由 3.02 提升至 38.42。权重已在 Hugging Face 开放下载（LFM Open License v1.0），原生支持 llama.cpp、MLX、vLLM 等推理框架，并提供官方 Playground 与 API；衍生机器人模型在四个 LIBERO 套件上平均成功率 96.2%。', release:'2026-10-27', pricing:'free', cn:0, api:1, tags:['Liquid AI','LFM3','开源权重','端侧部署','多模态','2B','LNN','机器人'], url:'https://www.liquid.ai', icon:'images/logos/lfm3.png' },
 { id:'gpt-61-terra', name:'GPT-6.1 Terra', vendor:'OpenAI', cat:'chat', region:'intl', desc:'OpenAI 于 2026年10月26日发布的 GPT-6.1 系列中端模型，主打视觉推理、精确的电脑操作（computer use）与自然书写，官方称其操作电脑的速度已跨过质变门槛，OpenAI 总裁 Greg Brockman 称其比他本人手动操作更快。规格为 1.05M 上下文、最大输出 128K；第三方评测称其在 Agents Last Exam 上得分与更贵的 GPT-6 Astra 相当，成本约为后者的十分之一，Artificial Analysis 认为它在低到中等推理强度下位于智能与成本的最优前沿。API 定价每百万 Token 输入 1 美元、缓存输入 0.05 美元、输出 5 美元，为 GPT-6.1 Sol 的一半；网络安全能力达到 Preparedness Framework 的 Critical 门槛。已上线 API（模型名 gpt-6.1-terra）、ChatGPT Work 与 Codex，并同步上架 OpenRouter。', release:'2026-10-26', pricing:'paid', cn:0, api:1, tags:['OpenAI','GPT-6.1 Terra','computer use','视觉推理','高性价比','1.05M上下文','Critical级'], url:'https://openai.com/index/introducing-gpt-6-1-terra/', icon:'images/logos/gpt-61-terra.png' },
@@ -3272,26 +3275,26 @@ const CORS_PROXIES = [
 
 ];
 const FALLBACK_DATA = [
-  { title: 'Google 发布世界模型 Genie 4，支持实时操控与原生音频', category: 'ai-models', url: 'https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647687902&idx=1&sn=9a57b3d769582b12d8645af23431743d' },
-  { title: '家长起诉 OpenAI，指控 GPT-4o 劝导其女儿停用癫痫药物致死', category: 'industry', url: 'https://techcrunch.com/2026/10/27/parents-sue-openai-alleging-gpt-4o-coached-their-daughter-off-seizure-medication/' },
-  { title: 'Anthropic 扩大与 GSA 合作，政府机构购买 Claude 享 40% 折扣', category: 'industry', url: 'https://www.anthropic.com/news/expanding-partnership-gsa' },
-  { title: 'Anthropic 公布 Claude 加速药物研发的早期进展与六个合作案例', category: 'industry', url: 'https://www.anthropic.com/research/early-progress-drug-development' },
-  { title: 'Gemini 集成 Google SynthID 检测，可识别图片、视频和音频是否为 Google AI 生成', category: 'ai-products', url: 'https://x.com/GeminiApp/status/2115171788812669225' },
-  { title: 'Anthropic 研究：AI 智能体的隐性倾向如何影响 50 名专业分析师的判断决策', category: 'paper', url: 'https://www.anthropic.com/research/agents-judgment-calls' },
-  { title: 'Azeem Azhar 图解 Anthropic S-1 财务数据', category: 'opinion', url: 'https://www.exponentialview.co/p/anthropics-s-1-in-charts' },
-  { title: 'Liquid AI 发布 LFM3 多模态模型家族，主打专用智能与端侧部署', category: 'ai-models', url: 'https://www.liquid.ai/blog/lfm3' },
-  { title: 'LangChain 解析自研设计 agent Content Studio 并开源其 harness', category: 'tip', url: 'https://www.langchain.com/blog/design-agent' },
-  { title: 'OpenAI 扩大与 Oracle 合作，将 Oracle 应用与数据接入 ChatGPT', category: 'industry', url: 'https://openai.com/index/oracle-apps-in-chatgpt' },
-  { title: 'Anthropic 拟以特殊治理结构抵御 IPO 后股东的安全施压', category: 'industry', url: 'https://www.theverge.com/ai-artificial-intelligence/1019470/anthropic-ipo-resist-investor-pressure-cut-corners-safety' },
-  { title: 'Ai2 发布 Old Ideas, Novel Problems 研究与 benchmark，揭示 LLM 新颖性裁判不稳定', category: 'paper', url: 'https://allenai.org/blog/novelty-bench' },
-  { title: 'Google DeepMind 发布实时交互世界模型 Genie 4', category: 'ai-models', url: 'https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/' },
-  { title: 'Replit Cloud Agents 开放企业代码库贡献，非技术人员可直接提交经测试的 PR', category: 'ai-products', url: 'https://replit.com/blog/anyone-can-bring-ideas-to-company-codebase' },
-  { title: 'Axiom 智能体集群用 24 天完成有限单群分类定理的机器验证', category: 'industry', url: 'https://x.com/rohanpaul_ai/status/2115224910603890778' },
-  { title: 'Ben Horowitz 长文解析 Databricks 与智能体时代的公司形态', category: 'opinion', url: 'https://www.a16z.news/p/databricks-and-the-future-of-the' },
-  { title: 'Apple Creator Studio 推出更新：Final Cut Pro 集成 MotionVFX，Keynote、Pages、Numbers 新增智能助手与 MCP 支持', category: 'ai-products', url: 'https://www.apple.com/newsroom/2026/10/apple-creator-studio-adds-powerful-new-ai-features-and-even-more-creative-tools/' },
-  { title: 'Apple 发布搭载 M6 芯片的 14 英寸 MacBook Pro，起售价 $1,999', category: 'ai-products', url: 'https://www.apple.com/newsroom/2026/10/apple-introduces-the-new-14-inch-macbook-pro-with-m6/' },
-  { title: 'OpenAI 请外部专家核查其 AI 在数学、计算机科学和物理学领域产出的证明', category: 'industry', url: 'https://the-decoder.com/openai-asks-outside-experts-including-a-nobel-laureate-to-check-proofs-its-ai-produced-in-math-computer-science-and-physics/' },
-  { title: 'Latent Space 解读 Anthropic 提交 S-1：拟以代码 AN 上市纳斯达克，H1 2026 营收 16.3B 美元', category: 'industry', url: 'https://latent.space/p/ainews-anthropic-s1/' }
+  { title: "OpenRouter 重建默认路由算法：TTFT 降 16.9%、429 错误减少 67%", category: "ai-products", url: "https://openrouter.ai/blog/announcements/how-we-rebuilt-provider-routing/" },
+  { title: "OpenRouter 教程：用 LLM 从 PDF 中抽取表格", category: "tip", url: "https://openrouter.ai/blog/tutorials/extract-tables-from-pdf-llm/" },
+  { title: "Anthropic 报告：Claude 研究模型在 Chrome、Safari、Android、Windows、Linux 发现漏洞并串联 5 条攻击链", category: "paper", url: "https://www.ithome.com/1/019/268.htm" },
+  { title: "Every 解读 Anthropic S-1：上线超过六个月的模型贡献收入不足 20%", category: "opinion", url: "https://every.to/context-window/every-model-has-a-six-month-shelf-life-now" },
+  { title: "Alphabet Q3 财报：年化收入达 5000 亿美元，Google Cloud 增长 103%", category: "industry", url: "https://x.com/sundarpichai/status/2115535455156642066" },
+  { title: "OpenAI 员工撰文探讨 AI 进入企业组织架构的三种方式", category: "opinion", url: "https://openai.com/index/the-future-of-the-firm" },
+  { title: "Cartesia 发布 H-Net 扩缩律研究：字节级层级网络比 BPE 提升最高 3-5x 计算效率", category: "paper", url: "https://www.cartesia.ai/blog/from-tokens-to-bytes-part-1" },
+  { title: "Ed Zitron 长文解析 Anthropic S-1：称其把散户当作退出流动性", category: "opinion", url: "https://www.wheresyoured.at/exit-liquidity/" },
+  { title: "犹他州 10 个州政府部门 34 名开发者试点使用 Claude Code", category: "industry", url: "https://x.com/bcherny/status/2115491259381072269" },
+  { title: "Google DeepMind 发布 Gemini 4 Carbon 前沿模型", category: "ai-models", url: "https://deepmind.google/blog/gemini-4-carbon-our-next-frontier-model/" },
+  { title: "Microsoft 通过 Foundry 开放 Copilot harness，支持多模型 Agent 开发", category: "ai-products", url: "https://blogs.microsoft.com/blog/2026/10/28/introducing-the-microsoft-copilot-harness-unlocking-the-potential-of-truly-multi-model-agentic-work/" },
+  { title: "Anthropic IPO 文件披露现金及短期投资达 131.7B 美元，超过 Amazon 和 Microsoft", category: "industry", url: "https://x.com/rohanpaul_ai/status/2115491649543635378" },
+  { title: "Google 发布 Gemini 4 Carbon：AA Index v5.0 登顶，网络安全基准领先", category: "ai-models", url: "https://x.com/sundarpichai/status/2115489219804352921" },
+  { title: "a16z 调研 100 位 CISO：AI 如何改写 2027 年安全议程", category: "opinion", url: "https://www.a16z.news/p/the-new-security-agenda" },
+  { title: "Claude Code 触发用量上限后如何用 OpenRouter 继续编码", category: "tip", url: "https://openrouter.ai/blog/tutorials/claude-code-usage-limit/" },
+  { title: "GitHub Octoverse 2026：开发活动创新高，超 40% 的 PR 由智能体起草", category: "industry", url: "https://github.blog/news-insights/octoverse/octoverse-commits-pushes-reach-new-highs-in-2026-as-developers-build-with-agents/" },
+  { title: "GitHub Universe 2026 发布 GitHub Copilot app、Copilot Fusion 等智能体产品", category: "ai-products", url: "https://github.blog/news-insights/company-news/github-universe-2026-evolving-every-layer-of-the-stack/" },
+  { title: "Cathedral 用 AI 智能体侵入 Anthropic 内部系统，双方对事件范围说法不一", category: "industry", url: "https://the-decoder.com/ai-agents-hacked-anthropic-maker-of-arguably-the-most-capable-ai-models-for-cyberdefense/" },
+  { title: "Anthropic S-1 显示 90% 增量毛利，SemiAnalysis 播客详解其中数字", category: "industry", url: "https://x.com/SaitoWu/status/2115376256929948006" },
+  { title: "Addy Osmani 讲解如何上手 Claude Code Mods", category: "tip", url: "https://x.com/addyosmani/status/2115326629488824753" }
 ];
 
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧','opinion':'观点' };
