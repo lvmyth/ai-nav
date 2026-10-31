@@ -2392,7 +2392,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-10-30';
+var NAV_UPDATE_DATE = '2026-10-31';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -2939,6 +2939,15 @@ const TOOLS = [
 { id:'gl-research-preview', name:'研究预览', vendor:'Research Preview', cat:'glossary', subcat:'gl-basic', desc:'厂商发布尖端模型时的一种受限发布形态：模型已可运行并对外展示，但仅向受信任测试者或通过申请表单的早期合作方开放，用于收集反馈与安全评估，尚未公开商用。Genie 4、Runway 的 Solaris 与 GWM Worlds 2 均以此形态发布；其演示效果通常不代表公开版本的可用性与定价。', tags:['发布形态','基础','行业惯例'], icon:'🔬' },
 { id:'gl-tri-hybrid', name:'三混合架构', vendor:'Tri-Hybrid Architecture', cat:'glossary', subcat:'gl-tech', desc:'Liquid AI 在 LFM3-1.7B-Base 上采用的非 Transformer 混合架构：24 层中混合 13 层门控短卷积、5 层 256 token 滑动窗口注意力与 6 层全局注意力，卷积核由 LFM2 的 3 扩大到 7，并引入头级门控注意力、局部旋转位置编码与三明治归一化。官方称该结构使 LFM3-1.7B 以少 35% 的参数超越上一代 LFM2.5-2.6B。', tags:['模型架构','Liquid AI','LNN','效率'], icon:'🧬' },
 { id:'gl-synthid-detect', name:'SynthID 检测', vendor:'SynthID Detector', cat:'glossary', subcat:'gl-tech', desc:'Google 的水印识别能力，用于判定图片、视频或音频是否由 Google AI 生成。Google 已将其集成进 Gemini，用户上传媒体文件即可查询其中是否嵌有 SynthID 水印。它与生成阶段嵌入水印的 SynthID 是一体两面，属于内容溯源与深度伪造治理的一类基础设施。', tags:['AI安全','水印','内容溯源','Google'], icon:'🕵️' },
+{ id:'figma-weave', name:'Figma Weave', vendor:'Figma', cat:'design', region:'intl', desc:'Figma 旗下面向持续量产需求的创意团队推出的节点式生成式创作平台（源自 Figma 收购 Weavy 后整合更名）。它把图片、视频的生成与编辑拆成一串可连接的「节点」：每个节点承载一次模型调用或编辑操作，节点在画布上连成「工作流」，整个创作过程可见、可回退、可复用。工作流支持「分支」并行探索多条视觉方向，同一条提示可同时跑多个模型并排对比结果后再决定方向。内置编辑节点包括色彩校正（调整整体色相与饱和度）、Compositor 合成（把图片、视频、文字、形状叠成单一输出）、Levels（分别调阴影、中间调与高光来控制影调）、Trim（不离开 Weave 就能裁短视频）、Crop（按预设比例或自定义尺寸裁切）、Painter（用画笔、形状和橡皮直接在图像上绘制）；另配 Prompt 节点与 Prompt Enhancer 节点，用来指定多张参考图各自贡献什么、或由模型改写更具体的提示词，还支持 Prompt 变量只改提示中的一小段。工作流可打包成「Weave tool」，队友只需上传素材点一次 Generate 就能完整复现整套处理逻辑，不必理解底层节点；社区版 Weave tool 已开放发布，Figma Design 左侧面板可直接调用 20 多个现成图像工具（风格迁移、产品拍摄、材质提取等）。同时提供 Figma 节点：把 Figma 画框粘贴到 Weave 画布后与原画框保持联动，原画框改动会实时同步到工作流。官方说明 Weave tool 在 Figma 内处于开放 beta，beta 期间免费使用，正式 GA 后改为消耗 Figma AI credits。', release:'', pricing:'freemium', cn:0, api:0, tags:['Figma','节点式工作流','多模型对比','图像视频生成','团队复用','Weave tool'], url:'https://weave.figma.com/', icon:'images/logos/figma-weave.png' },
+{ id:'thinkingai-agentic-engine', name:'ThinkingAI Agentic Engine（AE）', vendor:'ThinkingAI', cat:'office', region:'cn', desc:'ThinkingAI 于 2026年10月28日发布自助服务的「增长智能体引擎」，把用户行为分析、用户研究、运营触达与 A/B 实验串成一条闭环，目标是把原本只有专业数据团队才有的分析能力交到产品、运营、增长和业务一线人员手上。核心用法是用一句话描述想弄清的问题，由 Agent 完成查数与计算、生成报表/看板/图表，并在结果旁边列出指标口径、时间范围、筛选条件和明细，支持逐层下钻，觉得数字不对还能换算法交叉比对。它有两条关键接入方式：一是 Web 端对话式分析，支持 CSV/Excel 导入并自动识别用户标识与事件时间；二是提供 AE-CLI 与配套 Skills，让 Claude Code、Codex、Cursor 等编程 Agent，以及 WorkBuddy、豆包工作、千问办公等办公 Agent 在授权范围内直接调用同套数据能力——开发赛季埋点可以和 Claude Code 写代码的会话连起来写，再用 AE 的 Debug 模式逐条核对上报事件与属性是否合规。团队侧共享同一份数据、口径、Skills 与工作空间，分析结论、待办事项与验证结果沉淀在同一事项里，知识与 Skills 支持权限管理、版本管理与回滚，另有企业私有化部署（数据不出客户环境）版本。官方背景：ThinkingAI 自称已服务 1500+ 家企业，官网 https://www.thinkingai.cn。关键的兜底设计是：给用户发送触达、调整线上流量等会影响真实用户的动作，仍需负责人确认后才执行。', release:'2026-10-28', pricing:'unknown', cn:1, api:0, tags:['ThinkingAI','数据分析','用户研究','AB实验','AE-CLI','国产','Skills'], url:'https://www.thinkingai.cn', icon:'images/logos/thinkingai-agentic-engine.png' },
+{ id:'heari-ai', name:'Heari.ai', vendor:'ThinkingAI', cat:'search', region:'cn', desc:'ThinkingAI 于 2026年10月随 Agentic Engine 同期推出的 AI 用户研究平台，把「用户访谈」这件过去必须靠人工排期执行的专业工作做成可由 Agent 自动完成的服务。用法是把一个研究问题交给它（比如某功能为什么没人用、某个环节为什么流失），平台自动生成访谈提纲，与用户实时对话并按回答持续追问，最后输出附带原始用户陈述素材的洞察报告交由研究者审核——保留原话意味着结论可核对，而不是只给一句总结。它可与 Agentic Engine 打通：先用行为数据圈出真正值得谈的人群（如完成引导但未产生互动的新用户、加购未付费的用户），再按标签批量发起访谈，把用户的解释与其真实行为放在同一视图里对照，从而区分「说是内容引导问题」和「说是投放人群问题」这类互相矛盾的解释。研究者审核报告后，改进方案可继续流向 Agentic Engine 的运营触达与 A/B 实验去做真实验证，验证结果再回流分析，形成「发现问题—理解原因—采取行动—验证成效」的闭环。核心价值在于把专业用户研究的产能瓶颈打开：不再是十个人排队做访谈，而是让每个懂业务的人都能随时发起一次有据可查的用户研究。', release:'2026-10-28', pricing:'unknown', cn:1, api:0, tags:['ThinkingAI','AI访谈','用户研究','洞察报告','国产','Agentic Engine'], url:'https://heari.ai', icon:'images/logos/heari-ai.png' },
+{ id:'gemini-computer-use-api', name:'Gemini API Computer Use', vendor:'Google DeepMind', cat:'code', region:'intl', desc:'Gemini API 于 2026年10月30日随官方 changelog 正式 GA（一般可用）的「计算机使用」能力，覆盖 Interactions API 与 GenerateContent API 两条接口。它并不让模型直接接管你的电脑，而是走屏幕截图回路：客户端发送一张截图加一句指令，模型返回一个建议的 UI 动作（function_call），由你的代码真正执行该动作、截取新截图再发回去，如此循环直到任务完成、出错、命中安全停机或用户终止。当前文档列出 4 个支持模型：gemini-4-argon（最强，面向复杂推理与智能体工作流）、gemini-3.8-flash（官方推荐，UI 交互与工具调用准确率高）、gemini-3.5-flash-lite（低延迟低成本）、gemini-3-flash-preview；三种运行环境分别是 ENVIRONMENT_BROWSER（网页表单、回归测试、资料检索）、ENVIRONMENT_MOBILE（Android 应用流程）、ENVIRONMENT_DESKTOP（操作系统级光标任务）。坐标一律归一化到 1000×1000 空间（整数 0–999），需自行按真实分辨率换算，请求里不带屏幕尺寸。安全侧返回七类策略的安全决策字段，Gemini 3.5 Flash-Lite 及后续版本可选开启提示注入检测；文档明确要求动作由客户端执行，沙箱、白名单、关键动作的二次确认与操作日志必须由开发者自己实现，跳过这些不属于受支持的配置方式。计费没有单独的 Computer Use 附加费，按所选模型的 token 单价走付费档，但由于每一轮都要重发视觉状态，输入 token 主导成本，这也是它比 API 调用价格表看起来更贵的原因。', release:'2026-10-30', pricing:'paid', cn:0, api:1, tags:['Gemini','Computer Use','浏览器自动化','GA','UI操作','函数调用'], url:'https://ai.google.dev/gemini-api/docs/computer-use', icon:'images/logos/gemini-computer-use-api.png' },
+{ id:'openrouter-agent-sdk', name:'OpenRouter Agent SDK（@openrouter/agent）', vendor:'OpenRouter', cat:'code', region:'intl', desc:'OpenRouter 官方提供的 TypeScript Agent 开发 SDK（npm 包 @openrouter/agent），用于快速搭出能定时自我触发、长期运行的 Agent，而不是一次性的对话脚本。官方教程（2026年10月31日发布）以「常驻 Hacker News 监控 Agent」为例演示完整用法：定义一个带工具的 Agent（如 Hacker News 检索），用 cron 时间表注册定时任务，让它在远程沙箱里周期运行、对抓取到的内容做筛选与摘要，并把结果写入外部系统（示例用 Google Sheets），还给出了真实的运行成本数据。这套 SDK 的定位是把「模型调用 + 工具执行 + 定时触发 + 远程执行环境」打包成几行配置，省去自己搭调度器和进程托管的脏活。需要注意的是常驻形态自带的工程要求：教程明确建议给任务设置用量上限（防止超时长出意料之外的账单）、失败重试与幂等处理，以及对敏感动作保留人工审批环节。OpenRouter 的优势在于一个 Key 即可切换数百个模型，因此同一套 Agent 逻辑可以快速换模型跑对比，这也是它被用作 Agent 实验首选前台的原因之一。', release:'', pricing:'unknown', cn:0, api:1, tags:['OpenRouter','Agent SDK','TypeScript','定时任务','常驻智能体','工具调用'], url:'https://www.npmjs.com/package/@openrouter/agent', icon:'images/logos/openrouter-agent-sdk.png' },
+{ id:'gl-patch-gap', name:'Patch Gap（补丁间隙期）', vendor:'漏洞治理', cat:'glossary', subcat:'gl-frontier', desc:'指漏洞被官方修复之后、补丁真正落到用户系统之前的那段空窗期。补丁发布并不等于漏洞消失：企业和个人完成升级常常需要数小时到数天，这段时间里系统仍然带着可被利用的缺陷运行。Epoch AI 在 2026年10月发布的实验中展示了这一窗口被智能体化攻击利用的现实路径——前沿模型（实验中为 GLM 5.3）能够拿到补丁前后的代码差异、推断出漏洞机理，进而在补丁尚未普及的时间窗内批量寻找仍未打补丁的目标并完成自主攻击，实验对象为 Firefox。这件事改变了安全运营的一个默认前提：过去把「补丁发布」当作风险处置的终点，而在模型具备自主分析报告、批量扫描和利用能力的条件下，补丁落地速度本身就成为攻击面的一部分，防守方需要缩短窗口（灰度升级、自动更新、热补丁）并假定补丁细节一旦公开即等同于攻击手册。', tags:['AI安全','漏洞','智能体攻击','补丁','攻击面'], icon:'🩹' },
+{ id:'gl-always-on-agent', name:'常驻智能体 (Always-On Agent)', vendor:'智能体部署形态', cat:'glossary', subcat:'gl-tech', desc:'指无需人工发起对话、按计划或事件自我触发并长期运行的智能体形态，与「问一句答一句」的一次性对话相对。典型结构是给智能体配一份 cron 时间表和一个可长期驻留的执行环境（远程沙箱或服务进程），让它周期性或按事件去取数据、过滤、加工成摘要，再把结果推送到邮箱、IM、表格或看板，同时把状态沉淀下来供下一轮使用。OpenRouter 官方教程（2026年10月31日）用 @openrouter/agent SDK 演示了搭建这类常驻 Agent 监控 Hacker News 并生成摘要的完整流程。常驻形态的价值在于主动性、状态连续与闭环自动化：它能在人还没提问时就发现问题并准备好结论。代价则是全新的工程责任——必须有硬性用量上限（否则一个 bug 就是一张自动增长的账单）、失败重试与幂等（同一任务重跑不能重复发邮件或重复扣款）、运行日志与告警，以及对发外部内容、调外部资金等敏感动作保留人工审批。因此常驻智能体与其说是模型能力问题，不如说是运维治理问题。', tags:['智能体','定时任务','cron','常驻进程','自动化运维'], icon:'⏰' },
+{ id:'gl-registry-poisoning', name:'扩展市场投毒 (Registry Poisoning)', vendor:'软件供应链攻击', cat:'glossary', subcat:'gl-tech', desc:'指攻击者在公开的包管理器或插件/扩展 marketplace 上发布看似正常的软件，借开发者的安装动作把恶意代码送进其机器与 CI 环境，属于供应链攻击的一种。2026年10月 Cursor 官方通报的事件是典型案例：VS Code 扩展市场中出现了冒充官方的 Anthropic.claude-code 2.1.313 版本，内含恶意软件，官方估计受影响用户最多约 5000 人。这类攻击的要点在于信任被转移：开发者相信 marketplace 的审核、也相信熟悉的包名，而恶意版本往往与正版只差签名者的身份或几个字符。一旦安装，攻击者拿到的通常是开发者机器上的凭据、私有仓库访问权与云密钥，危害面远超被安装的那一个工具本身，因此针对 AI 编码工具的投毒格外高价值——它们的运行环境中常常同时放着源码 token 和云凭证。防护上对应几条硬措施：只从官方发布通道安装并核对发布者身份、锁定版本与校验哈希、为企业统一配置允许安装的扩展白名单，以及把高权限凭据隔离出日常开发环境。', tags:['供应链攻击','扩展安全','开发者安全','白名单','凭据保护'], icon:'☠️' },
+
 ]
 
 // ==================== STATE ====================
@@ -3283,28 +3292,27 @@ const CORS_PROXIES = [
 
 ];
 const FALLBACK_DATA = [
-  { title: "Google 与 Reddit 同日股价大跌，AI 搜索变现困境冲击开放网络", category: "industry", url: "https://www.platformer.news/thursday-newsletter-6/" },
-  { title: "OpenRouter 实测 Claude Opus vs Sonnet vs Haiku 5.5 该选哪个", category: "tip", url: "https://openrouter.ai/blog/insights/claude-opus-vs-sonnet-vs-haiku/" },
-  { title: "Andy Jassy 称 AWS 将成为万亿美元营收业务，2026 年资本开支约 2200 亿美元", category: "industry", url: "https://techcrunch.com/2026/10/29/aws-will-be-a-1t-business-jassy-says-but-first-it-will-spend-big/" },
-  { title: "Factory 发布 Droid 1.0，以程序化工具调用构建企业级 Agent harness", category: "ai-products", url: "https://factory.com/news/frontier-harness" },
-  { title: "Figma 讲解如何训练专用画布编辑模型", category: "tip", url: "https://www.figma.com/blog/training-a-figma-fluent-editing-model/" },
-  { title: "Reddit 宣布转向以登录为主的体验，以应对 AI 搜索带来的流量下滑", category: "industry", url: "https://techcrunch.com/2026/10/29/as-search-traffic-dries-up-reddit-announces-its-shifting-to-a-logged-in-experience/" },
-  { title: "Pika 基于MiniMax H3后训练并开源 Pika H3 Flex 视频生成模型", category: "ai-models", url: "https://x.com/Khazix0918/status/2115898252004622617" },
-  { title: "Anthropic S-1 文件解读：财务表现强劲但增长放缓存隐忧", category: "industry", url: "https://www.understandingai.org/p/anthropics-financials-are-surprisingly" },
-  { title: "OpenAI 详解如何检测前沿模型失准行为", category: "paper", url: "https://openai.com/index/how-we-detect-frontier-model-misalignment" },
-  { title: "OpenAI 更新 Model Spec，围绕五项核心价值观重组模型行为准则", category: "industry", url: "https://openai.com/index/updated-model-spec" },
-  { title: "腾讯混元发布 Hy-Nomas 技术报告并开源 Hy-Nomas-Bench", category: "ai-products", url: "https://x.com/TencentHunyuan/status/2115851165904814283" },
-  { title: "Gemini 新增文档、PDF、演示文稿和表格的直接生成、预览与编辑功能", category: "ai-products", url: "https://x.com/GeminiApp/status/2115845164824711247" },
-  { title: "Codex 宣布即日起 Pro 及 Business Premium 各档位用量上限翻倍", category: "ai-products", url: "https://x.com/thsottiaux/status/2115850175868727621" },
-  { title: "Trakkr 研究：追踪 1285 条 AI 引用统计的溯源路径", category: "paper", url: "https://trakkr.ai/trakkr-research/zombie-stats" },
-  { title: "Wiz 分析智能体攻击的七大指纹与发展趋势", category: "paper", url: "https://www.wiz.io/blog/the-rise-of-agentic-attacks-what-they-look-like-and-where-theyre-headed" },
-  { title: "vLLM 发布 Mistral Large 4 Day 0 支持", category: "ai-products", url: "https://vllm.ai/blog/2026-10-29-mistral-large-4" },
-  { title: "Unsloth 发布 Mistral Le Chonk 1-bit GGUF 量化版，可本地运行 1T 参数模型", category: "ai-products", url: "https://x.com/UnslothAI/status/2115812784189620265" },
-  { title: "Mistral Large 4（Le Chonk）登陆 Hugging Face：1T 参数 MoE 多模态开源权重模型", category: "ai-models", url: "https://huggingface.co/blog/mistral-large4" },
-  { title: "纽约时报称中国情报人员瞄准英伟达 CEO 黄仁勋", category: "industry", url: "https://the-decoder.com/chinese-spies-targeted-nvidia-ceo-jensen-huang-according-to-the-new-york-times/" },
-  { title: "SemiAnalysis 分析师解读 Anthropic S-1 招股书背后的 AI 经济账", category: "opinion", url: "https://www.theverge.com/podcast/1021322/anthropic-ipo-filing-s-1-claude-semianalysis-joey-brookhart-interview" },
+  { title: "OpenRouter 教程：用 Agent SDK 搭建常驻 AI Agent 监控 Hacker News", category: "tip", url: "https://openrouter.ai/blog/tutorials/build-always-on-ai-agent/" },
+  { title: "Figma 发布 Weave 创作平台，用节点化工作流让创意流程可复用", category: "ai-products", url: "https://www.figma.com/blog/the-tldr-on-figma-weave/" },
+  { title: "Wiz 报告“黑色十月”：九个 AI 开发者平台接连披露安全事件", category: "paper", url: "https://www.wiz.io/blog/black-october-for-ai-developer-platforms" },
+  { title: "阿里巴巴与Apple合作，千问集成至Apple智能，11月4日开放测试", category: "industry", url: "https://mp.weixin.qq.com/s?__biz=MzYzNDE5MDEwMQ%3D%3D&mid=2247489416&idx=1&sn=9525f61df8086fcd6fe4d4183da068de" },
+  { title: "OpenAI 汇编各方法庭之友意见，主张 AI 训练应适用合理使用原则", category: "industry", url: "https://openai.com/index/fair-use-benefits-everyone" },
+  { title: "科技巨头 AI 资本开支超 7400 亿美元，投资者担忧升温引发市场下跌", category: "industry", url: "https://techcrunch.com/2026/10/30/cracks-are-emerging-in-the-ai-spending-boom/" },
+  { title: "AI 支出担忧引发美股科技股连日下跌，Intel 盘中跌逾 30%", category: "industry", url: "https://www.bbc.co.uk/news/articles/cvwy72e0n72yo" },
+  { title: "Anthropic 将 Claude Max 套餐更名为 Max 与 Ultra，Ultra 认证账号取消 5 小时限制", category: "ai-products", url: "https://x.com/adocomplete/status/2116224220539883992" },
+  { title: "Project Suncatcher 在轨道卫星上运行 TPU，Gemma 模型首次在太空完成推理并回传回应", category: "industry", url: "https://x.com/_philschmid/status/2116235686445502608" },
+  { title: "Sierra 宣布 ARR 突破 4 亿美元，Q3 单季新增超 1.5 亿美元", category: "industry", url: "https://sierra.ai/blog/our-customers-ambition-is-accelerating-our-growth" },
+  { title: "Gemini API 的 Computer Use 工具正式开放（GA）", category: "ai-products", url: "https://ai.google.dev/gemini-api/docs/changelog#10-30-2026" },
+  { title: "Epoch AI 实验显示 GLM 5.3 可利用补丁窗口期自主攻击 Firefox", category: "paper", url: "https://epochai.substack.com/p/glm-patch-gap-exploit-firefox" },
+  { title: "Cursor 披露 Claude Code VS Code 扩展被植入恶意软件事件，最多影响 5000 用户", category: "industry", url: "https://x.com/cursor_ai/status/2116074289053175808" },
+  { title: "Cursor 通报 VS Code 扩展市场出现恶意 Anthropic.claude-code 2.1.313 版本", category: "industry", url: "https://cursor.com/blog/claude-code-extension-security-notice" },
+  { title: "Google 市值蒸发 5000 亿美元，AI 概要冲击搜索广告引发华尔街担忧", category: "industry", url: "https://www.bbc.com/news/articles/cm9qzdqpxy48o" },
+  { title: "Kimi 官方教程：如何用 Kimi K3.1 Pro 创作 3D 作品", category: "tip", url: "https://mp.weixin.qq.com/s?__biz=MzkzMTY4NTIyNA%3D%3D&mid=2247484364&idx=1&sn=42491c3f098deb797ee8f2a17d147b3a" },
+  { title: "Nvidia 洽谈为 Nscale 西弗吉尼亚 Anthropic 数据中心提供债务担保", category: "industry", url: "https://techcrunch.com/2026/10/30/nvidia-weighs-playing-the-cosigner-for-nscales-ai-data-center-in-west-virginia/" },
+  { title: "Reddit CEO 称 Google AI Mode 不为任何人带来流量，Reddit 每周流失超百万搜索访问", category: "industry", url: "https://the-decoder.com/googles-ai-mode-doesnt-drive-traffic-for-anybody-reddit-ceo-huffman-warns-the-entire-web/" },
+  { title: "OpenAI 详解如何监控前沿模型的失对齐行为", category: "paper", url: "https://alignment.openai.com/how-we-detect-frontier-model-misalignment/" },
+  { title: "Addy Osmani 谈你可能对 Claude 过度提示了", category: "tip", url: "https://x.com/addyosmani/status/2115688494865465370" },
 ];
-
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧','opinion':'观点' };
 
 function extractItems(data) {
