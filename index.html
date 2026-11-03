@@ -2392,7 +2392,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-11-02';
+var NAV_UPDATE_DATE = '2026-11-03';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -2956,6 +2956,10 @@ const TOOLS = [
 { id:'gl-delegation-chain', name:'委托链 (Delegation Chain)', vendor:'智能体安全', cat:'glossary', subcat:'gl-frontier', desc:'多跳智能体执行中，把每一次下游调用的授权血缘逐跳追溯到最初人类委托的机制。核心论点是：仅靠强化 Agent 身份、模型护栏与容器沙箱并不足够——沙箱管得住边界，却管不住意图在链路里被层层放大，动作级授权在多跳场景下仍不完整。主张「模型决定想做什么、授权基础设施决定允许做什么、委托链证明授权来源」，把安全焦点从「这个 API 能不能调」转向「这次调用是谁授权的、经过几跳」。落地时通常要求每次下游调用记录上游委托来源，以便事后还原完整执行链路。', tags:['委托链','Delegation Chain','智能体安全','动作级授权','执行血缘','多跳调用'], icon:'🔗' },
 { id:'gl-attention-bottleneck', name:'注意力瓶颈 (Attention Bottleneck)', vendor:'智能体工程', cat:'glossary', subcat:'gl-tech', desc:'指人同时跟进多个 AI 会话的能力上限（经验值 3–5 个活跃 Session），在 2026 年取代模型能力成为多任务 Agent 落地的真实瓶颈：模型已能自主完成单任务，但人管理多任务、在多会话间同步上下文的注意力并未同步增长。应对路径不是继续提升模型，而是把会话管理与上下文同步上移到系统层——由常驻 Router 统一调度、多个 Worker 隔离并行，人只负责目标设定与结果验收。DeepSeek 的 Super-agent 架构即以此为核心假设，Anthropic 的 Claude Duet 等主动型助手亦属同类思路。', tags:['注意力瓶颈','多任务','会话管理','常驻 Agent','人机协作','2026新词'], icon:'👁️' },
 { id:'gl-fast-slow-path', name:'快慢路径 (Fast Path / Slow Path)', vendor:'智能体事件处理', cat:'glossary', subcat:'gl-tech', desc:'借鉴操作系统与计算机体系结构的事件处理分层策略：把已明确、稳定的高频判断固化为确定性代码（Fast Path，低延迟、低成本、可预测），只把真正需要语义理解的候选交给大模型（Slow Path，灵活但昂贵）。在智能体系统中主要用于两处：一是事件过滤，程序层先按来源、群组范围、用户或机器人白名单筛除大部分噪音，语义层再用提示词策略判断是否需要行动；二是事件路由，已订阅某 Thread 的后续事件由程序直接发往对应 Worker，绕开承担全局记忆的 Router 节点，避免其成为吞吐瓶颈。', tags:['Fast Path','Slow Path','快慢路径','事件过滤','确定性代码','智能体调度'], icon:'⚡' },
+{ id:'hunyuan-hyra-2', name:'混元 Hyra 2.0', vendor:'腾讯混元', cat:'code', region:'cn', desc:'腾讯混元于 2026 年 11 月 2 日发布的 AI 科研系统，把研发重点从“直接用 agent 刷题解题”转向“让通用 agent 研发与升级科学工具”，让一次研发成果被下游任务反复复用。Harness 采用 Overall / Mission / Worker 三层分工：Overall 与人类研究者对齐目标并协调资源，Mission 长期负责单一研究问题、判断路线取舍并可被 Worker 质疑，Worker 独立读代码、做实验、分析失败；配合持久化任务队列、Research Board 与分层记忆 + 共享知识库 Books，可支撑数天到数周的长周期研发。已产出并开源多项成果：196 万参数的蛋白质逆折叠模型 HyInv（比 ProteinMPNN 快 57 倍）、6.5 亿参数蛋白质语言模型 HyPLM-Flash（12 个对比模型中推理最快）、原子级分子力场基础模型 HyFF（2.3M–1.2B 五档）、数学证明工作流 HyProver（已核验丘成桐圆周作用猜想等证明）以及量子码构造验证系统 HyQEC（码 [488,123,22]，编码效率较原榜首提升约 48%）。', release:'2026-11-02', pricing:'unknown', cn:1, api:0, tags:['腾讯混元','AI4Science','科研智能体','HyInv','HyPLM','HyFF','HyProver','HyQEC','工具研发','RSI'], url:'https://github.com/Tencent-Hunyuan/hyra-results', icon:'images/logos/hunyuan-hyra-2.png' },
+{ id:'gl-message-threads', name:'消息线程 (Message Threads)', vendor:'Claude Platform', cat:'glossary', subcat:'gl-dev', desc:'Anthropic 于 2026 年 11 月为 Claude Platform 推出的公测能力：把一段长会话切分为多个可独立寻址的线程，每个线程保留自己的上下文与消息序列，智能体可在线程间跳转而不必重放整段历史。核心收益是降低长会话智能体的首字延迟与 token 成本——不必每轮都把全部历史塞进上下文窗口，也为多任务并行与人工插入干预提供了结构化的落点。', tags:['Message Threads','长会话','上下文管理','智能体延迟','Claude API'], icon:'🧵' },
+{ id:'gl-activation-classifier', name:'激活分类器 (Activation Classifier)', vendor:'OpenAI', cat:'glossary', subcat:'gl-frontier', desc:'OpenAI 在 2026 年 11 月披露的前沿模型安全监控手段：在模型内部激活（activation）层训练轻量分类器，直接读取推理过程中的隐藏状态来判断是否存在危险意图或异常行为，而不是只检查输入输出文本。相较输出侧过滤，激活层信号更难通过改写提示词绕过，可作为部署时的实时监控层与红队评估的补充，属于“用模型内部表征做安全”的技术路线。', tags:['Activation Classifier','可解释性','安全监控','前沿模型','红队'], icon:'🧠' },
+{ id:'gl-intelligence-compounding', name:'智能复利 (Intelligence Compounding)', vendor:'腾讯混元 Hyra', cat:'glossary', subcat:'gl-frontier', desc:'腾讯混元在 Hyra 2.0 中提出的科研范式概念：解出一道题只得到一个答案，而升级一件工具（工作流、验证程序、科学模型）会让所有用到它的下游任务同时受益，成果可被反复复用并叠加。与之相对的是“刷题式”进展——单点突破不自动提升下一次研究的能力。落到工程上，表现为把可迁移方法沉淀为 skill、把已验证结论写入共享知识库，使系统能力随使用次数复利增长，也是递归自我改进（RSI）叙事的经济学基础。', tags:['Intelligence Compounding','智能复利','工具复用','AI4Science','RSI'], icon:'📈' },
 ]
 
 // ==================== STATE ====================
@@ -3300,26 +3304,26 @@ const CORS_PROXIES = [
 
 ];
 const FALLBACK_DATA = [
+  { title: "DeepSeek Harness 养鱼教程：在 QQ、微信、飞书养大肥鱼并放上 B 站抖音直播", category: "tip", url: "https://mp.weixin.qq.com/s/-LcRUPe5OYBRjiTEzYXKog" },
+  { title: "Anthropic 算力与基础设施合同承诺达 $895.4B，其中 $447.5B 须在 2031 年前支付", category: "industry", url: "https://x.com/rohanpaul_ai/status/2117368258571784296" },
+  { title: "OpenAI 训练并部署激活分类器作为前沿模型安全监控层", category: "paper", url: "https://alignment.openai.com/training-activation-classifiers/" },
+  { title: "Anthropic 季度营收增长十二倍至近 170 亿美元，但净亏损达 233 亿美元", category: "industry", url: "https://the-decoder.com/anthropic-grows-revenue-twelvefold-but-posts-23-billion-loss/" },
+  { title: "OpenAI 推出 Grid Protectors 计划，从 Georgia 校园开始支持电网削峰", category: "industry", url: "https://openai.com/index/grid-protectors-program" },
+  { title: "腾讯混元发布 Hyra 2.0：让通用 agent 研发可复用的科学工具与模型", category: "ai-products", url: "https://mp.weixin.qq.com/s?__biz=MzkwODU2OTQyNQ%3D%3D&mid=2247498763&idx=1&sn=279f8fb4e43a987fdc0aa2af0b0f7958" },
   { title: "数字生命卡兹克分享折腾一年的Agent自动化系统架构", category: "tip", url: "https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647688060&idx=1&sn=e00d7e57b6f0e3670f0e267e677047df" },
+  { title: "OpenAI 任命前美国陆军部长 Dan Driscoll 为国家安全现代化高级顾问", category: "industry", url: "https://openai.com/index/dan-driscoll-joins-openai" },
+  { title: "Claude Platform 推出 message threads 公测，降低长会话智能体延迟", category: "ai-products", url: "https://claude.com/blog/message-threads" },
   { title: "OpenAI 12月起将ChatGPT与Codex合并为统一Token额度", category: "industry", url: "https://mp.weixin.qq.com/s?__biz=MzIyMzA5NjEyMA%3D%3D&mid=2647688028&idx=1&sn=e509269da2e0e0b4d4dfbb121b42204b" },
   { title: "OpenRouter 教程：用 Responses API 构建可在 Linux 沙箱验证 bug 的 AI 代码审查脚本", category: "tip", url: "https://openrouter.ai/blog/tutorials/ai-code-review/" },
   { title: "美国白宫科技顾问萨克斯称 Anthropic 可能成为资本主义史上最伟大企业", category: "opinion", url: "https://www.ithome.com/1/020/633.htm" },
   { title: "彭博社统计：Alphabet、Meta、微软、亚马逊、甲骨文承诺投入超3万亿美元建AI基础设施", category: "industry", url: "https://www.ithome.com/1/020/632.htm" },
   { title: "Anthropic IPO 招股文件披露近 9000 亿美元隐性债务", category: "industry", url: "https://www.ithome.com/1/020/444.htm" },
-  { title: "OpenRouter 教程：用 Agent SDK 搭建常驻 AI Agent 监控 Hacker News", category: "tip", url: "https://openrouter.ai/blog/tutorials/build-always-on-ai-agent/" },
   { title: "Figma 发布 Weave 创作平台，用节点化工作流让创意流程可复用", category: "ai-products", url: "https://www.figma.com/blog/the-tldr-on-figma-weave/" },
-  { title: "Wiz 报告“黑色十月”：九个 AI 开发者平台接连披露安全事件", category: "paper", url: "https://www.wiz.io/blog/black-october-for-ai-developer-platforms" },
   { title: "阿里巴巴与Apple合作，千问集成至Apple智能，11月4日开放测试", category: "industry", url: "https://mp.weixin.qq.com/s?__biz=MzYzNDE5MDEwMQ%3D%3D&mid=2247489416&idx=1&sn=9525f61df8086fcd6fe4d4183da068de" },
-  { title: "OpenAI 汇编各方法庭之友意见，主张 AI 训练应适用合理使用原则", category: "industry", url: "https://openai.com/index/fair-use-benefits-everyone" },
+  { title: "OpenRouter 教程：用 Agent SDK 搭建常驻 AI Agent 监控 Hacker News", category: "tip", url: "https://openrouter.ai/blog/tutorials/build-always-on-ai-agent/" },
+  { title: "Wiz 报告“黑色十月”：九个 AI 开发者平台接连披露安全事件", category: "paper", url: "https://www.wiz.io/blog/black-october-for-ai-developer-platforms" },
   { title: "科技巨头 AI 资本开支超 7400 亿美元，投资者担忧升温引发市场下跌", category: "industry", url: "https://techcrunch.com/2026/10/30/cracks-are-emerging-in-the-ai-spending-boom/" },
-  { title: "AI 支出担忧引发美股科技股连日下跌，Intel 盘中跌逾 30%", category: "industry", url: "https://www.bbc.co.uk/news/articles/cvwy72e0n72yo" },
-  { title: "Anthropic 将 Claude Max 套餐更名为 Max 与 Ultra，Ultra 认证账号取消 5 小时限制", category: "ai-products", url: "https://x.com/adocomplete/status/2116224220539883992" },
   { title: "Project Suncatcher 在轨道卫星上运行 TPU，Gemma 模型首次在太空完成推理并回传回应", category: "industry", url: "https://x.com/_philschmid/status/2116235686445502608" },
-  { title: "Sierra 宣布 ARR 突破 4 亿美元，Q3 单季新增超 1.5 亿美元", category: "industry", url: "https://sierra.ai/blog/our-customers-ambition-is-accelerating-our-growth" },
-  { title: "Gemini API 的 Computer Use 工具正式开放（GA）", category: "ai-products", url: "https://ai.google.dev/gemini-api/docs/changelog#10-30-2026" },
-  { title: "Epoch AI 实验显示 GLM 5.3 可利用补丁窗口期自主攻击 Firefox", category: "paper", url: "https://epochai.substack.com/p/glm-patch-gap-exploit-firefox" },
-  { title: "Cursor 披露 Claude Code VS Code 扩展被植入恶意软件事件，最多影响 5000 用户", category: "industry", url: "https://x.com/cursor_ai/status/2116074289053175808" },
-  { title: "Cursor 通报 VS Code 扩展市场出现恶意 Anthropic.claude-code 2.1.313 版本", category: "industry", url: "https://cursor.com/blog/claude-code-extension-security-notice" },
 ];
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧','opinion':'观点' };
 
