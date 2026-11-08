@@ -1452,6 +1452,20 @@
   .footer-stats span { display: inline-flex; align-items: center; gap: 4px; }
   .footer-stats .num { font-weight: 700; color: var(--primary); }
 
+  /* ===== 站点健康徽标（异步读取 status.json） ===== */
+  .health {
+    display: inline-flex; align-items: center; gap: 5px;
+    padding: 2px 9px; border-radius: 999px;
+    font-size: 11px; line-height: 1.5; white-space: nowrap;
+    vertical-align: middle; cursor: help;
+    border: 1px solid rgba(120,200,255,0.22);
+    background: rgba(120,200,255,0.06);
+    color: var(--text-secondary);
+  }
+  .health.ok   { color:#7ee2a8; border-color:rgba(126,226,168,0.35); background:rgba(126,226,168,0.08); }
+  .health.warn { color:#f5c86b; border-color:rgba(245,200,107,0.35); background:rgba(245,200,107,0.08); }
+  .health.bad  { color:#ff8b8b; border-color:rgba(255,139,139,0.35); background:rgba(255,139,139,0.08); }
+
   /* ===== Responsive ===== */
   @media (max-width: 768px) {
     .header h1 { font-size: 28px; }
@@ -1674,6 +1688,10 @@
   body.day-mode .footer {
     border-color: rgba(200,185,175,0.05);
   }
+  body.day-mode .health {
+    border-color: rgba(30,80,140,0.16);
+    background: rgba(30,80,140,0.04);
+  }
   body.day-mode .kbd {
     background: rgba(200,185,175,0.05);
     border-color: rgba(200,185,175,0.06);
@@ -1814,6 +1832,7 @@ var _hmt = _hmt || [];
       <div class="poker-info">
         <div class="poker-subtitle">精选优质 AI 工具与核心技术术语</div>
         <div class="update-badge">🕒 更新于 <span id="navUpdateDate">--</span></div>
+        <span class="health" data-health title="正在读取站点健康状态">● 检测中</span>
         <button class="poker-glossary-btn" id="glossaryBtn" onclick="dealCards('glossary')">📖 AI 术语</button>
       </div>
     </div>
@@ -1871,6 +1890,7 @@ var _hmt = _hmt || [];
     <button class="view-toggle" id="favImportBtn" type="button" title="导入收藏（JSON 文件 或 粘贴分享链接）" onclick="importFav()">📥 导入</button>
     <button class="view-toggle" id="clearFilters" type="button">✕ 清除筛选</button>
     <span class="table-count" id="tableCount"></span>
+    <span class="health" data-health title="正在读取站点健康状态">● 检测中</span>
   </div>
   <div class="tag-filter-bar" id="tagFilterBar"></div>
   <div class="fine-tag-bar" id="fineTagBar"></div>
@@ -2398,6 +2418,43 @@ var NAV_UPDATE_DATE = '2026-11-08';
   var el2 = document.getElementById('footUpdateDate');
   if(el1) el1.textContent = NAV_UPDATE_DATE;
   if(el2) el2.textContent = NAV_UPDATE_DATE;
+})();
+
+// ===== 站点健康徽标：异步读取 status.json（本地 file:// 打开时静默隐藏） =====
+// 两处互补：头部 .poker-info（初始可见）、工具栏 .table-toolbar（发牌后可见）
+(function(){
+  var els = document.querySelectorAll('[data-health]');
+  if(!els.length) return;
+  function hide(){ for(var i=0;i<els.length;i++) els[i].style.display='none'; }
+  if(typeof fetch !== 'function'){ hide(); return; }
+  fetch('status.json?t=' + Date.now(), {cache:'no-store'})
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .then(function(s){
+      if(!s || !s.status){ hide(); return; }
+      var st = s.status;
+      var cls = st==='ok' ? 'ok' : (st==='partial' ? 'warn' : 'bad');
+      var label = st==='ok' ? '● 正常' : (st==='partial' ? '● 部分完成' : '● 异常');
+      var t = String(s.lastRun || '').replace('T',' ').slice(0,16);
+      var text = label + ' · ' + (s.tools || '?') + ' 条' + (t ? ' · ' + t : '');
+      var f = s.fields || {};
+      var tip = [
+        '状态：' + st,
+        '最后运行：' + (s.lastRun || '未知'),
+        '说明：' + (s.message || '无'),
+        '本次新增：' + (s.added || 0),
+        '条目总数：' + (s.tools || '?') + '（重复 id：' + (s.duplicateIds || 0) + '）',
+        '字段覆盖：release ' + (f.release||0) + ' / pricing ' + (f.pricing||0)
+          + ' / cn ' + (f.cn||0) + ' / api ' + (f.api||0),
+        '更新日期：' + (s.date || '未知'),
+        s.failedStep ? '失败步骤：' + s.failedStep : ''
+      ].filter(Boolean).join('\n');
+      for(var i=0;i<els.length;i++){
+        els[i].className = 'health ' + cls;
+        els[i].textContent = text;
+        els[i].title = tip;
+      }
+    })
+    .catch(hide);
 })();
 
 const TOOLS = [
