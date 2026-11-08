@@ -1454,7 +1454,7 @@
 
   /* ===== 站点健康徽标（异步读取 status.json） ===== */
   .health {
-    display: inline-flex; align-items: center; gap: 5px;
+    display: none; align-items: center; gap: 5px;
     padding: 2px 9px; border-radius: 999px;
     font-size: 11px; line-height: 1.5; white-space: nowrap;
     vertical-align: middle; cursor: help;
@@ -2427,7 +2427,7 @@ var NAV_UPDATE_DATE = '2026-11-08';
   if(!els.length) return;
   function hide(){ for(var i=0;i<els.length;i++) els[i].style.display='none'; }
   if(typeof fetch !== 'function'){ hide(); return; }
-  fetch('status.json?t=' + Date.now(), {cache:'no-store'})
+  fetch('status.json', {cache:'no-cache'})
     .then(function(r){ return r.ok ? r.json() : null; })
     .then(function(s){
       if(!s || !s.status){ hide(); return; }
@@ -2452,6 +2452,7 @@ var NAV_UPDATE_DATE = '2026-11-08';
         els[i].className = 'health ' + cls;
         els[i].textContent = text;
         els[i].title = tip;
+        els[i].style.display = 'inline-flex';
       }
     })
     .catch(hide);
