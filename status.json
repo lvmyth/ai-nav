@@ -1,16 +1,16 @@
 {
-  "lastRun": "2026-11-08T22:34:52+08:00",
+  "lastRun": "2026-11-09T09:51:15+08:00",
   "status": "ok",
-  "message": "自主升级上线：镜像对齐 590 条、Pages 通道、推送前自检、健康面板",
-  "added": 0,
+  "message": "每日更新完成：新增3个工具/模型 + 3个术语",
+  "added": 6,
   "failedStep": "",
-  "date": "2026-11-08",
-  "tools": 590,
+  "date": "2026-11-09",
+  "tools": 596,
   "duplicateIds": 0,
   "fields": {
-    "release": 113,
-    "pricing": 194,
-    "cn": 293,
-    "api": 92
+    "release": 116,
+    "pricing": 197,
+    "cn": 296,
+    "api": 95
   }
 }
