@@ -1,16 +1,16 @@
 {
-  "lastRun": "2026-11-09T09:51:15+08:00",
-  "status": "ok",
-  "message": "每日更新完成：新增3个工具/模型 + 3个术语",
-  "added": 6,
+  "lastRun": "2026-11-10T09:39:59+08:00",
+  "status": "partial",
+  "message": "每日更新完成；新闻源正常，新增7条(6工具/模型+1术语)；muse-ember/muse-spaces 两个logo抓取失败暂用emoji",
+  "added": 7,
   "failedStep": "",
-  "date": "2026-11-09",
-  "tools": 596,
+  "date": "2026-11-10",
+  "tools": 603,
   "duplicateIds": 0,
   "fields": {
-    "release": 116,
-    "pricing": 197,
-    "cn": 296,
-    "api": 95
+    "release": 122,
+    "pricing": 203,
+    "cn": 302,
+    "api": 101
   }
 }
