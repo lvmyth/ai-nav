@@ -306,6 +306,31 @@ def preflight(path="index.html"):
                     mid = re.search(r"id:'([^']+)'", l)
                     warnings.append("  缺字段示例: " + (mid.group(1) if mid else l[:40]))
 
+    # 6) 受控主题词表校验（软检查）：防止每日任务自造主题名，慢慢污染词表
+    #    读本地 tag_taxonomy.json，零网络依赖；词表缺失/损坏一律跳过，绝不成为新失败源
+    try:
+        tax_path = os.path.join(ROOT, "tag_taxonomy.json")
+        if os.path.exists(tax_path):
+            with open(tax_path, "r", encoding="utf-8") as tf:
+                tax = json.load(tf)
+            allowed = set()
+            for group in tax.get("topics", {}).values():
+                allowed.update(group.keys())
+            offenders = []
+            for l in gl_lines:
+                mt = re.search(r"topics:\[([^\]]*)\]", l)
+                if not mt:
+                    continue
+                for v in re.findall(r"'([^']*)'", mt.group(1)):
+                    if v not in allowed:
+                        offenders.append(v)
+            if offenders:
+                warnings.append(
+                    f"{len(offenders)} 处 topics 不在 {len(allowed)} 个受控主题内"
+                    f"（建议改回词表内名称）: {sorted(set(offenders))[:5]}")
+    except Exception:
+        pass
+
     return (len(problems) == 0), problems, warnings, local_count
 
 
