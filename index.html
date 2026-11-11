@@ -2434,8 +2434,11 @@ var NAV_UPDATE_DATE = '2026-11-11';
       var st = s.status;
       var cls = st==='ok' ? 'ok' : (st==='partial' ? 'warn' : 'bad');
       var label = st==='ok' ? '● 正常' : (st==='partial' ? '● 部分完成' : '● 异常');
-      var t = String(s.lastRun || '').replace('T',' ').slice(0,16);
-      var text = label + ' · ' + (s.tools || '?') + ' 条' + (t ? ' · ' + t : '');
+      // 日期已由上方「🕒 更新于」徽标承担：同一天只显示时刻，跨天才补「月-日」，避免两处重复同一日期
+      var runDate = String(s.lastRun || '').slice(0,10);
+      var runTime = String(s.lastRun || '').slice(11,16);
+      var stamp = runTime ? (runDate && runDate !== NAV_UPDATE_DATE ? runDate.slice(5) + ' ' + runTime : runTime) : '';
+      var text = label + ' · ' + (s.tools || '?') + ' 条' + (stamp ? ' · ' + stamp : '');
       var f = s.fields || {};
       var tip = [
         '状态：' + st,
