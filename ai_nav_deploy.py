@@ -57,7 +57,8 @@ os.chdir(ROOT)
 
 # 每次 pull 都强制覆盖对齐远程的核心文件
 SYNC_FILES = ["index.html", "ai_nav_deploy.py", "fetch_missing_logos.py",
-              "dedup_tools.py", "write_status.py", "status.json"]
+              "dedup_tools.py", "write_status.py", "status.json",
+              "tag_taxonomy.json"]  # 词表真值：每日任务据此给新术语归类
 LOGO_DIR = "images/logos"
 
 # index.html 走 Pages 直出（原始字节、无需 token、不会被 base64 膨胀拖慢）
@@ -171,16 +172,27 @@ def api(method, path, data=None, timeout=25):
 
 
 def get_tree():
-    """返回 远程 main 的完整文件树 path -> git blob sha。"""
-    rc, out = api("GET", f"/repos/{REPO}/git/trees/{BRANCH}?recursive=1")
-    if rc != 0 or not out:
-        raise RuntimeError("获取远程 git tree 失败：%s" % "; ".join(LAST_API_ERRORS[:3]))
-    try:
-        j = json.loads(out)
-    except Exception:
-        raise RuntimeError("解析远程 git tree 失败")
-    return {t["path"]: t["sha"] for t in j.get("tree", [])
-            if t.get("type") == "blob"}
+    """返回远程 main 的完整文件树 path -> git blob sha。
+
+    tree 响应约 112KB，沙箱到 GitHub 偶发拥塞时 25s 会收到 half body；
+    这里放宽单次超时并自动重试（api() 每轮还会轮换候选 IP），
+    避免把一次网络抖动变成整天的自动化失败。
+    """
+    last = "未知"
+    for attempt in range(3):
+        rc, out = api("GET", f"/repos/{REPO}/git/trees/{BRANCH}?recursive=1",
+                      timeout=60)
+        if rc == 0 and out:
+            try:
+                j = json.loads(out)
+                return {t["path"]: t["sha"] for t in j.get("tree", [])
+                        if t.get("type") == "blob"}
+            except Exception:
+                last = "解析远程 git tree 失败"
+        else:
+            last = "; ".join(LAST_API_ERRORS[:3])
+        print(f"[get_tree] 第 {attempt+1} 次未成功，重试中：{last[:140]}")
+    raise RuntimeError("获取远程 git tree 失败（已重试 3 次）：" + last)
 
 
 def remote_file(path, timeout=25):
@@ -277,6 +289,22 @@ def preflight(path="index.html"):
     dup = len(ids) - len(set(ids))
     if dup:
         problems.append(f"存在 {dup} 个重复 id")
+
+    # 5) 术语结构化字段（domain / topics）完整性
+    #    逐条检查而非只看总数，避免「新增术语漏填」被高覆盖率掩盖。
+    #    单条格式差异仅告警；大面积缺失才硬阻断，防止误杀每日任务。
+    gl_lines = [l for l in html.splitlines() if re.search(r"\{\s*id:'gl-", l)]
+    if gl_lines:
+        lack = [l for l in gl_lines if "topics:[" not in l or "domain:'" not in l]
+        if lack:
+            msg = f"{len(lack)}/{len(gl_lines)} 条术语缺少 domain/topics"
+            if len(lack) > max(3, int(len(gl_lines) * 0.2)):
+                problems.append(msg + "（超过 20%，疑似术语块被重写，禁止推送）")
+            else:
+                warnings.append(msg + "（少量缺失，建议补齐，不阻断）")
+                for l in lack[:3]:
+                    mid = re.search(r"id:'([^']+)'", l)
+                    warnings.append("  缺字段示例: " + (mid.group(1) if mid else l[:40]))
 
     return (len(problems) == 0), problems, warnings, local_count
 
