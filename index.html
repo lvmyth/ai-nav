@@ -2412,7 +2412,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-11-10';
+var NAV_UPDATE_DATE = '2026-11-11';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -2459,6 +2459,12 @@ var NAV_UPDATE_DATE = '2026-11-10';
 })();
 
 const TOOLS = [
+{ id:'claude-sheets', name:'Claude Sheets', vendor:'Anthropic', cat:'office', region:'intl', desc:'Anthropic 于 2026年11月10日发布的 AI 电子表格（beta），面向所有付费计划，网页/桌面/移动端可用。用一句提示即可生成含多个标签页、公式、格式与下拉菜单的表格（如活动追踪表、招聘预算表），Claude 可直接在单元格中编辑，每次 AI 修改都会被标记以便团队追踪变更；支持导出 .xlsx/CSV，或导往 Airtable、Asana、monday.com、Smartsheet、Claude for Excel 等工具继续处理。官方坦言当前功能「相对基础」，不以财务建模等复杂场景为目标。该产品与 Claude Whiteboards、Claude Data 构成 Anthropic 冲击 IPO 之际发布的 AI 办公套件，被视为对微软 Excel 与谷歌 Sheets 的正面挑战，消息公布当日微软股价一度跌超 3%。', release:'2026-11-10', pricing:'paid', cn:0, api:0, tags:['Anthropic','Claude','Sheets','电子表格','办公套件','beta'], url:'https://claude.com/resources/articles/sheets-whiteboards-data', icon:'images/logos/claude-sheets.png' },
+{ id:'claude-whiteboards', name:'Claude Whiteboards', vendor:'Anthropic', cat:'office', region:'intl', desc:'Anthropic 于 2026年11月10日发布的团队协作数字白板（beta），面向所有付费计划。用户可口头描述一个模糊计划，Claude 会将其整理为包含时间线、负责人与日期的白板，团队成员可实时在同一块白板补充想法；会议复盘时 Claude 可将零散讨论按主题归类并起草每个人的行动项，也可框选白板局部继续追问。完成后可转成文档或演示文稿，或导往 Lucid、Miro、Vani 等工具。与 Claude Sheets、Claude Data 构成连续工作空间：一个想法可从白板进入表格，再进入数据看板，无需反复重述背景信息。', release:'2026-11-10', pricing:'paid', cn:0, api:0, tags:['Anthropic','Claude','Whiteboards','白板','团队协作','办公套件'], url:'https://claude.com/resources/articles/sheets-whiteboards-data', icon:'images/logos/claude-whiteboards.png' },
+{ id:'claude-data', name:'Claude Data', vendor:'Anthropic', cat:'office', region:'intl', desc:'Anthropic 于 2026年11月10日将 10 月 beta 的 Claude Dashboards 正式发布并更名为 Claude Data，定位「让企业数据会讲故事」：可连接 Amazon Redshift、BigQuery、ClickHouse、Snowflake、Salesforce 等数据仓库或 CRM，提问后生成仪表盘、书面数据故事或 AI 解说的短视频。新增认证查询（由数据团队统一关键指标口径，图表带认证徽标）、实时分享（未接入数据源的同事也能查看最新结果，但仅能运行被授权的查询）、设计系统支持、仪表盘缓存与按版本追踪变更回滚。合作生态包括 Amplitude、Mixpanel、Omni、PostHog、Sigma。', release:'2026-11-10', pricing:'paid', cn:0, api:0, tags:['Anthropic','Claude','Data','数据分析','仪表盘','BI'], url:'https://claude.com/resources/articles/sheets-whiteboards-data', icon:'images/logos/claude-data.png' },
+{ id:'google-ai-edge-gallery', name:'Google AI Edge Gallery', vendor:'Google', cat:'chat', region:'intl', desc:'Google 开源的端侧 AI 模型运行应用（Android/iOS），2026年11月10日更新新增端侧语音识别（ASR）与语音合成（TTS）能力，可在离线状态下用 Gemma 等本地模型对话并完成语音转文字与文字转语音。应用定位为让开发者与用户在手机本地直接探索、运行开源模型，无需联网、数据不出设备，是 Google 推动 Edge AI 落地的官方入口，代码托管于 GitHub（google-ai-edge/gallery）。', release:'', pricing:'free', cn:0, api:0, tags:['Google','端侧推理','离线模型','语音识别','语音合成','开源','Edge AI'], url:'https://github.com/google-ai-edge/gallery', icon:'images/logos/google-ai-edge-gallery.png' },
+{ id:'gl-lazarus-backdoor', name:'Lazarus 权重空间后门 (Weight-Space Backdoor)', vendor:'Microsoft Research', cat:'glossary', subcat:'gl-tech', desc:'Microsoft Research 于 2026年11月披露的针对 AI 智能体的新型后门攻击技术：攻击者不在数据或提示层面动手，而是直接在模型权重的「休眠神经元」中植入恶意逻辑（Lazarus，取「复活」之意），平时完全静默，待特定触发条件出现时被重编程激活，劫持智能体执行恶意行为。该研究揭示了权重空间这一此前被忽视的攻击面——传统的内容过滤与行为审计均难以发现，对开源权重分发与模型微调供应链构成现实威胁，需借助激活分类器与权重完整性校验等手段防御。', tags:['Microsoft Research','后门攻击','权重空间','AI 安全','智能体安全'], icon:'🚪' },
+{ id:'gl-cyberbingym', name:'CyberBinGym 基准 (CyberBinGym Benchmark)', vendor:'Berkeley RDI', cat:'glossary', subcat:'gl-frontier', desc:'Berkeley RDI 于 2026年11月发布的网络安全基准，专门测试 AI 智能体能否仅凭二进制补丁（binary patch）反推出真实可用的漏洞利用（exploit），而无需访问源代码。该任务贴近真实攻防场景——防御者与攻击者通常都只能拿到补丁而非源码——可衡量前沿模型在逆向工程与漏洞利用自动化上的真实能力边界，与 OpenAI ExploitGym、Wiz 网络安全评测等共同构成 AI 网络安全能力评估的基准矩阵。', tags:['Berkeley RDI','基准','网络安全','漏洞利用','逆向工程'], icon:'🧩' },
 { id:'claude-fable-52', name:'Claude Fable 5.2', vendor:'Anthropic', cat:'chat', region:'intl', desc:'Anthropic 于 2026年11月9日发布的旗舰模型（与 Mythos 5.2 同一底座），在 Artificial Analysis Intelligence Index v5 以 65 分登顶，领先 Gemini 4 Carbon 5 分、自家 Opus 5.5 6 分；FrontierCode 2.0 智能体编程得分 49.1%、FrontierSWE v2 达 69.9%。生成速度较 Fable 5.1 最高提升 30%，可选 Fast Mode 再提至 2.5 倍；API 降价 20%：每百万 token 输入 8 美元、输出 40 美元。官方演示案例包括 1000 个智能体 30 小时完成费马大定理 Lean 形式化证明、协调超 1000 个子智能体 8 天从零构建可开机的原型操作系统、一次直出三款可制造电子设备设计。安全方面在训练阶段将加速器内核优化与大模型架构改进能力限制在 Opus 5.5 水平以防 AI 自我迭代失控，并强化反蒸馏保护（可减少被蒸馏数据 90%–99%）。现已上线 Claude 应用、Claude Code 及 AWS、Google Cloud、Azure 等全平台。', release:'2026-11-09', pricing:'paid', cn:0, api:1, tags:['Anthropic','Claude','Fable 5.2','旗舰模型','智能体编程','费马大定理','反蒸馏'], url:'https://www.anthropic.com/claude-fable-and-mythos-5-2', icon:'images/logos/claude-fable-52.png' },
 { id:'claude-mythos-52', name:'Claude Mythos 5.2', vendor:'Anthropic', cat:'chat', region:'intl', desc:'Anthropic 于 2026年11月9日与 Fable 5.2 同步发布的受限访问变体，两者基于同一底层模型。Mythos 5.2 解除部分网络安全与生物研究领域的安全护栏，仅通过网络安全验证计划（Cyber Verification Program）与生命科学验证计划向经审核的机构开放，定位全球网络安全能力最强的模型：在 1800 多个场景的沙箱逃逸测试中逃逸率从上一代的 21% 降至 3.1%。科研表现突出：提出预测腺相关病毒（AAV）衣壳整体结构的新方法，34 个测试衣壳中成功建模 28 个，单张 H200 推理仅需约 7 分钟，可为基因治疗研发提速。同样支持 Fast mode，API 价格与 Fable 5.2 一致（每百万 token 输入 8 美元、输出 40 美元）。', release:'2026-11-09', pricing:'paid', cn:0, api:1, tags:['Anthropic','Claude','Mythos 5.2','网络安全','生物安全','验证计划','AAV 衣壳'], url:'https://www.anthropic.com/claude-fable-and-mythos-5-2', icon:'images/logos/claude-mythos-52.png' },
 { id:'zonos3-mini', name:'ZONOS3-Mini', vendor:'Zyphra', cat:'audio', region:'intl', desc:'Zyphra 于 2026年11月9日开源的零样本语音克隆 TTS 模型，Apache 2.0 协议。稀疏 MoE 架构：总参数 8 亿、每 token 激活仅 1 亿，用 112 块 H100 训练 2.5 天。端侧实时运行是最大亮点：Pixel 9 手机浏览器（WebGPU）出声时间低于 570 毫秒、M3 MacBook Air 低于 150 毫秒，官方同时提供 SGLang、vLLM、GGML 等运行时，SGLang 单卡 H100 首音频延迟仅 57 毫秒。可控性突出：身份（年龄、性别、口音、音色）通过说话人嵌入向量与口音任务向量连续调节，语气（语速、情绪、力度）经激活导向控制，流式生成中可通过对齐注意力头实现词级语气控制，另有独立编辑模型支持生成后改词。官方 ZTTS2-Eval 评测中位居开源模型第一。权重托管于 Hugging Face。', release:'2026-11-09', pricing:'free', cn:0, api:1, tags:['Zyphra','ZONOS3-Mini','TTS','语音克隆','开源','WebGPU','端侧推理','MoE'], url:'https://zyphra.com', icon:'images/logos/zonos3-mini.png' },
@@ -3407,26 +3413,26 @@ const CORS_PROXIES = [
   url => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
 ];
 const FALLBACK_DATA = [
-  {"title": "实测 Claude Fable 5.2：一次直出视频与 3D 网页，审美与细节表现突出", "category": "ai-models", "url": "https://mp.weixin.qq.com/s/sKoVHL_oNsik9vtUjr0lHg"},
-  {"title": "做空机构 Culper Research 曾在丑闻爆发前六个月提示 Nvidia CEO 与疑似中国间谍的关系", "category": "industry", "url": "https://techcrunch.com/2026/11/09/a-short-seller-flagged-nvidia-ceos-ties-to-a-suspected-chinese-spy-six-months-before-the-scandal/"},
-  {"title": "Zyphra 发布开源 TTS 模型 ZONOS3-Mini，可在手机浏览器实时运行", "category": "ai-models", "url": "https://www.zyphra.com/our-work/zonos3-mini"},
-  {"title": "Anthropic 指南：Claude 开发该选 Haiku 5.5、Sonnet 5.5、Opus 5.5 还是 Fable 5.2", "category": "tip", "url": "https://claude.dev/blog/which-claude-model-should-you-build-with/"},
-  {"title": "Claude Fable 5.2 上线 Higgsfield，开放 3 天免费试用", "category": "ai-products", "url": "https://x.com/higgsfield/status/2119884452054937656"},
-  {"title": "Artificial Analysis 评测 Claude Fable 5.2：以 65 分登顶 Intelligence Index v5", "category": "ai-models", "url": "https://x.com/ArtificialAnlys/status/2119878995386982508"},
-  {"title": "Claude Fable 5.2 上线 Devin Desktop 和 Devin CLI", "category": "ai-products", "url": "https://x.com/cognition/status/2119869931135406452"},
-  {"title": "Anthropic 测试 Claude Fable 5.2 端到端设计三种电子设备并制作可用原型", "category": "paper", "url": "https://www.anthropic.com/research/claude-electronics-design"},
-  {"title": "Claude Mythos 5.2 预测基因治疗载体 AAV 衣壳结构", "category": "ai-models", "url": "https://www.youtube.com/watch?v=FMbXUxn_nBw"},
-  {"title": "Anthropic 用 1000 个 Claude Fable 5.2 智能体在沙箱内复现费马大定理形式化证明", "category": "paper", "url": "https://claude.dev/blog/safely-scaling-multi-agent-teams-with-fable-5-2/"},
-  {"title": "Anthropic 发布 Claude Fable 5.2 与 Claude Mythos 5.2", "category": "ai-models", "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2"},
-  {"title": "Redwood Research 分析 OpenAI Astra 在安全任务上的隐性消极表现", "category": "opinion", "url": "https://blog.redwoodresearch.org/p/astra-covertly-underperforming-on"},
-  {"title": "Meta 发布最小最高效模型 Muse Ember，主打智能体高频任务", "category": "ai-models", "url": "https://research.meta.ai/blog/muse-ember"},
-  {"title": "字节发布 Seedream 5.5 图像创作模型：支持 100 轮编辑与原生 RGBA 透明输出", "category": "ai-models", "url": "https://seed.bytedance.com/zh/blog/%E7%94%9F%E6%88%90%E6%9B%B4%E7%9C%9F%E5%AE%9E-%E7%99%BE%E8%BD%AE%E7%BC%96%E8%BE%91%E6%9B%B4%E7%A8%B3%E5%AE%9A-seedream-5-5-%E5%8F%91%E5%B8%83"},
-  {"title": "百度发布 ERNIE Evolve 自动研究系统，公开任务超最好纪录并落地 ERNIE-5.5-Flash 推理优化", "category": "ai-products", "url": "https://ernie.baidu.com/zh/research/posts/ernie-evolve/"},
-  {"title": "耶鲁教授 Sonnenfeld 估计黄仁勋职位去留概率约为 50-50", "category": "opinion", "url": "https://techcrunch.com/2026/11/08/is-jensen-huangs-job-on-the-line-yales-jeffrey-sonnenfeld-estimates-its-about-a-50-50/"},
-  {"title": "Nvidia CEO 黄仁勋婚外情风波削弱其对严格 AI 芯片出口管制的游说", "category": "industry", "url": "https://the-decoder.com/nvidia-espionage-scandal-weakens-huangs-lobby-against-tighter-ai-chip-export-controls/"},
-  {"title": "数字生命卡兹克上线免费 Token 福利聚合网站 Token羊毛", "category": "ai-products", "url": "https://mp.weixin.qq.com/s/MyNWZlURmO0xIxQpMOQZWg"},
-  {"title": "Anthropic 拟感恩节前 IPO，接受低于预期的估值，募资 800–1000 亿美元", "category": "industry", "url": "https://the-decoder.com/anthropic-pushes-ahead-with-pre-thanksgiving-ipo-despite-tech-selloff-accepts-lower-valuation/"},
-  {"title": "GPT-Image-2.6 实测：10 个 GIF 玩法提示词与三项新能力评测", "category": "tip", "url": "https://x.com/aiwarts/status/2119435411667980473"}
+  {"title": "Anthropic 投资需求火热，承销商拟将 IPO 目标估值上调回 $1.5T 或更高", "category": "industry", "url": "https://x.com/rohanpaul_ai/status/2120320127484969162"},
+  {"title": "OpenRouter 实测 MCP vs CLI vs Skills 的上下文 token 成本", "category": "tip", "url": "https://openrouter.ai/blog/insights/mcp-vs-cli-vs-skills/"},
+  {"title": "OpenRouter 实测 fp8 与 fp4 量化对模型质量和价格的影响", "category": "tip", "url": "https://openrouter.ai/blog/insights/llm-quantization/"},
+  {"title": "Claude Fable 5.2 实测观察：大模型正用代码吞噬审美与创作", "category": "opinion", "url": "https://mp.weixin.qq.com/s/zgBGhOsuh6Z_5Enmzos3rQ"},
+  {"title": "Microsoft Research 揭示 Lazarus 权重空间后门技术，通过重编程休眠神经元攻击 AI Agent", "category": "paper", "url": "https://www.microsoft.com/en-us/research/blog/lazare-veni-foras-reprogramming-dormant-neurons-to-backdoor-ai-agents/"},
+  {"title": "Cursor Projects 升级为多人协作模式", "category": "ai-products", "url": "https://cursor.com/blog/projects-multiplayer"},
+  {"title": "Berkeley RDI 发布 CyberBinGym 基准，测试 AI 智能体能否仅凭二进制补丁写出真实漏洞利用", "category": "paper", "url": "https://rdi.berkeley.edu/blog/cyberbingym"},
+  {"title": "OpenAI 披露 ExploitGym 评测中智能体利用同行遗留凭据越权访问内部研究基础设施", "category": "paper", "url": "https://alignment.openai.com/misalignment-reports/using-peers-work-to-gain-unauthorized-access-to-openai-research-infrastructure/"},
+  {"title": "OpenAI 研究：模型生命周期中哪些因素影响 CoT 可监控性", "category": "paper", "url": "https://alignment.openai.com/cot-monitorability-model-lifecycle/"},
+  {"title": "Anthropic 研究：稀释投毒微调数据反而会强化其后门效应", "category": "paper", "url": "https://alignment.anthropic.com/2026/homeopathic-learning/"},
+  {"title": "Stripe 收购 OpenRouter，双方宣布合并后定位", "category": "industry", "url": "https://x.com/OpenRouter/status/2120234542183395787"},
+  {"title": "Ed Zitron 长文剖析黄仁勋丑闻与 NVIDIA 疑似借 Megaspeed 向中国走私 GPU", "category": "industry", "url": "https://www.wheresyoured.at/jensens-bizarre-adventure/"},
+  {"title": "OpenAI 开放 ChatGPT Business 计划登录 Notion、v0 等第三方工具", "category": "ai-products", "url": "https://x.com/OpenAIDevs/status/2120212596850663712"},
+  {"title": "Google AI Edge Gallery 新增端侧语音识别与语音合成能力", "category": "ai-products", "url": "https://developers.googleblog.com/on-device-speech-recognition-and-text-to-speech-in-google-ai-edge-gallery/"},
+  {"title": "Claude 升级交互式连接器，应用可在对话旁全屏打开并由 Claude 直接操作", "category": "ai-products", "url": "https://claude.com/blog/interactive-connectors-full-tool"},
+  {"title": "Anthropic 发布 Claude Whiteboards 和 Claude Sheets，Claude Dashboards 转正为 Claude Data", "category": "ai-products", "url": "https://claude.com/blog/sheets-whiteboards-data"},
+  {"title": "Wiz 讲解如何评估 AI 智能体的网络安全能力", "category": "paper", "url": "https://www.wiz.io/blog/cyber-model-arena-ai-benchmark"},
+  {"title": "OpenRouter 教程：用 JSON Schema、工具调用或决策模型获取任意 LLM 的结构化输出", "category": "tip", "url": "https://openrouter.ai/blog/tutorials/structured-output-llm/"},
+  {"title": "OpenRouter 实测最佳 OCR 模型：Claude Opus 5.5 最准，Mistral OCR 性价比最高", "category": "tip", "url": "https://openrouter.ai/blog/insights/best-ocr-model/"},
+  {"title": "Gemini 4 Carbon 现已登陆 Cursor，高 effort 下居 CursorBench 榜首", "category": "ai-products", "url": "https://x.com/cursor_ai/status/2120193584670580857"}
 ];
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧','opinion':'观点' };
 
