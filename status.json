@@ -1,16 +1,16 @@
 {
-  "lastRun": "2026-11-11T22:12:11+08:00",
+  "lastRun": "2026-11-12T09:43:03+08:00",
   "status": "ok",
-  "message": "术语库标签治理上线：303 条术语接入 12 域/50 受控主题/6 标记，筛选栏改走受控主题",
-  "added": 0,
+  "message": "每日更新完成",
+  "added": 5,
   "failedStep": "",
-  "date": "2026-11-11",
-  "tools": 609,
+  "date": "2026-11-12",
+  "tools": 614,
   "duplicateIds": 0,
   "fields": {
-    "release": 126,
-    "pricing": 207,
-    "cn": 306,
-    "api": 105
+    "release": 129,
+    "pricing": 210,
+    "cn": 309,
+    "api": 108
   }
 }
