@@ -2416,7 +2416,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-11-11';
+var NAV_UPDATE_DATE = '2026-11-12';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -2466,6 +2466,11 @@ var NAV_UPDATE_DATE = '2026-11-11';
 })();
 
 const TOOLS = [
+{ id:'minimax-h3-image', name:'MiniMax H3-Image', vendor:'MiniMax', cat:'image', region:'cn', desc:'MiniMax 于 2026年11月10日发布并开放权重的图像生成模型，基于 8 月开源的 H3 多模态底座的图像分支：33.1B 参数稠密单流 DiT 架构，蒸馏至 6 步采样，原生直出约 16MP（4096×4096）的 4K 图像，官方称 10 秒内即可完成生成，速度为主流工具的 1.5–2 倍（Highspeed 模式 3–4 倍）。支持文生图、参考图生成与图像编辑，单次最多可理解 16 张参考图，开放权重模型中提示词遵循度居前列。权重以社区许可开放（年收入 2000 万美元以内可免费商用），同步上架 Hugging Face、GitHub 与 ModelScope，并已接入 MiniMax API 平台、MiniMax Code 与海螺 AI，ComfyUI 发布当日完成适配，摩尔线程 MTT S5000 完成 Day-0 适配；定价约为同档位主流工具的 50%–70%，发布首周 4K 生成五折。注意：不支持透明背景与蒙版编辑。', release:'2026-11-10', pricing:'freemium', cn:1, api:1, tags:['MiniMax','H3-Image','图像生成','4K','文生图','图像编辑','开源'], url:'https://www.minimax.io/blog/minimax-h3-image', icon:'images/logos/minimax-h3-image.png' },
+{ id:'runway-praxis-1', name:'Runway Praxis-1', vendor:'Runway', cat:'video', region:'intl', desc:'Runway 于 2026年11月11日发布并开源的 27B 世界动作模型（World Action Model）：不同于仅生成视频的传统视频模型，Praxis-1 直接输出可执行的世界动作序列，让模型理解并干预动态环境，是 Runway 从视频生成走向交互式世界模拟的关键一步。权重采用 Apache 2.0 许可在 Hugging Face 开放，支持商用与研究定制，是目前开源阵营中少有的大规模世界模型权重发布。Runway 此前已凭借 Gen-4 系列在影视级视频生成领域占位，Praxis-1 将其能力延伸到智能体与世界交互赛道。', release:'2026-11-11', pricing:'freemium', cn:0, api:1, tags:['Runway','Praxis-1','世界模型','视频生成','开源','Apache 2.0'], url:'https://runwayml.com/news/company-news/praxis-1-is-now-available', icon:'images/logos/runway-praxis-1.png' },
+{ id:'gemini-decisions-api', name:'Gemini Decisions API', vendor:'Google', cat:'chat', region:'intl', desc:'Google 于 2026年11月11日发布的决策专用 API 与配套模型 Gemini Decision 1：面向封闭式决策场景（从给定选项中做快速判断），支持多模态输入，主打低延迟与高吞吐，定位与微软 10 月发布的 Microsoft-Decision-1 类似，是把「判断类任务」从生成式模型中拆出来的专用路线。适合内容审核分流、意图路由、风险判断等程序化决策工作流，在智能体编排中可作为廉价、快速、可校准的决策层。通过 Gemini API 提供服务。', release:'2026-11-11', pricing:'paid', cn:0, api:1, tags:['Google','Gemini','Decisions API','Decision 1','决策模型','意图路由'], url:'https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/', icon:'images/logos/gemini-decisions-api.png' },
+{ id:'gl-mamubench', name:'MAMUBench 基准 (MAMUBench)', vendor:'Anthropic', cat:'glossary', subcat:'gl-frontier', desc:'Anthropic 于 2026年11月11日发布的多智能体评测基准，核心发现是「人多未必力量大」：在四类环境的评测中，由单一智能体统一协调的方案全面胜过为每个用户各配一个智能体团队的方案。该结果与业界普遍的多智能体架构热情形成反差，指出多智能体协作引入的通信开销、上下文碎片化与责任模糊可能得不偿失，为智能体系统的架构选型提供了重要的实证参照，也与此前「单智能体+好工具」优于多智能体 swarm 的行业讨论相互印证。', tags:['Anthropic','MAMUBench','多智能体','评测基准','架构选型','2026新词'], icon:'📊', domain:'评测与质量', topics:['评测与基准'], flags:['2026新词'] },
+{ id:'gl-b2a-economy', name:'B2A 经济 (B2A Economy)', vendor:'a16z', cat:'glossary', subcat:'gl-basic', desc:'风投机构 a16z 于 2026年11月提出的概念：继 B2B、B2C 之后，AI 智能体正在成为新的「客户」与流量分发渠道——企业未来的产品与服务将越来越多地被智能体代表人类用户去发现、比较、调用与支付（Business-to-Agent）。这意味着面向人的界面、营销与定价体系需要重新设计：API 化、可被智能体理解与信任的结构化信息、机器可读的商业协议将成为新的分发基础设施。与 Agentic Commerce、MCP 等协议生态的兴起互为表里，是判断下一代互联网入口格局的重要框架。', tags:['a16z','B2A','智能体经济','Agentic Commerce','商业模式','2026新词'], icon:'🔀', domain:'产业与生态', topics:['产业与企业'], flags:['2026新词'] },
 { id:'claude-sheets', name:'Claude Sheets', vendor:'Anthropic', cat:'office', region:'intl', desc:'Anthropic 于 2026年11月10日发布的 AI 电子表格（beta），面向所有付费计划，网页/桌面/移动端可用。用一句提示即可生成含多个标签页、公式、格式与下拉菜单的表格（如活动追踪表、招聘预算表），Claude 可直接在单元格中编辑，每次 AI 修改都会被标记以便团队追踪变更；支持导出 .xlsx/CSV，或导往 Airtable、Asana、monday.com、Smartsheet、Claude for Excel 等工具继续处理。官方坦言当前功能「相对基础」，不以财务建模等复杂场景为目标。该产品与 Claude Whiteboards、Claude Data 构成 Anthropic 冲击 IPO 之际发布的 AI 办公套件，被视为对微软 Excel 与谷歌 Sheets 的正面挑战，消息公布当日微软股价一度跌超 3%。', release:'2026-11-10', pricing:'paid', cn:0, api:0, tags:['Anthropic','Claude','Sheets','电子表格','办公套件','beta'], url:'https://claude.com/resources/articles/sheets-whiteboards-data', icon:'images/logos/claude-sheets.png' },
 { id:'claude-whiteboards', name:'Claude Whiteboards', vendor:'Anthropic', cat:'office', region:'intl', desc:'Anthropic 于 2026年11月10日发布的团队协作数字白板（beta），面向所有付费计划。用户可口头描述一个模糊计划，Claude 会将其整理为包含时间线、负责人与日期的白板，团队成员可实时在同一块白板补充想法；会议复盘时 Claude 可将零散讨论按主题归类并起草每个人的行动项，也可框选白板局部继续追问。完成后可转成文档或演示文稿，或导往 Lucid、Miro、Vani 等工具。与 Claude Sheets、Claude Data 构成连续工作空间：一个想法可从白板进入表格，再进入数据看板，无需反复重述背景信息。', release:'2026-11-10', pricing:'paid', cn:0, api:0, tags:['Anthropic','Claude','Whiteboards','白板','团队协作','办公套件'], url:'https://claude.com/resources/articles/sheets-whiteboards-data', icon:'images/logos/claude-whiteboards.png' },
 { id:'claude-data', name:'Claude Data', vendor:'Anthropic', cat:'office', region:'intl', desc:'Anthropic 于 2026年11月10日将 10 月 beta 的 Claude Dashboards 正式发布并更名为 Claude Data，定位「让企业数据会讲故事」：可连接 Amazon Redshift、BigQuery、ClickHouse、Snowflake、Salesforce 等数据仓库或 CRM，提问后生成仪表盘、书面数据故事或 AI 解说的短视频。新增认证查询（由数据团队统一关键指标口径，图表带认证徽标）、实时分享（未接入数据源的同事也能查看最新结果，但仅能运行被授权的查询）、设计系统支持、仪表盘缓存与按版本追踪变更回滚。合作生态包括 Amplitude、Mixpanel、Omni、PostHog、Sigma。', release:'2026-11-10', pricing:'paid', cn:0, api:0, tags:['Anthropic','Claude','Data','数据分析','仪表盘','BI'], url:'https://claude.com/resources/articles/sheets-whiteboards-data', icon:'images/logos/claude-data.png' },
@@ -3420,26 +3425,26 @@ const CORS_PROXIES = [
   url => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
 ];
 const FALLBACK_DATA = [
+  {"title": "OpenRouter 实测六模型并给出四层防护，解决 AI Agent 无限循环烧钱问题", "category": "tip", "url": "https://openrouter.ai/blog/tutorials/ai-agent-infinite-loop/"},
+  {"title": "WSJ 报道 Nvidia 董事会接近决定是否罢免 CEO 黄仁勋", "category": "industry", "url": "https://x.com/rohanpaul_ai/status/2120663635479625930"},
+  {"title": "Google 发布 Gemini Decisions API 与 Gemini Decision 1 模型，专注快速多模态封闭式决策", "category": "ai-products", "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/"},
+  {"title": "Claude Code 中如何选择 Fable 5.2 与 Opus 等模型", "category": "tip", "url": "https://www.youtube.com/watch?v=C33hJGt-ySg"},
+  {"title": "Runway 开源 27B 世界动作模型 Praxis-1，权重采用 Apache 2.0 许可", "category": "ai-models", "url": "https://runwayml.com/news/company-news/praxis-1-is-now-available"},
+  {"title": "Anthropic 发布 MAMUBench：单一智能体协调在四类环境中均胜过每个用户各自的智能体团队", "category": "paper", "url": "https://alignment.anthropic.com/2026/worse-together/"},
+  {"title": "a16z 提出 B2A 经济：AI 智能体正成为新的流量与分发渠道", "category": "opinion", "url": "https://www.a16z.news/p/welcome-to-the-b2a-economy"},
+  {"title": "Anthropic IPO 拟募资最高 90.4B 美元，或成史上最大上市", "category": "industry", "url": "https://x.com/rohanpaul_ai/status/2120526677247939001"},
+  {"title": "OpenAI Q3 营收达 100 亿美元，效率仍落后于 Anthropic", "category": "industry", "url": "https://the-decoder.com/enterprise-sales-push-openais-quarterly-revenue-to-10-billion-though-it-still-trails-anthropic/"},
+  {"title": "WSJ：Anthropic 7 位创始人 IPO 各套现约 2.5 亿美元并保留控制权", "category": "industry", "url": "https://x.com/rohanpaul_ai/status/2120392847505715324"},
+  {"title": "百度发布 ERNIE 5.5 Flash Preview，权重将于 11 月 25 日前开源", "category": "ai-models", "url": "https://ernie.baidu.com/zh/release/ernie-5-5-flash-preview/"},
+  {"title": "Anthropic 修订版 S1 文件披露与 Microsoft 和 Google 超 100 亿美元级新算力协议", "category": "industry", "url": "https://x.com/rohanpaul_ai/status/2120369586096976098"},
   {"title": "Anthropic 投资需求火热，承销商拟将 IPO 目标估值上调回 $1.5T 或更高", "category": "industry", "url": "https://x.com/rohanpaul_ai/status/2120320127484969162"},
   {"title": "OpenRouter 实测 MCP vs CLI vs Skills 的上下文 token 成本", "category": "tip", "url": "https://openrouter.ai/blog/insights/mcp-vs-cli-vs-skills/"},
-  {"title": "OpenRouter 实测 fp8 与 fp4 量化对模型质量和价格的影响", "category": "tip", "url": "https://openrouter.ai/blog/insights/llm-quantization/"},
-  {"title": "Claude Fable 5.2 实测观察：大模型正用代码吞噬审美与创作", "category": "opinion", "url": "https://mp.weixin.qq.com/s/zgBGhOsuh6Z_5Enmzos3rQ"},
   {"title": "Microsoft Research 揭示 Lazarus 权重空间后门技术，通过重编程休眠神经元攻击 AI Agent", "category": "paper", "url": "https://www.microsoft.com/en-us/research/blog/lazare-veni-foras-reprogramming-dormant-neurons-to-backdoor-ai-agents/"},
   {"title": "Cursor Projects 升级为多人协作模式", "category": "ai-products", "url": "https://cursor.com/blog/projects-multiplayer"},
-  {"title": "Berkeley RDI 发布 CyberBinGym 基准，测试 AI 智能体能否仅凭二进制补丁写出真实漏洞利用", "category": "paper", "url": "https://rdi.berkeley.edu/blog/cyberbingym"},
-  {"title": "OpenAI 披露 ExploitGym 评测中智能体利用同行遗留凭据越权访问内部研究基础设施", "category": "paper", "url": "https://alignment.openai.com/misalignment-reports/using-peers-work-to-gain-unauthorized-access-to-openai-research-infrastructure/"},
-  {"title": "OpenAI 研究：模型生命周期中哪些因素影响 CoT 可监控性", "category": "paper", "url": "https://alignment.openai.com/cot-monitorability-model-lifecycle/"},
-  {"title": "Anthropic 研究：稀释投毒微调数据反而会强化其后门效应", "category": "paper", "url": "https://alignment.anthropic.com/2026/homeopathic-learning/"},
   {"title": "Stripe 收购 OpenRouter，双方宣布合并后定位", "category": "industry", "url": "https://x.com/OpenRouter/status/2120234542183395787"},
-  {"title": "Ed Zitron 长文剖析黄仁勋丑闻与 NVIDIA 疑似借 Megaspeed 向中国走私 GPU", "category": "industry", "url": "https://www.wheresyoured.at/jensens-bizarre-adventure/"},
   {"title": "OpenAI 开放 ChatGPT Business 计划登录 Notion、v0 等第三方工具", "category": "ai-products", "url": "https://x.com/OpenAIDevs/status/2120212596850663712"},
-  {"title": "Google AI Edge Gallery 新增端侧语音识别与语音合成能力", "category": "ai-products", "url": "https://developers.googleblog.com/on-device-speech-recognition-and-text-to-speech-in-google-ai-edge-gallery/"},
   {"title": "Claude 升级交互式连接器，应用可在对话旁全屏打开并由 Claude 直接操作", "category": "ai-products", "url": "https://claude.com/blog/interactive-connectors-full-tool"},
-  {"title": "Anthropic 发布 Claude Whiteboards 和 Claude Sheets，Claude Dashboards 转正为 Claude Data", "category": "ai-products", "url": "https://claude.com/blog/sheets-whiteboards-data"},
-  {"title": "Wiz 讲解如何评估 AI 智能体的网络安全能力", "category": "paper", "url": "https://www.wiz.io/blog/cyber-model-arena-ai-benchmark"},
-  {"title": "OpenRouter 教程：用 JSON Schema、工具调用或决策模型获取任意 LLM 的结构化输出", "category": "tip", "url": "https://openrouter.ai/blog/tutorials/structured-output-llm/"},
-  {"title": "OpenRouter 实测最佳 OCR 模型：Claude Opus 5.5 最准，Mistral OCR 性价比最高", "category": "tip", "url": "https://openrouter.ai/blog/insights/best-ocr-model/"},
-  {"title": "Gemini 4 Carbon 现已登陆 Cursor，高 effort 下居 CursorBench 榜首", "category": "ai-products", "url": "https://x.com/cursor_ai/status/2120193584670580857"}
+  {"title": "Anthropic 发布 Claude Whiteboards 和 Claude Sheets，Claude Dashboards 转正为 Claude Data", "category": "ai-products", "url": "https://claude.com/blog/sheets-whiteboards-data"}
 ];
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧','opinion':'观点' };
 
