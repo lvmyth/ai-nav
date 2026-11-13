@@ -2416,7 +2416,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-11-12';
+var NAV_UPDATE_DATE = '2026-11-13';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -2466,6 +2466,12 @@ var NAV_UPDATE_DATE = '2026-11-12';
 })();
 
 const TOOLS = [
+{ id:'gemini-4-hydrogen', name:'Gemini 4 Hydrogen', vendor:'Google', cat:'chat', region:'intl', desc:'Google DeepMind 于 2026年11月12日发布的 Gemini 4 家族「快速执行」模型：与面向长周期深度推理的 Carbon、Argon 不同，Hydrogen 专为日常编程、工具调用与智能体工作流的快速执行打造，即日起全球推送至 Google AI Studio 各层级、Gemini API、Gemini 应用（免费用户经自动模型选择使用）、Google 搜索、Gemini for Business 与 Antigravity。1M token 输入/输出上下文窗口内统一定价：每百万输入 1.50 美元、输出 7.50 美元；提供 low/medium/high（默认）/xhigh 四档思考层级。Artificial Analysis 智能指数默认 high 档 51 分（高于 Argon 的 50）、xhigh 档 54 分；相较 Gemini 3.8 Flash 任务完成速度提升 2.5 倍，Terminal-Bench 4.1 得分从 18.2% 提至 57%，虚构陈述减少 5 倍以上。配套在 Antigravity 推出 Orchestrator 多模型编排器，可在同一会话内动态切换 Carbon 与 Hydrogen，官方称任务成功率接近 Carbon 而平均额度消耗降低 24%、完成速度提升 19%。', release:'2026-11-12', pricing:'paid', cn:0, api:1, tags:['Google','Gemini','Hydrogen','快速执行','智能体工作流','Orchestrator','1M上下文'], url:'https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/', icon:'images/logos/gemini-4-hydrogen.png' },
+{ id:'claude-meetings', name:'Claude Meetings', vendor:'Anthropic', cat:'office', region:'intl', desc:'Anthropic 于 2026年11月12日宣布的 Claude 会议参会功能（beta），向 Team 与 Enterprise 计划推送：Claude 以可见参会者身份加入视频会议（首发支持 Google Meet，其他平台陆续开放），跟随讨论、以书面形式回答口头或聊天中的提问，并在会议进行中创建和编辑文档、白板等产物，同时整理笔记与待办。会后笔记、逐字稿与会上生成的材料归档至 claude.ai 对应会议页面供组织内成员查看编辑。默认配置下会议有外部嘉宾时 Claude 不入会或中途退出（管理员可放宽，但此时 Claude 仅在聊天发提示）；保存的是逐字稿、摘要与屏幕描述而非音频。测试期内笔记/逐字稿/会上回答对 Team/Enterprise 免费，调用已连接工具的回答计入套餐用量，会上产物免费至 2027年2月10日；零数据保留、HIPAA-ready 或客户管理加密密钥的组织暂不可用。同日 Anthropic 还宣布自托管 Claude Managed Agents 进入私有测试，编排层、沙箱、凭证与会话历史可全部运行在客户自有云或本地机房，模型请求可发往 Anthropic、Amazon Bedrock、Google Agent Platform 或 Microsoft Foundry。', release:'2026-11-12', pricing:'paid', cn:0, api:0, tags:['Anthropic','Claude','Meetings','视频会议','Google Meet','会议笔记','自托管智能体'], url:'https://claude.com/resources/articles/claude-meetings', icon:'images/logos/claude-meetings.png' },
+{ id:'perplexity-decider-13', name:'Perplexity Decider v1.3', vendor:'Perplexity', cat:'chat', region:'intl', desc:'Perplexity 于 2026年11月12日发布的决策模型更新版及蒸馏版 Decider Flash v1.3：不对同一段输入写长文，而是做封闭式判断——是非、多选或有序打分，并返回可供应用使用的概率，用于分类、路由、排序与评估。新增 Locate 能力：从文本中抽取逐字片段并给出起止字符位置与置信度，覆盖命名实体、个人身份信息（PII）识别与抽取式问答等任务。v1.3 基于 Qwen3.8-27B 做多模态分类微调，模型卡标注以 Apache 2.0 许可发布（注意 Hugging Face 仓库当前为受限访问，下载需相应权限令牌），也可通过 OpenRouter 与 Perplexity Decisions API 调用。与 Google Gemini Decision 1、Microsoft-Decision-1 一同印证「决策模型」正成为独立于生成式模型的专用接口类别。', release:'2026-11-12', pricing:'freemium', cn:0, api:1, tags:['Perplexity','Decider','决策模型','路由','分类','Locate','Apache 2.0','开源'], url:'https://www.perplexity.ai/hub/blog/perplexity-decider', icon:'images/logos/perplexity-decider-13.png' },
+{ id:'expo-simulators', name:'Expo Simulators', vendor:'Expo', cat:'code', region:'intl', desc:'Expo 于 2026年11月12日推出的云端 iOS 模拟器与 Android 仿真器服务，专门服务于编码智能体的构建、运行、复现缺陷与验证修复流程。按使用分钟计价（iOS 与 Android 均为每分钟 0.10 美元），付费套餐提供月度额度。产品本身不发布新 AI 模型，而是把移动端测试环境做成智能体可调用的工具，直击 AI 生成代码「改完之后」的验证难题：测试环境不一致、历史版本众多、设备行为差异、人工复核成本高。需注意模拟器通过不能替代真机兼容性测试、应用商店审核与安全渗透测试，触及支付、定位、账号等敏感能力时仍需保留独立的安全审查与版本回退。', release:'2026-11-12', pricing:'paid', cn:0, api:0, tags:['Expo','Simulators','iOS模拟器','Android仿真器','编码智能体','移动开发','测试验证'], url:'https://expo.dev', icon:'images/logos/expo-simulators.png' },
+{ id:'gl-model-orchestration', name:'多模型编排 (Model Orchestration)', vendor:'Google', cat:'glossary', subcat:'gl-tech', desc:'指在同一个智能体工作流或会话中动态调度多个模型协同完成任务的模式：深度推理模型（如 Gemini 4 Carbon）负责架构决策与疑难问题，快速执行模型（如 Gemini 4 Hydrogen）负责日常编码、测试与验证，编排器在同一会话内按任务需要自动切换模型。Google 于 2026年11月随 Gemini 4 Hydrogen 发布在 Antigravity 中推出的 Orchestrator 即为代表性实现，官方称其在 Terminal-Bench 4.0 上达到接近旗舰模型的任务成功率，同时平均额度消耗降低 24%、完成速度提升 19%。与「多智能体编排」（多个 Agent 实例协作）不同，多模型编排的对象是模型而非智能体，核心价值在于按任务难度匹配模型成本，避免「小事用旗舰、大事用错档位」的浪费，是控制智能体推理成本的关键手段。', tags:['Google','Orchestrator','Antigravity','多模型','模型路由','成本优化','2026新词'], icon:'🎼', domain:'智能体', topics:['工具编排与反模式','成本优化'], flags:['2026新词'] },
+{ id:'gl-world-action-model', name:'世界动作模型 (World Action Model)', vendor:'Runway', cat:'glossary', subcat:'gl-frontier', desc:'Runway 于 2026年11月11日发布开源 27B 世界动作模型 Praxis-1（Apache 2.0 许可）时推广的模型类别概念：区别于仅生成视频画面的传统视频生成模型，世界动作模型直接输出可执行的世界动作序列，使模型不仅「看懂」动态环境，还能理解并干预环境变化，是从被动视频生成走向交互式世界模拟的关键一步。它与 World Labs 的世界模型（World Model）、DeepMind 的 Genie 系列共同指向同一趋势：生成式模型从「生成画面」演进为「生成可交互、可执行的世界状态」，可应用于机器人仿真（Real-to-Sim）、游戏引擎内容生成与智能体训练环境构建等场景。', tags:['Runway','Praxis-1','世界模型','世界动作','具身智能','开源','2026新词'], icon:'🎮', domain:'多模态与具身', topics:['世界模型','具身智能'], flags:['2026新词'] },
 { id:'minimax-h3-image', name:'MiniMax H3-Image', vendor:'MiniMax', cat:'image', region:'cn', desc:'MiniMax 于 2026年11月10日发布并开放权重的图像生成模型，基于 8 月开源的 H3 多模态底座的图像分支：33.1B 参数稠密单流 DiT 架构，蒸馏至 6 步采样，原生直出约 16MP（4096×4096）的 4K 图像，官方称 10 秒内即可完成生成，速度为主流工具的 1.5–2 倍（Highspeed 模式 3–4 倍）。支持文生图、参考图生成与图像编辑，单次最多可理解 16 张参考图，开放权重模型中提示词遵循度居前列。权重以社区许可开放（年收入 2000 万美元以内可免费商用），同步上架 Hugging Face、GitHub 与 ModelScope，并已接入 MiniMax API 平台、MiniMax Code 与海螺 AI，ComfyUI 发布当日完成适配，摩尔线程 MTT S5000 完成 Day-0 适配；定价约为同档位主流工具的 50%–70%，发布首周 4K 生成五折。注意：不支持透明背景与蒙版编辑。', release:'2026-11-10', pricing:'freemium', cn:1, api:1, tags:['MiniMax','H3-Image','图像生成','4K','文生图','图像编辑','开源'], url:'https://www.minimax.io/blog/minimax-h3-image', icon:'images/logos/minimax-h3-image.png' },
 { id:'runway-praxis-1', name:'Runway Praxis-1', vendor:'Runway', cat:'video', region:'intl', desc:'Runway 于 2026年11月11日发布并开源的 27B 世界动作模型（World Action Model）：不同于仅生成视频的传统视频模型，Praxis-1 直接输出可执行的世界动作序列，让模型理解并干预动态环境，是 Runway 从视频生成走向交互式世界模拟的关键一步。权重采用 Apache 2.0 许可在 Hugging Face 开放，支持商用与研究定制，是目前开源阵营中少有的大规模世界模型权重发布。Runway 此前已凭借 Gen-4 系列在影视级视频生成领域占位，Praxis-1 将其能力延伸到智能体与世界交互赛道。', release:'2026-11-11', pricing:'freemium', cn:0, api:1, tags:['Runway','Praxis-1','世界模型','视频生成','开源','Apache 2.0'], url:'https://runwayml.com/news/company-news/praxis-1-is-now-available', icon:'images/logos/runway-praxis-1.png' },
 { id:'gemini-decisions-api', name:'Gemini Decisions API', vendor:'Google', cat:'chat', region:'intl', desc:'Google 于 2026年11月11日发布的决策专用 API 与配套模型 Gemini Decision 1：面向封闭式决策场景（从给定选项中做快速判断），支持多模态输入，主打低延迟与高吞吐，定位与微软 10 月发布的 Microsoft-Decision-1 类似，是把「判断类任务」从生成式模型中拆出来的专用路线。适合内容审核分流、意图路由、风险判断等程序化决策工作流，在智能体编排中可作为廉价、快速、可校准的决策层。通过 Gemini API 提供服务。', release:'2026-11-11', pricing:'paid', cn:0, api:1, tags:['Google','Gemini','Decisions API','Decision 1','决策模型','意图路由'], url:'https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/', icon:'images/logos/gemini-decisions-api.png' },
@@ -3425,26 +3431,26 @@ const CORS_PROXIES = [
   url => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
 ];
 const FALLBACK_DATA = [
-  {"title": "OpenRouter 实测六模型并给出四层防护，解决 AI Agent 无限循环烧钱问题", "category": "tip", "url": "https://openrouter.ai/blog/tutorials/ai-agent-infinite-loop/"},
-  {"title": "WSJ 报道 Nvidia 董事会接近决定是否罢免 CEO 黄仁勋", "category": "industry", "url": "https://x.com/rohanpaul_ai/status/2120663635479625930"},
-  {"title": "Google 发布 Gemini Decisions API 与 Gemini Decision 1 模型，专注快速多模态封闭式决策", "category": "ai-products", "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/"},
-  {"title": "Claude Code 中如何选择 Fable 5.2 与 Opus 等模型", "category": "tip", "url": "https://www.youtube.com/watch?v=C33hJGt-ySg"},
-  {"title": "Runway 开源 27B 世界动作模型 Praxis-1，权重采用 Apache 2.0 许可", "category": "ai-models", "url": "https://runwayml.com/news/company-news/praxis-1-is-now-available"},
-  {"title": "Anthropic 发布 MAMUBench：单一智能体协调在四类环境中均胜过每个用户各自的智能体团队", "category": "paper", "url": "https://alignment.anthropic.com/2026/worse-together/"},
-  {"title": "a16z 提出 B2A 经济：AI 智能体正成为新的流量与分发渠道", "category": "opinion", "url": "https://www.a16z.news/p/welcome-to-the-b2a-economy"},
-  {"title": "Anthropic IPO 拟募资最高 90.4B 美元，或成史上最大上市", "category": "industry", "url": "https://x.com/rohanpaul_ai/status/2120526677247939001"},
-  {"title": "OpenAI Q3 营收达 100 亿美元，效率仍落后于 Anthropic", "category": "industry", "url": "https://the-decoder.com/enterprise-sales-push-openais-quarterly-revenue-to-10-billion-though-it-still-trails-anthropic/"},
-  {"title": "WSJ：Anthropic 7 位创始人 IPO 各套现约 2.5 亿美元并保留控制权", "category": "industry", "url": "https://x.com/rohanpaul_ai/status/2120392847505715324"},
-  {"title": "百度发布 ERNIE 5.5 Flash Preview，权重将于 11 月 25 日前开源", "category": "ai-models", "url": "https://ernie.baidu.com/zh/release/ernie-5-5-flash-preview/"},
-  {"title": "Anthropic 修订版 S1 文件披露与 Microsoft 和 Google 超 100 亿美元级新算力协议", "category": "industry", "url": "https://x.com/rohanpaul_ai/status/2120369586096976098"},
-  {"title": "Anthropic 投资需求火热，承销商拟将 IPO 目标估值上调回 $1.5T 或更高", "category": "industry", "url": "https://x.com/rohanpaul_ai/status/2120320127484969162"},
-  {"title": "OpenRouter 实测 MCP vs CLI vs Skills 的上下文 token 成本", "category": "tip", "url": "https://openrouter.ai/blog/insights/mcp-vs-cli-vs-skills/"},
-  {"title": "Microsoft Research 揭示 Lazarus 权重空间后门技术，通过重编程休眠神经元攻击 AI Agent", "category": "paper", "url": "https://www.microsoft.com/en-us/research/blog/lazare-veni-foras-reprogramming-dormant-neurons-to-backdoor-ai-agents/"},
-  {"title": "Cursor Projects 升级为多人协作模式", "category": "ai-products", "url": "https://cursor.com/blog/projects-multiplayer"},
-  {"title": "Stripe 收购 OpenRouter，双方宣布合并后定位", "category": "industry", "url": "https://x.com/OpenRouter/status/2120234542183395787"},
-  {"title": "OpenAI 开放 ChatGPT Business 计划登录 Notion、v0 等第三方工具", "category": "ai-products", "url": "https://x.com/OpenAIDevs/status/2120212596850663712"},
-  {"title": "Claude 升级交互式连接器，应用可在对话旁全屏打开并由 Claude 直接操作", "category": "ai-products", "url": "https://claude.com/blog/interactive-connectors-full-tool"},
-  {"title": "Anthropic 发布 Claude Whiteboards 和 Claude Sheets，Claude Dashboards 转正为 Claude Data", "category": "ai-products", "url": "https://claude.com/blog/sheets-whiteboards-data"}
+  {"title": "黄仁勋辞去英伟达总裁兼CEO，作者梳理14天风波始末", "category": "industry", "url": "https://mp.weixin.qq.com/s/ToplAo9NHP356Fu-hbYlsg"},
+  {"title": "民主党对 Nvidia 对华芯片销售启动调查，致函质疑黄仁勋与特朗普的安排", "category": "industry", "url": "https://techcrunch.com/2026/11/12/democrats-launch-nvidia-investigation-write-scathing-letter-on-huangs-scheme-with-trump/"},
+  {"title": "Anthropic 建议把 Claude Opus 5.5 作为知识工作的日常主力模型", "category": "ai-products", "url": "https://claude.com/blog/using-claude-opus-5-5-as-your-daily-driver-for-knowledge-work"},
+  {"title": "Rohan Paul 类比乔布斯被逐，评 NVIDIA 放走黄仁勋", "category": "industry", "url": "https://x.com/rohanpaul_ai/status/2120994977421705296"},
+  {"title": "Gemini 4 Hydrogen 今日起向全球所有用户推送", "category": "ai-models", "url": "https://x.com/GeminiApp/status/2120982674638864797"},
+  {"title": "Anthropic 推出 Claude Meetings，Claude 以参会者身份加入视频会议", "category": "ai-products", "url": "https://claude.com/blog/claude-meetings"},
+  {"title": "OpenAI 用自动化红队训练提升 GPT-6 Astra 和 Sol 在高风险领域的模糊鲁棒性", "category": "paper", "url": "https://alignment.openai.com/fuzzy-robustness/"},
+  {"title": "Gemini 4 Hydrogen 上线 Cursor，CursorBench 得分 54.3%", "category": "ai-products", "url": "https://x.com/mattyp/status/2120945253666762973"},
+  {"title": "World Labs 开放世界模型 Atlas，支持生成关键帧、视频片段和 3D Gaussian splats", "category": "ai-products", "url": "https://x.com/drfeifei/status/2120942509786558671"},
+  {"title": "Jensen Huang 辞任 Nvidia CEO 后对 AI 经济的五点影响分析", "category": "industry", "url": "https://tomtunguz.com/the-impact-of-jensens-resignation/"},
+  {"title": "Google Gemini 开放推送，覆盖开发者、企业与普通用户渠道", "category": "ai-products", "url": "https://x.com/GoogleDeepMind/status/2120940342505566438"},
+  {"title": "SemiAnalysis 分析黄仁勋辞任 Nvidia CEO 背后的出口管制博弈", "category": "industry", "url": "https://newsletter.semianalysis.com/p/nvidia-and-the-world-without-jensen"},
+  {"title": "Artificial Analysis 评测 Gemini 4 Hydrogen：智能指数 54，接近 Sonnet 5.5 且成本约其 32%", "category": "ai-models", "url": "https://x.com/ArtificialAnlys/status/2120941511223185722"},
+  {"title": "Google DeepMind 发布 Gemini 4 Hydrogen", "category": "ai-models", "url": "https://deepmind.google/blog/introducing-gemini-4-hydrogen/"},
+  {"title": "The Verge 分析黄仁勋辞职与 Nvidia 芯片走私疑云", "category": "industry", "url": "https://www.theverge.com/ai-artificial-intelligence/1032069/jensen-huang-resignation-affair-chips-smuggling"},
+  {"title": "Replit Agent 新增代购能力和 Google Ads 投放功能", "category": "ai-products", "url": "https://replit.com/blog/replit-agent-ads-commerce"},
+  {"title": "Epoch AI 分析华为和林格尔数据中心，揭示中美算力差距", "category": "paper", "url": "https://epochai.substack.com/p/what-huaweis-horinger-data-center"},
+  {"title": "黄仁勋辞职后，Nvidia 与 AI 热潮的未来走向分析", "category": "industry", "url": "https://www.exponentialview.co/p/jensen-huang-and-the-future-of-the"},
+  {"title": "Anthropic 发布 Claude Tag 创业公司使用指南", "category": "tip", "url": "https://claude.com/blog/claude-tag-guide-for-startups"},
+  {"title": "Google 智能眼镜开放预购，12 月 10 日发货", "category": "ai-products", "url": "https://x.com/joshwoodward/status/2120990821902397885"}
 ];
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧','opinion':'观点' };
 
