@@ -1,16 +1,16 @@
 {
-  "lastRun": "2026-11-14T09:40:47+08:00",
+  "lastRun": "2026-11-15T09:36:50+08:00",
   "status": "ok",
   "message": "每日更新完成",
-  "added": 8,
+  "added": 7,
   "failedStep": "",
-  "date": "2026-11-14",
-  "tools": 628,
+  "date": "2026-11-15",
+  "tools": 635,
   "duplicateIds": 0,
   "fields": {
-    "release": 139,
-    "pricing": 220,
-    "cn": 319,
-    "api": 118
+    "release": 144,
+    "pricing": 225,
+    "cn": 324,
+    "api": 123
   }
 }
