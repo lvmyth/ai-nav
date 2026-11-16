@@ -2416,7 +2416,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-11-15';
+var NAV_UPDATE_DATE = '2026-11-16';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -3102,7 +3102,14 @@ const TOOLS = [
 { id:'moss-live', name:'MOSS-Live', vendor:'OpenMOSS/复旦大学', cat:'tool', region:'cn', desc:'复旦大学 OpenMOSS 团队发布的全双工实时语音交互评测基准：从响应延迟、打断接管、语义理解等维度系统评测全双工对话模型，并给出与 GPT-Live-1、豆包实时语音等系统的横向对比解读，为中文实时语音智能体提供可复现的评测参照。', release:'2026-11-13', pricing:'free', cn:1, api:0, tags:['OpenMOSS','复旦','MOSS-Live','全双工语音','评测基准','实时交互'], url:'https://openmoss.ai/blog/cn/moss-live/', icon:'images/logos/moss-live.png' },
 { id:'gl-fail-closed', name:'失效关闭 (Fail-closed)', vendor:'Fail-closed', cat:'glossary', subcat:'gl-tech', desc:'指系统在出现故障、异常或超时等不确定状态时默认拒绝操作、关闭能力入口的安全设计原则，与之相对的是默认放行的 fail-open。在 AI 智能体语境下，fail-closed 要求智能体在工具调用失败、权限校验异常、内容安全判定不可用等情况宁可中止任务也不降级放行，防止异常状态被放大成越权或事故。OpenAI 2026年11月披露的 Control Room 即采用 fail-closed 设计，可在 35 秒内停止研究模型的输出。', tags:['安全','智能体安全','Control Room','架构原则','OpenAI'], icon:'🚧', domain:'安全与对齐', topics:['AI安全','智能体安全'], flags:['实用','核心'] },
 { id:'gl-orchestration-tax', name:'编排税 (Orchestration Tax)', vendor:'Orchestration Tax', cat:'glossary', subcat:'gl-tech', desc:'指多智能体编排范式带来的隐性成本：任务拆给多个并行子智能体后，需要额外的编排、校验与共享内存管线来避免智能体互相踩踏，这些「胶水」工作本身消耗工程投入与算力，抵消部分并行化收益。与「智能体债务（Agentic Debt）」「智能体蔓延（Agent Sprawl）」同属多智能体工程的反模式族，2026年下半年随着多智能体编排成为默认开发范式而被广泛讨论。', tags:['智能体','多智能体','编排','反模式','工程成本'], icon:'🧾', domain:'智能体', topics:['工具编排与反模式'], flags:['2026新词'] },
-
+{ id:'glm-53-flashx-legal', name:'GLM-5.3-FlashX-Legal', vendor:'智谱AI / Z.ai', cat:'chat', region:'cn', desc:'智谱 AI 于 2026年10月13日介绍、11月2日正式上架 OpenRouter 的法律垂类模型（模型 ID z-ai/glm-5.3-flashx-legal）。以 GLM-5.3-FlashX 为基础做法律领域中期训练与强化学习后训练，支持文本、图像、视频输入，上下文 104.8 万 token、最大输出 128K，强制思考模式，支持 function calling、结构化输出与流式返回；面向合同条款审阅与修订、跨资料矛盾核对、附法律依据的调查草稿等任务，官方称 Harvey LAB 全项通过率 19.2%（较基础模型高 12.5 个百分点）。定价约每百万 token 输入 0.37 美元 / 输出 1.25 美元、缓存读 0.075 美元，是「通用基座 + 垂类后训练 + 低单价」路线的典型法律 Agent 底座。', release:'2026-11-02', pricing:'paid', cn:1, api:1, tags:['智谱','GLM','FlashX','法律','垂类模型','OpenRouter','长上下文'], url:'https://docs.z.ai', icon:'images/logos/glm-53-flashx-legal.png' },
+{ id:'longcat-video-avatar-16', name:'LongCat-Video-Avatar 1.6', vendor:'美团 LongCat', cat:'video', region:'cn', desc:'美团 LongCat 团队于 2026年11月15日开源发布的音频驱动数字人视频生成模型 1.6 版：输入一张人物图与一段语音，即可生成口型、表情与头部动作同步的说话视频，重点改进长时段生成的身份一致性、口型对齐精度与自然肢体动作，权重与推理代码在 Hugging Face 开放下载。相比闭源数字人平台，其价值在于可本地部署、可二次微调，适配虚拟主播、课程讲解与客服播报等批量视频生产场景。', release:'2026-11-15', pricing:'free', cn:1, api:0, tags:['美团','LongCat','数字人','音频驱动','视频生成','开源','口型同步'], url:'https://huggingface.co/meituan-longcat/LongCat-Video-Avatar-1.6', icon:'images/logos/longcat-video-avatar-16.png' },
+{ id:'hy-realtime', name:'腾讯混元 Hy Realtime', vendor:'腾讯混元', cat:'voice', region:'cn', desc:'腾讯混元于 2026年11月13日发布的实时语音模型，主打低延迟全双工对话：支持随时打断与接管、边说边听，并新增工具调用（对话中直接调用外部能力完成查询与操作）与唱歌能力，可用于实时语音助手、陪练、客服与互动娱乐等场景。作为混元 Hy 系列在语音模态上的独立产品线，与 Hy4 的视觉理解、Computer Use 能力形成「文本 + 视觉 + 实时语音」的组合，可通过腾讯混元开放平台接入。', release:'2026-11-13', pricing:'freemium', cn:1, api:1, tags:['腾讯','混元','实时语音','全双工','工具调用','唱歌','Voice Agent'], url:'https://hunyuan.tencent.com', icon:'images/logos/hy-realtime.png' },
+{ id:'deepseek-app-api', name:'DeepSeek 全家桶应用 API', vendor:'DeepSeek', cat:'tool', region:'cn', desc:'DeepSeek 于 2026年11月13日面向开发者开放的一站式应用能力 API：把联网搜索、文件输入解析、链接阅读（网页正文抽取）等原本只在 App 内可用的「全家桶」能力以接口形式提供，开发者无需自建搜索与解析链路，即可在自己的 Agent 中组合「检索—读文件—读网页—生成」的完整流程，按 token 与调用量计费。这标志着 DeepSeek 从「卖模型 token」向「卖成品能力」延伸，与 OpenAI、Google 把搜索与文件工具内置进 Responses API 的方向一致。', release:'2026-11-13', pricing:'paid', cn:1, api:1, tags:['DeepSeek','API','联网搜索','文件解析','链接阅读','Agent','开发者'], url:'https://api-docs.deepseek.com/zh-cn/updates/', icon:'images/logos/deepseek-app-api.png' },
+{ id:'sierra-poppy', name:'Sierra Poppy (Personal Agent Protocol)', vendor:'Sierra', cat:'agent', region:'intl', desc:'Sierra 于 2026年11月13日发布的 Personal Agent Protocol（代号 Poppy）v1.0：一套让「个人智能体」代表用户与商家、服务机构侧智能体安全协商与办事的开放协议规范，定义身份与授权凭证、意图表达、能力发现与交易确认等环节，目标是让跨企业的 Agent 对 Agent 交互有共同语言，与 MCP（工具接入）、A2A（Agent 互通）共同构成智能体互操作栈。协议规范公开，Sierra 自身平台面向企业客户收费。', release:'2026-11-13', pricing:'paid', cn:0, api:1, tags:['Sierra','Poppy','Agent协议','个人智能体','互操作','标准','委托'], url:'https://sierra.ai/blog/releasing-poppy', icon:'images/logos/sierra-poppy.png' },
+{ id:'gl-context-rot', name:'上下文腐烂 (Context Rot)', vendor:'Context Rot', cat:'glossary', subcat:'gl-skill', desc:'指给模型塞入的上下文越多、输出质量反而越差的退化现象：长上下文里混入无关段落、过时结论与互相矛盾的信息后，模型的注意力被稀释，容易抓错重点、复述噪声甚至遗忘关键约束，因此「上下文窗口更大」不等于「能处理更长任务」。工程上的应对是把上下文当预算来管：分层摘要、按需检索、把稳定规则放进系统提示、把中间结果外置成文件或结构化状态，而不是无限堆料。与「上下文工程」「上下文压缩」构成一组实践概念，也解释了为什么常驻智能体要做记忆分层。', tags:['上下文','长上下文','上下文工程','幻觉','提示工程','智能体记忆'], icon:'🫠', domain:'提示与技巧', topics:['提示工程'], flags:['热门','实用'] },
+{ id:'gl-latent-token', name:'潜在 Token (Latent Token)', vendor:'Latent Token', cat:'glossary', subcat:'gl-tech', desc:'指不映射到任何文字、而是以一串连续向量直接塞进模型输入嵌入空间的「token」，信息密度高于文本 token，但人类不可读。2026年11月的代表性研究把工具返回的长文本（网页、文档、检索结果）先压成少量潜在 token 再交给智能体，在多个检索问答基准上省下 70%–89% 的 token 消耗与可观的执行时间，效果还不降。它代表上下文压缩的一条新路线：不再「摘要成更短的文字」，而是「压成模型自己能读的向量」，对长程 Agent 的成本结构影响直接。', tags:['潜在token','上下文压缩','推理优化','Token','智能体','论文'], icon:'🧬', domain:'推理与效率', topics:['长上下文','推理优化'], flags:['前沿','2026新词'] },
+{ id:'gl-audio-avatar', name:'音频驱动数字人 (Audio-Driven Avatar)', vendor:'Audio-Driven Avatar', cat:'glossary', subcat:'gl-frontier', desc:'指仅用「一张人物图 + 一段语音」驱动生成说话视频的技术路线：模型从音频中提取音素与韵律，驱动口型、表情与头部姿态，使输出视频与语音同步，无需真人出镜与动捕设备。2026年的进展集中在长时段生成的身份一致性、口型对齐精度与自然肢体动作，代表产品从闭源平台扩展到美团 LongCat-Video-Avatar 1.6 这类开放权重模型，使虚拟主播、课程讲解、客服播报等批量视频生产可以本地部署并二次微调。', tags:['数字人','音频驱动','口型同步','视频生成','开源','LongCat'], icon:'🗣️', domain:'多模态与具身', topics:['多模态','实时语音'], flags:['实用','热门'] }
 ]
 
 // ==================== STATE ====================
@@ -3446,26 +3453,26 @@ const CORS_PROXIES = [
   url => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
 ];
 const FALLBACK_DATA = [
+  {"title": "AI 手搓的 1.4M 纯 HTML 3D 游戏走红，卡兹克拆解 Three.js 程序化生成原理并给出提示词模板", "category": "tip", "url": "https://mp.weixin.qq.com/s/ZJddy1ssHBvw_1sm12jrkg"},
+  {"title": "美团 LongCat 开源 LongCat-Video-Avatar 1.6 音频驱动数字人视频生成模型", "category": "ai-models", "url": "https://huggingface.co/meituan-longcat/LongCat-Video-Avatar-1.6"},
+  {"title": "腾讯混元发布实时语音模型 Hy Realtime，新增工具调用与唱歌能力", "category": "ai-models", "url": "https://mp.weixin.qq.com/s/bFxAT04ohJs9hPcjjin3bg"},
+  {"title": "MOSS-Live 全双工实时交互评测解读：与 GPT-Live-1、豆包的对比", "category": "ai-models", "url": "https://openmoss.ai/blog/cn/moss-live/"},
+  {"title": "DeepSeek 开放全家桶应用 API：联网搜索、文件输入、阅读链接等能力面向开发者", "category": "ai-products", "url": "https://api-docs.deepseek.com/zh-cn/updates/#发布全家桶应用-api"},
+  {"title": "llama.cpp v1.0.0 发布，本地运行 AI 模型迎来首个稳定大版本", "category": "ai-products", "url": "https://x.com/ClementDelangue/status/2121260104913768931"},
+  {"title": "Apple HomeView 正式开售，售价 299 美元并搭载 Siri AI", "category": "ai-products", "url": "https://www.apple.com/newsroom/2026/11/apple-homeview-available-today/"},
+  {"title": "OpenAI 披露 GPT-6 Astra 误停运行中对齐评估的失准事故", "category": "industry", "url": "https://alignment.openai.com/misalignment-reports/stopping-a-running-alignment-eval"},
+  {"title": "AINews：黄仁勋辞任 NVIDIA CEO，Colette Kress 出任临时 CEO", "category": "industry", "url": "https://latent.space/p/ainews-jensen-huang-resigns-after-33-years-leading-nvidia"},
   {"title": "马斯克等高管联署请愿，要求 Nvidia 恢复黄仁勋 CEO 职务", "category": "industry", "url": "https://techcrunch.com/2026/11/14/elon-musk-other-tech-execs-sign-petition-calling-on-nvidia-to-reinstate-jensen-huang/"},
   {"title": "Anthropic CEO Amodei 在 IPO 前承认明年存在巨大不确定性，算力是公司最深的商业两难", "category": "industry", "url": "https://the-decoder.com/anthropic-ceo-amodei-admits-theres-a-huge-uncertainty-in-whats-going-to-happen-next-year-days-before-a-record-ipo/"},
-  {"title": "黄仁勋离开 Nvidia 后，亚洲各国政府如何回应", "category": "industry", "url": "https://techcrunch.com/2026/11/14/asian-governments-react-to-nvidia-ceo-jensen-huangs-exit/"},
   {"title": "黄仁勋离开 Nvidia：远见型创始人 CEO 时代落幕", "category": "industry", "url": "https://www.theverge.com/tech/1033781/nvidia-jensen-huang-last-visionary-showman-founder-ceo"},
   {"title": "Nathan Lambert 分析黄仁勋辞职后美国开源模型生态的真空", "category": "opinion", "url": "https://www.interconnects.ai/p/open-source-ai-without-jensen"},
   {"title": "Cursor 披露安全事件调查结果，恶意 Claude Code 扩展波及最多 5000 用户", "category": "industry", "url": "https://cursor.com/blog/security-incident-update"},
-  {"title": "美联储金融稳定报告：AI成为华尔街头号金融风险", "category": "industry", "url": "https://x.com/rohanpaul_ai/status/2121391185499660332"},
-  {"title": "Jensen Huang 离任或给 AI 创业融资留下大缺口，投资人和创始人担忧", "category": "industry", "url": "https://techcrunch.com/2026/11/13/jensen-huangs-departure-blasts-big-hole-in-ai-startup-funding-vcs-and-founders-say/"},
-  {"title": "NVIDIA 副总裁 Bryan Catanzaro 澄清要求恢复 Jensen 职务的信件系伪造", "category": "industry", "url": "https://x.com/rohanpaul_ai/status/2121354165352096179"},
-  {"title": "Dario Amodei 回应市场动荡：Anthropic IPO 前称对时机并不在意", "category": "industry", "url": "https://x.com/rohanpaul_ai/status/2121387496722329833"},
+  {"title": "美联储金融稳定报告：AI 成为华尔街头号金融风险", "category": "industry", "url": "https://x.com/rohanpaul_ai/status/2121391185499660332"},
   {"title": "Google 展示 Antigravity /teamwork 多智能体协作成果并开放给研究者使用", "category": "ai-products", "url": "https://research.google/blog/advancing-science-engineering-with-antigravitys-teamwork-feature/"},
-  {"title": "Claude Duet 向美国等待名单上的 Pro、Max 和 Ultra 订阅者发出全部邀请", "category": "ai-products", "url": "https://x.com/adocomplete/status/2121338030967697908"},
-  {"title": "Nvidia 危机与 Anthropic IPO 前夜的 Cerebral Valley AI Summit 现场观察", "category": "industry", "url": "https://www.newcomer.co/p/nvidia-crises-anthropic-ipo-and-off"},
-  {"title": "WSJ 报道称黄仁勋被罢免更多源于 Nvidia 高风险业务而非私生活", "category": "industry", "url": "https://the-decoder.com/jensen-huangs-ouster-likely-traces-back-to-nvidias-risky-business-practices-more-than-his-personal-life/"},
   {"title": "Anthropic 详解常驻智能体的五个核心架构原语", "category": "tip", "url": "https://claude.com/blog/building-always-on-agents"},
-  {"title": "研究报告称中国最强 AI 模型使用了被禁出口的 Nvidia Blackwell 芯片训练", "category": "industry", "url": "https://techcrunch.com/2026/11/13/export-banned-nvidia-chips-are-behind-chinas-most-powerful-ai-models-uh-oh-jensen/"},
-  {"title": "Claude Code Stop hook 技巧：用 exit code 2 让 Claude 在检查失败时自动重试", "category": "tip", "url": "https://x.com/lydiahallie/status/2121313048820617645"},
   {"title": "Sierra 发布 Personal Agent Protocol（Poppy）v1.0", "category": "ai-products", "url": "https://sierra.ai/blog/releasing-poppy"},
   {"title": "ChatGPT 推出 ChatGPT Wallet，dot 可在用户批准下代为完成购买", "category": "ai-products", "url": "https://x.com/ChatGPT/status/2121283151729496235"},
-  {"title": "Anthropic 直播 Dario Amodei 与 JPMorgan CEO Jamie Dimon 炉边谈话并披露 SEC 注册声明", "category": "industry", "url": "https://x.com/AnthropicAI/status/2121272083863011714"}
+  {"title": "Claude Duet 向美国等待名单上的 Pro、Max 和 Ultra 订阅者发出全部邀请", "category": "ai-products", "url": "https://x.com/adocomplete/status/2121338030967697908"}
 ];
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧','opinion':'观点' };
 
