@@ -1,16 +1,16 @@
 {
-  "lastRun": "2026-11-16T09:45:56+08:00",
+  "lastRun": "2026-11-17T09:43:09+08:00",
   "status": "ok",
-  "message": "每日更新完成：新增 5 个工具/模型 + 3 个术语，新闻走马灯刷新 20 条",
+  "message": "每日更新完成",
   "added": 8,
   "failedStep": "",
-  "date": "2026-11-16",
-  "tools": 643,
+  "date": "2026-11-17",
+  "tools": 651,
   "duplicateIds": 0,
   "fields": {
-    "release": 149,
-    "pricing": 230,
-    "cn": 329,
-    "api": 128
+    "release": 154,
+    "pricing": 235,
+    "cn": 334,
+    "api": 133
   }
 }
