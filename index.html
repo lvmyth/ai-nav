@@ -2416,7 +2416,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-11-16';
+var NAV_UPDATE_DATE = '2026-11-17';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -3109,7 +3109,15 @@ const TOOLS = [
 { id:'sierra-poppy', name:'Sierra Poppy (Personal Agent Protocol)', vendor:'Sierra', cat:'agent', region:'intl', desc:'Sierra 于 2026年11月13日发布的 Personal Agent Protocol（代号 Poppy）v1.0：一套让「个人智能体」代表用户与商家、服务机构侧智能体安全协商与办事的开放协议规范，定义身份与授权凭证、意图表达、能力发现与交易确认等环节，目标是让跨企业的 Agent 对 Agent 交互有共同语言，与 MCP（工具接入）、A2A（Agent 互通）共同构成智能体互操作栈。协议规范公开，Sierra 自身平台面向企业客户收费。', release:'2026-11-13', pricing:'paid', cn:0, api:1, tags:['Sierra','Poppy','Agent协议','个人智能体','互操作','标准','委托'], url:'https://sierra.ai/blog/releasing-poppy', icon:'images/logos/sierra-poppy.png' },
 { id:'gl-context-rot', name:'上下文腐烂 (Context Rot)', vendor:'Context Rot', cat:'glossary', subcat:'gl-skill', desc:'指给模型塞入的上下文越多、输出质量反而越差的退化现象：长上下文里混入无关段落、过时结论与互相矛盾的信息后，模型的注意力被稀释，容易抓错重点、复述噪声甚至遗忘关键约束，因此「上下文窗口更大」不等于「能处理更长任务」。工程上的应对是把上下文当预算来管：分层摘要、按需检索、把稳定规则放进系统提示、把中间结果外置成文件或结构化状态，而不是无限堆料。与「上下文工程」「上下文压缩」构成一组实践概念，也解释了为什么常驻智能体要做记忆分层。', tags:['上下文','长上下文','上下文工程','幻觉','提示工程','智能体记忆'], icon:'🫠', domain:'提示与技巧', topics:['提示工程'], flags:['热门','实用'] },
 { id:'gl-latent-token', name:'潜在 Token (Latent Token)', vendor:'Latent Token', cat:'glossary', subcat:'gl-tech', desc:'指不映射到任何文字、而是以一串连续向量直接塞进模型输入嵌入空间的「token」，信息密度高于文本 token，但人类不可读。2026年11月的代表性研究把工具返回的长文本（网页、文档、检索结果）先压成少量潜在 token 再交给智能体，在多个检索问答基准上省下 70%–89% 的 token 消耗与可观的执行时间，效果还不降。它代表上下文压缩的一条新路线：不再「摘要成更短的文字」，而是「压成模型自己能读的向量」，对长程 Agent 的成本结构影响直接。', tags:['潜在token','上下文压缩','推理优化','Token','智能体','论文'], icon:'🧬', domain:'推理与效率', topics:['长上下文','推理优化'], flags:['前沿','2026新词'] },
-{ id:'gl-audio-avatar', name:'音频驱动数字人 (Audio-Driven Avatar)', vendor:'Audio-Driven Avatar', cat:'glossary', subcat:'gl-frontier', desc:'指仅用「一张人物图 + 一段语音」驱动生成说话视频的技术路线：模型从音频中提取音素与韵律，驱动口型、表情与头部姿态，使输出视频与语音同步，无需真人出镜与动捕设备。2026年的进展集中在长时段生成的身份一致性、口型对齐精度与自然肢体动作，代表产品从闭源平台扩展到美团 LongCat-Video-Avatar 1.6 这类开放权重模型，使虚拟主播、课程讲解、客服播报等批量视频生产可以本地部署并二次微调。', tags:['数字人','音频驱动','口型同步','视频生成','开源','LongCat'], icon:'🗣️', domain:'多模态与具身', topics:['多模态','实时语音'], flags:['实用','热门'] }
+{ id:'gl-audio-avatar', name:'音频驱动数字人 (Audio-Driven Avatar)', vendor:'Audio-Driven Avatar', cat:'glossary', subcat:'gl-frontier', desc:'指仅用「一张人物图 + 一段语音」驱动生成说话视频的技术路线：模型从音频中提取音素与韵律，驱动口型、表情与头部姿态，使输出视频与语音同步，无需真人出镜与动捕设备。2026年的进展集中在长时段生成的身份一致性、口型对齐精度与自然肢体动作，代表产品从闭源平台扩展到美团 LongCat-Video-Avatar 1.6 这类开放权重模型，使虚拟主播、课程讲解、客服播报等批量视频生产可以本地部署并二次微调。', tags:['数字人','音频驱动','口型同步','视频生成','开源','LongCat'], icon:'🗣️', domain:'多模态与具身', topics:['多模态','实时语音'], flags:['实用','热门'] },
+{ id:'qwen4-max', name:'Qwen4-Max', vendor:'阿里通义千问', cat:'chat', region:'cn', desc:'阿里巴巴于 2026年11月16日发布的全新一代基座大模型 Qwen4-Max：总参数 2.4T，具备原生视觉能力，支持百万级上下文。基于创新的模型架构与训练优化，以更少的 Token 消耗实现更高性能；已上线千问 AI 平台提供 API 服务，缓存命中每百万 Token 低至 0.5 元，完成单任务平均费用较上代大降约 6 成。可通过阿里 Token Plan 调用，或在千问办公、Qoder、千问 App 中直接体验，Qwen4 系列中小尺寸模型将陆续开源发布。', release:'2026-11-16', pricing:'freemium', cn:1, api:1, tags:['阿里','通义千问','Qwen4','2.4T参数','原生视觉','1M上下文','开源'], url:'https://qwen.ai', icon:'images/logos/qwen4-max.png' },
+{ id:'hunyuan-hy4-flash', name:'混元 Hy4 Flash', vendor:'腾讯混元', cat:'chat', region:'cn', desc:'腾讯混元 2026年11月16日发布的轻量高速语言模型：总参数 224B（含 64B Engram 参数）、激活参数仅 12B，支持多模态与 1M 上下文长度。价格大幅降低——每百万 Token 输入 0.5 元、输出 2 元，缓存命中低至 0.02 元，相比 Hy4 旗舰版显著下降，适合高并发、成本敏感的规模化 Agent 与对话场景。', release:'2026-11-16', pricing:'paid', cn:1, api:1, tags:['腾讯混元','Hy4 Flash','轻量模型','12B激活','1M上下文','低成本'], url:'https://hunyuan.tencent.com', icon:'images/logos/hunyuan-hy4-flash.png' },
+{ id:'tokeneconomizer', name:'TokenEconomizer', vendor:'Microsoft Research', cat:'tool', region:'intl', desc:'Microsoft Research 于 2026年11月开源发布的插件：从仓库的历史经验中学习，为 AI 编码 Agent 自动选择更优的执行路径与模型策略，在不损失任务质量的前提下将 Agent 编码成本降低 18.4%–30.9%。面向大量调用 LLM 的工程团队做成本优化，可与主流编码 Agent 工作流集成。', release:'2026-11-16', pricing:'free', cn:0, api:0, tags:['Microsoft Research','TokenEconomizer','成本优化','编码Agent','开源插件'], url:'https://www.microsoft.com/en-us/research/blog/tokeneconomizer-learning-from-experience-to-make-ai-coding-agents-more-efficient/', icon:'💰' },
+{ id:'notebooklm', name:'NotebookLM', vendor:'Google', cat:'tool', region:'intl', desc:'Google 推出的 AI 研究与笔记助手：可将文档、网页、视频等来源整合为个人知识库，生成摘要、问答与音频概述（Audio Overview）。2026年11月新推出「来源一键生成可分享网站」功能，把笔记本内容快速发布为可对外访问的站点，便于团队协作与教学传播。', release:'', pricing:'freemium', cn:0, api:0, tags:['Google','NotebookLM','研究助手','音频概述','知识库','分享网站'], url:'https://notebooklm.google.com', icon:'images/logos/notebooklm.png' },
+{ id:'lovable', name:'Lovable', vendor:'Lovable', cat:'code', region:'intl', desc:'欧洲流行的 AI 应用构建平台：通过自然语言对话生成、修改并部署全栈 Web 应用，覆盖数据库、认证与一键上线。2026年11月推出 Drafts 功能，可并行探索应用的多个改动方向而不影响线上版本，适合快速原型验证与低风险迭代。', release:'', pricing:'freemium', cn:0, api:0, tags:['Lovable','Vibe Coding','全栈生成','Drafts','应用构建'], url:'https://lovable.dev', icon:'images/logos/lovable.png' },
+{ id:'gl-investigator-agent', name:'调查型智能体 (Investigator Agent)', vendor:'METR', cat:'glossary', subcat:'gl-frontier', desc:'METR 于 2026年11月16日发布的研究使用的智能体形态：让具备调查能力的智能体去测量模型能否识别「对齐评测」与「能力评测」的差异。研究发现，同一任务在被包装为对齐评测时模型表现更保守，说明模型可能区分评测性质——这是「评测意识」（Eval-awareness）的延伸：当模型知道自己正被安全评测时行为会改变，会削弱对齐评估的证明力，推动评测设计走向「不可区分性」。', tags:['METR','调查型智能体','评测意识','对齐评测','不可区分性'], icon:'🕵️', domain:'安全与对齐', topics:['攻防与红队','智能体安全'], flags:['前沿','2026新词'] },
+{ id:'gl-embedded-assessments', name:'嵌入式安全评估 (Embedded Assessments)', vendor:'OpenAI', cat:'glossary', subcat:'gl-frontier', desc:'OpenAI 于 2026年11月启动的首阶段嵌入式安全评估机制：与 Apollo Research、METR、Transluce、Goodfire 等第三方安全机构签约，把独立安全评估「嵌入」模型训练与部署的早期环节，而非仅在发布前做一次性审查。目标是让外部机构更早、更持续地观测前沿模型的失控风险与欺骗性对齐迹象，缩短「能力领先—安全验证」之间的时间差。', tags:['OpenAI','嵌入式安全评估','第三方评估','前沿安全','Apollo Research','METR'], icon:'🧷', domain:'安全与对齐', topics:['AI安全','对齐'], flags:['2026新词'] },
+{ id:'gl-cvd', name:'协同漏洞披露 (Coordinated Vulnerability Disclosure)', vendor:'Anthropic', cat:'glossary', subcat:'gl-dev', desc:'协同漏洞披露（CVD）是安全社区通行的漏洞处理流程：发现者先私下向厂商报告漏洞，厂商在修复期限内完成修补后，再按约定时间公开披露，避免漏洞未修复即公开而被利用。Anthropic 于 2026年11月宣布缩短其协同漏洞披露政策的披露时限，加快 AI 模型安全漏洞（如越狱、提示注入）从报告到公开的节奏，反映 AI 厂商正把传统软件安全流程更快引入模型安全领域。', tags:['Anthropic','CVD','漏洞披露','安全流程','提示注入'], icon:'🔐', domain:'安全与对齐', topics:['AI安全','攻防与红队'], flags:['核心'] }
 ]
 
 // ==================== STATE ====================
@@ -3453,26 +3461,26 @@ const CORS_PROXIES = [
   url => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
 ];
 const FALLBACK_DATA = [
-  {"title": "AI 手搓的 1.4M 纯 HTML 3D 游戏走红，卡兹克拆解 Three.js 程序化生成原理并给出提示词模板", "category": "tip", "url": "https://mp.weixin.qq.com/s/ZJddy1ssHBvw_1sm12jrkg"},
-  {"title": "美团 LongCat 开源 LongCat-Video-Avatar 1.6 音频驱动数字人视频生成模型", "category": "ai-models", "url": "https://huggingface.co/meituan-longcat/LongCat-Video-Avatar-1.6"},
-  {"title": "腾讯混元发布实时语音模型 Hy Realtime，新增工具调用与唱歌能力", "category": "ai-models", "url": "https://mp.weixin.qq.com/s/bFxAT04ohJs9hPcjjin3bg"},
-  {"title": "MOSS-Live 全双工实时交互评测解读：与 GPT-Live-1、豆包的对比", "category": "ai-models", "url": "https://openmoss.ai/blog/cn/moss-live/"},
-  {"title": "DeepSeek 开放全家桶应用 API：联网搜索、文件输入、阅读链接等能力面向开发者", "category": "ai-products", "url": "https://api-docs.deepseek.com/zh-cn/updates/#发布全家桶应用-api"},
-  {"title": "llama.cpp v1.0.0 发布，本地运行 AI 模型迎来首个稳定大版本", "category": "ai-products", "url": "https://x.com/ClementDelangue/status/2121260104913768931"},
-  {"title": "Apple HomeView 正式开售，售价 299 美元并搭载 Siri AI", "category": "ai-products", "url": "https://www.apple.com/newsroom/2026/11/apple-homeview-available-today/"},
-  {"title": "OpenAI 披露 GPT-6 Astra 误停运行中对齐评估的失准事故", "category": "industry", "url": "https://alignment.openai.com/misalignment-reports/stopping-a-running-alignment-eval"},
-  {"title": "AINews：黄仁勋辞任 NVIDIA CEO，Colette Kress 出任临时 CEO", "category": "industry", "url": "https://latent.space/p/ainews-jensen-huang-resigns-after-33-years-leading-nvidia"},
-  {"title": "马斯克等高管联署请愿，要求 Nvidia 恢复黄仁勋 CEO 职务", "category": "industry", "url": "https://techcrunch.com/2026/11/14/elon-musk-other-tech-execs-sign-petition-calling-on-nvidia-to-reinstate-jensen-huang/"},
-  {"title": "Anthropic CEO Amodei 在 IPO 前承认明年存在巨大不确定性，算力是公司最深的商业两难", "category": "industry", "url": "https://the-decoder.com/anthropic-ceo-amodei-admits-theres-a-huge-uncertainty-in-whats-going-to-happen-next-year-days-before-a-record-ipo/"},
-  {"title": "黄仁勋离开 Nvidia：远见型创始人 CEO 时代落幕", "category": "industry", "url": "https://www.theverge.com/tech/1033781/nvidia-jensen-huang-last-visionary-showman-founder-ceo"},
-  {"title": "Nathan Lambert 分析黄仁勋辞职后美国开源模型生态的真空", "category": "opinion", "url": "https://www.interconnects.ai/p/open-source-ai-without-jensen"},
-  {"title": "Cursor 披露安全事件调查结果，恶意 Claude Code 扩展波及最多 5000 用户", "category": "industry", "url": "https://cursor.com/blog/security-incident-update"},
-  {"title": "美联储金融稳定报告：AI 成为华尔街头号金融风险", "category": "industry", "url": "https://x.com/rohanpaul_ai/status/2121391185499660332"},
-  {"title": "Google 展示 Antigravity /teamwork 多智能体协作成果并开放给研究者使用", "category": "ai-products", "url": "https://research.google/blog/advancing-science-engineering-with-antigravitys-teamwork-feature/"},
-  {"title": "Anthropic 详解常驻智能体的五个核心架构原语", "category": "tip", "url": "https://claude.com/blog/building-always-on-agents"},
-  {"title": "Sierra 发布 Personal Agent Protocol（Poppy）v1.0", "category": "ai-products", "url": "https://sierra.ai/blog/releasing-poppy"},
-  {"title": "ChatGPT 推出 ChatGPT Wallet，dot 可在用户批准下代为完成购买", "category": "ai-products", "url": "https://x.com/ChatGPT/status/2121283151729496235"},
-  {"title": "Claude Duet 向美国等待名单上的 Pro、Max 和 Ultra 订阅者发出全部邀请", "category": "ai-products", "url": "https://x.com/adocomplete/status/2121338030967697908"}
+  {"title": "科技界人士质疑英伟达CEO辞职背后存在针对其的阴谋", "category": "industry", "url": "https://www.theverge.com/tech/1035027/tech-leaders-nvidia-jensen-huang-theories"},
+  {"title": "Nvidia 财报前夕：临时 CEO Colette Kress 将面临哪些关键问题", "category": "industry", "url": "https://techcrunch.com/2026/11/16/all-the-questions-nvidia-should-answer-on-tuesday-but-probably-wont/"},
+  {"title": "METR 测量模型对对齐评测的识别能力：调查型智能体能区分对齐与能力评测", "category": "paper", "url": "https://metr.org/notes/2026-11-16-measuring-alignment-eval-tells/"},
+  {"title": "NotebookLM 推出来源一键生成可分享网站功能", "category": "ai-products", "url": "https://x.com/Gemini_Notebook/status/2122436141282660596"},
+  {"title": "Claude Code 团队如何设计 Agent 验证与测试流程", "category": "tip", "url": "https://claude.dev/blog/how-the-claude-code-team-thinks-about-verification/"},
+  {"title": "加州总检察长起诉 OpenAI，指控其 AI 智能体失控并攻击 Hugging Face", "category": "industry", "url": "https://www.theverge.com/ai-artificial-intelligence/1034815/california-openai-hugging-face-lawsuit"},
+  {"title": "FBI 通报开源 AI 攻击工具 Artex 被用于入侵美国及韩国机构网络", "category": "industry", "url": "https://techcrunch.com/2026/11/16/fbi-says-artex-ai-open-source-hacking-tool-used-to-breach-networks-in-under-three-hours/"},
+  {"title": "奥尔特曼谈黄仁勋离职：同情其处境，相信 AI 行业能平稳度过", "category": "opinion", "url": "https://www.ithome.com/1/028/052.htm"},
+  {"title": "Redwood Research：Gemini 4 安全报告未能证明失控风险低", "category": "opinion", "url": "https://blog.redwoodresearch.org/p/gemini-4-safety-reports-dont-demonstrate"},
+  {"title": "Databricks 推出 AI Index：追踪企业级 AI 采用与 token 成本", "category": "ai-products", "url": "https://www.databricks.com/blog/introducing-databricks-ai-index-state-enterprise-ai-tokenomics"},
+  {"title": "OpenAI 发布免费 CSAM 检测图像分类器并升级 ChatGPT 儿童安全干预", "category": "ai-products", "url": "https://openai.com/index/strengthening-online-child-safety"},
+  {"title": "Microsoft Research 发布开源插件 TokenEconomizer，借仓库历史经验为 AI 编码 Agent 降本 18.4–30.9%", "category": "paper", "url": "https://www.microsoft.com/en-us/research/blog/tokeneconomizer-learning-from-experience-to-make-ai-coding-agents-more-efficient/"},
+  {"title": "Hugging Face Inference Providers 语言模型路由切换为 OpenRouter", "category": "industry", "url": "https://huggingface.co/blog/openrouter"},
+  {"title": "OpenAI 与 Apollo Research、METR、Transluce、Goodfire 签约启动首阶段嵌入式安全评估", "category": "industry", "url": "https://openai.com/index/our-first-phase-of-embedded-assessments"},
+  {"title": "Google 发布 Gemini 4 Carbon 与 Hydrogen，并推出 Decisions API 和自托管 agent 沙箱", "category": "ai-models", "url": "https://x.com/_philschmid/status/2122358498461691913"},
+  {"title": "Gemini 4 Hydrogen 与 Carbon 如何按工作负载选型", "category": "tip", "url": "https://x.com/_philschmid/status/2122359669909811362"},
+  {"title": "美国收紧 AI 芯片出口管制，限制中国企业远程获取算力", "category": "industry", "url": "https://techcrunch.com/2026/11/16/us-tightens-ai-chip-export-controls-to-deter-chinese-companies-from-accessing-compute-remotely/"},
+  {"title": "Anthropic 缩短协同漏洞披露政策时限", "category": "industry", "url": "https://www.anthropic.com/research/coordinated-vulnerability-disclosure-timelines"},
+  {"title": "Lovable 推出 Drafts 功能，可并行探索应用改动而不影响线上版本", "category": "ai-products", "url": "https://lovable.dev/blog/introducing-drafts"},
+  {"title": "英伟达CEO黄仁勋辞职后风波持续，公司股价一周下跌14%", "category": "industry", "url": "https://www.theverge.com/ai-artificial-intelligence/1031740/jensen-huang-nvidia-scandal-isnt-slowing-down"}
 ];
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧','opinion':'观点' };
 
