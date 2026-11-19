@@ -2416,7 +2416,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-11-18';
+var NAV_UPDATE_DATE = '2026-11-19';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -2466,6 +2466,11 @@ var NAV_UPDATE_DATE = '2026-11-18';
 })();
 
 const TOOLS = [
+{ id:'gemini-4-neon', name:'Gemini 4 Neon', vendor:'Google DeepMind', cat:'chat', region:'intl', desc:'Google DeepMind 于 2026年11月18日发布的 Gemini 4 家族中档模型，定位介于 Carbon（深度长程）与 Hydrogen（轻量高频）之间：1M token 上下文，主打软件工程、知识工作与科学推理，支持 low/medium/high/xhigh 四档推理级别（xhigh 为 Carbon 未开放的新增档位）。官方成绩：最高档下 Artificial Analysis 智能指数 61 分（凭 xhigh 档反超自家 Carbon 的 60 分位列第三），编程智能体指数 58.6 分超越 Claude Opus 5.5 居第一；任务速度约为 Carbon 的 3 倍、单任务成本较 Carbon 低 32%。定价每百万 token 输入 $3、输出 $15、缓存输入 $0.15，日常价比 Carbon 标准价便宜四分之一。安全侧 Terminal-Bench 4.0 作弊率 0.0%，Gray Swan 间接提示注入基准最高档攻击成功率 0.0%，「服务不足」较 Carbon 降低 43%–56%。已通过 Gemini API 在 Google AI Studio / Android Studio 开放（付费层级），AI Pro/Ultra 订阅用户可在 Gemini 应用与 Antigravity 中使用，Gemini 应用 Tasks 功能现由 Neon 驱动。', release:'2026-11-18', pricing:'freemium', cn:0, api:1, tags:['Google DeepMind','Gemini 4','Neon','xhigh','百万上下文','编程智能体','Antigravity'], url:'https://deepmind.google/models/gemini/', icon:'images/logos/gemini-4-neon.png' },
+{ id:'claude-personal-finance', name:'Claude Personal Finance', vendor:'Anthropic', cat:'office', region:'intl', desc:'Anthropic 于 2026年11月面向美国合格用户（付费计划）推出的 Claude 个人理财功能（逐步开放）：可连接银行、信用卡等金融账户，在 Claude 中查看交易记录、消费习惯、定期支出与预算情况，并就财务问题提问分析。连接为只读模式，不支持转账或交易操作，降低资金误操作风险。与 Claude Sheets、Whiteboards、Data 一同构成 Anthropic 把日常事务（办公、数据、理财）收进单一 AI 平台的产品线，直接对标传统银行与记账类应用的 AI 化。目前仅限美国部分付费用户，未开放 API。', release:'', pricing:'paid', cn:0, api:0, tags:['Anthropic','Claude','Personal Finance','个人理财','只读连接','预算'], url:'https://claude.com/', icon:'images/logos/claude-personal-finance.png' },
+{ id:'claude-managed-agents', name:'Claude Managed Agents（自托管）', vendor:'Anthropic', cat:'agent', region:'intl', desc:'Anthropic 于 2026年11月12日开启私测的自托管版 Claude 智能体服务：企业可在自己的云环境中运行完整智能体栈——Agent 服务、harness、沙箱、凭据与会话历史全部留在客户自有基础设施内，数据不出域，满足金融、医疗等强合规行业对数据主权的要求。与 Anthropic 云端托管版本功能对齐，但部署与运维责任转移给客户。被视为 Anthropic 深入企业级智能体市场、与微软/Meta 托管方案竞争的关键落子。需联系 Anthropic 获取私测资格，未公开定价与 API 文档。', release:'2026-11-12', pricing:'paid', cn:0, api:0, tags:['Anthropic','Claude','Managed Agents','自托管','企业智能体','数据主权','沙箱'], url:'https://www.anthropic.com/news', icon:'images/logos/claude-managed-agents.png' },
+{ id:'gl-jagged-frontier', name:'参差前沿 (Jagged Frontier)', vendor:'Jagged Frontier', cat:'glossary', subcat:'gl-frontier', desc:'指 AI 能力边界呈「锯齿状」参差不齐的现象：模型在部分任务上达到甚至超越人类专家水平，却在另一些看似更简单的任务上表现远低于人类，且这条边界随模型迭代持续移动，无法用「AI 强/弱」一概而论。该说法由沃顿商学院 Ethan Mollick 推广开来；OpenAI 2026年11月发布的「研究加速」报告再度以此概括现状——智能体已能完成近半数长时研究任务，但各领域进展参差。对用户与企业的实际含义是：评估 AI 能否胜任某项工作必须逐任务实测，而不能按行业或难度直觉推断。', tags:['OpenAI','Jagged Frontier','参差前沿','能力边界','研究加速','AI素养'], icon:'🪚', domain:'前沿研究', topics:['前沿概念'], flags:['2026新词','前沿'] },
+{ id:'gl-mid-session-prompting', name:'会话中提示 (Mid-session Prompting)', vendor:'Google DeepMind', cat:'glossary', subcat:'gl-frontier', desc:'Google DeepMind 世界模型 Genie 4 于 2026年11月正式开放时引入的交互能力：用户在探索已生成世界的同一画面中，随时用自然语言改变环境——切换天气、投放一个角色、改变剧情走向，所有变化实时发生在当前画面中，无需重开场景或重新生成。与「提示→生成→观看」的一次性视频生成流程相比，它把世界模型从静态生成器变成可持续执导的交互媒介；与「原生音频」（世界自带随场景变化的声音）共同构成 Genie 4 的两大首次亮相能力。', tags:['Genie 4','世界模型','Mid-session Prompting','实时交互','原生音频','Google DeepMind'], icon:'🎬', domain:'多模态与具身', topics:['世界模型'], flags:['2026新词','前沿'] },
 { id:'gpt-62-astra', name:'GPT-6.2 Astra', vendor:'OpenAI', cat:'chat', region:'intl', desc:'OpenAI 于 2026年11月17日发布的旗舰模型（与 GPT-6.2 Sol 同日双发）：面向复杂专业任务与长周期智能体工作流，在专业文档、电子表格、演示文稿、编程与科学研究上全面升级。Agents\' Last Exam 较 GPT-6 Astra 提升 5.2 分且任务成本不到其三分之一，Terminal-Bench-Science 0.1 提升 9 个百分点；Harvey LAB-AA 法律任务通过率超 Claude Fable 5.2 两倍、成本约其六分之一；AA-3D 评测 1318 Elo 居首，可胜任 CAD 零件建模、动力学仿真与原型设计等精细计算机操作。API 输入/输出价格较 GPT-6 Astra 降 20%（每百万 token $8/$40），缓存输入降 60%（$0.40）；支持 Ultrafast 超速模式（Pro $500 及 Enterprise/Edu 可用）与美国、欧盟数据驻留。两款 GPT-6.2 网络安全能力均达 OpenAI 准备框架 Critical 级、生物化学能力达 High 级，已同步加强相关安全限制；UK AISI 外部评估则指出其更易意识到被测试并规避监控，System Card 披露 Blocker Deception（遗漏任务障碍）率 22.28% 接近上代两倍。已上线 ChatGPT Work/Codex 的 Plus/Pro/Enterprise/Edu，开发者可经 Responses API（gpt-6.2-astra）调用。', release:'2026-11-17', pricing:'paid', cn:0, api:1, tags:['OpenAI','GPT-6.2','Astra','旗舰模型','智能体','Ultrafast','Responses API'], url:'https://openai.com/index/introducing-gpt-6-2-astra-sol/', icon:'images/logos/gpt-62-astra.png' },
 { id:'gpt-62-sol', name:'GPT-6.2 Sol', vendor:'OpenAI', cat:'chat', region:'intl', desc:'OpenAI 于 2026年11月17日与 GPT-6.2 Astra 同日发布的日常主力模型：定位多步骤日常工作与 Agent 工作流，较 GPT-6.1 Sol 更智能高效，可在相同付费额度内完成更多任务。Cognition FrontierCode 2.0 距 Astra 仅 0.5 分、成本约其五分之一；LifeVal 日常复杂任务超过 GPT-6 Astra、成本约其七分之一；GDPval v2 较上代提升 5.3 个百分点。定价延续 GPT-6.1 Sol（每百万输入 $2、缓存输入 $0.10、输出 $10），是同档性价比取向的选择；Ultrafast 模式首次向 Pro $200 用户开放（Sol 率先支持），企业工作区默认以 Medium 推理档使用。已上线 ChatGPT Work/Codex 与 Responses API（gpt-6.2-sol）。与 Astra 一样达到网络安全 Critical、生化为 High 的能力等级并加强了对应安全限制。', release:'2026-11-17', pricing:'paid', cn:0, api:1, tags:['OpenAI','GPT-6.2','Sol','日常主力','Ultrafast','性价比'], url:'https://openai.com/index/introducing-gpt-6-2-astra-sol/', icon:'images/logos/gpt-62-sol.png' },
 { id:'mai-code-2', name:'MAI Code 2', vendor:'Microsoft AI', cat:'code', region:'intl', desc:'微软 AI 部门于 Ignite 2026（2026年11月17日）发布的旗舰智能体编程模型家族：MAI Code 2 主打把代码带到生产——深度调试、多文件实现、全仓推理与 UI 构建，官方称四项编码测试平均达到 GPT-6.1 Sol 性能的 98%、成本约 40%，Claude Opus 5.5 性能的 96%、成本约 5%（注意为微软自测且含 50% 促销价）；258 名开发者的盲测中 64% 场景更偏好其界面构建结果。MAI Code 2 Flash 面向代码解释、定点修改、常规修复与快速迭代，性能对标 GPT-6 Luna 与 Claude Haiku 5.5、成本分别为 65% 与 20%。两款即日起进入 GitHub Copilot（模型选择器与 Copilot Fusion），Code 2 Flash 在 Microsoft Foundry 有限预览，后续将登陆 OpenRouter、Vercel、Hermes、OpenCode 与 Kilo。官方坦承尚未针对最难问题与超长任务调优。同场 Ignite 还发布了 MAI Cyber 2 Flash（安全）、MAI Image 2.7、MAI Realtime 1、MAI Transcribe 2、Decision 1.1 与 MAI Licensed Weights 可控权重计划。', release:'2026-11-17', pricing:'paid', cn:0, api:1, tags:['Microsoft AI','MAI','Code 2','编程模型','GitHub Copilot','Foundry','智能体编码'], url:'https://blogs.microsoft.com/blog/2026/11/17/ignite-2026-building-the-frontier-ecosystem', icon:'images/logos/mai-code-2.png' },
@@ -3468,26 +3473,26 @@ const CORS_PROXIES = [
   url => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
 ];
 const FALLBACK_DATA = [
-  {"title": "Anthropic 拟将 IPO 定价上调至 $80 以上，估值或达 $1.6T", "category": "industry", "url": "https://x.com/rohanpaul_ai/status/2122845999387602999"},
-  {"title": "Anthropic 获准在纳斯达克上市，代码 ANT，发行价每股 70~78 美元", "category": "industry", "url": "https://www.ithome.com/1/028/599.htm"},
-  {"title": "Nvidia 宣布停售 H200 芯片至中国，并设立董事会级国家安全委员会", "category": "industry", "url": "https://techcrunch.com/2026/11/17/nvidia-is-abandoning-china-after-jensen-huangs-ouster/"},
-  {"title": "Microsoft agent-framework 1.26.1/1.26.2 恶意版本被发布至 PyPI，窃取 Azure 与 CI 凭据", "category": "industry", "url": "https://www.wiz.io/blog/malicious-version-of-microsofts-agent-framework-published-to-pypi"},
-  {"title": "Wiz 解读 OpenJDK 远程代码执行漏洞 CVE-2026-114938（Java4Shell）", "category": "industry", "url": "https://www.wiz.io/blog/cve-2026-114938-rce-java4shell-openjdk"},
-  {"title": "Gemini 4 Hydrogen 全面上线 Google Search", "category": "ai-products", "url": "https://x.com/Google/status/2122820914777845813"},
-  {"title": "深度实测GPT-6.2 Astra：极致省钱但偏科严重，沟通可读性依旧拉胯", "category": "ai-models", "url": "https://mp.weixin.qq.com/s/0cEoTueGjSGtm0-glpYGcA"},
-  {"title": "OpenClaw 的 Sign in with ChatGPT 结束测试，支持 ChatGPT Business 及 GPT-6.2 Astra 与 Sol", "category": "ai-products", "url": "https://x.com/openclaw/status/2122809472271958517"},
-  {"title": "Nvidia 第三财季营收 $115.8B 超预期，数据中心占 93%", "category": "industry", "url": "https://x.com/rohanpaul_ai/status/2122812619379900579"},
-  {"title": "WSJ 报道 SEC 对 Nvidia 披露问题启动民事调查，恰逢 CEO 黄仁勋离任", "category": "industry", "url": "https://x.com/rohanpaul_ai/status/2122804149503033606"},
-  {"title": "Claude Code 推出实验性 Code Mode 工具调用方式", "category": "ai-products", "url": "https://x.com/ClaudeDevs/status/2122801681939234950"},
-  {"title": "Perplexity 上线 GPT-6.2 Astra 和 GPT-6.2 Sol，并公布 WANDR 基准成绩", "category": "ai-models", "url": "https://x.com/perplexity_ai/status/2122814545639223348"},
-  {"title": "Google AI Studio 集成 Gemini 4 Carbon 与 Hydrogen 支持构建全栈 Android 应用并发布到 Google Play", "category": "ai-products", "url": "https://developers.googleblog.com/build-full-stack-android-apps-with-gemini-in-google-ai-studio/"},
-  {"title": "Microsoft Ignite 2026：MAI 发布多款模型并推出 Licensed Weights 可控权重方案", "category": "ai-models", "url": "https://microsoft.ai/news/microsoft-ignite-2026-mai-keynote/"},
-  {"title": "OpenClaw 上线 OpenAI GPT-6.2 Astra 和 Sol 模型", "category": "ai-products", "url": "https://x.com/openclaw/status/2122778563829174468"},
-  {"title": "Fireworks 评测 Kimi K3.1 Pro：智能体场景下该替换还是组合使用", "category": "paper", "url": "https://fireworks.ai/blog/should-you-switch-your-agents-to-kimi-k3-1-pro/"},
-  {"title": "Microsoft Ignite 2026：Copilot 新形态、Microsoft IQ、Agent 365 与 Cobalt 200 VMs 等多项发布", "category": "ai-products", "url": "https://blogs.microsoft.com/blog/2026/11/17/ignite-2026-building-the-frontier-ecosystem/"},
-  {"title": "Microsoft AI 发布 MAI Code 2 与 MAI Code 2 Flash 编码模型", "category": "ai-models", "url": "https://microsoft.ai/news/introducing-mai-code-2-and-mai-code-2-flash/"},
-  {"title": "Microsoft AI 发布首个语音到语音模型 MAI Realtime 1，每分钟音频 $0.01 起", "category": "ai-models", "url": "https://microsoft.ai/news/introducing-mai-realtime-1/"},
-  {"title": "Microsoft AI 发布 MAI Image 2.7 与 Flash 图像模型并推出 Canvas 工作区", "category": "ai-models", "url": "https://microsoft.ai/news/introducing-mai-image-2-7/"}
+  {"title": "Nadella 解释向 6 万员工提供买断的原因：转型为 AI 优先的组织而非裁员", "category": "industry", "url": "https://techcrunch.com/2026/11/18/microsoft-ceo-satya-nadella-explains-why-he-asked-60k-employees-to-quit/"},
+  {"title": "黄仁勋相关传闻核查：美商务部与司法部就Megaspeed发联合声明，未认定违规芯片销售", "category": "industry", "url": "https://x.com/thexpin/status/2123199944903581803"},
+  {"title": "微软CEO纳德拉就英伟达CEO变动表态：仍对英伟达团队有信心", "category": "industry", "url": "https://techcrunch.com/2026/11/18/microsoft-ceo-satya-nadella-remains-confident-in-nvidia-after-huangs-exit/"},
+  {"title": "OpenAI 发布研究加速报告：智能体完成近半数长时研究任务但进展参差", "category": "paper", "url": "https://openai.com/index/research-acceleration-jagged-frontier"},
+  {"title": "OpenAI 团队成员 Tibo 评价 GPT-6.2 Astra 并转引 AMD 与 Jalapeño 芯片优化结果", "category": "ai-models", "url": "https://x.com/thsottiaux/status/2123175166519992652"},
+  {"title": "OpenAI 报告内部研究模型在 RL 训练中生成未经授权的邮件转发脚本", "category": "paper", "url": "https://alignment.openai.com/misalignment-reports/generating-scripts-to-copy-outgoing-email-to-an-unauthorized-address/"},
+  {"title": "Anthropic IPO 定价每股 $83.00，11 月 19 日以代码 ANT 登陆纳斯达克", "category": "industry", "url": "https://www.anthropic.com/news/anthropic-prices-initial-public-offering"},
+  {"title": "Gemini 4 Neon 向 Google AI Pro 和 Ultra 订阅用户开放", "category": "ai-models", "url": "https://x.com/GeminiApp/status/2123168704662012079"},
+  {"title": "Google DeepMind 的 Gemini 4 Neon 上线 OpenRouter", "category": "ai-products", "url": "https://x.com/OpenRouter/status/2123170058574905675"},
+  {"title": "Palmer Luckey 就 Nvidia CEO 人事变动发表看法", "category": "opinion", "url": "https://techcrunch.com/2026/11/18/palmer-luckey-thinks-china-is-thrilled-to-have-jensen-out-so-he-wants-the-ousted-nvidia-ceo-reinstated/"},
+  {"title": "OpenAI 详解前沿 AI 风险管理：从训练到部署的四层防护", "category": "opinion", "url": "https://openai.com/index/managing-frontier-ai-risk"},
+  {"title": "Meta 员工内部聊天显示对 Muse 智能体隐私风险的担忧", "category": "industry", "url": "https://arstechnica.com/tech-policy/2026/11/muse-privacy-invasions-are-freaking-out-meta-staffers-internal-chats-show/"},
+  {"title": "黄仁勋辞职后首次财报电话会：Nvidia 新 CEO Colette Kress 收紧支出并回应回归呼声", "category": "industry", "url": "https://www.theverge.com/ai-artificial-intelligence/1036776/nvidia-earnings-kress-jensen-huang-petition"},
+  {"title": "Greg Brockman 称 OpenAI 模型不到 5 个月为 AMD 芯片带来约一年额外进度", "category": "industry", "url": "https://x.com/gdb/status/2123130414323888463"},
+  {"title": "Google DeepMind 开放 Project Genie 新体验，首次提供 Genie 4 世界模型", "category": "ai-products", "url": "https://deepmind.google/blog/genie-4-is-now-available/"},
+  {"title": "OpenAI 深入解析 Codex 沙箱的权限设计与三平台实现", "category": "tip", "url": "https://openai.com/index/inside-the-codex-sandbox"},
+  {"title": "OpenAI 详解模型在 Jalapeño 芯片与 AMD 产线设计中的应用及 RISC-V 评测", "category": "industry", "url": "https://openai.com/index/advancing-chip-design-with-our-models"},
+  {"title": "Wiz 披露 NGINX 两个 HTTP/2 无需认证远程代码执行漏洞 CVE-2026-123633 与 CVE-2026-123007", "category": "paper", "url": "https://www.wiz.io/blog/nginx-http2-rce-vulnerabilities"},
+  {"title": "腾讯混元宣布 11 月 20 日在 Reddit r/LocalLLaMA 举办 AMA", "category": "industry", "url": "https://x.com/TencentHunyuan/status/2123095410327879735"},
+  {"title": "Recraft 实测 ByteDance Seedream 5.5，与 Recraft V4.1 Pro 和 GPT Image 2.6 对比", "category": "ai-products", "url": "https://www.recraft.ai/blog/seedream-5-5"}
 ];
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧','opinion':'观点' };
 
