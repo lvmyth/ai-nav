@@ -1,16 +1,16 @@
 {
-  "lastRun": "2026-11-19T09:43:39+08:00",
-  "status": "partial",
-  "message": "每日更新完成;新闻源(AIHOT)正常;新增5条(工具3+术语2);tokeneconomizer logo抓取失败暂保留emoji",
-  "added": 5,
+  "lastRun": "2026-11-20T09:45:33+08:00",
+  "status": "ok",
+  "message": "每日更新完成",
+  "added": 6,
   "failedStep": "",
-  "date": "2026-11-19",
-  "tools": 663,
+  "date": "2026-11-20",
+  "tools": 669,
   "duplicateIds": 0,
   "fields": {
-    "release": 162,
-    "pricing": 243,
-    "cn": 342,
-    "api": 141
+    "release": 166,
+    "pricing": 247,
+    "cn": 346,
+    "api": 145
   }
 }
