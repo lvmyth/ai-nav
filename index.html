@@ -2416,7 +2416,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-11-19';
+var NAV_UPDATE_DATE = '2026-11-20';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -2466,6 +2466,12 @@ var NAV_UPDATE_DATE = '2026-11-19';
 })();
 
 const TOOLS = [
+{ id:'ai2-theorizer', name:'Ai2 Theorizer（Asta）', vendor:'Allen Institute for AI', cat:'tool', region:'intl', desc:'Ai2 于 2026年11月19日在科研智能体平台 Asta 上线理论生成智能体 Theorizer 并同步开源代码：针对研究者无法解释的现象，先检索相关文献，再按问题模板抽取研究对象、变量与结论，跨论文归纳生成可溯源的理论假说，每条解释都链接到原始论文供研究者核查；已在肿瘤学（「driver-negative」肺腺癌）等真实科研场景辅助形成可验证假设。Asta 网页端在额度内由 Ai2 承担 Token 费用，也可自行运行开源库并按需付费。', release:'2026-11-19', pricing:'freemium', cn:0, api:0, tags:['Ai2','Asta','Theorizer','科研智能体','假说生成','开源'], url:'https://allenai.org/blog/theorizer-in-asta', icon:'images/logos/ai2-theorizer.png' },
+{ id:'olala-mini-7a1b', name:'Olala mini 7A1B', vendor:'OVHcloud', cat:'chat', region:'intl', desc:'欧洲云服务商 OVHcloud 于 2026年11月17日发布的首个自研开源大模型家族 Olala 的首款模型：总参数 7B、每词元仅激活约 1B，采用 Mamba-3 与 Differential-TPA 混合注意力加每层 256 专家的 MoE 架构，8GB 显存的 GPU 即可运行（RTX A4500 上约 160 tokens/s，纯 CPU 约 50 tokens/s），上下文 32K（128K 版本年底推出）；MATH 基准 72.2 分在同级 MoE 模型中领先。已在 Hugging Face 以 Apache 2.0 开放权重并附技术报告与 AI Act 合规文档，法国搜索引擎 Qwant 已将其用于快答功能（响应提速 20%、运行成本降至此前 1/3）。', release:'2026-11-17', pricing:'free', cn:0, api:0, tags:['OVHcloud','Olala','开源模型','MoE','Mamba-3','欧洲主权AI','Apache 2.0'], url:'https://huggingface.co/OVHaiLLM/Olala-v1.0-mini-7A1B', icon:'images/logos/olala-mini-7a1b.png' },
+{ id:'tianhua-kaiwu', name:'天华开物 酶设计大模型', vendor:'天津大学 × 智谱华章', cat:'tool', region:'cn', desc:'中国自主研发的合成生物领域首个公开发布的酶设计基座大模型，2026年11月19日在天津大学发布：参数规模已达 560 亿（天津大学自研、联合智谱华章完成扩容），通过「反应—序列—结构」联合建模，依据目标反应从头设计新酶、预测突变效应、优选改造组合，并与天津大学合成生物自动化设备结合形成「设计—构建—测试—学习」闭环，可在一周内给出酶设计方案、三个月内完成菌种定制化构建与工艺开发；适配国产算力、支持本地化私有部署，下一步将面向科研界与产业界开放试用。', release:'2026-11-19', pricing:'unknown', cn:1, api:0, tags:['天华开物','天津大学','智谱华章','酶设计','合成生物','AI for Science','国产'], url:'https://www.chinanews.com/edu/2026/11-19/10734841.shtml', icon:'🧬' },
+{ id:'gemini-tool-retrieval', name:'Gemini API Tool Retrieval', vendor:'Google', cat:'tool', region:'intl', desc:'Google 于 2026年11月在 Gemini API 推出的 Tool Retrieval 预览功能：面向工具数量庞大的智能体场景，无需把全部工具定义塞进上下文，而是按需检索出与当前请求最相关的工具再交由模型调用，从而降低 Token 成本并提升大规模工具编排下的调用准确率；目前为预览版，可在 Gemini API 与 AI Studio 中试用。', release:'2026-11-19', pricing:'freemium', cn:0, api:1, tags:['Google','Gemini API','Tool Retrieval','工具检索','AI Studio','预览'], url:'https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-tool-retrieval/', icon:'images/logos/gemini-tool-retrieval.png' },
+{ id:'gl-phantom-docket', name:'PhantomDocket 基准', vendor:'Stanford RegLab', cat:'glossary', subcat:'gl-tech', desc:'斯坦福 RegLab 于 2026年11月发布的 PhantomDocket 基准：大规模追踪美国州法院诉讼文书中 AI 辅助写作的痕迹。研究发现相当比例的州法院文书带有疑似生成式 AI 的高频特征措辞，该基准为量化 AI 在司法文书中的渗透程度、评估其对文书质量与司法责任的影响提供了首个大规模数据集与方法。', tags:['PhantomDocket','Stanford RegLab','司法文书','AI辅助写作','基准'], icon:'⚖️', domain:'评测与质量', topics:['评测与基准'], flags:['2026新词','前沿'] },
+{ id:'gl-circular-financing', name:'AI 循环融资 (Circular Financing)', vendor:'Circular Financing', cat:'glossary', subcat:'gl-basic', desc:'指 AI 产业中资金在生态内循环流转的融资模式：芯片厂商、云厂商与模型公司相互投资、算力采购与订单形成闭环（如云厂商投资模型公司并采购其算力/服务），市场对其是否放大泡沫、掩盖真实需求一直存在争议。2026年11月 Anthropic 完成史上最大规模 IPO（Amazon 与 Google 持股市值约 3079 亿美元），使这一模式的可持续性再度受到公开检验。', tags:['循环融资','Circular Financing','Anthropic','IPO','Amazon','Google','AI资本开支'], icon:'🔁', domain:'产业与生态', topics:['产业与企业'], flags:['2026新词','热门'] },
 { id:'gemini-4-neon', name:'Gemini 4 Neon', vendor:'Google DeepMind', cat:'chat', region:'intl', desc:'Google DeepMind 于 2026年11月18日发布的 Gemini 4 家族中档模型，定位介于 Carbon（深度长程）与 Hydrogen（轻量高频）之间：1M token 上下文，主打软件工程、知识工作与科学推理，支持 low/medium/high/xhigh 四档推理级别（xhigh 为 Carbon 未开放的新增档位）。官方成绩：最高档下 Artificial Analysis 智能指数 61 分（凭 xhigh 档反超自家 Carbon 的 60 分位列第三），编程智能体指数 58.6 分超越 Claude Opus 5.5 居第一；任务速度约为 Carbon 的 3 倍、单任务成本较 Carbon 低 32%。定价每百万 token 输入 $3、输出 $15、缓存输入 $0.15，日常价比 Carbon 标准价便宜四分之一。安全侧 Terminal-Bench 4.0 作弊率 0.0%，Gray Swan 间接提示注入基准最高档攻击成功率 0.0%，「服务不足」较 Carbon 降低 43%–56%。已通过 Gemini API 在 Google AI Studio / Android Studio 开放（付费层级），AI Pro/Ultra 订阅用户可在 Gemini 应用与 Antigravity 中使用，Gemini 应用 Tasks 功能现由 Neon 驱动。', release:'2026-11-18', pricing:'freemium', cn:0, api:1, tags:['Google DeepMind','Gemini 4','Neon','xhigh','百万上下文','编程智能体','Antigravity'], url:'https://deepmind.google/models/gemini/', icon:'images/logos/gemini-4-neon.png' },
 { id:'claude-personal-finance', name:'Claude Personal Finance', vendor:'Anthropic', cat:'office', region:'intl', desc:'Anthropic 于 2026年11月面向美国合格用户（付费计划）推出的 Claude 个人理财功能（逐步开放）：可连接银行、信用卡等金融账户，在 Claude 中查看交易记录、消费习惯、定期支出与预算情况，并就财务问题提问分析。连接为只读模式，不支持转账或交易操作，降低资金误操作风险。与 Claude Sheets、Whiteboards、Data 一同构成 Anthropic 把日常事务（办公、数据、理财）收进单一 AI 平台的产品线，直接对标传统银行与记账类应用的 AI 化。目前仅限美国部分付费用户，未开放 API。', release:'', pricing:'paid', cn:0, api:0, tags:['Anthropic','Claude','Personal Finance','个人理财','只读连接','预算'], url:'https://claude.com/', icon:'images/logos/claude-personal-finance.png' },
 { id:'claude-managed-agents', name:'Claude Managed Agents（自托管）', vendor:'Anthropic', cat:'agent', region:'intl', desc:'Anthropic 于 2026年11月12日开启私测的自托管版 Claude 智能体服务：企业可在自己的云环境中运行完整智能体栈——Agent 服务、harness、沙箱、凭据与会话历史全部留在客户自有基础设施内，数据不出域，满足金融、医疗等强合规行业对数据主权的要求。与 Anthropic 云端托管版本功能对齐，但部署与运维责任转移给客户。被视为 Anthropic 深入企业级智能体市场、与微软/Meta 托管方案竞争的关键落子。需联系 Anthropic 获取私测资格，未公开定价与 API 文档。', release:'2026-11-12', pricing:'paid', cn:0, api:0, tags:['Anthropic','Claude','Managed Agents','自托管','企业智能体','数据主权','沙箱'], url:'https://www.anthropic.com/news', icon:'images/logos/claude-managed-agents.png' },
@@ -3473,26 +3479,26 @@ const CORS_PROXIES = [
   url => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
 ];
 const FALLBACK_DATA = [
-  {"title": "Nadella 解释向 6 万员工提供买断的原因：转型为 AI 优先的组织而非裁员", "category": "industry", "url": "https://techcrunch.com/2026/11/18/microsoft-ceo-satya-nadella-explains-why-he-asked-60k-employees-to-quit/"},
-  {"title": "黄仁勋相关传闻核查：美商务部与司法部就Megaspeed发联合声明，未认定违规芯片销售", "category": "industry", "url": "https://x.com/thexpin/status/2123199944903581803"},
-  {"title": "微软CEO纳德拉就英伟达CEO变动表态：仍对英伟达团队有信心", "category": "industry", "url": "https://techcrunch.com/2026/11/18/microsoft-ceo-satya-nadella-remains-confident-in-nvidia-after-huangs-exit/"},
-  {"title": "OpenAI 发布研究加速报告：智能体完成近半数长时研究任务但进展参差", "category": "paper", "url": "https://openai.com/index/research-acceleration-jagged-frontier"},
-  {"title": "OpenAI 团队成员 Tibo 评价 GPT-6.2 Astra 并转引 AMD 与 Jalapeño 芯片优化结果", "category": "ai-models", "url": "https://x.com/thsottiaux/status/2123175166519992652"},
-  {"title": "OpenAI 报告内部研究模型在 RL 训练中生成未经授权的邮件转发脚本", "category": "paper", "url": "https://alignment.openai.com/misalignment-reports/generating-scripts-to-copy-outgoing-email-to-an-unauthorized-address/"},
-  {"title": "Anthropic IPO 定价每股 $83.00，11 月 19 日以代码 ANT 登陆纳斯达克", "category": "industry", "url": "https://www.anthropic.com/news/anthropic-prices-initial-public-offering"},
-  {"title": "Gemini 4 Neon 向 Google AI Pro 和 Ultra 订阅用户开放", "category": "ai-models", "url": "https://x.com/GeminiApp/status/2123168704662012079"},
-  {"title": "Google DeepMind 的 Gemini 4 Neon 上线 OpenRouter", "category": "ai-products", "url": "https://x.com/OpenRouter/status/2123170058574905675"},
-  {"title": "Palmer Luckey 就 Nvidia CEO 人事变动发表看法", "category": "opinion", "url": "https://techcrunch.com/2026/11/18/palmer-luckey-thinks-china-is-thrilled-to-have-jensen-out-so-he-wants-the-ousted-nvidia-ceo-reinstated/"},
-  {"title": "OpenAI 详解前沿 AI 风险管理：从训练到部署的四层防护", "category": "opinion", "url": "https://openai.com/index/managing-frontier-ai-risk"},
-  {"title": "Meta 员工内部聊天显示对 Muse 智能体隐私风险的担忧", "category": "industry", "url": "https://arstechnica.com/tech-policy/2026/11/muse-privacy-invasions-are-freaking-out-meta-staffers-internal-chats-show/"},
-  {"title": "黄仁勋辞职后首次财报电话会：Nvidia 新 CEO Colette Kress 收紧支出并回应回归呼声", "category": "industry", "url": "https://www.theverge.com/ai-artificial-intelligence/1036776/nvidia-earnings-kress-jensen-huang-petition"},
-  {"title": "Greg Brockman 称 OpenAI 模型不到 5 个月为 AMD 芯片带来约一年额外进度", "category": "industry", "url": "https://x.com/gdb/status/2123130414323888463"},
-  {"title": "Google DeepMind 开放 Project Genie 新体验，首次提供 Genie 4 世界模型", "category": "ai-products", "url": "https://deepmind.google/blog/genie-4-is-now-available/"},
-  {"title": "OpenAI 深入解析 Codex 沙箱的权限设计与三平台实现", "category": "tip", "url": "https://openai.com/index/inside-the-codex-sandbox"},
-  {"title": "OpenAI 详解模型在 Jalapeño 芯片与 AMD 产线设计中的应用及 RISC-V 评测", "category": "industry", "url": "https://openai.com/index/advancing-chip-design-with-our-models"},
-  {"title": "Wiz 披露 NGINX 两个 HTTP/2 无需认证远程代码执行漏洞 CVE-2026-123633 与 CVE-2026-123007", "category": "paper", "url": "https://www.wiz.io/blog/nginx-http2-rce-vulnerabilities"},
-  {"title": "腾讯混元宣布 11 月 20 日在 Reddit r/LocalLLaMA 举办 AMA", "category": "industry", "url": "https://x.com/TencentHunyuan/status/2123095410327879735"},
-  {"title": "Recraft 实测 ByteDance Seedream 5.5，与 Recraft V4.1 Pro 和 GPT Image 2.6 对比", "category": "ai-products", "url": "https://www.recraft.ai/blog/seedream-5-5"}
+  {"title": "Nvidia 股价近期波动复盘：财报强劲但股价较 10 月高点跌近 40%", "category": "industry", "url": "https://www.theverge.com/ai-artificial-intelligence/1038063/nvidia-stock-market-price-earnings"},
+  {"title": "Gemini 4 Neon 实测：Peter Gostev 对比 Opus、Fable 等模型的首发体验", "category": "ai-models", "url": "https://x.com/arena/status/2123528811572846972"},
+  {"title": "Karina Nguyen 发文祝贺投资人 Sol 庆祝 Anthropic IPO", "category": "industry", "url": "https://x.com/karinanguyen/status/2123509936475001310"},
+  {"title": "Google 在 Gemini API 推出 Tool Retrieval 预览", "category": "ai-products", "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-tool-retrieval/"},
+  {"title": "Perplexity CEO Aravind Srinivas 祝贺 Anthropic IPO，称 Opus 5.5 仍是业界最佳模型", "category": "industry", "url": "https://x.com/AravSrinivas/status/2123480966459174920"},
+  {"title": "Mac 版 Gemini 应用上线计算机操作功能，可代用户执行跨应用任务", "category": "ai-products", "url": "https://x.com/joshwoodward/status/2123534862569324703"},
+  {"title": "OpenAI 详解 Codex 驱动的 Performance Factory 如何自动保持 ChatGPT 高性能", "category": "tip", "url": "https://openai.com/index/how-openai-performance-factory-keeps-chatgpt-fast"},
+  {"title": "Google 在 Gemini API 与 AI Studio 上线 Genie 4 实时世界模型", "category": "ai-products", "url": "https://x.com/_philschmid/status/2123465741592637445"},
+  {"title": "Anthropic CEO Dario Amodei 就公司 IPO 发表声明", "category": "industry", "url": "https://x.com/AnthropicAI/status/2123461658890686863"},
+  {"title": "Anthropic 登陆纳斯达克，开盘价 111 美元较发行价高出 33%", "category": "industry", "url": "https://techcrunch.com/2026/11/19/anthropic-hits-nasdaq-exchanges-at-110-27-above-ipo-price/"},
+  {"title": "芯片停运叠加海外云通道关闭，中国科技公司面临双重冲击", "category": "industry", "url": "https://the-decoder.com/chinese-tech-firms-face-a-double-hit-as-chip-shipments-stop-and-overseas-cloud-access-disappears/"},
+  {"title": "Perplexity Computer 的 Brain 智能体可自动编写和更新个人技能", "category": "paper", "url": "https://x.com/AravSrinivas/status/2123451045657690627"},
+  {"title": "Ai2 在 Asta 平台发布 Theorizer 科研理论生成智能体并开源代码", "category": "ai-products", "url": "https://allenai.org/blog/theorizer-in-asta"},
+  {"title": "Stanford RegLab 发布 PhantomDocket 基准，追踪美国州法院诉讼文书中的 AI 辅助写作", "category": "paper", "url": "https://hai.stanford.edu/news/ai-might-be-flooding-state-court-houses-but-proving-it-is-another-matter"},
+  {"title": "indigo 转发 Dario Amodei 为 Anthropic IPO 在 Nasdaq 敲钟", "category": "industry", "url": "https://x.com/indigox/status/2123464879961186584"},
+  {"title": "Anthropic IPO 检验 AI 循环融资模式，Amazon 和 Google 持股市值约 3079 亿美元", "category": "industry", "url": "https://techcrunch.com/2026/11/19/anthropics-ipo-puts-ais-circular-financing-boom-to-the-test/"},
+  {"title": "Anthropic 完成史上最大规模 IPO，其安全治理结构受到审视", "category": "industry", "url": "https://www.theverge.com/ai-artificial-intelligence/1037459/anthropic-ipo-safe-ai-reputation-power-structure"},
+  {"title": "MIT 研究测算数据中心用电 2023 年在美国致约 650 例过早死亡", "category": "paper", "url": "https://news.mit.edu/2026/study-reveals-data-centers-long-distance-damage-air-quality-1119"},
+  {"title": "彭博社：黄仁勋离任英伟达 CEO 后日本 AI 股首当其冲", "category": "industry", "url": "https://www.ithome.com/1/029/265.htm"},
+  {"title": "AI大模型密集上新 智能体加速切入高价值实体场景", "category": "industry", "url": "https://www.jjckb.cn/20261119/c45560c166ea43aab2bfd8eadfe22908/c.html"}
 ];
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧','opinion':'观点' };
 
