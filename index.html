@@ -2416,7 +2416,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-11-21';
+var NAV_UPDATE_DATE = '2026-11-22';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -2466,6 +2466,14 @@ var NAV_UPDATE_DATE = '2026-11-21';
 })();
 
 const TOOLS = [
+{ id:'openpangu-2-1-pro', name:'openPangu 2.1-Pro', vendor:'华为', cat:'chat', region:'cn', desc:'华为开源盘古系列 2.1-Pro 于 2026年11月15日上线华为云 MaaS 平台：支持 512K 上下文、函数调用与前缀缓存；新版本优化技能触发、工具选择与调用，智能体可组合多项技能完成多步骤任务。模型针对鸿蒙 App 开发与昇腾算子生成专项训练，优化 ArkTS 代码生成，典型部署场景吞吐较上一代提升，小艺 Work 已率先搭载。', release:'2026-11-15', pricing:'paid', cn:1, api:1, tags:['华为','盘古','openPangu','鸿蒙','昇腾','智能体','开源'], url:'https://www.huaweicloud.com', icon:'images/logos/openpangu-2-1-pro.png' },
+{ id:'liquid-d1-2', name:'Liquid AI d1.2', vendor:'Liquid AI', cat:'chat', desc:'Liquid AI 推出的 d1.2 决策模型系列（含 d1.2 与 d1.2-ultra），面向单次推理即可完成的结构化决策任务（分类、路由、审核等），主打低延迟与低成本，2026年11月被多家独立评测机构列入月度模型追踪榜单。', release:'', pricing:'paid', cn:0, api:1, tags:['Liquid AI','d1.2','决策模型','结构化决策','低延迟'], url:'https://liquid.ai', icon:'images/logos/liquid-d1-2.png' },
+{ id:'arete-27b', name:'Arete-27B', vendor:'Nous Research', cat:'chat', desc:'Nous Research 于 2026年11月9日开源的 27B 监督微调模型：基于 Qwen3.8-27B 底座做 SFT，同步公开配套评测集，权重开放可下载自部署，适合推理与智能体任务的低成本定制。', release:'2026-11-09', pricing:'free', cn:0, api:0, tags:['Nous Research','Arete','27B','SFT','开源','Qwen3.8'], url:'https://nousresearch.com', icon:'images/logos/arete-27b.png' },
+{ id:'gl-prompt-leakage', name:'提示词泄露 (Prompt Leakage)', vendor:'Together AI', cat:'glossary', subcat:'gl-dev', desc:'提示词泄露指 serverless 推理服务或 Agent 平台因凭证管理缺陷，导致用户提交的提示词（含系统提示词与业务数据）被未授权方下载或搜索的事件类型。2026年6-7月 Together AI 发生典型泄露：AI 编码 agent 在公开 GitHub 仓库提交私有凭证，未授权方借此下载了 MiniMax M3、GLM-5.2、Kimi K2.6 等模型服务存储的提示词样本。企业应评估是否开启零数据保留（ZDR）并审计 Agent 凭证权限。', tags:['Together AI','提示词泄露','Prompt Leakage','ZDR','serverless','凭证管理'], icon:'🕵️', domain:'安全与对齐', topics:['AI安全','隐私合规与治理'], flags:['2026新词','热门'] },
+{ id:'gl-canary-credentials', name:'金丝雀凭证 (Canary Credentials)', vendor:'', cat:'glossary', subcat:'gl-dev', desc:'金丝雀凭证是刻意投放到数据或系统中的诱饵凭证与标记数据，用于追踪和检测敏感信息外泄路径。2026年11月研究者向 AI 供应链（训练语料、公开仓库、文档站等）埋入 200 万个金丝雀标记，揭示 AI 系统与供应链正以惊人速率泄露敏感用户数据，为量化数据外泄提供了可测量的方法。', tags:['Canary','金丝雀','数据泄露','AI供应链','安全研究'], icon:'🐦', domain:'安全与对齐', topics:['攻防与红队','AI安全'], flags:['2026新词','前沿'] },
+{ id:'gl-live-delivery', name:'实时交付机制 (Live Delivery)', vendor:'', cat:'glossary', subcat:'gl-frontier', desc:'实时交付机制是阿里通义千问在 Qwen4-Max 智能体场景中引入的任务交付范式：Agent 先交付一个可用的首版结果，再根据用户反馈逐版扩展内容与质量，而非长时间静默推理后一次性给出最终答案。该机制把可用性提前到任务早期，改善长程任务的等待体验与反馈效率。', tags:['Qwen4-Max','Live Delivery','交付机制','Agent','反馈迭代'], icon:'🚚', domain:'智能体', topics:['Agent','长程任务'], flags:['2026新词','实用'] },
+{ id:'gl-engram', name:'Engram（参数记忆模块）', vendor:'', cat:'glossary', subcat:'gl-tech', desc:'Engram 是腾讯混元 Hy4 / Hy4 Flash 系列引入的记忆参数模块：在总参数中划出专门用于记忆的参数（Hy4 Flash 的 224B 中含 64B Engram），配合 LatentMoE 与混合注意力，每个 Token 只激活少量参数即可兼顾记忆容量与推理效率，将推理缓存降至旗舰版的六分之一。', tags:['混元','Hy4','Engram','LatentMoE','记忆参数','MoE'], icon:'🧩', domain:'模型与训练', topics:['MoE与架构'], flags:['2026新词','前沿'] },
+{ id:'gl-ai-gigafactory', name:'AI 超级工厂 (AI Gigafactory)', vendor:'', cat:'glossary', subcat:'gl-frontier', desc:'AI 超级工厂指整合大规模算力、数据中心与主权云的跨国 AI 基础设施计划。2026年11月诺基亚联合 Nscale、Skeleton Technologies、Telia、Verda 组建 AI Gigafactory Northern 联盟，整合芬兰、爱沙尼亚、拉脱维亚等北欧与波罗的海站点的低碳电力与算力，服务欧洲企业的主权云与 AI 计算需求，并参与欧盟高性能计算联合事业体招标。', tags:['AI Gigafactory','AI超级工厂','诺基亚','主权云','欧洲','算力'], icon:'🏭', domain:'产业与生态', topics:['产业与企业'], flags:['2026新词','热门'] },
 { id:'ai2-theorizer', name:'Ai2 Theorizer（Asta）', vendor:'Allen Institute for AI', cat:'tool', region:'intl', desc:'Ai2 于 2026年11月19日在科研智能体平台 Asta 上线理论生成智能体 Theorizer 并同步开源代码：针对研究者无法解释的现象，先检索相关文献，再按问题模板抽取研究对象、变量与结论，跨论文归纳生成可溯源的理论假说，每条解释都链接到原始论文供研究者核查；已在肿瘤学（「driver-negative」肺腺癌）等真实科研场景辅助形成可验证假设。Asta 网页端在额度内由 Ai2 承担 Token 费用，也可自行运行开源库并按需付费。', release:'2026-11-19', pricing:'freemium', cn:0, api:0, tags:['Ai2','Asta','Theorizer','科研智能体','假说生成','开源'], url:'https://allenai.org/blog/theorizer-in-asta', icon:'images/logos/ai2-theorizer.png' },
 { id:'olala-mini-7a1b', name:'Olala mini 7A1B', vendor:'OVHcloud', cat:'chat', region:'intl', desc:'欧洲云服务商 OVHcloud 于 2026年11月17日发布的首个自研开源大模型家族 Olala 的首款模型：总参数 7B、每词元仅激活约 1B，采用 Mamba-3 与 Differential-TPA 混合注意力加每层 256 专家的 MoE 架构，8GB 显存的 GPU 即可运行（RTX A4500 上约 160 tokens/s，纯 CPU 约 50 tokens/s），上下文 32K（128K 版本年底推出）；MATH 基准 72.2 分在同级 MoE 模型中领先。已在 Hugging Face 以 Apache 2.0 开放权重并附技术报告与 AI Act 合规文档，法国搜索引擎 Qwant 已将其用于快答功能（响应提速 20%、运行成本降至此前 1/3）。', release:'2026-11-17', pricing:'free', cn:0, api:0, tags:['OVHcloud','Olala','开源模型','MoE','Mamba-3','欧洲主权AI','Apache 2.0'], url:'https://huggingface.co/OVHaiLLM/Olala-v1.0-mini-7A1B', icon:'images/logos/olala-mini-7a1b.png' },
 { id:'tianhua-kaiwu', name:'天华开物 酶设计大模型', vendor:'天津大学 × 智谱华章', cat:'tool', region:'cn', desc:'中国自主研发的合成生物领域首个公开发布的酶设计基座大模型，2026年11月19日在天津大学发布：参数规模已达 560 亿（天津大学自研、联合智谱华章完成扩容），通过「反应—序列—结构」联合建模，依据目标反应从头设计新酶、预测突变效应、优选改造组合，并与天津大学合成生物自动化设备结合形成「设计—构建—测试—学习」闭环，可在一周内给出酶设计方案、三个月内完成菌种定制化构建与工艺开发；适配国产算力、支持本地化私有部署，下一步将面向科研界与产业界开放试用。', release:'2026-11-19', pricing:'unknown', cn:1, api:0, tags:['天华开物','天津大学','智谱华章','酶设计','合成生物','AI for Science','国产'], url:'https://www.chinanews.com/edu/2026/11-19/10734841.shtml', icon:'images/logos/tianhua-kaiwu.png' },
@@ -3486,8 +3494,13 @@ const CORS_PROXIES = [
   url => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
 ];
 const FALLBACK_DATA = [
+  {"title": "Together AI 通报 2026 年 6-7 月 serverless 推理服务提示词泄露事件", "category": "industry", "url": "https://www.together.ai/blog/security-event-prompt-leakage-for-requests-in-june-and-july-of-2026"},
+  {"title": "Qwen4 Max 上线 Together AI，单次调用修复 Tornado 整仓 bug", "category": "ai-products", "url": "https://www.together.ai/blog/qwen4-max"},
+  {"title": "Columbia 与 MIT 论文展示 Claude 发现的算法突破 3SUM 与 APSP 长期速度上限", "category": "paper", "url": "https://x.com/rohanpaul_ai/status/2124213113583174076"},
+  {"title": "Anthropic 数学家称与 Claude 完成黎曼猜想证明，斯坦福数小时后发布纯人类竞争草稿", "category": "paper", "url": "https://the-decoder.com/hours-after-anthropic-claims-a-claude-proof-of-the-riemann-hypothesis-stanford-releases-an-all-human-competing-draft/"},
   {"title": "Google 回顾 Duplex 十年演进：如何在 Gemini Tasks 中替用户打电话给商家", "category": "ai-products", "url": "https://research.google/blog/how-google-duplex-evolved-to-also-call-businesses-for-you-in-gemini/"},
   {"title": "Figma 演示用 Specs 与 Figma agent 把上下文变成可实现的开发计划", "category": "tip", "url": "https://www.figma.com/blog/workflow-lab-specs-and-the-figma-agent/"},
+  {"title": "研究者向 AI 供应链埋入 200 万个金丝雀，揭露敏感数据泄露", "category": "paper", "url": "https://arstechnica.com/security/2026/11/a-leaky-ai-supply-chain-is-exposing-secret-user-data-at-an-alarming-rate/"},
   {"title": "browser-use 1.0 发布：用一个 Python REPL 工具替代 24 个浏览器动作", "category": "ai-products", "url": "https://browser-use.com/posts/browser-use-1-0"},
   {"title": "Thinking Machines Lab 发布可跑在笔记本上的开源权重模型 Inkling 2 Mini", "category": "ai-models", "url": "https://thinkingmachines.ai/news/inkling-2-mini/"},
   {"title": "METR 发布 2026 年 11 月能力测量更新：AI R&D 相关能力每约 3.6 个月翻倍且更难测量", "category": "paper", "url": "https://metr.org/blog/2026-11-20-q4-2026-capability-update/"},
@@ -3496,16 +3509,11 @@ const FALLBACK_DATA = [
   {"title": "Anthropic 数学家 Levent Alpöge 宣布与 Claude 合作证明黎曼猜想，放出 1737 万行 Lean 代码", "category": "paper", "url": "https://mp.weixin.qq.com/s/8Zi3nfwddzFy6cZsK2_KxA"},
   {"title": "Runway 详解如何构建智能体驱动的软件工厂", "category": "tip", "url": "https://runwayml.com/news/engineering/building-a-software-factory"},
   {"title": "Anthropic 破纪录 IPO 未能止住 AI 抛售，全球股市下挫", "category": "industry", "url": "https://www.theguardian.com/business/2026/nov/20/global-stock-markets-slump-anthropic-ipo-ai-sell-off"},
-  {"title": "MIT 数学面板讨论 AI 冲击下的数学研究未来", "category": "industry", "url": "https://news.mit.edu/2026/following-mathocalypse-mathematicians-consider-future-1120"},
+  {"title": "MIT 数学面板讨论 AI 冲击下的数学研究未来", "category": "opinion", "url": "https://news.mit.edu/2026/following-mathocalypse-mathematicians-consider-future-1120"},
   {"title": "MiniMax 内部模型 MIM 实现多项密码分析实用攻击并开源验证轨迹", "category": "paper", "url": "https://www.minimax.io/blog/practical-cryptanalysis-with-minimaxs-latest-internal-model"},
   {"title": "腾讯混元开放 Hy4 权重", "category": "ai-models", "url": "https://x.com/TencentHunyuan/status/2123625549147070538"},
   {"title": "Conductor 0.97.0 发布并宣布加入 Meta，本地工作区智能体新增 artifacts", "category": "ai-products", "url": "https://www.conductor.build/changelog/0.97.0-first-class-artifacts"},
   {"title": "DeepSeek Harness 发布100天，作者分享13个实用插件玩法", "category": "tip", "url": "https://x.com/Khazix0918/status/2123627885730951241"},
-  {"title": "Nvidia 股价近期波动复盘：财报强劲但股价较 10 月高点跌近 40%", "category": "industry", "url": "https://www.theverge.com/ai-artificial-intelligence/1038063/nvidia-stock-market-price-earnings"},
-  {"title": "Gemini 4 Neon 实测：Peter Gostev 对比 Opus、Fable 等模型的首发体验", "category": "ai-models", "url": "https://x.com/arena/status/2123528811572846972"},
-  {"title": "Karina Nguyen 发文祝贺投资人 Sol 庆祝 Anthropic IPO", "category": "industry", "url": "https://x.com/karinanguyen/status/2123509936475001310"},
-  {"title": "Google 在 Gemini API 推出 Tool Retrieval 预览", "category": "ai-products", "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-tool-retrieval/"},
-  {"title": "Perplexity CEO Aravind Srinivas 祝贺 Anthropic IPO，称 Opus 5.5 仍是业界最佳模型", "category": "industry", "url": "https://x.com/AravSrinivas/status/2123480966459174920"},
 ];
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧','opinion':'观点' };
 
