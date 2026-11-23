@@ -1,16 +1,16 @@
 {
-  "lastRun": "2026-11-22T09:41:06+08:00",
-  "status": "partial",
-  "message": "每日更新完成；新增3工具+5术语，1个logo适配失败(tokeneconomizer)保留emoji",
-  "added": 8,
+  "lastRun": "2026-11-23T09:51:22+08:00",
+  "status": "ok",
+  "message": "每日更新完成",
+  "added": 7,
   "failedStep": "",
-  "date": "2026-11-22",
-  "tools": 684,
+  "date": "2026-11-23",
+  "tools": 691,
   "duplicateIds": 0,
   "fields": {
-    "release": 172,
-    "pricing": 253,
-    "cn": 352,
-    "api": 151
+    "release": 177,
+    "pricing": 258,
+    "cn": 357,
+    "api": 156
   }
 }
