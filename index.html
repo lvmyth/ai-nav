@@ -2416,7 +2416,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-11-22';
+var NAV_UPDATE_DATE = '2026-11-23';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -2466,6 +2466,13 @@ var NAV_UPDATE_DATE = '2026-11-22';
 })();
 
 const TOOLS = [
+{ id:'laoai-minicpm-8b', name:'MiniCPM 8B（老挝国家模型 LaoAI）', vendor:'面壁智能/OpenBMB', cat:'chat', region:'cn', desc:'面壁智能基于 MiniCPM 8B 架构建设的老挝国家级语言模型 LaoAI：2026年11月被用作老挝国家模型并接入当地政府 G-Chat v2 通讯应用，官方称老挝语翻译在国际基准上超过 GPT-4o（该表述尚缺独立复现评测）。同一披露显示截至 2026年11月 MiniCPM 系列累计下载量突破 7000 万次，马来西亚以 VoxCPM2 做语音交互、肯尼亚有银行在其上运行端侧风控 Agent。端侧小模型的竞争正从参数量转向「谁真的嵌进日常系统」：离线可用、单机成本低的小模型更容易进入政务、金融、通信等对时延和成本敏感的场景，国家级订单也开始在开放模型与大厂自研模型之间做选择。', release:'', pricing:'free', cn:1, api:0, tags:['面壁智能','OpenBMB','MiniCPM','8B','端侧','老挝','LaoAI','政务','开源'], url:'https://github.com/OpenBMB/MiniCPM', icon:'images/logos/laoai-minicpm-8b.png' },
+{ id:'perplexity-brain', name:'Perplexity Brain（技能自进化）', vendor:'Perplexity', cat:'agent', region:'intl', desc:'Perplexity Computer 智能体产品中的个性化系统 Brain 于 2026年11月上线「自动编写与更新个人技能」能力：从用户历史会话与记忆中把重复工作流沉淀为可复用的技能，并通过「证据→反思→验证→激活」四阶段循环持续改写——改进 Agent 提出更新、检查确认格式有效后新版本即对后续会话生效。个人技能来自单个用户会话（同一可复用行为需两个独立实例），内置技能需配对回放测试与人工工程师批准才可上线；每用户技能上限 10 个。官方生产数据：2026年8月1日至11月14日为超 2 万用户写了 8 万多个个人技能、对 3 万个既有技能应用 10 万多次更新；八周随机测试中 72.9% 的开启用户获得新技能（对照组 6.5%），工具调用失败率降 11%。改变的是上下文与指令而非模型权重。已对美国 Max 订阅用户默认开启，未开放 API。', release:'', pricing:'paid', cn:0, api:0, tags:['Perplexity','Computer','Brain','技能','个性化','记忆','自进化'], url:'https://www.perplexity.ai', icon:'images/logos/perplexity-brain.png' },
+{ id:'figma-specs', name:'Figma Specs', vendor:'Figma', cat:'design', region:'intl', desc:'Figma 于 2026年11月开放 beta 的画布规格功能（Specs 与 code layers 已覆盖所有套餐）：在画布上用 Specs 汇集 PRD、数据与设计标注，把「上下文」变成编码智能体可实现的东西——Figma agent 生成实现计划，再经 Figma MCP 交给 Codex 等智能体读取完整上下文进行开发。与 Figma Weave 等一起，把设计工具从「给设计师看」延伸为「给 AI 编码智能体供料」的上下文层。', release:'', pricing:'freemium', cn:0, api:0, tags:['Figma','Specs','设计标注','Figma agent','MCP','Codex','beta'], url:'https://www.figma.com/blog/workflow-lab-specs-and-the-figma-agent/', icon:'images/logos/figma-specs.png' },
+{ id:'smolmaxxing', name:'smolmaxxing', vendor:'hyperionaidev', cat:'code', region:'intl', desc:'2026年11月4日创建的开源项目（MIT 许可）：一组 llama.cpp 补丁与工具集，让电视盒子、旧 iPad、手机等约 1GB 可用内存的小设备跑起远超内存容量的语言模型。核心手段：MoE 常用专家常驻内存、其余按需从闪存分页读取并预取下一层专家（8B/16B 模型跑进 1GB、80B MoE 跑上手机）；裁剪词表中很少用到的输出行；针对 Cortex-A55 与 Apple A7 优化的 1-bit 查表与 2-bit/三值权重内核；稠密模型按闪存满速流式加载。实测：小米电视盒子 S 三代跑 Qwen3.5-2B 达 7.7 tok/s、最大可跑 16B 的 Ling-mini-2.0；2013 iPad Air 跑 1-bit Bonsai-1.7B 达 24-26 tok/s；OnePlus Nord CE 2 跑 Qwen3-Next-80B-A3B 约 2.6-3.1 tok/s。适合愿意自己编译刷机的开发者，并非开箱即用产品。', release:'2026-11-04', pricing:'free', cn:0, api:0, tags:['smolmaxxing','llama.cpp','MoE','端侧','闪存分页','量化','开源','MIT'], url:'https://github.com/hyperionaidev/smolmaxxing', icon:'images/logos/smolmaxxing.png' },
+{ id:'llama-cpp-1', name:'llama.cpp 1.0.0', vendor:'ggml / llama.cpp 社区', cat:'code', region:'intl', desc:'本地大模型推理事实标准 llama.cpp 于 2026年11月13日正式发布 1.0.0 版本：确立把 GGML 兼容模型嵌入原生应用的稳定基线，同时引入不兼容的 C API 变更（维护者需调整集成头文件）。Ollama、LM Studio、smolmaxxing 等端侧推理方案均构建其上，1.0 版本标志其 API 与量化格式进入承诺稳定的阶段，是本地推理生态的关键里程碑。', release:'2026-11-13', pricing:'free', cn:0, api:0, tags:['llama.cpp','ggml','本地推理','端侧','量化','开源','1.0'], url:'https://github.com/ggml-org/llama.cpp', icon:'images/logos/llama-cpp-1.png' },
+{ id:'gl-riemann-ai-proof', name:'黎曼猜想的 AI 证明 (AI-assisted Riemann Proof)', vendor:'Anthropic', cat:'glossary', subcat:'gl-frontier', desc:'2026年11月20日，Anthropic 数学家 Levent Alpöge 以 175,187 个 Lean 文件、约 1737 万行代码的形式发布与 Claude 合作的黎曼猜想及广义黎曼猜想证明（无配套论文）；11月22日，Lean 与 Mathlib 社区发表声明确认证明正确——数十人各自独立运行得到相同结果，且验证程序被设计为可证明不会接受有缺陷的证明。数小时后斯坦福发布纯人类完成的竞争草稿，也在接受核查。它让 AI 参与数学发现第一次有了可被独立复现的验收方式，但验证通过不等于学界接受：菲尔兹奖得主梅纳德认为证明还需被人理解才可能获得普遍认可，最终结论以正式论文与同行评议为准。', tags:['黎曼猜想','Riemann Hypothesis','Alpöge','Claude','Lean','Mathlib','形式化验证','Anthropic'], icon:'∑', domain:'前沿研究', topics:['前沿概念','AI4Science'], flags:['2026新词','热门'] },
+{ id:'gl-perplexity-metric', name:'困惑度 (Perplexity)', vendor:'OpenAI', cat:'glossary', subcat:'gl-tech', desc:'语言模型的基础评测指标：衡量模型对文本的「惊讶程度」，等价于交叉熵损失的指数，数值越低说明模型对语料的预测越准，预训练期的困惑度曲线与模型最终能力高度相关。2026年11月，OpenAI 撰文提议把困惑度（交叉熵损失）确立为开发者跨模型比较、乃至安全参考的共享指标，并公开自 GPT-3.5 以来的内部 log-perplexity 测量数据——各家评测口径不一正是当下能力对比最实际的障碍，预训练期的连续指标若能共享，比再刷一个基准更接近「可比较」，也能为能力增长设定早期预警线。', tags:['Perplexity','困惑度','交叉熵','预训练','评测指标','OpenAI'], icon:'📉', domain:'评测与质量', topics:['评测与基准'], flags:['热门','核心'] },
 { id:'openpangu-2-1-pro', name:'openPangu 2.1-Pro', vendor:'华为', cat:'chat', region:'cn', desc:'华为开源盘古系列 2.1-Pro 于 2026年11月15日上线华为云 MaaS 平台：支持 512K 上下文、函数调用与前缀缓存；新版本优化技能触发、工具选择与调用，智能体可组合多项技能完成多步骤任务。模型针对鸿蒙 App 开发与昇腾算子生成专项训练，优化 ArkTS 代码生成，典型部署场景吞吐较上一代提升，小艺 Work 已率先搭载。', release:'2026-11-15', pricing:'paid', cn:1, api:1, tags:['华为','盘古','openPangu','鸿蒙','昇腾','智能体','开源'], url:'https://www.huaweicloud.com', icon:'images/logos/openpangu-2-1-pro.png' },
 { id:'liquid-d1-2', name:'Liquid AI d1.2', vendor:'Liquid AI', cat:'chat', desc:'Liquid AI 推出的 d1.2 决策模型系列（含 d1.2 与 d1.2-ultra），面向单次推理即可完成的结构化决策任务（分类、路由、审核等），主打低延迟与低成本，2026年11月被多家独立评测机构列入月度模型追踪榜单。', release:'', pricing:'paid', cn:0, api:1, tags:['Liquid AI','d1.2','决策模型','结构化决策','低延迟'], url:'https://liquid.ai', icon:'images/logos/liquid-d1-2.png' },
 { id:'arete-27b', name:'Arete-27B', vendor:'Nous Research', cat:'chat', desc:'Nous Research 于 2026年11月9日开源的 27B 监督微调模型：基于 Qwen3.8-27B 底座做 SFT，同步公开配套评测集，权重开放可下载自部署，适合推理与智能体任务的低成本定制。', release:'2026-11-09', pricing:'free', cn:0, api:0, tags:['Nous Research','Arete','27B','SFT','开源','Qwen3.8'], url:'https://nousresearch.com', icon:'images/logos/arete-27b.png' },
@@ -3494,6 +3501,13 @@ const CORS_PROXIES = [
   url => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
 ];
 const FALLBACK_DATA = [
+  {"title": "Anthropic IPO 前三家机构如何重注押注", "category": "industry", "url": "https://techcrunch.com/2026/11/22/how-notable-capital-gic-and-baillie-gifford-bet-big-on-anthropic-before-its-ipo/"},
+  {"title": "卡兹克分享 Claude、GPT、Gemini 三模型协同调度方法", "category": "tip", "url": "https://mp.weixin.qq.com/s/gwj0xLNHPfToQnQJN7IkMA"},
+  {"title": "用户实测用 MiniCPM5-2B 在 Mac 上本地跑通体检报告分析", "category": "opinion", "url": "https://x.com/OpenBMB/status/2124461770043785636"},
+  {"title": "MiniCPM 8B 成为老挝国家模型，端侧小模型加速落地多国", "category": "industry", "url": "https://x.com/OpenBMB/status/2124464239670964531"},
+  {"title": "OpenAI 提议以困惑度作为行业共享指标并公开内部预训练测量数据", "category": "opinion", "url": "https://openai.com/index/perplexity-and-intelligence"},
+  {"title": "Lean 与 Mathlib 社区确认 Levent Alpöge 黎曼猜想证明正确", "category": "industry", "url": "https://the-decoder.com/lean-and-mathlib-community-officially-confirms-levent-alpoges-proof-of-the-riemann-hypothesis-is-correct/"},
+  {"title": "菲尔兹奖得主梅纳德谈 Claude 合作证明黎曼猜想：相信证明正确，但需被理解才可能获认可", "category": "opinion", "url": "https://www.ithome.com/1/030/677.htm"},
   {"title": "Together AI 通报 2026 年 6-7 月 serverless 推理服务提示词泄露事件", "category": "industry", "url": "https://www.together.ai/blog/security-event-prompt-leakage-for-requests-in-june-and-july-of-2026"},
   {"title": "Qwen4 Max 上线 Together AI，单次调用修复 Tornado 整仓 bug", "category": "ai-products", "url": "https://www.together.ai/blog/qwen4-max"},
   {"title": "Columbia 与 MIT 论文展示 Claude 发现的算法突破 3SUM 与 APSP 长期速度上限", "category": "paper", "url": "https://x.com/rohanpaul_ai/status/2124213113583174076"},
@@ -3506,14 +3520,7 @@ const FALLBACK_DATA = [
   {"title": "METR 发布 2026 年 11 月能力测量更新：AI R&D 相关能力每约 3.6 个月翻倍且更难测量", "category": "paper", "url": "https://metr.org/blog/2026-11-20-q4-2026-capability-update/"},
   {"title": "ChatGPT 推出 Space：统一管理页面、幻灯片、图片与文件", "category": "ai-products", "url": "https://x.com/ChatGPT/status/2123850915061104735"},
   {"title": "OpenHands 详解用 Agent 自动修复自家镜像 CVE 的软件工厂", "category": "tip", "url": "https://www.openhands.dev/blog/automating-cve-remediation-with-openhands"},
-  {"title": "Anthropic 数学家 Levent Alpöge 宣布与 Claude 合作证明黎曼猜想，放出 1737 万行 Lean 代码", "category": "paper", "url": "https://mp.weixin.qq.com/s/8Zi3nfwddzFy6cZsK2_KxA"},
-  {"title": "Runway 详解如何构建智能体驱动的软件工厂", "category": "tip", "url": "https://runwayml.com/news/engineering/building-a-software-factory"},
-  {"title": "Anthropic 破纪录 IPO 未能止住 AI 抛售，全球股市下挫", "category": "industry", "url": "https://www.theguardian.com/business/2026/nov/20/global-stock-markets-slump-anthropic-ipo-ai-sell-off"},
-  {"title": "MIT 数学面板讨论 AI 冲击下的数学研究未来", "category": "opinion", "url": "https://news.mit.edu/2026/following-mathocalypse-mathematicians-consider-future-1120"},
-  {"title": "MiniMax 内部模型 MIM 实现多项密码分析实用攻击并开源验证轨迹", "category": "paper", "url": "https://www.minimax.io/blog/practical-cryptanalysis-with-minimaxs-latest-internal-model"},
-  {"title": "腾讯混元开放 Hy4 权重", "category": "ai-models", "url": "https://x.com/TencentHunyuan/status/2123625549147070538"},
-  {"title": "Conductor 0.97.0 发布并宣布加入 Meta，本地工作区智能体新增 artifacts", "category": "ai-products", "url": "https://www.conductor.build/changelog/0.97.0-first-class-artifacts"},
-  {"title": "DeepSeek Harness 发布100天，作者分享13个实用插件玩法", "category": "tip", "url": "https://x.com/Khazix0918/status/2123627885730951241"},
+  {"title": "Anthropic数学家Alpöge宣布与Claude共同证明黎曼猜想，放出1737万行Lean代码", "category": "paper", "url": "https://mp.weixin.qq.com/s/8Zi3nfwddzFy6cZsK2_KxA"},
 ];
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧','opinion':'观点' };
 
