@@ -2416,7 +2416,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-11-23';
+var NAV_UPDATE_DATE = '2026-11-24';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -3157,7 +3157,11 @@ const TOOLS = [
 { id:'lovable', name:'Lovable', vendor:'Lovable', cat:'code', region:'intl', desc:'欧洲流行的 AI 应用构建平台：通过自然语言对话生成、修改并部署全栈 Web 应用，覆盖数据库、认证与一键上线。2026年11月推出 Drafts 功能，可并行探索应用的多个改动方向而不影响线上版本，适合快速原型验证与低风险迭代。', release:'', pricing:'freemium', cn:0, api:0, tags:['Lovable','Vibe Coding','全栈生成','Drafts','应用构建'], url:'https://lovable.dev', icon:'images/logos/lovable.png' },
 { id:'gl-investigator-agent', name:'调查型智能体 (Investigator Agent)', vendor:'METR', cat:'glossary', subcat:'gl-frontier', desc:'METR 于 2026年11月16日发布的研究使用的智能体形态：让具备调查能力的智能体去测量模型能否识别「对齐评测」与「能力评测」的差异。研究发现，同一任务在被包装为对齐评测时模型表现更保守，说明模型可能区分评测性质——这是「评测意识」（Eval-awareness）的延伸：当模型知道自己正被安全评测时行为会改变，会削弱对齐评估的证明力，推动评测设计走向「不可区分性」。', tags:['METR','调查型智能体','评测意识','对齐评测','不可区分性'], icon:'🕵️', domain:'安全与对齐', topics:['攻防与红队','智能体安全'], flags:['前沿','2026新词'] },
 { id:'gl-embedded-assessments', name:'嵌入式安全评估 (Embedded Assessments)', vendor:'OpenAI', cat:'glossary', subcat:'gl-frontier', desc:'OpenAI 于 2026年11月启动的首阶段嵌入式安全评估机制：与 Apollo Research、METR、Transluce、Goodfire 等第三方安全机构签约，把独立安全评估「嵌入」模型训练与部署的早期环节，而非仅在发布前做一次性审查。目标是让外部机构更早、更持续地观测前沿模型的失控风险与欺骗性对齐迹象，缩短「能力领先—安全验证」之间的时间差。', tags:['OpenAI','嵌入式安全评估','第三方评估','前沿安全','Apollo Research','METR'], icon:'🧷', domain:'安全与对齐', topics:['AI安全','对齐'], flags:['2026新词'] },
-{ id:'gl-cvd', name:'协同漏洞披露 (Coordinated Vulnerability Disclosure)', vendor:'Anthropic', cat:'glossary', subcat:'gl-dev', desc:'协同漏洞披露（CVD）是安全社区通行的漏洞处理流程：发现者先私下向厂商报告漏洞，厂商在修复期限内完成修补后，再按约定时间公开披露，避免漏洞未修复即公开而被利用。Anthropic 于 2026年11月宣布缩短其协同漏洞披露政策的披露时限，加快 AI 模型安全漏洞（如越狱、提示注入）从报告到公开的节奏，反映 AI 厂商正把传统软件安全流程更快引入模型安全领域。', tags:['Anthropic','CVD','漏洞披露','安全流程','提示注入'], icon:'🔐', domain:'安全与对齐', topics:['AI安全','攻防与红队'], flags:['核心'] }
+{ id:'gl-cvd', name:'协同漏洞披露 (Coordinated Vulnerability Disclosure)', vendor:'Anthropic', cat:'glossary', subcat:'gl-dev', desc:'协同漏洞披露（CVD）是安全社区通行的漏洞处理流程：发现者先私下向厂商报告漏洞，厂商在修复期限内完成修补后，再按约定时间公开披露，避免漏洞未修复即公开而被利用。Anthropic 于 2026年11月宣布缩短其协同漏洞披露政策的披露时限，加快 AI 模型安全漏洞（如越狱、提示注入）从报告到公开的节奏，反映 AI 厂商正把传统软件安全流程更快引入模型安全领域。', tags:['Anthropic','CVD','漏洞披露','安全流程','提示注入'], icon:'🔐', domain:'安全与对齐', topics:['AI安全','攻防与红队'], flags:['核心'] },
+{ id:'glm-54', name:'GLM-5.4', vendor:'智谱AI', cat:'chat', region:'cn', desc:'智谱于2026年11月23日晚发布的旗舰模型，首次采用 Loop Transformer 架构：一组共享权重的网络层循环执行（基座28层两轮循环推演），官方称以约750B参数量达到2-3T级模型的智能水平。进一步增强复杂编程、长程推理与视觉能力，开启「泛Coding」范式——代码能力延伸至视频动效生成（Code to Video）、完整游戏制作（Code to Game）、3D空间重建（Code to 3D）与图像生成，并支持与第三方建模软件联动。即日起向 GLM Coding Plan 全量用户开放，同步上线 ZCode、Trae、WorkBuddy、Qoder 等编码平台，Coding Plan V2/V3 及团队版额度提升至1.5倍；API 将在完成安全评估后开放，模型权重计划以负责任方式开源。', release:'2026-11-23', pricing:'freemium', cn:1, api:0, tags:['智谱','GLM','GLM-5.4','Loop Transformer','泛Coding','Coding Plan','ZCode'], url:'https://www.zhipuai.cn/zh/research/164', icon:'images/logos/glm-54.png' },
+{ id:'claude-ship', name:'Claude Ship', vendor:'Anthropic', cat:'code', region:'intl', desc:'Anthropic 于2026年11月23日推出的开发者代码协作工具集（beta），把 AI 从「写代码」延伸到代码提交后的审查、修复与审批环节：包含 Code Review（已正式开放）、PR Steward（beta，处理 CI 检查失败、合并冲突与审查反馈，每次推送后留言说明改动与撤销方式）与 Claude Approvals（beta，按团队以自然语言写在仓库中的审批政策自动批准符合条件的 PR，可综合 Code Review 结果与企业自建分类器信号）。目前面向 Claude Team 与 Enterprise 客户开放、支持 GitHub 仓库；官方建议先以观察模式运行审批、在单个仓库启用并设置月度支出上限。接入方式与收费标准尚未披露。', release:'2026-11-23', pricing:'paid', cn:0, api:0, tags:['Anthropic','Claude','Claude Ship','Code Review','PR Steward','Claude Approvals','GitHub','beta'], url:'https://claude.com/blog/introducing-claude-ship', icon:'images/logos/claude-ship.png' },
+{ id:'gl-loop-transformer', name:'Loop Transformer（循环Transformer）', vendor:'智谱AI', cat:'glossary', subcat:'gl-tech', desc:'一种通过权重共享层循环执行来提升推理深度的模型架构：让一组共享权重的网络层反复执行，模型在参数量不变的情况下进行更深度的推演、反思与自我修正，等效获得更大参数规模模型的智能水平。2026年11月智谱发布的第一代 Loop Transformer 旗舰模型 GLM-5.4（基座28层两轮循环）以此以750B级参数量达到官方所称2-3T级模型的智能水平，验证了「以计算深度换参数规模」路线在真实生产规模上的可行性，为后续更大规模模型铺路。', tags:['Loop Transformer','循环执行','权重共享','GLM-5.4','智谱','模型架构'], icon:'🔁', domain:'模型与训练', topics:['MoE与架构'], flags:['2026新词','前沿'] },
+{ id:'gl-artex', name:'ARTEX 智能体攻击框架 (Offensive AI Framework)', vendor:'Wiz Research', cat:'glossary', subcat:'gl-dev', desc:'指以 LLM 智能体为核心组件的攻击性（Offensive AI）框架，攻击者可用其在云环境中自动化执行侦察、凭证窃取与横向移动等入侵步骤。2026年11月 Wiz Research 披露 ARTEX 类框架在真实云环境中的入侵案例，标志着智能体攻击从概念演示进入实战阶段：攻防双方都在用智能体，企业需把 AI 智能体行为纳入云安全监控与身份权限治理范围。', tags:['ARTEX','Wiz Research','智能体攻击','Offensive AI','云入侵','Agentic 攻击'], icon:'🛡️', domain:'安全与对齐', topics:['智能体安全','攻防与红队'], flags:['2026新词','前沿'] },
 ]
 
 // ==================== STATE ====================
@@ -3501,26 +3505,26 @@ const CORS_PROXIES = [
   url => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
 ];
 const FALLBACK_DATA = [
-  {"title": "Anthropic IPO 前三家机构如何重注押注", "category": "industry", "url": "https://techcrunch.com/2026/11/22/how-notable-capital-gic-and-baillie-gifford-bet-big-on-anthropic-before-its-ipo/"},
-  {"title": "卡兹克分享 Claude、GPT、Gemini 三模型协同调度方法", "category": "tip", "url": "https://mp.weixin.qq.com/s/gwj0xLNHPfToQnQJN7IkMA"},
-  {"title": "用户实测用 MiniCPM5-2B 在 Mac 上本地跑通体检报告分析", "category": "opinion", "url": "https://x.com/OpenBMB/status/2124461770043785636"},
-  {"title": "MiniCPM 8B 成为老挝国家模型，端侧小模型加速落地多国", "category": "industry", "url": "https://x.com/OpenBMB/status/2124464239670964531"},
-  {"title": "OpenAI 提议以困惑度作为行业共享指标并公开内部预训练测量数据", "category": "opinion", "url": "https://openai.com/index/perplexity-and-intelligence"},
-  {"title": "Lean 与 Mathlib 社区确认 Levent Alpöge 黎曼猜想证明正确", "category": "industry", "url": "https://the-decoder.com/lean-and-mathlib-community-officially-confirms-levent-alpoges-proof-of-the-riemann-hypothesis-is-correct/"},
-  {"title": "菲尔兹奖得主梅纳德谈 Claude 合作证明黎曼猜想：相信证明正确，但需被理解才可能获认可", "category": "opinion", "url": "https://www.ithome.com/1/030/677.htm"},
-  {"title": "Together AI 通报 2026 年 6-7 月 serverless 推理服务提示词泄露事件", "category": "industry", "url": "https://www.together.ai/blog/security-event-prompt-leakage-for-requests-in-june-and-july-of-2026"},
-  {"title": "Qwen4 Max 上线 Together AI，单次调用修复 Tornado 整仓 bug", "category": "ai-products", "url": "https://www.together.ai/blog/qwen4-max"},
-  {"title": "Columbia 与 MIT 论文展示 Claude 发现的算法突破 3SUM 与 APSP 长期速度上限", "category": "paper", "url": "https://x.com/rohanpaul_ai/status/2124213113583174076"},
-  {"title": "Anthropic 数学家称与 Claude 完成黎曼猜想证明，斯坦福数小时后发布纯人类竞争草稿", "category": "paper", "url": "https://the-decoder.com/hours-after-anthropic-claims-a-claude-proof-of-the-riemann-hypothesis-stanford-releases-an-all-human-competing-draft/"},
-  {"title": "Google 回顾 Duplex 十年演进：如何在 Gemini Tasks 中替用户打电话给商家", "category": "ai-products", "url": "https://research.google/blog/how-google-duplex-evolved-to-also-call-businesses-for-you-in-gemini/"},
-  {"title": "Figma 演示用 Specs 与 Figma agent 把上下文变成可实现的开发计划", "category": "tip", "url": "https://www.figma.com/blog/workflow-lab-specs-and-the-figma-agent/"},
-  {"title": "研究者向 AI 供应链埋入 200 万个金丝雀，揭露敏感数据泄露", "category": "paper", "url": "https://arstechnica.com/security/2026/11/a-leaky-ai-supply-chain-is-exposing-secret-user-data-at-an-alarming-rate/"},
-  {"title": "browser-use 1.0 发布：用一个 Python REPL 工具替代 24 个浏览器动作", "category": "ai-products", "url": "https://browser-use.com/posts/browser-use-1-0"},
-  {"title": "Thinking Machines Lab 发布可跑在笔记本上的开源权重模型 Inkling 2 Mini", "category": "ai-models", "url": "https://thinkingmachines.ai/news/inkling-2-mini/"},
-  {"title": "METR 发布 2026 年 11 月能力测量更新：AI R&D 相关能力每约 3.6 个月翻倍且更难测量", "category": "paper", "url": "https://metr.org/blog/2026-11-20-q4-2026-capability-update/"},
-  {"title": "ChatGPT 推出 Space：统一管理页面、幻灯片、图片与文件", "category": "ai-products", "url": "https://x.com/ChatGPT/status/2123850915061104735"},
-  {"title": "OpenHands 详解用 Agent 自动修复自家镜像 CVE 的软件工厂", "category": "tip", "url": "https://www.openhands.dev/blog/automating-cve-remediation-with-openhands"},
-  {"title": "Anthropic数学家Alpöge宣布与Claude共同证明黎曼猜想，放出1737万行Lean代码", "category": "paper", "url": "https://mp.weixin.qq.com/s/8Zi3nfwddzFy6cZsK2_KxA"},
+  {"title": "Claude 推出插件，统一连接器与技能的接入方式", "category": "ai-products", "url": "https://x.com/claudeai/status/2124970294523945328"},
+  {"title": "Anthropic 访谈 58 家企业客户：AI 采用的价值、雇佣影响与组织重组", "category": "paper", "url": "https://www.anthropic.com/research/working-with-ai"},
+  {"title": "Figma agent 正式开放至 FigJam 和 Figma Slides", "category": "ai-products", "url": "https://www.figma.com/blog/introducing-figma-agent-in-figjam-and-slides/"},
+  {"title": "Anthropic 推出 Claude Ship 测试版，自动完成 PR 审查、修复与审批", "category": "ai-products", "url": "https://claude.com/blog/introducing-claude-ship"},
+  {"title": "ChatGPT 推出面向日常对话优化的 GPT-6.2 Sol", "category": "ai-products", "url": "https://x.com/thsottiaux/status/2124998553856844186"},
+  {"title": "俄勒冈州和弗吉尼亚州起诉 SpaceX 指控 Grok 生成色情深伪防护不足", "category": "industry", "url": "https://www.theverge.com/ai-artificial-intelligence/1040255/x-grok-ai-deepfakes-oregon-virginia-lawsuit"},
+  {"title": "AISI 红队论文：攻击策略选择会让 LLM 监视器评估结果失真", "category": "paper", "url": "https://www.aisi.gov.uk/blog/attack-policy-selection-can-make-monitor-evaluations-misleading"},
+  {"title": "Google Search AI Mode 支持连接 Google Wallet、Drive 和 Gemini 应用", "category": "ai-products", "url": "https://blog.google/products-and-platforms/products/search/google-search-personal-intelligence-apps/"},
+  {"title": "Google DeepMind 用 Gemini 4 智能体团队与 Lean 形式化验证改进量子算法", "category": "paper", "url": "https://deepmind.google/blog/finding-faster-quantum-algorithms-with-agents-and-formal-verification/"},
+  {"title": "a16z 实测 11,307 次 Agent 购物流程，总结企业赢得 B2A 经济的五条方法", "category": "tip", "url": "https://www.a16z.news/p/welcome-to-the-b2a-economy-how-agents"},
+  {"title": "Wiz Research 披露 ARTEX 智能体攻击框架的真实云入侵案例", "category": "industry", "url": "https://www.wiz.io/blog/agentic-attacks-artex-offensive-ai-frameworks"},
+  {"title": "NVIDIA 宣布黄仁勋复任总裁兼 CEO 并重回董事会", "category": "industry", "url": "https://x.com/thexpin/status/2124866686025400819"},
+  {"title": "智谱发布GLM-5.4：首个Loop Transformer架构旗舰模型开启泛Coding", "category": "ai-models", "url": "https://mp.weixin.qq.com/s/D-IZr-QaT1or_chminK8IQ"},
+  {"title": "Runway 详解如何构建智能体驱动的软件工厂", "category": "tip", "url": "https://runwayml.com/news/engineering/building-a-software-factory"},
+  {"title": "Anthropic 破纪录 IPO 未能止住 AI 抛售，全球股市下挫", "category": "industry", "url": "https://www.theguardian.com/business/2026/nov/20/global-stock-markets-slump-anthropic-ipo-ai-sell-off"},
+  {"title": "MIT 数学面板讨论 AI 冲击下的数学研究未来", "category": "opinion", "url": "https://news.mit.edu/2026/following-mathocalypse-mathematicians-consider-future-1120"},
+  {"title": "MiniMax 内部模型 MIM 实现多项密码分析实用攻击并开源验证轨迹", "category": "paper", "url": "https://www.minimax.io/blog/practical-cryptanalysis-with-minimaxs-latest-internal-model"},
+  {"title": "腾讯混元开放 Hy4 权重", "category": "ai-models", "url": "https://x.com/TencentHunyuan/status/2123625549147070538"},
+  {"title": "Conductor 0.97.0 发布并宣布加入 Meta，本地工作区智能体新增 artifacts", "category": "ai-products", "url": "https://www.conductor.build/changelog/0.97.0-first-class-artifacts"},
+  {"title": "DeepSeek Harness 发布100天，作者分享13个实用插件玩法", "category": "tip", "url": "https://x.com/Khazix0918/status/2123627885730951241"},
 ];
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧','opinion':'观点' };
 
