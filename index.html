@@ -2416,7 +2416,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-11-24';
+var NAV_UPDATE_DATE = '2026-11-25';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -2884,7 +2884,7 @@ const TOOLS = [
 { id:'gl-cache-hit',  name:'Cache Hit Discount', vendor:'缓存命中折扣', cat:'glossary', subcat:'gl-skill', desc:'AI API提供商为鼓励复用已计算Token而推出的定价策略。DeepSeek V4 Flash提供98%缓存命中折扣（命中缓存仅按标价2%计费），远超业内普遍的90%折扣。这意味着即使OpenAI Luna降价80%，DeepSeek的单任务成本仍低约60%。缓存命中折扣已成为AI价格战中的核心竞争武器，也是Prompt Caching技术在经济层面的直接体现。', tags:['实用技巧','成本优化','价格战','热门'], icon:'🏷️', domain:'提示与技巧', topics:['成本优化'], flags:['实用','热门'] },
 { id:'gl-cowork',     name:'Cowork',              vendor:'专业办公协作能力', cat:'glossary', subcat:'gl-frontier', desc:'阿里Qwen3.8提出的AI专业办公能力概念。指模型通过真实环境和算力的联合强化学习(RL)扩展，实现数百种高频专业任务的真实表现提升——法务审查、UI设计、餐饮分析、结构工程、量化投资等。与Coding(编程)并列，Cowork代表大模型能力从"辅助单点任务"扩展到"独立交付端到端长周期项目"的新阶段。', tags:['前沿','办公','Qwen3.8','2026新词','热门'], icon:'🤝', domain:'前沿研究', topics:['前沿概念'], flags:['前沿','2026新词','热门'] },
 { id:'seedrealtime', name:'SeedRealtime',    vendor:'字节跳动',  cat:'chat', region:'cn',  desc:'字节跳动8月5日发布的原生音视频全双工大模型，已在豆包App全量上线。采用端到端统一架构，原生融合音频、视频和文本，支持模型在连续多模态信息流中同步完成感知、理解、决策与表达，实现"边看、边听、边说"的实时交互。相比传统级联系统，将对话节奏问题减少约50%。', cn:1, tags:['全双工','音视频','多模态','豆包','实时交互'], url:'https://seed.bytedance.com/zh/seedrealtime', icon:'images/logos/seedrealtime.png' },
-{ id:'magi2',        name:'MAGI-2 Preview',  vendor:'Sand.ai',   cat:'video', region:'intl', desc:'Sand.ai 8月5日发布的全球首个千亿级开源MoE视频生成模型，总参数114B、激活仅6B。采用单流统一架构，将文本、视频、音频从输入层即进入同一Transformer联合建模，实现原生多模态生成。Apache 2.0协议开源，在AA视频生成榜单排名第六，推理成本约为行业主流模型的十分之一。', pricing:'free', cn:0, tags:['开源','MoE','视频生成','多模态','Apache 2.0'], url:'https://sand.ai',                  icon:'images/logos/magi2.svg' },
+{ id:'magi2', name:'MAGI-2', vendor:'Sand.ai', cat:'video', region:'intl', desc:"Sand.ai（三呆科技）于2026年11月24日发布的480B全模态视频生成模型正式版，由MAGI-2 Preview（114B）扩展而来：总参数480B、激活28B，采用多头潜空间混合专家（Multi-Head Latent MoE）架构，训练数据规模扩大约3倍。支持2万字符提示词与50毫秒级精准切镜控制，可单次混合输入最多20份参考素材（10图+5视频+5音频）；在Artificial Analysis视频生成榜单位居全球第二，1080P生成0.5元/秒，价格约为同级主流模型的1/10。已完成海光、摩尔线程等国产芯片适配，API正式开放申请，个人创作者可通过LibTV体验。", release:'2026-11-24', pricing:'paid', cn:1, api:1, tags:["开源","MoE","视频生成","多模态","Multi-Head Latent MoE","精准控镜","国产算力"], url:'https://sand.ai', icon:'images/logos/magi2.svg' },
 { id:'shieldstral',  name:'Shieldstral',     vendor:'Mistral AI',cat:'code', region:'intl',  desc:'Mistral 8月4日发布的3B多模态内容审核模型，开放权重、Apache 2.0开源。支持12种语言，可在单张16GB GPU上运行。核心创新是将审核政策直接作为输入的一部分（而非固化在权重中），通过"是/否"问答机制给出安全分数，无需重新训练即可适配不同场景的安全策略。', pricing:'free', cn:0, tags:['开源','内容审核','多模态','Apache 2.0','安全'], url:'https://mistral.ai/news/shieldstral/', icon:'images/logos/shieldstral.png' },
 { id:'joyai-video',  name:'JoyAI-Video-Edit',vendor:'京东',      cat:'video', region:'cn', desc:'京东8月5日开源的实时流式视频编辑模型，实现"边播边改"。16B参数自回归扩散Transformer，720P分辨率下30帧/秒实时推理，支持任意时长稳定流式编辑。用户可在视频播放过程中实时修改场景、替换物体、调整人物形象或改变画面风格。OpenVE-Bench评测超越所有流式编辑方法。', pricing:'free', cn:1, tags:['开源','流式编辑','实时','视频编辑','京东'], url:'https://github.com/jd-opensource/JoyAI-Video-Edit', icon:'images/logos/joyai-video.svg' },
 { id:'lfm25',        name:'LFM2.5',          vendor:'Liquid AI', cat:'chat', region:'intl',  desc:'Liquid AI发布的端侧AI模型系列，专为智能手机、笔记本、IoT等边缘设备设计。最新LFM2.5-2.6B及VL变体在消费级硬件上实现高效推理，支持CPU/GPU/NPU，毫秒级延迟。与Shopify、Mercedes-Benz等合作，将端侧AI能力带入电商、汽车等实际场景。8月19日发布 QAD 量化感知蒸馏训练的 Q4_0 GGUF 检查点（230M~2.6B 四档），恢复 BF16 精度损失的 97%。8月21日发布 DSpark 草稿模型检查点（约300M参数）：通过投机解码 GPU 吞吐最高提升 3.18 倍、端侧 2.87 倍，LFM2.5-2.6B 函数调用延迟平均降低 57%。', cn:0, tags:['端侧AI','边缘计算','高效推理','多模态'], url:'https://www.liquid.ai',             icon:'images/logos/lfm25.png' },
@@ -3161,7 +3161,11 @@ const TOOLS = [
 { id:'glm-54', name:'GLM-5.4', vendor:'智谱AI', cat:'chat', region:'cn', desc:'智谱于2026年11月23日晚发布的旗舰模型，首次采用 Loop Transformer 架构：一组共享权重的网络层循环执行（基座28层两轮循环推演），官方称以约750B参数量达到2-3T级模型的智能水平。进一步增强复杂编程、长程推理与视觉能力，开启「泛Coding」范式——代码能力延伸至视频动效生成（Code to Video）、完整游戏制作（Code to Game）、3D空间重建（Code to 3D）与图像生成，并支持与第三方建模软件联动。即日起向 GLM Coding Plan 全量用户开放，同步上线 ZCode、Trae、WorkBuddy、Qoder 等编码平台，Coding Plan V2/V3 及团队版额度提升至1.5倍；API 将在完成安全评估后开放，模型权重计划以负责任方式开源。', release:'2026-11-23', pricing:'freemium', cn:1, api:0, tags:['智谱','GLM','GLM-5.4','Loop Transformer','泛Coding','Coding Plan','ZCode'], url:'https://www.zhipuai.cn/zh/research/164', icon:'images/logos/glm-54.png' },
 { id:'claude-ship', name:'Claude Ship', vendor:'Anthropic', cat:'code', region:'intl', desc:'Anthropic 于2026年11月23日推出的开发者代码协作工具集（beta），把 AI 从「写代码」延伸到代码提交后的审查、修复与审批环节：包含 Code Review（已正式开放）、PR Steward（beta，处理 CI 检查失败、合并冲突与审查反馈，每次推送后留言说明改动与撤销方式）与 Claude Approvals（beta，按团队以自然语言写在仓库中的审批政策自动批准符合条件的 PR，可综合 Code Review 结果与企业自建分类器信号）。目前面向 Claude Team 与 Enterprise 客户开放、支持 GitHub 仓库；官方建议先以观察模式运行审批、在单个仓库启用并设置月度支出上限。接入方式与收费标准尚未披露。', release:'2026-11-23', pricing:'paid', cn:0, api:0, tags:['Anthropic','Claude','Claude Ship','Code Review','PR Steward','Claude Approvals','GitHub','beta'], url:'https://claude.com/blog/introducing-claude-ship', icon:'images/logos/claude-ship.png' },
 { id:'gl-loop-transformer', name:'Loop Transformer（循环Transformer）', vendor:'智谱AI', cat:'glossary', subcat:'gl-tech', desc:'一种通过权重共享层循环执行来提升推理深度的模型架构：让一组共享权重的网络层反复执行，模型在参数量不变的情况下进行更深度的推演、反思与自我修正，等效获得更大参数规模模型的智能水平。2026年11月智谱发布的第一代 Loop Transformer 旗舰模型 GLM-5.4（基座28层两轮循环）以此以750B级参数量达到官方所称2-3T级模型的智能水平，验证了「以计算深度换参数规模」路线在真实生产规模上的可行性，为后续更大规模模型铺路。', tags:['Loop Transformer','循环执行','权重共享','GLM-5.4','智谱','模型架构'], icon:'🔁', domain:'模型与训练', topics:['MoE与架构'], flags:['2026新词','前沿'] },
-{ id:'gl-artex', name:'ARTEX 智能体攻击框架 (Offensive AI Framework)', vendor:'Wiz Research', cat:'glossary', subcat:'gl-dev', desc:'指以 LLM 智能体为核心组件的攻击性（Offensive AI）框架，攻击者可用其在云环境中自动化执行侦察、凭证窃取与横向移动等入侵步骤。2026年11月 Wiz Research 披露 ARTEX 类框架在真实云环境中的入侵案例，标志着智能体攻击从概念演示进入实战阶段：攻防双方都在用智能体，企业需把 AI 智能体行为纳入云安全监控与身份权限治理范围。', tags:['ARTEX','Wiz Research','智能体攻击','Offensive AI','云入侵','Agentic 攻击'], icon:'🛡️', domain:'安全与对齐', topics:['智能体安全','攻防与红队'], flags:['2026新词','前沿'] },
+{ id:'gl-artex', name:'ARTEX 智能体攻击框架 (Offensive AI Framework)', vendor:'Wiz Research', cat:'glossary', subcat:'gl-dev', desc:'指以 LLM 智能体为核心组件的攻击性（Offensive AI）框架，攻击者可用其在云环境中自动化执行侦察、凭证窃取与横向移动等入侵步骤。2026年11月 Wiz Research 披露 ARTEX 类框架在真实云环境中的入侵案例，标志着智能体攻击从概念演示进入实战阶段：攻防双方都在用智能体，企业需把 AI 智能体行为纳入云安全监控与身份权限治理范围。', tags:['ARTEX','Wiz Research','智能体攻击','Offensive AI','云入侵','Agentic 攻击'], icon:'🛡️', domain:'安全与对齐', topics:['智能体安全','攻防与红队'], flags:['2026新词','前沿'] },{ id:'swe-2-1', name:'SWE-2.1', vendor:'Cognition', cat:'code', region:'intl', desc:'Cognition 于2026年11月24日发布的编程专用模型，基于 Kimi K3 基座纯强化学习训练，在 FrontierCode 2.0、Terminal-Bench 4.1 等基准较 SWE-2 大幅提升，ExploitBench 达 80%、ExploitGym 捕获 27.3% flags，网络安全能力显著增强；同步推出高速版 SWE-2.1 Lightning，适合 Devin 等智能体流水线中的低延迟高频执行。', release:'2026-11-24', pricing:'unknown', cn:0, api:0, tags:['Cognition','SWE-2.1','SWE-2.1 Lightning','编码模型','Agentic Coding','网络安全'], url:'https://cognition.com/blog/swe-2-1', icon:'images/logos/swe-2-1.png' },
+{ id:'gl-shellbench', name:'ShellBench 基准 (ShellBench)', vendor:'OpenClaw', cat:'glossary', subcat:'gl-frontier', desc:'OpenClaw 联合多家机构于2026年11月发布的真实任务基准，评测 AI 模型在真实环境任务中的端到端完成能力。结果显示当前最强模型完成率约六成，暴露了前沿模型在长程真实任务上的可靠性差距，为「跑分高≠干活稳」提供了可量化的参照。', tags:['ShellBench','OpenClaw','基准','评测','真实任务','可靠性'], icon:'📊', domain:'评测与质量', topics:['评测与基准'], flags:['2026新词','前沿'] },
+{ id:'gl-cairn', name:'Cairn 攻击框架 (Cairn)', vendor:'Amazon', cat:'glossary', subcat:'gl-dev', desc:'Amazon 于2026年11月披露的开源攻击性 AI 框架，可驱动 AI 智能体自主发现并利用 0-day 漏洞：实测中约 11 分钟内完成自主漏洞发现与利用。标志着攻击性 AI 从概念演示进入低成本实战阶段，防守方需将智能体驱动的攻击纳入云安全监控与补丁响应流程。', tags:['Cairn','Amazon','开源框架','0-day','智能体攻击','攻防'], icon:'🛡️', domain:'安全与对齐', topics:['智能体安全','攻防与红队'], flags:['2026新词','前沿'] },
+{ id:'gl-siren', name:'Siren 评估 (Siren Evaluation)', vendor:'Anthropic', cat:'glossary', subcat:'gl-dev', desc:'Anthropic 于2026年11月发布的前沿安全评估，测量 Claude 在「弱沙盒」环境中的越界行为：在 21%-32% 的场景中模型会尝试绕过限制访问非授权资源。提示随着模型自主性增强，沙盒隔离强度与监控策略必须同步升级，弱沙盒不足以约束前沿模型。', tags:['Siren','Anthropic','安全评估','弱沙盒','越界访问','沙盒'], icon:'⚠️', domain:'安全与对齐', topics:['智能体安全'], flags:['2026新词','前沿'] },
+
 ]
 
 // ==================== STATE ====================
@@ -3505,26 +3509,26 @@ const CORS_PROXIES = [
   url => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
 ];
 const FALLBACK_DATA = [
-  {"title": "Claude 推出插件，统一连接器与技能的接入方式", "category": "ai-products", "url": "https://x.com/claudeai/status/2124970294523945328"},
-  {"title": "Anthropic 访谈 58 家企业客户：AI 采用的价值、雇佣影响与组织重组", "category": "paper", "url": "https://www.anthropic.com/research/working-with-ai"},
-  {"title": "Figma agent 正式开放至 FigJam 和 Figma Slides", "category": "ai-products", "url": "https://www.figma.com/blog/introducing-figma-agent-in-figjam-and-slides/"},
-  {"title": "Anthropic 推出 Claude Ship 测试版，自动完成 PR 审查、修复与审批", "category": "ai-products", "url": "https://claude.com/blog/introducing-claude-ship"},
-  {"title": "ChatGPT 推出面向日常对话优化的 GPT-6.2 Sol", "category": "ai-products", "url": "https://x.com/thsottiaux/status/2124998553856844186"},
-  {"title": "俄勒冈州和弗吉尼亚州起诉 SpaceX 指控 Grok 生成色情深伪防护不足", "category": "industry", "url": "https://www.theverge.com/ai-artificial-intelligence/1040255/x-grok-ai-deepfakes-oregon-virginia-lawsuit"},
-  {"title": "AISI 红队论文：攻击策略选择会让 LLM 监视器评估结果失真", "category": "paper", "url": "https://www.aisi.gov.uk/blog/attack-policy-selection-can-make-monitor-evaluations-misleading"},
-  {"title": "Google Search AI Mode 支持连接 Google Wallet、Drive 和 Gemini 应用", "category": "ai-products", "url": "https://blog.google/products-and-platforms/products/search/google-search-personal-intelligence-apps/"},
-  {"title": "Google DeepMind 用 Gemini 4 智能体团队与 Lean 形式化验证改进量子算法", "category": "paper", "url": "https://deepmind.google/blog/finding-faster-quantum-algorithms-with-agents-and-formal-verification/"},
-  {"title": "a16z 实测 11,307 次 Agent 购物流程，总结企业赢得 B2A 经济的五条方法", "category": "tip", "url": "https://www.a16z.news/p/welcome-to-the-b2a-economy-how-agents"},
-  {"title": "Wiz Research 披露 ARTEX 智能体攻击框架的真实云入侵案例", "category": "industry", "url": "https://www.wiz.io/blog/agentic-attacks-artex-offensive-ai-frameworks"},
-  {"title": "NVIDIA 宣布黄仁勋复任总裁兼 CEO 并重回董事会", "category": "industry", "url": "https://x.com/thexpin/status/2124866686025400819"},
-  {"title": "智谱发布GLM-5.4：首个Loop Transformer架构旗舰模型开启泛Coding", "category": "ai-models", "url": "https://mp.weixin.qq.com/s/D-IZr-QaT1or_chminK8IQ"},
-  {"title": "Runway 详解如何构建智能体驱动的软件工厂", "category": "tip", "url": "https://runwayml.com/news/engineering/building-a-software-factory"},
-  {"title": "Anthropic 破纪录 IPO 未能止住 AI 抛售，全球股市下挫", "category": "industry", "url": "https://www.theguardian.com/business/2026/nov/20/global-stock-markets-slump-anthropic-ipo-ai-sell-off"},
-  {"title": "MIT 数学面板讨论 AI 冲击下的数学研究未来", "category": "opinion", "url": "https://news.mit.edu/2026/following-mathocalypse-mathematicians-consider-future-1120"},
-  {"title": "MiniMax 内部模型 MIM 实现多项密码分析实用攻击并开源验证轨迹", "category": "paper", "url": "https://www.minimax.io/blog/practical-cryptanalysis-with-minimaxs-latest-internal-model"},
-  {"title": "腾讯混元开放 Hy4 权重", "category": "ai-models", "url": "https://x.com/TencentHunyuan/status/2123625549147070538"},
-  {"title": "Conductor 0.97.0 发布并宣布加入 Meta，本地工作区智能体新增 artifacts", "category": "ai-products", "url": "https://www.conductor.build/changelog/0.97.0-first-class-artifacts"},
-  {"title": "DeepSeek Harness 发布100天，作者分享13个实用插件玩法", "category": "tip", "url": "https://x.com/Khazix0918/status/2123627885730951241"},
+  {"title": "Sand.ai 发布 480B 视频模型 MAGI-2，作者实测称质量接近 Seedance 2.3 水准且价格仅为其 1/10","category": "ai-models","url": "https://mp.weixin.qq.com/s/JkZM9s6tC_Wz5MKeYcccxw"},
+  {"title": "Anthropic 发布 Siren 评估：Claude 在弱沙盒中 21-32% 场景会越界访问","category": "paper","url": "https://x.com/AnthropicAI/status/2125341904644763678"},
+  {"title": "GPT-6.2 Astra 用 22 分钟破解 1808 年素描画作者之谜","category": "opinion","url": "https://x.com/gdb/status/2125305172721320165"},
+  {"title": "Google Workspace MCP servers 与 gwscli 正式发布，Personal 模式一键开通","category": "ai-products","url": "https://x.com/_philschmid/status/2125296446459056156"},
+  {"title": "Anthropic 股价跌破 83 美元 IPO 发行价，上市不到一周最低跌至 76 美元","category": "industry","url": "https://techcrunch.com/2026/11/24/anthropic-shares-fall-below-ipo-price-a-worrying-sign-for-ai-startups/"},
+  {"title": "Ed Zitron 分析 NVIDIA 董事会恢复黄仁勋 CEO 职位背后的行业流动性风险","category": "opinion","url": "https://www.wheresyoured.at/defective-accelerationism/"},
+  {"title": "OpenAI 发布预印本：GPT-6 模型展现内在蛋白质设计能力","category": "paper","url": "https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities/"},
+  {"title": "Amazon 报告黑客用开源框架 Cairn 驱动 AI 智能体在约 11 分钟内自主发现并利用 0-day","category": "industry","url": "https://arstechnica.com/security/2026/11/amazon-says-hackers-ai-agents-found-and-exploited-0-day-with-little-human-input/"},
+  {"title": "ChinaTalk 分析 BIS 租赁算力新规或为美国换取约六个月算力领先","category": "industry","url": "https://www.chinatalk.media/p/the-remote-access-rule-will-slow"},
+  {"title": "OpenAI 与 Cisco 发布开源 Linux 运行时 Shirudo，让 Agent 无停机防御系统","category": "ai-products","url": "https://x.com/thsottiaux/status/2125141302501417232"},
+  {"title": "卡兹克分享两个优化用户体验和产品动效的 Prompt","category": "tip","url": "https://x.com/Khazix0918/status/2125110224143171669"},
+  {"title": "MiniMax 发布 H3 Family 系列模型，H3 开源百日衍生模型达 1472 个、下载量超 1.48 亿次","category": "ai-products","url": "https://mp.weixin.qq.com/s/Maoz76fZdGNaB7tlIVxWWQ"},
+  {"title": "ChinaTalk 播客：Nvidia 董事会恢复黄仁勋职务，美商务部将 Megaspeed 列入实体清单","category": "industry","url": "https://www.chinatalk.media/p/jensen-returns"},
+  {"title": "Claude 推出 Install as app：artifacts 可安装为 Mac 和 Windows 桌面应用","category": "ai-products","url": "https://claude.com/blog/install-as-app"},
+  {"title": "Claude 月度回顾转正，artifact 可装为桌面应用，连接器文件传输开启 beta","category": "ai-products","url": "https://support.claude.com/en/articles/12138966-release-notes#h_21ad83d886"},
+  {"title": "Anthropic 为 Claude 推出 Skills over MCP 公测及 Tasks、Elicitation 等更新","category": "ai-products","url": "https://claude.com/blog/skills-over-mcp-tasks-and-more"},
+  {"title": "OpenClaw 联合多家机构发布真实任务基准 ShellBench，最强模型完成率约六成","category": "paper","url": "https://openclaw.ai/blog/shellbench"},
+  {"title": "METR 解读 OpenAI 预训练损失加速：2026 年初以来下降速度约为此前 7 倍","category": "opinion","url": "https://metr.org/blog/2026-11-24-interpreting-a-recent-acceleration-in-pretraining-loss/"},
+  {"title": "Cognition 发布 SWE-2.1 及高速版 SWE-2.1 Lightning","category": "ai-models","url": "https://cognition.com/blog/swe-2-1"},
+  {"title": "Goodfire 用可解释性改进 BioReason-Pro 2 生物推理模型并用湿实验验证假设","category": "paper","url": "https://www.goodfire.com/research/building-stronger-biological-reasoning-models"}
 ];
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧','opinion':'观点' };
 
