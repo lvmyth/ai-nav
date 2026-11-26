@@ -1,16 +1,16 @@
 {
-  "lastRun": "2026-11-25T09:40:25+08:00",
+  "lastRun": "2026-11-26T09:39:51+08:00",
   "status": "ok",
-  "message": "每日更新完成：新闻20条，新增SWE-2.1+MAGI-2正式版更新+3条术语",
-  "added": 4,
+  "message": "每日更新完成",
+  "added": 5,
   "failedStep": "",
-  "date": "2026-11-25",
-  "tools": 699,
+  "date": "2026-11-26",
+  "tools": 704,
   "duplicateIds": 0,
   "fields": {
-    "release": 181,
-    "pricing": 261,
-    "cn": 360,
-    "api": 160
+    "release": 184,
+    "pricing": 264,
+    "cn": 363,
+    "api": 163
   }
 }
