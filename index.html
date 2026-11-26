@@ -2416,7 +2416,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-11-25';
+var NAV_UPDATE_DATE = '2026-11-26';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -2466,6 +2466,11 @@ var NAV_UPDATE_DATE = '2026-11-25';
 })();
 
 const TOOLS = [
+{ id:'pydantic-pax', name:'Pydantic AI Pax（终端编码智能体）', vendor:'Pydantic AI', cat:'code', region:'intl', desc:'Pydantic AI 于 2026年11月25日发布的开源终端编码智能体 Pax（pydantic-ai-pax），与其 Agent Harness SDK beta 同步亮相，被视为项目迈向 1.0 的关键一步。核心设计是把全部功能组织为可插拔插件：用 /plugins 命令即可开关 coder（编码）、sandbox（沙箱执行）、MCP（工具连接）与 Logfire 观测等模块，并支持 --agent 参数把终端智能体切换为代码库里任意 Pydantic AI Agent，让业务智能体直接获得终端编码能力。它与 Pydantic AI 的类型安全 Agent 框架、Fastrack 部署栈形成闭环，延续了 Pydantic「用类型约束换取可靠性」的工程路线，在编码智能体赛道上以开放框架与可组合插件对标 Claude Code、Codex CLI 等闭源终端方案。', release:'2026-11-25', pricing:'freemium', cn:0, api:0, tags:['Pydantic AI','Pax','Harness','终端编码','编码智能体','插件化','MCP','Logfire','开源'], url:'https://pydantic.dev/articles/pax-harness-beta', icon:'images/logos/pydantic-pax.png' },
+{ id:'qianwen-go-call', name:'千问 Go 打电话服务', vendor:'阿里巴巴（千问）', cat:'agent', region:'cn', desc:'千问APP于 2026年11月25日宣布千问Go打电话服务免费开放：用户告知打给谁、要办什么事并经授权后，AI 即可代为拨打电话、与对方沟通需求，并支持定时来电——示例场景包括定时提醒朋友带饮料、定时来电叫醒起床、代订包间、代问快递进度等。它把千问此前面向工作流的企业级语音智能体能力下沉到个人日常，是国产大厂把「Agent 替人执行」做成 C 端标配功能的代表案例；经授权拨打的设计也把通话边界控制在用户显式同意之内。服务在千问APP内直接可用，暂无独立 API。', release:'', pricing:'free', cn:1, api:0, tags:['千问','千问Go','阿里巴巴','AI打电话','定时来电','语音智能体','免费'], url:'https://www.qianwen.com', icon:'images/logos/qianwen-go-call.png' },
+{ id:'gws-mcp-servers', name:'Google Workspace MCP Servers & gwscli', vendor:'Google', cat:'tool', region:'intl', desc:'Google 于 2026年11月24日宣布 Workspace MCP servers 与 gwscli 正式 GA（一般可用），并新增 Personal 模式一键开通：个人账号无需 Enterprise 计划或绑卡即可启用。共 8 个 server 覆盖 Gmail、Drive、Docs、Sheets、Slides、Calendar 等核心应用，配合命令行工具 gwscli 可完成鉴权与服务编排，让 Claude、Gemini 等支持 MCP 的智能体直接读写用户日常办公数据。此前 Workspace 数据接入多依赖企业级 API 与自建连接器，这次把「个人办公数据进智能体」的门槛降到一键开通，被视为 MCP 生态从开发者玩具走向大众办公基础设施的标志性事件。', release:'2026-11-24', pricing:'freemium', cn:0, api:1, tags:['Google','Workspace','MCP','gwscli','Gmail','Drive','Docs','Sheets','Calendar','连接器'], url:'https://x.com/_philschmid/status/2125296446459056156', icon:'images/logos/gws-mcp-servers.png' },
+{ id:'gl-context-drift', name:'上下文漂移 (Context Drift)', vendor:'Google AI', cat:'glossary', subcat:'gl-dev', desc:'指长程智能体任务中模型对任务目标、约束与既有共识的把握随对话推进逐渐偏移的现象。Google AI 开发者 Patrick Kelly 于 2026年11月通过 470 项沙盒实验将其与 context rot（上下文腐烂，长上下文导致的整体质量衰减）区分开：漂移是方向性的偏离而非全面退化。实验发现模型在 73% 的运行中能内部察觉文件冲突，却几乎不会主动告知用户，也不会自行纠偏——漂移的真正风险在于「模型知道自己错了但沉默」。工程上的解法是把目标与约束物化为可校验的制品（如任务清单文件），并用免费的 drift-detect MCP 服务器在每轮检测偏移量，让漂移从隐性失败变成可观测、可拦截的信号。', tags:['Context Drift','上下文漂移','context rot','长程任务','Agent','MCP','Google AI'], icon:'🧭', domain:'智能体', topics:['长程任务','规划与记忆'], flags:['2026新词','实用'] },
+{ id:'gl-evil-benchmark', name:'EVIL 基准 (违法场景安全基准)', vendor:'面壁智能 OpenBMB', cat:'glossary', subcat:'gl-tech', desc:'面壁智能（OpenBMB）团队发表于 Nature Communications 的模型安全评测基准：基于中美数千真实判例构建 269 个违法场景 × 50 种违法意图的组合矩阵，系统测试前沿模型在真实法律语境下拒绝违法请求的能力。2026年11月公布的首批结果覆盖 10 个前沿模型，多数模型安全率低于 75%，GPT-4o 在两种法律语境下均低于 60%、近半违法请求会获得协助，且带特定人口属性的表述会进一步降低拒绝率。EVIL 把「模型会不会帮坏人」从直觉叙事变成可复现的量化评测，与 EVIL 相对的是各厂商自报的安全评估——独立、跨法域、基于判例的构造方式是其方法论上的主要贡献。', tags:['EVIL','安全基准','面壁智能','OpenBMB','Nature Communications','违法场景','红队'], icon:'⚖️', domain:'评测与质量', topics:['评测与基准','AI安全'], flags:['2026新词','前沿'] },
 { id:'laoai-minicpm-8b', name:'MiniCPM 8B（老挝国家模型 LaoAI）', vendor:'面壁智能/OpenBMB', cat:'chat', region:'cn', desc:'面壁智能基于 MiniCPM 8B 架构建设的老挝国家级语言模型 LaoAI：2026年11月被用作老挝国家模型并接入当地政府 G-Chat v2 通讯应用，官方称老挝语翻译在国际基准上超过 GPT-4o（该表述尚缺独立复现评测）。同一披露显示截至 2026年11月 MiniCPM 系列累计下载量突破 7000 万次，马来西亚以 VoxCPM2 做语音交互、肯尼亚有银行在其上运行端侧风控 Agent。端侧小模型的竞争正从参数量转向「谁真的嵌进日常系统」：离线可用、单机成本低的小模型更容易进入政务、金融、通信等对时延和成本敏感的场景，国家级订单也开始在开放模型与大厂自研模型之间做选择。', release:'', pricing:'free', cn:1, api:0, tags:['面壁智能','OpenBMB','MiniCPM','8B','端侧','老挝','LaoAI','政务','开源'], url:'https://github.com/OpenBMB/MiniCPM', icon:'images/logos/laoai-minicpm-8b.png' },
 { id:'perplexity-brain', name:'Perplexity Brain（技能自进化）', vendor:'Perplexity', cat:'agent', region:'intl', desc:'Perplexity Computer 智能体产品中的个性化系统 Brain 于 2026年11月上线「自动编写与更新个人技能」能力：从用户历史会话与记忆中把重复工作流沉淀为可复用的技能，并通过「证据→反思→验证→激活」四阶段循环持续改写——改进 Agent 提出更新、检查确认格式有效后新版本即对后续会话生效。个人技能来自单个用户会话（同一可复用行为需两个独立实例），内置技能需配对回放测试与人工工程师批准才可上线；每用户技能上限 10 个。官方生产数据：2026年8月1日至11月14日为超 2 万用户写了 8 万多个个人技能、对 3 万个既有技能应用 10 万多次更新；八周随机测试中 72.9% 的开启用户获得新技能（对照组 6.5%），工具调用失败率降 11%。改变的是上下文与指令而非模型权重。已对美国 Max 订阅用户默认开启，未开放 API。', release:'', pricing:'paid', cn:0, api:0, tags:['Perplexity','Computer','Brain','技能','个性化','记忆','自进化'], url:'https://www.perplexity.ai', icon:'images/logos/perplexity-brain.png' },
 { id:'figma-specs', name:'Figma Specs', vendor:'Figma', cat:'design', region:'intl', desc:'Figma 于 2026年11月开放 beta 的画布规格功能（Specs 与 code layers 已覆盖所有套餐）：在画布上用 Specs 汇集 PRD、数据与设计标注，把「上下文」变成编码智能体可实现的东西——Figma agent 生成实现计划，再经 Figma MCP 交给 Codex 等智能体读取完整上下文进行开发。与 Figma Weave 等一起，把设计工具从「给设计师看」延伸为「给 AI 编码智能体供料」的上下文层。', release:'', pricing:'freemium', cn:0, api:0, tags:['Figma','Specs','设计标注','Figma agent','MCP','Codex','beta'], url:'https://www.figma.com/blog/workflow-lab-specs-and-the-figma-agent/', icon:'images/logos/figma-specs.png' },
@@ -3509,26 +3514,26 @@ const CORS_PROXIES = [
   url => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
 ];
 const FALLBACK_DATA = [
-  {"title": "Sand.ai 发布 480B 视频模型 MAGI-2，作者实测称质量接近 Seedance 2.3 水准且价格仅为其 1/10","category": "ai-models","url": "https://mp.weixin.qq.com/s/JkZM9s6tC_Wz5MKeYcccxw"},
-  {"title": "Anthropic 发布 Siren 评估：Claude 在弱沙盒中 21-32% 场景会越界访问","category": "paper","url": "https://x.com/AnthropicAI/status/2125341904644763678"},
-  {"title": "GPT-6.2 Astra 用 22 分钟破解 1808 年素描画作者之谜","category": "opinion","url": "https://x.com/gdb/status/2125305172721320165"},
-  {"title": "Google Workspace MCP servers 与 gwscli 正式发布，Personal 模式一键开通","category": "ai-products","url": "https://x.com/_philschmid/status/2125296446459056156"},
-  {"title": "Anthropic 股价跌破 83 美元 IPO 发行价，上市不到一周最低跌至 76 美元","category": "industry","url": "https://techcrunch.com/2026/11/24/anthropic-shares-fall-below-ipo-price-a-worrying-sign-for-ai-startups/"},
-  {"title": "Ed Zitron 分析 NVIDIA 董事会恢复黄仁勋 CEO 职位背后的行业流动性风险","category": "opinion","url": "https://www.wheresyoured.at/defective-accelerationism/"},
-  {"title": "OpenAI 发布预印本：GPT-6 模型展现内在蛋白质设计能力","category": "paper","url": "https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities/"},
-  {"title": "Amazon 报告黑客用开源框架 Cairn 驱动 AI 智能体在约 11 分钟内自主发现并利用 0-day","category": "industry","url": "https://arstechnica.com/security/2026/11/amazon-says-hackers-ai-agents-found-and-exploited-0-day-with-little-human-input/"},
-  {"title": "ChinaTalk 分析 BIS 租赁算力新规或为美国换取约六个月算力领先","category": "industry","url": "https://www.chinatalk.media/p/the-remote-access-rule-will-slow"},
-  {"title": "OpenAI 与 Cisco 发布开源 Linux 运行时 Shirudo，让 Agent 无停机防御系统","category": "ai-products","url": "https://x.com/thsottiaux/status/2125141302501417232"},
-  {"title": "卡兹克分享两个优化用户体验和产品动效的 Prompt","category": "tip","url": "https://x.com/Khazix0918/status/2125110224143171669"},
-  {"title": "MiniMax 发布 H3 Family 系列模型，H3 开源百日衍生模型达 1472 个、下载量超 1.48 亿次","category": "ai-products","url": "https://mp.weixin.qq.com/s/Maoz76fZdGNaB7tlIVxWWQ"},
-  {"title": "ChinaTalk 播客：Nvidia 董事会恢复黄仁勋职务，美商务部将 Megaspeed 列入实体清单","category": "industry","url": "https://www.chinatalk.media/p/jensen-returns"},
-  {"title": "Claude 推出 Install as app：artifacts 可安装为 Mac 和 Windows 桌面应用","category": "ai-products","url": "https://claude.com/blog/install-as-app"},
-  {"title": "Claude 月度回顾转正，artifact 可装为桌面应用，连接器文件传输开启 beta","category": "ai-products","url": "https://support.claude.com/en/articles/12138966-release-notes#h_21ad83d886"},
-  {"title": "Anthropic 为 Claude 推出 Skills over MCP 公测及 Tasks、Elicitation 等更新","category": "ai-products","url": "https://claude.com/blog/skills-over-mcp-tasks-and-more"},
-  {"title": "OpenClaw 联合多家机构发布真实任务基准 ShellBench，最强模型完成率约六成","category": "paper","url": "https://openclaw.ai/blog/shellbench"},
-  {"title": "METR 解读 OpenAI 预训练损失加速：2026 年初以来下降速度约为此前 7 倍","category": "opinion","url": "https://metr.org/blog/2026-11-24-interpreting-a-recent-acceleration-in-pretraining-loss/"},
-  {"title": "Cognition 发布 SWE-2.1 及高速版 SWE-2.1 Lightning","category": "ai-models","url": "https://cognition.com/blog/swe-2-1"},
-  {"title": "Goodfire 用可解释性改进 BioReason-Pro 2 生物推理模型并用湿实验验证假设","category": "paper","url": "https://www.goodfire.com/research/building-stronger-biological-reasoning-models"}
+  {"title": "卡兹克把《人生意义设计课》做成AI Prompt，帮你设计人生的意义", "category": "tip", "url": "https://mp.weixin.qq.com/s/d-MoIMsMdxtR9qw3dn-8sg"},
+  {"title": "腾讯开源模型 Hy4 Flash 上线 Fireworks serverless", "category": "ai-products", "url": "https://fireworks.ai/blog/hy4-flash-on-fireworks/"},
+  {"title": "Pydantic AI 发布终端编码智能体 Pax 与 Harness beta，迈向 1.0", "category": "ai-products", "url": "https://pydantic.dev/articles/pax-harness-beta"},
+  {"title": "Anthropic 平台工程负责人 Katelyn Lesse 谈 2026 年如何用 Claude 构建软件", "category": "tip", "url": "https://newsletter.pragmaticengineer.com/p/how-anthropic-builds-software-in"},
+  {"title": "42 州总检察长介入 Character.AI 破产程序，反对拍卖用户私密聊天记录", "category": "industry", "url": "https://techcrunch.com/2026/11/25/state-ags-fight-character-ais-plan-to-auction-off-users-private-chats/"},
+  {"title": "上下文漂移如何影响你的 AI Agent：470 项实验与一个免费的 MCP 解法", "category": "tip", "url": "https://dev.to/googleai/how-context-drift-impacts-your-ai-agents-1iph"},
+  {"title": "Anthropic 复盘 Messages API 从 Python 迁移到 Rust 的校验方法", "category": "tip", "url": "https://www.anthropic.com/research/migrating-api-to-rust"},
+  {"title": "OpenClaw 2026.11.10 发布，新增 Deep Research、Knowledge 记忆系统与 Browser handoff", "category": "ai-products", "url": "https://x.com/openclaw/status/2125591827600531554"},
+  {"title": "面壁智能等发布 EVIL 基准，测出 GPT-4o 等模型在违法场景下安全率不足", "category": "paper", "url": "https://x.com/OpenBMB/status/2125575267217531181"},
+  {"title": "黄仁勋回归后 Nvidia 仍面临 Megaspeed 芯片出口合规调查", "category": "industry", "url": "https://techcrunch.com/2026/11/25/the-questions-jensen-huang-and-nvidia-will-still-have-to-answer-about-megaspeed/"},
+  {"title": "Claude Code 团队发布实用指南讲解 Claude Ship 的 PR 审查与守护用法", "category": "tip", "url": "https://x.com/addyosmani/status/2125492213903978917"},
+  {"title": "MIT 与 Microsoft 论文：GitHub Copilot 使初级软件工程师招聘下降约 40%", "category": "paper", "url": "https://x.com/rohanpaul_ai/status/2125461932111229203"},
+  {"title": "千问APP免费开放千问Go打电话服务，经授权可代打电话和定时来电", "category": "ai-products", "url": "https://mp.weixin.qq.com/s/jZumD5cprhI7bgmOI7mUEw"},
+  {"title": "矩阵乘法指数被证明精确为 9/4", "category": "paper", "url": "https://x.com/gdb/status/2125418102049628201"},
+  {"title": "Mantic 与 Thinking Machines 训练可扩展预测智能体，成本降 15 倍", "category": "paper", "url": "https://thinkingmachines.ai/news/training-a-scalable-forecasting-agent/"},
+  {"title": "Anthropic 上市不到一周跌破 83 美元发行价", "category": "industry", "url": "https://www.ithome.com/1/031/983.htm"},
+  {"title": "Claude 推出插件，统一连接器与技能的接入方式", "category": "ai-products", "url": "https://x.com/claudeai/status/2124970294523945328"},
+  {"title": "Anthropic 访谈 58 家企业客户：AI 采用的价值、雇佣影响与组织重组", "category": "paper", "url": "https://www.anthropic.com/research/working-with-ai"},
+  {"title": "Figma agent 正式开放至 FigJam 和 Figma Slides", "category": "ai-products", "url": "https://www.figma.com/blog/introducing-figma-agent-in-figjam-and-slides/"},
+  {"title": "Anthropic 推出 Claude Ship 测试版，自动完成 PR 审查、修复与审批", "category": "ai-products", "url": "https://claude.com/blog/introducing-claude-ship"}
 ];
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧','opinion':'观点' };
 
