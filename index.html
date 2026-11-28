@@ -2416,7 +2416,7 @@ function iconHtml(icon, fallback) {
 }
 
 // ===== 更新日期:每日更新时只需修改此变量 =====
-var NAV_UPDATE_DATE = '2026-11-27';
+var NAV_UPDATE_DATE = '2026-11-28';
 (function(){
   var el1 = document.getElementById('navUpdateDate');
   var el2 = document.getElementById('footUpdateDate');
@@ -2466,6 +2466,13 @@ var NAV_UPDATE_DATE = '2026-11-27';
 })();
 
 const TOOLS = [
+{ id:'google-antigravity', name:'Google Antigravity', vendor:'Google', cat:'code', region:'intl', desc:'Google 于 2025年11月随 Gemini 3 一同发布的智能体开发平台（最初以 Agent-first IDE 形态预览），现已发展为覆盖独立桌面应用、CLI（agy 命令）、VS Code/JetBrains/Zed/Xcode 等编辑器扩展与 Antigravity SDK 的全家桶。它运行在与 Gemini 模型共同训练的共享代理线束上，内置 Gemini 3.5 Flash 驱动的异步子代理、视觉工件（计划/代码差异/浏览器记录）与精细工具审批门，支持从 Claude Code、Codex、Cursor、Gemini CLI 一键导入 MCP 服务器、skill 与规则配置，并为软件工程、知识工作、科研与设计等多角色提供开箱即用的智能体工作流。', release:'2025-11-18', pricing:'free', cn:0, api:0, tags:['Google','Antigravity','IDE','编码智能体','Gemini','MCP','免费'], url:'https://antigravity.google', icon:'images/logos/google-antigravity.png' },
+{ id:'alipay-skillpay', name:'支付宝 SkillPay（Skill 商店）', vendor:'蚂蚁集团', cat:'tool', region:'cn', desc:'蚂蚁集团于 2026年7月31日上线的 Skill 商品化平台：AI Agent 开发者可把自己的 Skill（提示词、工作流、技能包）像商品一样上架、定价（买断制/订阅制）与分发，用户在 WorkBuddy、千问、Claude Code、Cursor 等 Agent 平台内一句话即可购买，成交实时到账。上架前需通过 Skill 安全检测与风险扫描，订阅制商品由云端保护、不交付 Skill 明文；官方提供 @alipay/agent-payment 的 npx 安装引导，让智能体直接完成购买与安装流程，是「Agent 支付 + 技能经济」的代表性基础设施。', release:'2026-07-31', pricing:'free', cn:1, api:1, tags:['支付宝','SkillPay','蚂蚁集团','Skill商店','Agent支付','技能经济','买断制','订阅制'], url:'https://skillpay.alipay.com', icon:'images/logos/alipay-skillpay.png' },
+{ id:'sage-interaction', name:'Sage-Interaction', vendor:'上海人工智能实验室（InternLM）', cat:'voice', region:'cn', desc:'上海人工智能实验室 InternLM 团队于 2026年11月23日开源的 9B 全双工音视频交互模型，基于 OpenBMB MiniCPM-o 4.5 构建（SigLip2 视觉编码器 + Whisper-medium 音频编码器 + Qwen3-8B 主干 + CosyVoice2 语音解码器）。支持流式音视频输入与实时语音输出，可被随时打断并先应声再继续，能区分背景闲聊与对它说的话；遇到需要长推理的任务会异步派给后台大模型（OpenAI 兼容接口），结果回来后再融入对话。官方自测 FD-Bench v1.5 交互质量 80.73 分（对比八模型第一），轮次切换延迟 1.29 秒。代码与权重均以 Apache 2.0 开放，托管于 GitHub/Hugging Face/ModelScope。', release:'2026-11-23', pricing:'free', cn:0, api:0, tags:['InternLM','上海AI实验室','全双工','语音','开源','MiniCPM-o 4.5','Apache 2.0'], url:'https://github.com/InternLM/Sage-Interaction', icon:'images/logos/sage-interaction.png' },
+{ id:'deepl-aure-v2', name:'DeepL Aure v2', vendor:'DeepL', cat:'audio', region:'intl', desc:'DeepL 于 2026年11月26日在东京 Unmute Summit 发布的语音翻译模型，称公司迄今最快的语音 AI 翻译模型：端到端语音到语音架构省去转写、翻译、语音生成分段环节，通过强化学习决定听取多少上下文后开始翻译，中位翻译延迟较前代降低约 50%。首发支持日、英、德、法、西、韩 6 种语言，已上线 DeepL Voice 在线会议、面对面交流与 Voice API；官方称 10 个语种对质量均高于 6 个对比系统，英日翻译错误较 Google Gemini 3.5 Live Translate 少 32%。', release:'2026-11-26', pricing:'freemium', cn:0, api:1, tags:['DeepL','Aure v2','语音翻译','实时翻译','Voice API','翻译'], url:'https://www.deepl.com/en/press-release/aure-v2', icon:'images/logos/deepl-aure-v2.png' },
+{ id:'lingbot-navi', name:'LingBot-Navi', vendor:'蚂蚁灵波（Robbyant）', cat:'agent', region:'cn', desc:'蚂蚁集团旗下具身智能公司 Robbyant（蚂蚁灵波）于 2026年11月27日开源的机器人导航模型，以可跨任务复用的三维空间记忆为核心：机器人按自然语言指令寻找目标、规划路径，无需预先建图，在探索过程中自行构建包含场景布局、物体位置与可通行路径的记忆，并将三维表面位置与视觉语言特征配对以定位视野外目标。设计为端侧运行，图像与请求留在本地；配套发布的流式三维建图模型 LingBot-Map 2.0 新增 Refine 机制，在 VBR 基准最长 5.2 公里路线中将平均轨迹误差从 31.12 米降至 4.72 米。', release:'2026-11-27', pricing:'free', cn:1, api:0, tags:['蚂蚁','Robbyant','灵波','具身智能','机器人导航','开源','空间记忆'], url:'https://technology.robbyant.com/lingbot-navi', icon:'images/logos/lingbot-navi.png' },
+{ id:'gl-spatial-memory', name:'空间记忆 (Spatial Memory)', vendor:'Spatial Memory', cat:'glossary', subcat:'gl-frontier', desc:'具身智能体在探索物理世界过程中自主构建、并可在后续任务中复用的三维场景记忆：包含场景布局、物体位置与可通行路径等信息，并把三维表面位置与视觉语言特征配对，从而定位视野外的目标。与传统「每次任务前重新建图」的导航方式不同，空间记忆让机器人按自然语言找物、规划路径时无需预先建图，是具身导航从一次性演示走向长时任务的关键能力。蚂蚁灵波开源的 LingBot-Navi 即以可跨任务复用的空间记忆为核心设计。', tags:['具身智能','机器人','导航','空间记忆','开源'], icon:'🗺️', domain:'多模态与具身', topics:['具身智能'], flags:['2026新词','前沿'] },
+{ id:'gl-agentic-commerce', name:'Agentic Commerce (智能体商务)', vendor:'Agentic Commerce', cat:'glossary', subcat:'gl-frontier', desc:'由 AI 智能体代表用户完成商品发现、决策与支付的新商务形态：购物流程从「人浏览网页下单」变为「用户一句话委托，Agent 检索、比价、下单并完成支付」。典型形态包括支持 Agent 原生支付的协议（如 Agent Pay / ACP 类方案）、Skill/插件商品化商店（如支付宝 SkillPay 的买断制与订阅制售卖），以及面向 Agent 的按量计费（Machine Pay）。它把支付、结算与信任机制前置到 Agent 链路中，被视为 Agent 经济的核心基础设施。', tags:['Agentic Commerce','Agent支付','技能经济','SkillPay','Machine Pay','商业生态'], icon:'💳', domain:'产业与生态', topics:['标准协议'], flags:['2026新词','热门'] },
 { id:'ming-image-02-design', name:'Ming-Image-0.2-Design', vendor:'蚂蚁 inclusionAI', cat:'image', region:'cn', desc:'蚂蚁 inclusionAI 于 2026年11月25日在 Hugging Face 发布并开源的图像生成模型 Ming-Image-0.2-Design，改进复杂构图、光照和文字渲染能力，可用于电商主图、UI 设计稿和空间效果图等设计出图场景，权重开放可自部署。', release:'2026-11-25', pricing:'free', cn:0, api:0, tags:['开源','蚂蚁','inclusionAI','图像生成','设计出图','文字渲染','Ming'], url:'https://huggingface.co/inclusionAI/Ming-Image-0.2-Design', icon:'images/logos/ming-image-02-design.png' },
 { id:'gl-pretraining-loss-acceleration', name:'预训练损失加速 (Pretraining Loss Acceleration)', vendor:'METR', cat:'glossary', subcat:'gl-frontier', desc:'METR 于 2026年11月发布对 OpenAI 预训练损失曲线的解读：2026年初以来预训练损失下降速度约为此前的 7 倍，表明预训练 Scaling 并未放缓而是进入新一轮加速期，为前沿模型能力持续跃升提供了训练侧证据。', tags:['METR','OpenAI','预训练','Scaling','损失曲线','加速'], icon:'📈', domain:'模型与训练', topics:['训练技术'], flags:['2026新词','前沿'] },
 { id:'pydantic-pax', name:'Pydantic AI Pax（终端编码智能体）', vendor:'Pydantic AI', cat:'code', region:'intl', desc:'Pydantic AI 于 2026年11月25日发布的开源终端编码智能体 Pax（pydantic-ai-pax），与其 Agent Harness SDK beta 同步亮相，被视为项目迈向 1.0 的关键一步。核心设计是把全部功能组织为可插拔插件：用 /plugins 命令即可开关 coder（编码）、sandbox（沙箱执行）、MCP（工具连接）与 Logfire 观测等模块，并支持 --agent 参数把终端智能体切换为代码库里任意 Pydantic AI Agent，让业务智能体直接获得终端编码能力。它与 Pydantic AI 的类型安全 Agent 框架、Fastrack 部署栈形成闭环，延续了 Pydantic「用类型约束换取可靠性」的工程路线，在编码智能体赛道上以开放框架与可组合插件对标 Claude Code、Codex CLI 等闭源终端方案。', release:'2026-11-25', pricing:'freemium', cn:0, api:0, tags:['Pydantic AI','Pax','Harness','终端编码','编码智能体','插件化','MCP','Logfire','开源'], url:'https://pydantic.dev/articles/pax-harness-beta', icon:'images/logos/pydantic-pax.png' },
@@ -3517,6 +3524,21 @@ const CORS_PROXIES = [
 ];
 const FALLBACK_DATA = [
   {
+    "title": "Antigravity 实用技巧：在 GEMINI.md 加一句话让模型边干活边汇报",
+    "category": "tip",
+    "url": "https://x.com/Khazix0918/status/2126294658431201385"
+  },
+  {
+    "title": "Dragos 调查称 MiniMax 在用户请求不存储的情况下仍打开提示词中的私有链接",
+    "category": "industry",
+    "url": "https://x.com/rohanpaul_ai/status/2126214860421914884"
+  },
+  {
+    "title": "OpenBMB 点评 InternLM 基于 MiniCPM-o 4.5 打造的 Sage-Interaction",
+    "category": "industry",
+    "url": "https://x.com/OpenBMB/status/2126308118741323853"
+  },
+  {
     "title": "实测支付宝 SkillPay：手把手教你怎么把 Skill 挂上去卖钱",
     "category": "tip",
     "url": "https://mp.weixin.qq.com/s/x7Yt237NPL-sLvkUJlwESw"
@@ -3525,6 +3547,11 @@ const FALLBACK_DATA = [
     "title": "Philipp Schmid 撰文解释为何在 Skills 与 CLI 兴起后仍更看好 MCP",
     "category": "opinion",
     "url": "https://x.com/_philschmid/status/2125945282072297794"
+  },
+  {
+    "title": "蚂蚁 inclusionAI 开源 Ming-Image-0.2-Design 图像生成模型",
+    "category": "ai-models",
+    "url": "https://huggingface.co/inclusionAI/Ming-Image-0.2-Design"
   },
   {
     "title": "FT 报道 Nvidia 暂停向东南亚四国发运服务器",
@@ -3537,19 +3564,29 @@ const FALLBACK_DATA = [
     "url": "https://calif.io/research/tortilla-with-onion"
   },
   {
+    "title": "OEMpocalypse Part 2：利用 Knox DualDAR 漏洞链 root Galaxy S23 与 S26 旗舰机",
+    "category": "paper",
+    "url": "https://calif.io/research/oempocalypse-part-2"
+  },
+  {
     "title": "Karpathy 用 Claude Code 和 Opus 5.5 把美国真实数据做成文明风格游戏地图",
     "category": "tip",
     "url": "https://x.com/adocomplete/status/2125994186252161315"
   },
   {
-    "title": "Google 强制 AI Agent 走 Workspace MCP 服务器，Gmail 服务器不能发邮件",
-    "category": "industry",
-    "url": "https://techstackups.com/articles/google-workspace-ai-agents-mcp/"
+    "title": "卡兹克把《人生意义设计课》做成AI Prompt，帮你设计人生的意义",
+    "category": "tip",
+    "url": "https://mp.weixin.qq.com/s/d-MoIMsMdxtR9qw3dn-8sg"
   },
   {
-    "title": "蚂蚁 inclusionAI 开源 Ming-Image-0.2-Design 图像生成模型",
-    "category": "ai-models",
-    "url": "https://huggingface.co/inclusionAI/Ming-Image-0.2-Design"
+    "title": "腾讯开源模型 Hy4 Flash 上线 Fireworks serverless",
+    "category": "ai-products",
+    "url": "https://fireworks.ai/blog/hy4-flash-on-fireworks/"
+  },
+  {
+    "title": "Pydantic AI 发布终端编码 agent Pax，并宣布 Harness 将在约一个月后进入 1.0",
+    "category": "ai-products",
+    "url": "https://pydantic.dev/articles/pax-harness-beta"
   },
   {
     "title": "Dario Amodei 澄清不主张向 AI 交出人类自由意志",
@@ -3557,64 +3594,34 @@ const FALLBACK_DATA = [
     "url": "https://x.com/elonmusk/status/2125669066388209784"
   },
   {
-    "title": "Anthropic 上市不到一周跌破 83 美元发行价",
-    "category": "industry",
-    "url": "https://www.ithome.com/1/031/983.htm"
-  },
-  {
-    "title": "Sand.ai 发布 480B 视频模型 MAGI-2，作者实测称质量接近 Seedance 2.3 水准且价格仅为其 1/10",
-    "category": "ai-models",
-    "url": "https://mp.weixin.qq.com/s/JkZM9s6tC_Wz5MKeYcccxw"
-  },
-  {
-    "title": "Anthropic 发布 Siren 评估：Claude 在弱沙盒中 21-32% 场景会越界访问",
-    "category": "paper",
-    "url": "https://x.com/AnthropicAI/status/2125341904644763678"
-  },
-  {
-    "title": "OpenAI 发布预印本：GPT-6 模型展现内在蛋白质设计能力",
-    "category": "paper",
-    "url": "https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities/"
-  },
-  {
-    "title": "Claude 推出 Install as app：artifacts 可安装为 Mac 和 Windows 桌面应用",
-    "category": "ai-products",
-    "url": "https://claude.com/blog/install-as-app"
-  },
-  {
-    "title": "Anthropic 为 Claude 推出 Skills over MCP 公测及 Tasks、Elicitation 等更新",
-    "category": "ai-products",
-    "url": "https://claude.com/blog/skills-over-mcp-tasks-and-more"
-  },
-  {
-    "title": "GPT-6.2 Astra 用 22 分钟破解 1808 年素描画作者之谜",
-    "category": "opinion",
-    "url": "https://x.com/gdb/status/2125305172721320165"
-  },
-  {
-    "title": "OpenClaw 联合多家机构发布真实任务基准 ShellBench，最强模型完成率约六成",
-    "category": "paper",
-    "url": "https://openclaw.ai/blog/shellbench"
-  },
-  {
-    "title": "Amazon 报告黑客用开源框架 Cairn 驱动 AI 智能体在约 11 分钟内自主发现并利用 0-day",
-    "category": "industry",
-    "url": "https://arstechnica.com/security/2026/11/amazon-says-hackers-ai-agents-found-and-exploited-0-day-with-little-human-input/"
-  },
-  {
-    "title": "METR 解读 OpenAI 预训练损失加速：2026 年初以来下降速度约为此前 7 倍",
-    "category": "opinion",
-    "url": "https://metr.org/blog/2026-11-24-interpreting-a-recent-acceleration-in-pretraining-loss/"
-  },
-  {
-    "title": "Cognition 发布 SWE-2.1 及高速版 SWE-2.1 Lightning",
-    "category": "ai-models",
-    "url": "https://cognition.com/blog/swe-2-1"
-  },
-  {
-    "title": "卡兹克分享两个优化用户体验和产品动效的 Prompt",
+    "title": "Anthropic 平台工程负责人 Katelyn Lesse 谈 2026 年如何用 Claude 构建软件",
     "category": "tip",
-    "url": "https://x.com/Khazix0918/status/2125110224143171669"
+    "url": "https://newsletter.pragmaticengineer.com/p/how-anthropic-builds-software-in"
+  },
+  {
+    "title": "42 州总检察长介入 Character.AI 破产程序，反对拍卖用户私密聊天记录",
+    "category": "industry",
+    "url": "https://techcrunch.com/2026/11/25/state-ags-fight-character-ais-plan-to-auction-off-users-private-chats/"
+  },
+  {
+    "title": "上下文漂移如何影响你的 AI Agent：470 项实验与一个免费的 MCP 解法",
+    "category": "tip",
+    "url": "https://dev.to/googleai/how-context-drift-impacts-your-ai-agents-1iph"
+  },
+  {
+    "title": "Anthropic 复盘 Messages API 从 Python 迁移到 Rust 的校验方法",
+    "category": "tip",
+    "url": "https://www.anthropic.com/research/migrating-api-to-rust"
+  },
+  {
+    "title": "OpenClaw 2026.11.10 发布，新增 Deep Research、Knowledge 记忆系统与 Browser handoff",
+    "category": "ai-products",
+    "url": "https://x.com/openclaw/status/2125591827600531554"
+  },
+  {
+    "title": "面壁智能等发布 EVIL 基准，测出 GPT-4o 等模型在违法场景下安全率不足",
+    "category": "paper",
+    "url": "https://x.com/OpenBMB/status/2125575267217531181"
   }
 ];;
 const CAT_MAP = { 'ai-models':'模型','ai-products':'产品','industry':'行业','paper':'论文','tip':'技巧','opinion':'观点' };
